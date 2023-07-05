@@ -150,6 +150,21 @@ dns:
       - +.gvt1.com
 
 proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - DIRECT
+      - REJECT
+      - AUTO
+      - LOAD-BALANCE
+      - S-centre
+      - S-sub
+      - S-clashfree
+      - S-anaer
+      - S-free
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
   - name: "AUTO"
     type: url-test
     use:
@@ -167,21 +182,6 @@ proxy-groups:
       - sub
       - clashfree
       - anaer
-    url: "https://www.youtube.com/generate_204"
-    interval: 300
-
-  - name: "PROXY"
-    type: select
-    use:
-      - centre
-      - sub
-      - clashfree
-      - anaer
-    proxies:
-      - DIRECT
-      - REJECT
-      - AUTO
-      - LOAD-BALANCE
     url: "https://www.youtube.com/generate_204"
     interval: 300
 
