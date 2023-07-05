@@ -1,0 +1,395 @@
+
+mixed-port: 7890 # http(s) and SOCKS5
+redir-port: 7892 # Redirect TCP and TProxy UDP
+
+ipv6: true # 监听 ipv6，如果你网络不支持 ipv6 就别开
+
+mode: rule # rule/global/direct/script
+log-level: info
+
+allow-lan: true # 允许局域网其他机器使用代理
+bind-address: "*" # 配合上面字段，允许全部局域网机器 ip
+
+external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
+external-ui: yacd # webui 静态页面存放相对目录 /root/.clash/clash/yacd
+# external-ui: clash-dashboard # webui 静态页面存放相对目录 /root/.clash/clash/clash-dashboard
+
+profile:
+  store-selected: true # select proxy 缓存到 $HOME/.cache 
+  store-fake-ip: false # 设置 true 将允许 header XFF 转发你的真实 IP 给目标网站
+
+tun:
+  enable: true # 启动 tun 模式
+  stack: system # system(系统模式) or gvisor(google 的一种沙盒模式)
+  dns-hijack: # dns 劫持，需要 clash-premium
+    - 8.8.8.8:53
+    - tcp://8.8.8.8:53
+    - any:53
+    - tcp://any:53
+  auto-route: true # 全局路由，需要 clash-premium
+  auto-redir: true # Linux nftable REDIRECT，需要 clash-premium
+  auto-detect-interface: true # 自动选择出口网卡，需要 clash-premium
+
+dns:
+  enable: true # 启用 dns 处理
+  ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
+  listen: 0.0.0.0:1053 # 监听所有网络的 53 端口
+  # default-nameserver: # 默认的 dns 服务器，内置默认值就是下面这 2 个
+    # - 114.114.114.114 #如果你对这 2 个支持不好可以考虑换其他的
+    # - 8.8.8.8 # 通常这 2 个是不需要更换的
+  use-hosts: true # 允许使用 hosts 文件
+  enhanced-mode: fake-ip # redir-host 模式已经废弃
+  # fake-ip-range: 198.18.0.1/16 # 当某个域名被 dns 污染时，可以将这个 ip 段写在此处，则自己的真实 ip 将被伪造
+  fake-ip-filter: # 符合下面域名规则的请求，自己的真实 ip 将被伪造一个假的发送给这些域名
+    - '*.lan'
+    - stun.*.*.*
+    - stun.*.*
+    - time.windows.com
+    - time.nist.gov
+    - time.apple.com
+    - time.asia.apple.com
+    - '*.ntp.org.cn'
+    - '*.openwrt.pool.ntp.org'
+    - time1.cloud.tencent.com
+    - time.ustc.edu.cn
+    - pool.ntp.org
+    - ntp.ubuntu.com
+    - ntp.aliyun.com
+    - ntp1.aliyun.com
+    - ntp2.aliyun.com
+    - ntp3.aliyun.com
+    - ntp4.aliyun.com
+    - ntp5.aliyun.com
+    - ntp6.aliyun.com
+    - ntp7.aliyun.com
+    - time1.aliyun.com
+    - time2.aliyun.com
+    - time3.aliyun.com
+    - time4.aliyun.com
+    - time5.aliyun.com
+    - time6.aliyun.com
+    - time7.aliyun.com
+    - '*.time.edu.cn'
+    - time1.apple.com
+    - time2.apple.com
+    - time3.apple.com
+    - time4.apple.com
+    - time5.apple.com
+    - time6.apple.com
+    - time7.apple.com
+    - time1.google.com
+    - time2.google.com
+    - time3.google.com
+    - time4.google.com
+    - music.163.com
+    - '*.music.163.com'
+    - '*.126.net'
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - '*.kuwo.cn'
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - '*.y.qq.com'
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - '*.xiami.com'
+    - '*.music.migu.cn'
+    - music.migu.cn
+    - '*.msftconnecttest.com'
+    - '*.msftncsi.com'
+    - localhost.ptlogin2.qq.com
+    - '*.*.*.*.srv.nintendo.net'
+    - '*.*.*.srv.nintendo.net'
+    - '*.*.stun.playstation.net'
+    - xbox.*.*.microsoft.com
+    - '*.ipv6.microsoft.com'
+    - '*.*.xboxlive.com'
+    - speedtest.cros.wr.pvp.net
+  
+  nameserver:
+    # - 8.8.8.8
+    # - 114.114.114.114
+    - "[2001:4860:4860::8888]:53"
+    - https://1.1.1.1/dns-query
+  fallback: # 回退 dns 服务器
+    - https://8888.google/dns-query
+    - https://1.0.0.1/dns-query
+    - https://dns.twnic.tw/dns-query
+    - https://doh.opendns.com/dns-query
+    - https://dns-nyc.aaflalo.me/dns-query
+    - https://dns.aa.net.uk/dns-query
+    - https://sg.adhole.org/dns-query
+    - https://kaitain.restena.lu/dns-query
+    - https://hydra.plan9-ns1.com/dns-query
+    - https://jp.tiar.app/dns-query
+    - https://doh.asia.dnswarden.com/adblock
+  fallback-filter: # 回退规则
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 127.0.0.1/32
+    domain:
+      - +.google.com
+      - +.facebook.com
+      - +.twitter.com
+      - +.youtube.com
+      - +.xn--ngstr-lra8j.com
+      - +.google.cn
+      - +.googleapis.cn
+      - +.googleapis.com
+      - +.gvt1.com
+
+proxy-groups:
+  - name: "AUTO"
+    type: url-test
+    use:
+      - centre
+      - sub
+      - clashfree
+      - anaer
+      - free
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "LOAD-BALANCE"
+    type: load-balance
+    use:
+      - centre
+      - sub
+      - clashfree
+      - anaer
+      - free
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "PROXY"
+    type: select
+    use:
+      - centre
+      - sub
+      - clashfree
+      - anaer
+      - free
+    proxies:
+      - DIRECT
+      - REJECT
+      - AUTO
+      - LOAD-BALANCE
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "S-centre"
+    type: select
+    use:
+      - centre
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "S-sub"
+    type: select
+    use:
+      - sub
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "S-clashfree"
+    type: select
+    use:
+      - clashfree
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "S-anaer"
+    type: select
+    use:
+      - anaer
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+  - name: "S-free"
+    type: select
+    use:
+      - free
+    url: "https://www.youtube.com/generate_204"
+    interval: 300
+
+proxy-providers:
+  centre:
+    type: http
+    url: "https://sub.sharecentre.online/sub&flag=clash"
+    interval: 3600
+    path: ./centre.yaml
+    health-check:
+      enable: true
+      url: "https://www.youtube.com/generate_204"
+      interval: 300
+
+  sub:
+    type: http
+    path: ./sub.yaml
+    url: "https://api.subcloud.xyz/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&emoji=true&list=false&tfo=false&scv=true&fdn=true&sort=true&udp=true&new_name=true"
+    interval: 3600
+    health-check:
+      enable: true
+      url: "https://www.youtube.com/generate_204"
+      interval: 300
+
+  clashfree:
+     type: http
+     path: ./clashfree.yaml
+     url: "https://ghproxy.com/https://raw.githubusercontent.com/aiboboxx/clashfree/main/clash.yml"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
+  anaer:
+     type: http
+     path: ./anaer.yaml
+     url: "https://ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
+  free:
+     type: http
+     path: ./free.yaml
+     url: "https://zero.76898102.xyz/link/6Ja7rDNfGJG5veB8?clash=1"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
+rules:
+  - RULE-SET,applications,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,icloud,DIRECT
+  - RULE-SET,apple,DIRECT
+  # - RULE-SET,google,DIRECT
+  - RULE-SET,proxy,PROXY
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,gfw,PROXY
+  - RULE-SET,greatfire,PROXY
+  - RULE-SET,tld-not-cn,PROXY
+  - RULE-SET,telegramcidr,PROXY
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  # google:
+  #   type: http
+  #   behavior: domain
+  #   url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt"
+  #   path: ./ruleset/google.yaml
+  #   interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  greatfire:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
