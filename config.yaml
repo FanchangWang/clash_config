@@ -161,7 +161,6 @@ proxy-groups:
       - S-sub
       - S-clashfree
       - S-anaer
-      - S-free
     url: "https://www.youtube.com/generate_204"
     interval: 300
 
