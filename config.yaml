@@ -157,10 +157,6 @@ proxy-groups:
       - REJECT
       - AUTO
       - LOAD-BALANCE
-      - S-centre
-      - S-sub
-      - S-clashfree
-      - S-anaer
     url: "https://www.youtube.com/generate_204"
     interval: 300
 
@@ -168,9 +164,13 @@ proxy-groups:
     type: url-test
     use:
       - centre
-      - sub
+      - sub1
+      - sub2
       - clashfree
       - anaer
+      - ripaojiedian
+      - baip01
+      - ssrsub
     url: "https://www.youtube.com/generate_204"
     interval: 300
 
@@ -178,37 +178,13 @@ proxy-groups:
     type: load-balance
     use:
       - centre
-      - sub
+      - sub1
+      - sub2
       - clashfree
       - anaer
-    url: "https://www.youtube.com/generate_204"
-    interval: 300
-
-  - name: "S-centre"
-    type: select
-    use:
-      - centre
-    url: "https://www.youtube.com/generate_204"
-    interval: 300
-
-  - name: "S-sub"
-    type: select
-    use:
-      - sub
-    url: "https://www.youtube.com/generate_204"
-    interval: 300
-
-  - name: "S-clashfree"
-    type: select
-    use:
-      - clashfree
-    url: "https://www.youtube.com/generate_204"
-    interval: 300
-
-  - name: "S-anaer"
-    type: select
-    use:
-      - anaer
+      - ripaojiedian
+      - baip01
+      - ssrsub
     url: "https://www.youtube.com/generate_204"
     interval: 300
 
@@ -223,10 +199,20 @@ proxy-providers:
       url: "https://www.youtube.com/generate_204"
       interval: 300
 
-  sub:
+  sub1:
     type: http
-    path: ./sub.yaml
-    url: "https://api.subcloud.xyz/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini&emoji=true&list=false&tfo=false&scv=true&fdn=true&sort=true&udp=true&new_name=true"
+    path: ./sub1.yaml
+    url: "https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe"
+    interval: 3600
+    health-check:
+      enable: true
+      url: "https://www.youtube.com/generate_204"
+      interval: 300
+
+  sub2:
+    type: http
+    path: ./sub2.yaml
+    url: "https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FaAB3VrBz"
     interval: 3600
     health-check:
       enable: true
@@ -253,25 +239,54 @@ proxy-providers:
        url: "https://www.youtube.com/generate_204"
        interval: 300
 
+  ripaojiedian:
+     type: http
+     path: ./ripaojiedian.yaml
+     url: "https://ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
+  baip01:
+     type: http
+     path: ./baip01.yaml
+     url: "https://ghproxy.com/https://raw.githubusercontent.com/baip01/clash/main/clash"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
+  ssrsub:
+     type: http
+     path: ./ssrsub.yaml
+     url: "https://ghproxy.com/https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
+     interval: 3600
+     health-check:
+       enable: true
+       url: "https://www.youtube.com/generate_204"
+       interval: 300
+
 rules:
-  - RULE-SET,applications,DIRECT
+  - RULE-SET,reject,REJECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
-  - RULE-SET,reject,REJECT
+  - RULE-SET,applications,DIRECT
   - RULE-SET,icloud,DIRECT
   - RULE-SET,apple,DIRECT
-  # - RULE-SET,google,DIRECT
-  - RULE-SET,proxy,PROXY
   - RULE-SET,direct,DIRECT
   - RULE-SET,private,DIRECT
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,greatfire,PROXY
-  - RULE-SET,tld-not-cn,PROXY
-  - RULE-SET,telegramcidr,PROXY
   - RULE-SET,cncidr,DIRECT
   - RULE-SET,lancidr,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
+  - RULE-SET,proxy,PROXY
+  - RULE-SET,gfw,PROXY
+  - RULE-SET,greatfire,PROXY
+  - RULE-SET,tld-not-cn,PROXY
+  - RULE-SET,telegramcidr,PROXY
   - MATCH,PROXY
 
 rule-providers:
@@ -295,13 +310,6 @@ rule-providers:
     url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt"
     path: ./ruleset/apple.yaml
     interval: 86400
-
-  # google:
-  #   type: http
-  #   behavior: domain
-  #   url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/google.txt"
-  #   path: ./ruleset/google.yaml
-  #   interval: 86400
 
   proxy:
     type: http
