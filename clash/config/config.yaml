@@ -169,7 +169,6 @@ proxy-groups:
       - clashfree
       - anaer
       - ripaojiedian
-      - baip01
       - ssrsub
     url: "https://www.youtube.com/generate_204"
     interval: 300
@@ -183,7 +182,6 @@ proxy-groups:
       - clashfree
       - anaer
       - ripaojiedian
-      - baip01
       - ssrsub
     url: "https://www.youtube.com/generate_204"
     interval: 300
@@ -243,16 +241,6 @@ proxy-providers:
      type: http
      path: ./ripaojiedian.yaml
      url: "https://ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
-     interval: 3600
-     health-check:
-       enable: true
-       url: "https://www.youtube.com/generate_204"
-       interval: 300
-
-  baip01:
-     type: http
-     path: ./baip01.yaml
-     url: "https://ghproxy.com/https://raw.githubusercontent.com/baip01/clash/main/clash"
      interval: 3600
      health-check:
        enable: true
