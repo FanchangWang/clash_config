@@ -157,6 +157,8 @@ proxy-groups:
       - REJECT
       - AUTO
       - LOAD-BALANCE
+      - Apmsub
+      - Sall
     url: "https://www.gstatic.com/generate_204"
     interval: 300
 
@@ -170,12 +172,31 @@ proxy-groups:
       - anaer
       - ripaojiedian
       - ssrsub
-      - pmsub
     url: "https://www.gstatic.com/generate_204"
     interval: 300
 
   - name: "LOAD-BALANCE"
     type: load-balance
+    use:
+      - centre
+      - sub1
+      - sub2
+      - clashfree
+      - anaer
+      - ripaojiedian
+      - ssrsub
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+
+  - name: "Apmsub"
+    type: url-test
+    use:
+      - pmsub
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+
+  - name: "Sall"
+    type: select
     use:
       - centre
       - sub1
