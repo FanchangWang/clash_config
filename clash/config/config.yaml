@@ -157,6 +157,8 @@ proxy-groups:
       - REJECT
       - AUTO
       - LOAD-BALANCE
+      - Aanaer
+      - Lanaer
       - Apmsub
       - Lpmsub
       - Aall
@@ -188,6 +190,20 @@ proxy-groups:
       - anaer
       - ripaojiedian
       - ssrsub
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+
+  - name: "Aanaer"
+    type: url-test
+    use:
+      - anaer
+    url: "https://www.gstatic.com/generate_204"
+    interval: 300
+
+  - name: "Lanaer"
+    type: load-balance
+    use:
+      - anaer
     url: "https://www.gstatic.com/generate_204"
     interval: 300
 
