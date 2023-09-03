@@ -162,170 +162,155 @@ proxy-groups:
       - Aall
       - Lall
       - Sall
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "AUTO"
     type: url-test
     use:
       - centre
-      - sub1
-      - sub2
+      - sub
       - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "LOAD-BALANCE"
     type: load-balance
     use:
       - centre
-      - sub1
-      - sub2
+      - sub
       - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Apmsub"
     type: url-test
     use:
       - pmsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Lpmsub"
     type: load-balance
     use:
       - pmsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Aall"
     type: url-test
     use:
       - centre
-      - sub1
-      - sub2
+      - sub
       - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
       - pmsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Lall"
     type: load-balance
     use:
       - centre
-      - sub1
-      - sub2
+      - sub
       - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
       - pmsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Sall"
     type: select
     use:
       - centre
-      - sub1
-      - sub2
+      - sub
       - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
       - pmsub
-    url: "https://www.gstatic.com/generate_204"
+    url: "https://www.google.com/generate_204"
     interval: 300
 
 proxy-providers:
   centre:
     type: http
     url: "https://sub.sharecentre.online/sub&flag=clash"
-    interval: 3600
+    interval: 600
     path: ./centre.yaml
     health-check:
       enable: true
-      url: "https://www.gstatic.com/generate_204"
+      url: "https://www.google.com/generate_204"
       interval: 300
 
-  sub1:
+  sub:
     type: http
-    path: ./sub1.yaml
+    path: ./sub.yaml
     url: "https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe"
-    interval: 3600
+    interval: 600
     health-check:
       enable: true
-      url: "https://www.gstatic.com/generate_204"
-      interval: 300
-
-  sub2:
-    type: http
-    path: ./sub2.yaml
-    url: "https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FaAB3VrBz"
-    interval: 3600
-    health-check:
-      enable: true
-      url: "https://www.gstatic.com/generate_204"
+      url: "https://www.google.com/generate_204"
       interval: 300
 
   clashfree:
      type: http
      path: ./clashfree.yaml
      url: "https://ghproxy.com/https://raw.githubusercontent.com/aiboboxx/clashfree/main/clash.yml"
-     interval: 3600
+     interval: 600
      health-check:
        enable: true
-       url: "https://www.gstatic.com/generate_204"
+       url: "https://www.google.com/generate_204"
        interval: 300
 
   anaer:
      type: http
      path: ./anaer.yaml
      url: "https://ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-     interval: 3600
+     interval: 600
      health-check:
        enable: true
-       url: "https://www.gstatic.com/generate_204"
+       url: "https://www.google.com/generate_204"
        interval: 300
 
   ripaojiedian:
      type: http
      path: ./ripaojiedian.yaml
      url: "https://ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
-     interval: 3600
+     interval: 600
      health-check:
        enable: true
-       url: "https://www.gstatic.com/generate_204"
+       url: "https://www.google.com/generate_204"
        interval: 300
 
   ssrsub:
      type: http
      path: ./ssrsub.yaml
      url: "https://ghproxy.com/https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
-     interval: 3600
+     interval: 600
      health-check:
        enable: true
-       url: "https://www.gstatic.com/generate_204"
+       url: "https://www.google.com/generate_204"
        interval: 300
 
   pmsub:
      type: http
      path: ./pmsub.yaml
      url: "https://sub.pmsub.me/clash.yaml"
-     interval: 3600
+     interval: 600
      health-check:
        enable: true
-       url: "https://www.gstatic.com/generate_204"
+       url: "https://www.google.com/generate_204"
        interval: 300
 
 rules:
