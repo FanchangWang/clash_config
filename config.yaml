@@ -157,8 +157,8 @@ proxy-groups:
       - REJECT
       - AUTO
       - LOAD-BALANCE
-      - Apmsub
-      - Lpmsub
+      - Aanaer
+      - Lanaer
       - Aall
       - Lall
       - Sall
@@ -170,7 +170,6 @@ proxy-groups:
     use:
       - centre
       - sub
-      - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
@@ -182,24 +181,23 @@ proxy-groups:
     use:
       - centre
       - sub
-      - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
     url: "https://www.google.com/generate_204"
     interval: 300
 
-  - name: "Apmsub"
+  - name: "Aanaer"
     type: url-test
     use:
-      - pmsub
+      - anaer
     url: "https://www.google.com/generate_204"
     interval: 300
 
-  - name: "Lpmsub"
+  - name: "Lanaer"
     type: load-balance
     use:
-      - pmsub
+      - anaer
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -208,7 +206,6 @@ proxy-groups:
     use:
       - centre
       - sub
-      - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
@@ -221,7 +218,6 @@ proxy-groups:
     use:
       - centre
       - sub
-      - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
@@ -234,7 +230,6 @@ proxy-groups:
     use:
       - centre
       - sub
-      - clashfree
       - anaer
       - ripaojiedian
       - ssrsub
@@ -245,7 +240,7 @@ proxy-groups:
 proxy-providers:
   centre:
     type: http
-    url: "https://sub.sharecentre.online/sub&flag=clash"
+    url: "https://sub.sharecentre.online/sub"
     interval: 600
     path: ./centre.yaml
     health-check:
@@ -256,22 +251,12 @@ proxy-providers:
   sub:
     type: http
     path: ./sub.yaml
-    url: "https://sub.xeton.dev/sub?target=clash&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe"
+    url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
     interval: 600
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
       interval: 300
-
-  clashfree:
-     type: http
-     path: ./clashfree.yaml
-     url: "https://ghproxy.com/https://raw.githubusercontent.com/aiboboxx/clashfree/main/clash.yml"
-     interval: 600
-     health-check:
-       enable: true
-       url: "https://www.google.com/generate_204"
-       interval: 300
 
   anaer:
      type: http
