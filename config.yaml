@@ -159,8 +159,6 @@ proxy-groups:
       - LOAD-BALANCE
       - Aanaer
       - Lanaer
-      - Aall
-      - Lall
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
