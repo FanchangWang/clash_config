@@ -173,6 +173,7 @@ proxy-groups:
       - anaer
       - ripaojiedian
       - ssrsub
+      - pmsub
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -184,6 +185,7 @@ proxy-groups:
       - anaer
       - ripaojiedian
       - ssrsub
+      - pmsub
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -198,30 +200,6 @@ proxy-groups:
     type: load-balance
     use:
       - anaer
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Aall"
-    type: url-test
-    use:
-      - centre
-      - sub
-      - anaer
-      - ripaojiedian
-      - ssrsub
-      - pmsub
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Lall"
-    type: load-balance
-    use:
-      - centre
-      - sub
-      - anaer
-      - ripaojiedian
-      - ssrsub
-      - pmsub
     url: "https://www.google.com/generate_204"
     interval: 300
 
