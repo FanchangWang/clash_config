@@ -25,4 +25,4 @@ else
   echo "[$(date +"%Y.%m.%d.%H:%M:%S")] Clash: cron job already exists for $(basename ${SCRIPT_FILE})." >>${LOG_FILE}
 fi
 
-${SHELL} ${CLASH_DIR}/update_and_run.sh >>${LOG_FILE}
+${SHELL} ${CLASH_DIR}/run.sh >>${LOG_FILE}
