@@ -16,7 +16,7 @@ log-level: info
 allow-lan: true # 允许局域网其他机器使用代理
 bind-address: "*" # 配合上面字段，允许全部局域网机器 ip
 
-external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
+# external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
 # external-ui: yacd # webui 静态页面存放相对目录 /root/.clash/clash/yacd
 # external-ui-name: yacd
 # external-ui: clash-dashboard # webui 静态页面存放相对目录 /root/.clash/clash/clash-dashboard
