@@ -11,6 +11,7 @@ bind-address: "*" # 配合上面字段，允许全部局域网机器 ip
 
 external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
 external-ui: yacd # webui 静态页面存放相对目录 /root/.clash/clash/yacd
+external-ui-name: yacd
 # external-ui: clash-dashboard # webui 静态页面存放相对目录 /root/.clash/clash/clash-dashboard
 
 profile:
@@ -155,9 +156,7 @@ proxy-groups:
       - DIRECT
       - REJECT
       - AUTO
-      - LOAD-BALANCE
       - Aanaer
-      - Lanaer
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -173,26 +172,8 @@ proxy-groups:
     url: "https://www.google.com/generate_204"
     interval: 300
 
-  - name: "LOAD-BALANCE"
-    type: load-balance
-    use:
-      - sub
-      - anaer
-      - ripaojiedian
-      - ssrsub
-      - pmsub
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
   - name: "Aanaer"
     type: url-test
-    use:
-      - anaer
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Lanaer"
-    type: load-balance
     use:
       - anaer
     url: "https://www.google.com/generate_204"
@@ -212,7 +193,7 @@ proxy-groups:
 proxy-providers:
   sub:
     type: http
-    path: ./sub.yaml
+    path: ./proxy/sub.yaml
     url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
     interval: 600
     health-check:
@@ -222,8 +203,8 @@ proxy-providers:
 
   anaer:
     type: http
-    path: ./anaer.yaml
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    path: ./proxy/anaer.yaml
+    url: "https://raw.gitmirror.com/anaer/Sub/main/clash.yaml"
     interval: 600
     health-check:
       enable: true
@@ -232,8 +213,8 @@ proxy-providers:
 
   ripaojiedian:
     type: http
-    path: ./ripaojiedian.yaml
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
+    path: ./proxy/ripaojiedian.yaml
+    url: "https://raw.gitmirror.com/ripaojiedian/freenode/main/clash"
     interval: 600
     health-check:
       enable: true
@@ -242,8 +223,8 @@ proxy-providers:
 
   ssrsub:
     type: http
-    path: ./ssrsub.yaml
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/ssrsub/ssr/master/Clash.yml"
+    path: ./proxy/ssrsub.yaml
+    url: "https://raw.gitmirror.com/ssrsub/ssr/master/Clash.yml"
     interval: 600
     health-check:
       enable: true
@@ -252,7 +233,7 @@ proxy-providers:
 
   pmsub:
     type: http
-    path: ./pmsub.yaml
+    path: ./proxy/pmsub.yaml
     url: "https://sub.pmsub.me/clash.yaml"
     interval: 600
     health-check:
@@ -261,113 +242,146 @@ proxy-providers:
       interval: 300
 
 rules:
-  - RULE-SET,reject,REJECT
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
-  - RULE-SET,applications,DIRECT
-  - RULE-SET,icloud,DIRECT
-  - RULE-SET,apple,DIRECT
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,private,DIRECT
-  - RULE-SET,cncidr,DIRECT
-  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,DirectLocalAreaNetwork,DIRECT
+  - RULE-SET,DirectMicrosoft,DIRECT
+  - RULE-SET,DirectApple,DIRECT
+  - RULE-SET,DirectUnBan,DIRECT
+  - RULE-SET,DirectGoogleCN,DIRECT
+  - RULE-SET,DirectSteamCN,DIRECT
+  - RULE-SET,DirectChinaDomain,DIRECT
+  - RULE-SET,DirectChinaCompanyIp,DIRECT
+  - RULE-SET,DirectChinaIp,DIRECT
+  - RULE-SET,DirectChinaIpV6,DIRECT
+  - RULE-SET,DirectChinaMedia,DIRECT
+  - RULE-SET,RejectBanAD,REJECT
+  - RULE-SET,RejectBanEasyList,REJECT
+  - RULE-SET,RejectBanEasyListChina,REJECT
+  - RULE-SET,RejectBanEasyPrivacy,REJECT
+  - RULE-SET,RejectBanProgramAD,REJECT
+  - RULE-SET,ProxyGoogleFCM,PROXY
+  - RULE-SET,ProxyGFWlist,PROXY
+  - RULE-SET,ProxyMedia,PROXY
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
-  - RULE-SET,proxy,PROXY
-  - RULE-SET,gfw,PROXY
-  - RULE-SET,greatfire,PROXY
-  - RULE-SET,tld-not-cn,PROXY
-  - RULE-SET,telegramcidr,PROXY
   - MATCH,PROXY
 
 rule-providers:
-  reject:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt"
-    path: ./ruleset/reject.yaml
-    interval: 86400
-
-  icloud:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt"
-    path: ./ruleset/icloud.yaml
-    interval: 86400
-
-  apple:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt"
-    path: ./ruleset/apple.yaml
-    interval: 86400
-
-  proxy:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
-    path: ./ruleset/proxy.yaml
-    interval: 86400
-
-  direct:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
-    path: ./ruleset/direct.yaml
-    interval: 86400
-
-  private:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt"
-    path: ./ruleset/private.yaml
-    interval: 86400
-
-  gfw:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/gfw.txt"
-    path: ./ruleset/gfw.yaml
-    interval: 86400
-
-  greatfire:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/greatfire.txt"
-    path: ./ruleset/greatfire.yaml
-    interval: 86400
-
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
-
-  cncidr:
-    type: http
-    behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt"
-    path: ./ruleset/cncidr.yaml
-    interval: 86400
-
-  lancidr:
-    type: http
-    behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt"
-    path: ./ruleset/lancidr.yaml
-    interval: 86400
-
-  applications:
-    type: http
+  # 直连规则
+  DirectLocalAreaNetwork: # 本地网络
     behavior: classical
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
-    path: ./ruleset/applications.yaml
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
     interval: 86400
+    path: ./ACL4SSR/LocalAreaNetwork.yaml
+  DirectMicrosoft: # 微软
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
+    interval: 86400
+    path: ./ACL4SSR/Microsoft.yaml
+  DirectApple: # 苹果
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
+    interval: 86400
+    path: ./ACL4SSR/Apple.yaml
+  DirectUnBan: # 不应被广告规则拦截的域名
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
+    interval: 86400
+    path: ./ACL4SSR/UnBan.yaml
+  DirectGoogleCN: # 谷歌 国内可直连域名
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
+    interval: 86400
+    path: ./ACL4SSR/GoogleCN.yaml
+  DirectSteamCN: # Stream 国内可直连域名
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
+    interval: 86400
+    path: ./ACL4SSR/SteamCN.yaml
+  DirectChinaDomain: # 国内网站域名
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaDomain.yaml
+  DirectChinaCompanyIp: # 中国云服务商ip端
+    behavior: ipcidr
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaCompanyIp.yaml
+  DirectChinaIp: # 中国IP地址段ipv4
+    behavior: ipcidr
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaIp.yaml
+  DirectChinaIpV6: # 中国IP地址段ipv6
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIpV6.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaIpV6.yaml
+  DirectChinaMedia: # 中国媒体列表
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ChinaMedia.yaml
+  # 拒绝规则
+  RejectBanAD: # 常见广告
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
+    interval: 86400
+    path: ./ACL4SSR/BanAD.yaml
+  RejectBanEasyList: # 广告列表 adblock rules EasyList列表，只包含ABP中的 EasyList 内容
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
+    interval: 86400
+    path: ./ACL4SSR/BanEasyList.yaml
+  RejectBanEasyListChina: # 广告列表 adblock rules EasyListChina列表，只包含ABP中的 EasyListChina 内容
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
+    interval: 86400
+    path: ./ACL4SSR/BanEasyListChina.yaml
+  RejectBanEasyPrivacy: # 广告列表 adblock rules EasyPrivacy列表，隐私保护，屏蔽隐私追踪
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
+    interval: 86400
+    path: ./ACL4SSR/BanEasyPrivacy.yaml
+  RejectBanProgramAD: # 应用内广告
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
+    interval: 86400
+    path: ./ACL4SSR/BanProgramAD.yaml
+  # 代理规则
+  ProxyGoogleFCM: # 谷歌 FCM 推送
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
+    interval: 86400
+    path: ./ACL4SSR/GoogleFCM.yaml
+  ProxyGFWlist: # GFW 拦截域名
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ProxyGFWlist.yaml
+  ProxyMedia: # 国外媒体
+    behavior: classical
+    type: http
+    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
+    interval: 86400
+    path: ./ACL4SSR/ProxyMedia.yaml
