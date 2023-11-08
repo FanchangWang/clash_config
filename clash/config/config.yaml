@@ -4,6 +4,13 @@ redir-port: 7892 # Redirect TCP and TProxy UDP
 ipv6: true # 监听 ipv6，如果你网络不支持 ipv6 就别开
 
 mode: rule # rule/global/direct/script
+
+#自定义 geodata url
+geox-url:
+  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
+
 log-level: info
 
 allow-lan: true # 允许局域网其他机器使用代理
@@ -32,14 +39,16 @@ tun:
 
 dns:
   enable: true # 启用 dns 处理
+  prefer-h3: true # 启用 DOH http/3
   ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
   listen: 0.0.0.0:1053 # 监听所有网络的 53 端口
   # default-nameserver: # 默认的 dns 服务器，内置默认值就是下面这 2 个
-  # - 114.114.114.114 #如果你对这 2 个支持不好可以考虑换其他的
-  # - 8.8.8.8 # 通常这 2 个是不需要更换的
+  #   - 8.8.8.8 # 通常这 2 个是不需要更换的
+  #   - 114.114.114.114 #如果你对这 2 个支持不好可以考虑换其他的
+  #   - system # append DNS server from system configuration. If not found, it would print an error log and skip.
   use-hosts: true # 允许使用 hosts 文件
   enhanced-mode: fake-ip # redir-host 模式已经废弃
-  # fake-ip-range: 198.18.0.1/16 # 当某个域名被 dns 污染时，可以将这个 ip 段写在此处，则自己的真实 ip 将被伪造
+  fake-ip-range: 198.18.0.1/16 # 当某个域名被 dns 污染时，可以将这个 ip 段写在此处，则自己的真实 ip 将被伪造
   fake-ip-filter: # 符合下面域名规则的请求，自己的真实 ip 将被伪造一个假的发送给这些域名
     - "*.lan"
     - stun.*.*.*
@@ -113,27 +122,29 @@ dns:
     - "*.ipv6.microsoft.com"
     - "*.*.xboxlive.com"
     - speedtest.cros.wr.pvp.net
-
   nameserver:
-    # - 8.8.8.8
-    # - 114.114.114.114
+    - 8.8.8.8
+    - 114.114.114.114
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:
+    - https://dns.google/dns-query
     - "[2001:4860:4860::8888]:53"
+    - "[2001:4860:4860::8844]:53"
+    - https://doh.pub/dns-query
     - https://1.1.1.1/dns-query
-  fallback: # 回退 dns 服务器
-    - https://8888.google/dns-query
     - https://1.0.0.1/dns-query
-    - https://dns.twnic.tw/dns-query
-    - https://doh.opendns.com/dns-query
-    - https://dns-nyc.aaflalo.me/dns-query
-    - https://dns.aa.net.uk/dns-query
-    - https://sg.adhole.org/dns-query
-    - https://kaitain.restena.lu/dns-query
-    - https://hydra.plan9-ns1.com/dns-query
-    - https://jp.tiar.app/dns-query
-    - https://doh.asia.dnswarden.com/adblock
+  fallback: # 回退 dns 服务器
+    - https://doh.pub/dns-query
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - https://dns.google/dns-query
+    - "[2001:4860:4860::8888]:53"
+    - "[2001:4860:4860::8844]:53"
   fallback-filter: # 回退规则
     geoip: true
     geoip-code: CN
+    geosite:
+      - gfw
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
@@ -263,6 +274,8 @@ rules:
   - RULE-SET,ProxyGoogleFCM,PROXY
   - RULE-SET,ProxyGFWlist,PROXY
   - RULE-SET,ProxyMedia,PROXY
+  - GEOSITE,google,PROXY
+  - GEOSITE,cn,DIRECT
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
