@@ -77,8 +77,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - DIRECT
-      - REJECT
       - AUTO
       - Lr
       - La
