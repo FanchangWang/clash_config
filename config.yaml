@@ -46,11 +46,9 @@ dns:
   #   - system # append DNS server from system configuration. If not found, it would print an error log and skip.
   use-hosts: true # 允许使用 hosts 文件
   nameserver:
-    - "[2001:4860:4860::8888]:53"
-    - "[2001:4860:4860::8844]:53"
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   fallback: # 回退 dns 服务器
-    - https://dns.google/dns-query
     - https://1.1.1.1/dns-query
     - https://1.0.0.1/dns-query
   fallback-filter: # 回退规则
