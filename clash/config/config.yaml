@@ -6,10 +6,6 @@ ipv6: true # 监听 ipv6，如果你网络不支持 ipv6 就别开
 mode: rule # rule/global/direct/script
 
 geodata-mode: true
-geox-url: #自定义 geodata url
-  geoip: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
-  mmdb: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb"
 
 log-level: info
 
@@ -40,17 +36,13 @@ dns:
   prefer-h3: true # 启用 DOH http/3
   ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
   listen: 0.0.0.0:1053 # 监听所有网络的 53 端口
-  # default-nameserver: # 默认的 dns 服务器，内置默认值就是下面这 2 个
-  #   - 8.8.8.8 # 通常这 2 个是不需要更换的
-  #   - 114.114.114.114 #如果你对这 2 个支持不好可以考虑换其他的
-  #   - system # append DNS server from system configuration. If not found, it would print an error log and skip.
   use-hosts: true # 允许使用 hosts 文件
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - 180.76.76.76
+    - 114.114.114.114
   fallback: # 回退 dns 服务器
-    - https://1.1.1.1/dns-query
-    - https://1.0.0.1/dns-query
+    - tls://223.5.5.5:853
+    - tls://8.8.4.4:853
   fallback-filter: # 回退规则
     geoip: true
     geoip-code: CN
@@ -60,24 +52,12 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
       - 127.0.0.1/32
-    domain:
-      - +.google.com
-      - +.facebook.com
-      - +.twitter.com
-      - +.youtube.com
-      - +.xn--ngstr-lra8j.com
-      - +.google.cn
-      - +.googleapis.cn
-      - +.googleapis.com
-      - +.gvt1.com
 
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
       - AUTO
-      - Lr
-      - La
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -90,20 +70,6 @@ proxy-groups:
       - ripaojiedian
       - ssrsub
       - pmsub
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Lr"
-    type: load-balance
-    use:
-      - ripaojiedian
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "La"
-    type: load-balance
-    use:
-      - anaer
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -170,187 +136,45 @@ proxy-providers:
       interval: 300
 
 rules:
-  - DOMAIN,clash.razord.top,DIRECT
-  - DOMAIN,yacd.haishan.me,DIRECT
-  # DIRECT RULE-SET
-  - RULE-SET,DirectLocalAreaNetwork,DIRECT
-  - RULE-SET,DirectMicrosoft,DIRECT
-  - RULE-SET,DirectApple,DIRECT
-  - RULE-SET,DirectUnBan,DIRECT
-  - RULE-SET,DirectGoogleCN,DIRECT
-  - RULE-SET,DirectSteamCN,DIRECT
-  - RULE-SET,DirectChinaDomain,DIRECT
-  - RULE-SET,DirectChinaMedia,DIRECT
-  - RULE-SET,DirectMetaCubeX,DIRECT
-  # DIRECT GETSITE
+  # RULE-SET DIRECT
+  - RULE-SET,DirectCnDomain,DIRECT
+  # GETSITE
+  - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
+  - GEOSITE,youtube,PROXY
+  - GEOSITE,google,PROXY
+  - GEOSITE,twitter,PROXY
+  - GEOSITE,pixiv,PROXY
+  - GEOSITE,category-scholar-!cn,PROXY
+  - GEOSITE,biliintl,PROXY
   - GEOSITE,onedrive,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,cn,DIRECT
-  # REJECT RULE-SET
-  - RULE-SET,RejectBanAD,REJECT
-  - RULE-SET,RejectBanEasyList,REJECT
-  - RULE-SET,RejectBanEasyListChina,REJECT
-  - RULE-SET,RejectBanEasyPrivacy,REJECT
-  - RULE-SET,RejectBanProgramAD,REJECT
-  # REJECT GETSITE
-  - GEOSITE,category-ads-all,REJECT
-  # PROXY RULE-SET
-  - RULE-SET,ProxyGoogleFCM,PROXY
-  - RULE-SET,ProxyGFWlist,PROXY
-  - RULE-SET,ProxyMedia,PROXY
-  - RULE-SET,ProxyMetaCubeX,PROXY
-  # PROXY GETSITE
-  - GEOSITE,google,PROXY
-  - GEOSITE,youtube,PROXY
-  - GEOSITE,twitter,PROXY
-  - GEOSITE,pixiv,PROXY
-  - GEOSITE,category-scholar-!cn,PROXY
-  - GEOSITE,biliintl,PROXY
   - GEOSITE,geolocation-!cn,PROXY
+  - GEOSITE,cn,DIRECT
+  # RULE-SET PROXY
+  - RULE-SET,ProxyDomain,PROXY
   # GETIP
   - GEOIP,private,DIRECT,no-resolve
-  - GEOIP,telegram,PROXY
-  - GEOIP,JP,PROXY
-  - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT
-  # DIRECT RULE-SET china-ip
-  - RULE-SET,DirectChinaCompanyIp,DIRECT
-  - RULE-SET,DirectChinaIp,DIRECT
-  - RULE-SET,DirectChinaIpV6,DIRECT
+  - DST-PORT,80/8080/443/8443,PROXY
   # MATCH
-  - MATCH,PROXY
+  - MATCH,DIRECT
 
 rule-providers:
   # 直连规则
-  DirectLocalAreaNetwork: # 本地网络
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/LocalAreaNetwork.yaml
-  DirectMicrosoft: # 微软
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/Microsoft.yaml
-  DirectApple: # 苹果
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/Apple.yaml
-  DirectUnBan: # 不应被广告规则拦截的域名
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/UnBan.yaml
-  DirectGoogleCN: # 谷歌 国内可直连域名
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleCN.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/GoogleCN.yaml
-  DirectSteamCN: # Stream 国内可直连域名
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/SteamCN.yaml
-  DirectChinaDomain: # 国内网站域名
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ChinaDomain.yaml
-  DirectChinaCompanyIp: # 中国云服务商ip端
-    behavior: ipcidr
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ChinaCompanyIp.yaml
-  DirectChinaIp: # 中国IP地址段ipv4
-    behavior: ipcidr
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ChinaIp.yaml
-  DirectChinaIpV6: # 中国IP地址段ipv6
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIpV6.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ChinaIpV6.yaml
-  DirectChinaMedia: # 中国媒体列表
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaMedia.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ChinaMedia.yaml
-  DirectMetaCubeX:
+  DirectCnDomain:
     behavior: domain
     interval: 86400
-    path: ./rule-set/MetaCubeX/cn_domain.yaml
+    path: ./rule-set/cn_domain.yaml
     type: http
     url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/cn_domain.yaml"
-  # 拒绝规则
-  RejectBanAD: # 常见广告
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/BanAD.yaml
-  RejectBanEasyList: # 广告列表 adblock rules EasyList列表，只包含ABP中的 EasyList 内容
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/BanEasyList.yaml
-  RejectBanEasyListChina: # 广告列表 adblock rules EasyListChina列表，只包含ABP中的 EasyListChina 内容
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/BanEasyListChina.yaml
-  RejectBanEasyPrivacy: # 广告列表 adblock rules EasyPrivacy列表，隐私保护，屏蔽隐私追踪
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/BanEasyPrivacy.yaml
-  RejectBanProgramAD: # 应用内广告
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanProgramAD.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/BanProgramAD.yaml
   # 代理规则
-  ProxyGoogleFCM: # 谷歌 FCM 推送
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/GoogleFCM.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/GoogleFCM.yaml
-  ProxyGFWlist: # GFW 拦截域名
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyGFWlist.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ProxyGFWlist.yaml
-  ProxyMedia: # 国外媒体
-    behavior: classical
-    type: http
-    url: "https://raw.gitmirror.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml"
-    interval: 86400
-    path: ./rule-set/ACL4SSR/ProxyMedia.yaml
-  ProxyMetaCubeX:
+  ProxyDomain:
     behavior: domain
     interval: 86400
-    path: ./rule-set/MetaCubeX/proxy.yaml
+    path: ./rule-set/proxy.yaml
     type: http
     url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/proxy.yaml"
