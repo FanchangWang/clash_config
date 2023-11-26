@@ -46,8 +46,8 @@ dns:
     - 180.76.76.76
     - 114.114.114.114
   fallback: # 回退 dns 服务器
-    - tls://8.8.8.8
-    - tls://1.1.1.1
+    - tls://8.8.4.4:853
+    - tls://1.0.0.1:853
   fallback-filter: # 回退规则
     geoip: true
     geoip-code: CN
