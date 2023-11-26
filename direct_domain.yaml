@@ -1,4 +1,10 @@
 payload:
+  # clash.meta web ui
+  - "d.metacubex.one"
+  - "yacd.metacubex.one"
+  # clash web ui
+  - "clash.razord.top"
+  - "yacd.haishan.me"
   # github 加速
   - "github1s.com"
   - "githubfast.com"
