@@ -18,18 +18,17 @@ external-ui: ui/metacubexd # webui 相对目录
 # external-ui: ui/clash-dashboard # webui 相对目录
 
 profile:
-  store-selected: true # select proxy 缓存到 $HOME/.cache
-  store-fake-ip: false # 设置 true 将允许 header XFF 转发你的真实 IP 给目标网站
+  store-selected: true
+  store-fake-ip: true
 
 tun:
-  enable: true # 启动 tun 模式
-  stack: system # system(系统模式) or gvisor(google 的一种沙盒模式)
-  dns-hijack: # dns 劫持，需要 clash-premium
+  enable: true
+  stack: mixed # system(系统模式) or gvisor(google 的一种沙盒模式) or mixed(混合堆栈,tcp使用 `system`栈,udp使用 `gvisor`栈,使用体验可能相对更好)
+  dns-hijack: # dns 劫持
     - any:53
-    - tcp://any:53
-  auto-route: true # 全局路由，需要 clash-premium
-  auto-redir: true # Linux nftable REDIRECT，需要 clash-premium
-  auto-detect-interface: true # 自动选择出口网卡，需要 clash-premium
+  auto-route: true # 全局路由
+  auto-redir: true # Linux nftable REDIRECT
+  auto-detect-interface: true # 自动选择出口网卡
 
 dns:
   enable: true # 启用 dns 处理
@@ -37,12 +36,18 @@ dns:
   ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
   listen: 0.0.0.0:1053 # 监听所有网络的 53 端口
   use-hosts: true # 允许使用 hosts 文件
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - dns.msftncsi.com
+    - www.msftncsi.com
+    - www.msftconnecttest.com
   nameserver:
     - 180.76.76.76
     - 114.114.114.114
   fallback: # 回退 dns 服务器
-    - tls://223.5.5.5:853
-    - tls://8.8.4.4:853
+    - tls://8.8.8.8:853
+    - tls://1.1.1.1:853
   fallback-filter: # 回退规则
     geoip: true
     geoip-code: CN
@@ -89,7 +94,7 @@ proxy-providers:
     type: http
     path: ./proxy/sub.yaml
     url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -99,7 +104,7 @@ proxy-providers:
     type: http
     path: ./proxy/anaer.yaml
     url: "https://raw.gitmirror.com/anaer/Sub/main/clash.yaml"
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -109,7 +114,7 @@ proxy-providers:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://raw.gitmirror.com/ripaojiedian/freenode/main/clash"
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -119,7 +124,7 @@ proxy-providers:
     type: http
     path: ./proxy/ssrsub.yaml
     url: "https://raw.gitmirror.com/ssrsub/ssr/master/Clash.yml"
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -129,7 +134,7 @@ proxy-providers:
     type: http
     path: ./proxy/pmsub.yaml
     url: "https://sub.pmsub.me/clash.yaml"
-    interval: 3600
+    interval: 1800
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -137,6 +142,7 @@ proxy-providers:
 
 rules:
   # RULE-SET DIRECT
+  - RULE-SET,DirectDomain,DIRECT
   - RULE-SET,DirectCnDomain,DIRECT
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
@@ -159,12 +165,17 @@ rules:
   # GETIP
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
-  - DST-PORT,80/8080/443/8443,PROXY
   # MATCH
-  - MATCH,DIRECT
+  - MATCH,PROXY
 
 rule-providers:
   # 直连规则
+  DirectDomain:
+    behavior: domain
+    interval: 86400
+    path: ./rule-set/direct_domain.yaml
+    type: http
+    url: "https://raw.gitmirror.com/FanchangWang/clash_config/main/direct_domain.yaml"
   DirectCnDomain:
     behavior: domain
     interval: 86400
