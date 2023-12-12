@@ -63,6 +63,7 @@ proxy-groups:
     type: select
     proxies:
       - AUTO
+      - Sri
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -70,75 +71,76 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - sub
       - anaer
       - ripaojiedian
-      - ssrsub
-      - pmsub
+    url: "https://www.google.com/generate_204"
+    interval: 300
+
+  - name: "Sri"
+    type: select
+    use:
+      - ripaojiedian
     url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Sall"
     type: select
     use:
-      - sub
       - anaer
       - ripaojiedian
-      - ssrsub
-      - pmsub
     url: "https://www.google.com/generate_204"
     interval: 300
 
 proxy-providers:
-  sub:
-    type: http
-    path: ./proxy/sub.yaml
-    url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
-    interval: 1800
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 300
+  # sub:
+  #   type: http
+  #   path: ./proxy/sub.yaml
+  #   url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
+  #   interval: 1800
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.google.com/generate_204"
+  #     interval: 300
 
   anaer:
     type: http
     path: ./proxy/anaer.yaml
     url: "https://raw.gitmirror.com/anaer/Sub/main/clash.yaml"
     interval: 1800
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 300
+    # health-check:
+    #   enable: true
+    #   url: "https://www.google.com/generate_204"
+    #   interval: 300
 
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://raw.gitmirror.com/ripaojiedian/freenode/main/clash"
     interval: 1800
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 300
+    # health-check:
+    #   enable: true
+    #   url: "https://www.google.com/generate_204"
+    #   interval: 300
 
-  ssrsub:
-    type: http
-    path: ./proxy/ssrsub.yaml
-    url: "https://raw.gitmirror.com/ssrsub/ssr/master/Clash.yml"
-    interval: 1800
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 300
+  # ssrsub:
+  #   type: http
+  #   path: ./proxy/ssrsub.yaml
+  #   url: "https://raw.gitmirror.com/ssrsub/ssr/master/Clash.yml"
+  #   interval: 1800
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.google.com/generate_204"
+  #     interval: 300
 
-  pmsub:
-    type: http
-    path: ./proxy/pmsub.yaml
-    url: "https://sub.pmsub.me/clash.yaml"
-    interval: 1800
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 300
+  # pmsub:
+  #   type: http
+  #   path: ./proxy/pmsub.yaml
+  #   url: "https://sub.pmsub.me/clash.yaml"
+  #   interval: 1800
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.google.com/generate_204"
+  #     interval: 300
 
 rules:
   # RULE-SET DIRECT
