@@ -71,8 +71,8 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - anaer
       - ripaojiedian
+      - anaer
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -86,8 +86,8 @@ proxy-groups:
   - name: "Sall"
     type: select
     use:
-      - anaer
       - ripaojiedian
+      - anaer
     url: "https://www.google.com/generate_204"
     interval: 300
 
@@ -143,8 +143,10 @@ proxy-providers:
   #     interval: 300
 
 rules:
+  # first RULE-SET PROXY
+  - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
-  - RULE-SET,DirectDomain,DIRECT
+  - RULE-SET,DirectMyDomain,DIRECT
   - RULE-SET,DirectCnDomain,DIRECT
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
@@ -172,7 +174,7 @@ rules:
 
 rule-providers:
   # 直连规则
-  DirectDomain:
+  DirectMyDomain:
     behavior: domain
     interval: 86400
     path: ./rule-set/direct_domain.yaml
@@ -185,6 +187,12 @@ rule-providers:
     type: http
     url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/cn_domain.yaml"
   # 代理规则
+  ProxyMyDomain:
+    behavior: domain
+    interval: 86400
+    path: ./rule-set/proxy_domain.yaml
+    type: http
+    url: "https://raw.gitmirror.com/FanchangWang/clash_config/main/proxy_domain.yaml"
   ProxyDomain:
     behavior: domain
     interval: 86400
