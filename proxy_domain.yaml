@@ -1,0 +1,4 @@
+payload:
+  # google play store download
+  - "connectivitycheck.gstatic.com"
+  - "services.googleapis.cn"
