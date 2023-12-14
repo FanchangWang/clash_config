@@ -71,7 +71,7 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - yuyu
+      - xfx
       - ripaojiedian
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -86,7 +86,7 @@ proxy-groups:
   - name: "Sall"
     type: select
     use:
-      - yuyu
+      - xfx
       - ripaojiedian
       - anaer
     url: "https://www.google.com/generate_204"
@@ -143,10 +143,10 @@ proxy-providers:
   #     url: "https://www.google.com/generate_204"
   #     interval: 300
 
-  yuyu:
+  xfx:
     type: http
-    path: ./proxy/yuyu.yaml
-    url: https://b.xn--mes358avi4ba.xyz/api/v1/client/subscribe?token=f372453fb29927f4da824a07ee377025&flag=meta&name=%E9%B1%BC%E9%B1%BC%E6%9C%BA%E5%9C%BA
+    path: ./proxy/xfx.yaml
+    url: https://mia1227.xn--3iq226gfdb94q.com/api/v1/client/subscribe?token=7473fd646aa2acee8470cb87bfba6675&flag=clash
     interval: 1800
     # health-check:
     #   enable: true
