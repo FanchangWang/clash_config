@@ -164,33 +164,34 @@ proxy-providers:
 
 rules:
   # first RULE-SET PROXY
-  - RULE-SET,ProxyMyDomain,PROXY
+  - RULE-SET,ProxyMyDomain,cloudflare
   # RULE-SET DIRECT
   - RULE-SET,DirectMyDomain,DIRECT
   - RULE-SET,DirectCnDomain,DIRECT
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
+  - GEOIP,cloudflare,PROXY
   - GEOSITE,youtube,cloudflare
   - GEOSITE,google,cloudflare
   - GEOSITE,twitter,cloudflare
-  - GEOSITE,pixiv,PROXY
-  - GEOSITE,category-scholar-!cn,PROXY
-  - GEOSITE,biliintl,PROXY
+  - GEOSITE,pixiv,cloudflare
+  - GEOSITE,category-scholar-!cn,cloudflare
+  - GEOSITE,biliintl,cloudflare
   - GEOSITE,onedrive,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,steam@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
-  - GEOSITE,geolocation-!cn,PROXY
+  - GEOSITE,geolocation-!cn,cloudflare
   - GEOSITE,cn,DIRECT
   # RULE-SET PROXY
-  - RULE-SET,ProxyDomain,PROXY
+  - RULE-SET,ProxyDomain,cloudflare
   # GETIP
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
   # MATCH
-  - MATCH,PROXY
+  - MATCH,cloudflare
 
 rule-providers:
   # 直连规则
