@@ -80,7 +80,6 @@ proxy-groups:
     proxies:
       - cloudflare
       - AUTO
-      - Sri
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -89,13 +88,6 @@ proxy-groups:
     type: url-test
     use:
       - xfx
-      - ripaojiedian
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Sri"
-    type: select
-    use:
       - ripaojiedian
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -179,9 +171,9 @@ rules:
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,youtube,PROXY
-  - GEOSITE,google,PROXY
-  - GEOSITE,twitter,PROXY
+  - GEOSITE,youtube,cloudflare
+  - GEOSITE,google,cloudflare
+  - GEOSITE,twitter,cloudflare
   - GEOSITE,pixiv,PROXY
   - GEOSITE,category-scholar-!cn,PROXY
   - GEOSITE,biliintl,PROXY
