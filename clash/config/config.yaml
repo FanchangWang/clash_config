@@ -58,10 +58,27 @@ dns:
       - 0.0.0.0/32
       - 127.0.0.1/32
 
+proxies:
+  - type: vless
+    name: cloudflare
+    server: 104.20.27.73
+    port: 80
+    uuid: cb06030f-e09b-4f61-8180-6a3e525102c7
+    network: ws
+    tls: false
+    udp: false
+    sni: vless.2651919937.workers.dev
+    client-fingerprint: chrome
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        host: vless.2651919937.workers.dev
+
 proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - cloudflare
       - AUTO
       - Sri
       - Sall
