@@ -61,7 +61,7 @@ dns:
 proxies:
   - type: vless
     name: cloudflare
-    server: 2606:4700:4401:d9cb:6f6d:7c2a:5dc4:032f
+    server: 2a06:98c1:3121:31a7:b5b1:7175:5af:c072
     port: 80
     uuid: cb06030f-e09b-4f61-8180-6a3e525102c7
     network: ws
@@ -78,7 +78,6 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - cloudflare
       - AUTO
       - Sall
     url: "https://www.google.com/generate_204"
@@ -94,6 +93,8 @@ proxy-groups:
 
   - name: "Sall"
     type: select
+    proxies:
+      - cloudflare
     use:
       - xfx
       - ripaojiedian

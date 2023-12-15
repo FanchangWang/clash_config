@@ -63,7 +63,6 @@ proxy-groups:
     type: select
     proxies:
       - AUTO
-      - Sri
       - Sall
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -73,13 +72,6 @@ proxy-groups:
     use:
       - ripaojiedian
       - anaer
-    url: "https://www.google.com/generate_204"
-    interval: 300
-
-  - name: "Sri"
-    type: select
-    use:
-      - ripaojiedian
     url: "https://www.google.com/generate_204"
     interval: 300
 
