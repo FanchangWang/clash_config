@@ -165,6 +165,7 @@ proxy-providers:
 rules:
   # first RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,cloudflare
+  - RULE-SET,ProxyCloudflareDomain,PROXY
   # RULE-SET DIRECT
   - RULE-SET,DirectMyDomain,DIRECT
   - RULE-SET,DirectCnDomain,DIRECT
@@ -214,6 +215,12 @@ rule-providers:
     path: ./rule-set/proxy_domain.yaml
     type: http
     url: "https://raw.gitmirror.com/FanchangWang/clash_config/main/proxy_domain.yaml"
+  ProxyCloudflareDomain:
+    behavior: domain
+    interval: 86400
+    path: ./rule-set/cloudflare_domain.yaml
+    type: http
+    url: "https://raw.gitmirror.com/FanchangWang/clash_config/main/cloudflare_domain.yaml"
   ProxyDomain:
     behavior: domain
     interval: 86400
