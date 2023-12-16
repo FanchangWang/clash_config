@@ -61,7 +61,7 @@ dns:
 proxies:
   - type: vless
     name: cloudflare
-    server: 2a06:98c1:3121:31a7:b5b1:7175:5af:c072
+    server: 104.20.27.73
     port: 80
     uuid: cb06030f-e09b-4f61-8180-6a3e525102c7
     network: ws
