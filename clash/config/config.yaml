@@ -13,9 +13,7 @@ allow-lan: true # 允许局域网其他机器使用代理
 bind-address: "*" # 配合上面字段，允许全部局域网机器 ip
 
 external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
-external-ui: ui # webui 相对目录
-# external-ui: ui/yacd # webui 相对目录
-# external-ui: ui/clash-dashboard # webui 相对目录
+# external-ui: ui # webui 相对目录
 
 profile:
   store-selected: true
