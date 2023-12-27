@@ -84,7 +84,6 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - xfx
       - ripaojiedian
     url: "https://www.google.com/generate_204"
     interval: 300
@@ -94,7 +93,6 @@ proxy-groups:
     proxies:
       - cloudflare
     use:
-      - xfx
       - ripaojiedian
       - anaer
     url: "https://www.google.com/generate_204"
@@ -151,15 +149,15 @@ proxy-providers:
   #     url: "https://www.google.com/generate_204"
   #     interval: 300
 
-  xfx:
-    type: http
-    path: ./proxy/xfx.yaml
-    url: https://mia1227.xn--3iq226gfdb94q.com/api/v1/client/subscribe?token=7473fd646aa2acee8470cb87bfba6675&flag=clash
-    interval: 1800
-    # health-check:
-    #   enable: true
-    #   url: "https://www.google.com/generate_204"
-    #   interval: 300
+  # xfx:
+  #   type: http
+  #   path: ./proxy/xfx.yaml
+  #   url: https://mia1227.xn--3iq226gfdb94q.com/api/v1/client/subscribe?token=7473fd646aa2acee8470cb87bfba6675&flag=clash
+  #   interval: 1800
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.google.com/generate_204"
+  #     interval: 300
 
 rules:
   # first RULE-SET PROXY
