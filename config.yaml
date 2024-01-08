@@ -70,14 +70,14 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - ripaojiedian
-      - anaer
+      - vveg26
     url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Sall"
     type: select
     use:
+      - vveg26
       - ripaojiedian
       - anaer
     url: "https://www.google.com/generate_204"
@@ -133,6 +133,12 @@ proxy-providers:
   #     enable: true
   #     url: "https://www.google.com/generate_204"
   #     interval: 300
+
+  vveg26:
+    type: http
+    path: ./proxy/vveg26.yaml
+    url: https://mareep.netlify.app/sub/merged_proxies_new.yaml
+    interval: 1800
 
 rules:
   # first RULE-SET PROXY
