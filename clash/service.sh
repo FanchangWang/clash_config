@@ -22,7 +22,7 @@ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE
 Restart=on-failure
 ExecStartPre=/usr/bin/sleep 1s
-ExecStart=${CLASH_DIR}/clash.meta -d ${CLASH_DIR}/config
+ExecStart=${CLASH_DIR}/clash.meta -d ${CLASH_DIR}/config -ext-ui ui
 
 [Install]
 WantedBy=multi-user.target
@@ -36,5 +36,3 @@ EOF
   systemctl enable clash
   echo "[$(date +"%Y.%m.%d.%H:%M:%S")] Clash: clash.service created successfully."
 fi
-
-${SHELL} "${CLASH_DIR}/cron.sh"
