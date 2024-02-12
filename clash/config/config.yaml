@@ -166,7 +166,6 @@ rules:
   - RULE-SET,ProxyCloudflareDomain,PROXY
   # RULE-SET DIRECT
   - RULE-SET,DirectMyDomain,DIRECT
-  - RULE-SET,DirectCnDomain,DIRECT
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
@@ -184,8 +183,6 @@ rules:
   - GEOSITE,category-games@cn,DIRECT
   - GEOSITE,geolocation-!cn,cloudflare
   - GEOSITE,cn,DIRECT
-  # RULE-SET PROXY
-  - RULE-SET,ProxyDomain,cloudflare
   # GETIP
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
@@ -200,12 +197,6 @@ rule-providers:
     path: ./rule-set/direct_domain.yaml
     type: http
     url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/direct_domain.yaml"
-  DirectCnDomain:
-    behavior: domain
-    interval: 86400
-    path: ./rule-set/cn_domain.yaml
-    type: http
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/cn_domain.yaml"
   # 代理规则
   ProxyMyDomain:
     behavior: domain
@@ -219,9 +210,3 @@ rule-providers:
     path: ./rule-set/cloudflare_domain.yaml
     type: http
     url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/cloudflare_domain.yaml"
-  ProxyDomain:
-    behavior: domain
-    interval: 86400
-    path: ./rule-set/proxy.yaml
-    type: http
-    url: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/proxy.yaml"
