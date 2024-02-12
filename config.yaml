@@ -95,7 +95,7 @@ proxy-providers:
   anaer:
     type: http
     path: ./proxy/anaer.yaml
-    url: "https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml"
+    url: "https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml"
     interval: 1800
     # health-check:
     #   enable: true
@@ -105,7 +105,7 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
-    url: "https://cdn.jsdelivr.net/gh/ripaojiedian/freenode@main/clash"
+    url: "https://fastly.jsdelivr.net/gh/ripaojiedian/freenode@main/clash"
     interval: 1800
     # health-check:
     #   enable: true
@@ -115,7 +115,7 @@ proxy-providers:
   # ssrsub:
   #   type: http
   #   path: ./proxy/ssrsub.yaml
-  #   url: "https://cdn.jsdelivr.net/gh/ssrsub/ssr@master/Clash.yml"
+  #   url: "https://fastly.jsdelivr.net/gh/ssrsub/ssr@master/Clash.yml"
   #   interval: 1800
   #   health-check:
   #     enable: true
@@ -175,7 +175,7 @@ rule-providers:
     interval: 86400
     path: ./rule-set/direct_domain.yaml
     type: http
-    url: "https://cdn.jsdelivr.net/gh/FanchangWang/clash_config@main/direct_domain.yaml"
+    url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/direct_domain.yaml"
   DirectCnDomain:
     behavior: domain
     interval: 86400
@@ -188,7 +188,7 @@ rule-providers:
     interval: 86400
     path: ./rule-set/proxy_domain.yaml
     type: http
-    url: "https://cdn.jsdelivr.net/gh/FanchangWang/clash_config@main/proxy_domain.yaml"
+    url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/proxy_domain.yaml"
   ProxyDomain:
     behavior: domain
     interval: 86400
