@@ -6,6 +6,7 @@ ipv6: true # 监听 ipv6，如果你网络不支持 ipv6 就别开
 mode: rule # rule/global/direct/script
 
 geodata-mode: true
+geo-update-interval: 72 #每 72 小时更新一次 geo 文件
 
 log-level: info
 
@@ -32,29 +33,12 @@ dns:
   enable: true # 启用 dns 处理
   prefer-h3: true # 启用 DOH http/3
   ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
-  listen: 0.0.0.0:1053 # 监听所有网络的 53 端口
-  use-hosts: true # 允许使用 hosts 文件
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  fake-ip-filter:
-    - dns.msftncsi.com
-    - www.msftncsi.com
-    - www.msftconnecttest.com
   nameserver:
     - 180.76.76.76
     - 114.114.114.114
-  fallback: # 回退 dns 服务器
+  proxy-server-nameserver:
     - tls://8.8.4.4:853
     - tls://1.0.0.1:853
-  fallback-filter: # 回退规则
-    geoip: true
-    geoip-code: CN
-    geosite:
-      - gfw
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 127.0.0.1/32
 
 proxy-groups:
   - name: "PROXY"
