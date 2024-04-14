@@ -52,14 +52,14 @@ proxy-groups:
   - name: "AUTO"
     type: url-test
     use:
-      - vveg26
+      - chromego
     url: "https://www.google.com/generate_204"
     interval: 300
 
   - name: "Sall"
     type: select
     use:
-      - vveg26
+      - chromego
       - ripaojiedian
       - anaer
     url: "https://www.google.com/generate_204"
@@ -116,10 +116,16 @@ proxy-providers:
   #     url: "https://www.google.com/generate_204"
   #     interval: 300
 
-  vveg26:
+  # vveg26:
+  #   type: http
+  #   path: ./proxy/vveg26.yaml
+  #   url: https://mareep.netlify.app/sub/merged_proxies_new.yaml
+  #   interval: 1800
+
+  chromego:
     type: http
-    path: ./proxy/vveg26.yaml
-    url: https://mareep.netlify.app/sub/merged_proxies_new.yaml
+    path: ./proxy/chromego.yaml
+    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml
     interval: 1800
 
 rules:
