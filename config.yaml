@@ -162,11 +162,11 @@ rule-providers:
     interval: 86400
     path: ./rule-set/direct_domain.yaml
     type: http
-    url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/direct_domain.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/direct_domain.yaml"
   # 代理规则
   ProxyMyDomain:
     behavior: domain
     interval: 86400
     path: ./rule-set/proxy_domain.yaml
     type: http
-    url: "https://fastly.jsdelivr.net/gh/FanchangWang/clash_config@main/proxy_domain.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
