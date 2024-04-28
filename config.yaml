@@ -79,7 +79,7 @@ proxy-providers:
   anaer:
     type: http
     path: ./proxy/anaer.yaml
-    url: "https://fastly.jsdelivr.net/gh/anaer/Sub@main/clash.yaml"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     interval: 1800
     # health-check:
     #   enable: true
@@ -89,7 +89,7 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
-    url: "https://fastly.jsdelivr.net/gh/ripaojiedian/freenode@main/clash"
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
     interval: 1800
     # health-check:
     #   enable: true
