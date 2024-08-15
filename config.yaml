@@ -54,9 +54,8 @@ proxy-groups:
     type: select
     proxies:
       - AUTO
+      - AUTO2
       - Sall
-    url: "https://www.google.com/generate_204"
-    interval: 300
 
   - name: "AUTO"
     type: url-test
@@ -64,6 +63,19 @@ proxy-groups:
       - chromego
     url: "https://www.google.com/generate_204"
     interval: 300
+    timeout: 5000
+    lazy: true
+    expected-status: 204
+
+  - name: "AUTO2"
+    type: url-test
+    use:
+      - ripaojiedian
+    url: "https://www.google.com/generate_204"
+    interval: 300
+    timeout: 5000
+    lazy: true
+    expected-status: 204
 
   - name: "Sall"
     type: select
@@ -71,8 +83,6 @@ proxy-groups:
       - chromego
       - ripaojiedian
       - anaer
-    url: "https://www.google.com/generate_204"
-    interval: 300
 
 proxy-providers:
   anaer:
@@ -80,18 +90,42 @@ proxy-providers:
     path: ./proxy/anaer.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     interval: 1800
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
 
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
     interval: 1800
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
 
   chromego:
     type: http
     path: ./proxy/chromego.yaml
     url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml
     interval: 1800
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 300
+      timeout: 5000
+      lazy: true
+      expected-status: 204
 
 rules:
   # first RULE-SET PROXY
@@ -101,6 +135,8 @@ rules:
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
+  - GEOSITE,category-porn,AUTO2
+  - RULE-SET,Porn,AUTO2
   - GEOSITE,china-list,DIRECT
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,google-cn,DIRECT
@@ -117,15 +153,28 @@ rules:
 rule-providers:
   # 直连规则
   DirectMyDomain:
-    behavior: domain
-    interval: 86400
-    path: ./rule-set/direct_domain.yaml
     type: http
+    path: ./rule-set/direct_domain.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/direct_domain.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
   # 代理规则
   ProxyMyDomain:
-    behavior: domain
-    interval: 86400
-    path: ./rule-set/proxy_domain.yaml
     type: http
+    path: ./rule-set/proxy_domain.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
+  # 代理规则
+  Porn:
+    type: http
+    path: ./rule-set/Porn.yaml
+    url: "https://cdn.jsdelivr.net/gh/LM-Firefly/Rules@master/Clash-RuleSet-Classical/PROXY/Porn.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: classical
+    format: yaml
