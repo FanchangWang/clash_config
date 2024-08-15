@@ -5,8 +5,16 @@ ipv6: true # 监听 ipv6，如果你网络不支持 ipv6 就别开
 
 mode: rule # rule/global/direct/script
 
-geodata-mode: true
+geodata-mode: true # 使用 .dat 格式
+geodata-loader: standard # geo data 加载模式： standard 标准模式 、memconservative 小内存加载模式
+geo-auto-update: true # 自动更新 geo 文件
 geo-update-interval: 72 #每 72 小时更新一次 geo 文件
+geox-url:
+  # geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
+  # geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.metadb"
 
 log-level: info
 
@@ -26,13 +34,14 @@ tun:
   dns-hijack: # dns 劫持
     - any:53
   auto-route: true # 全局路由
-  auto-redir: true # Linux nftable REDIRECT
+  strict-route: true # 严格模式 # 配合 auto-route: true 使用
   auto-detect-interface: true # 自动选择出口网卡
+  # auto-redir: false # Linux 系统下将 route-address-set route-xxx 设置的规则写入防火墙
 
 dns:
   enable: true # 启用 dns 处理
-  prefer-h3: true # 启用 DOH http/3
   ipv6: true # 使用 ipv6 dns 解析，如果你网络不支持 ipv6 就别开
+  respect-rules: true # 匹配 rules 规则（直连或代理）决定是否走 proxy-server-nameserver
   nameserver:
     - 180.76.76.76
     - 114.114.114.114
@@ -66,61 +75,17 @@ proxy-groups:
     interval: 300
 
 proxy-providers:
-  # sub:
-  #   type: http
-  #   path: ./proxy/sub.yaml
-  #   url: "https://renzheapi.com/sub?target=clash&new_name=true&url=https%3A%2F%2Fpastebin.com%2Fraw%2FGxR5pELe&insert=false&config=https%3A%2F%2Fraw.githubusercontent.com%2FACL4SSR%2FACL4SSR%2Fmaster%2FClash%2Fconfig%2FACL4SSR_Online.ini"
-  #   interval: 1800
-  #   health-check:
-  #     enable: true
-  #     url: "https://www.google.com/generate_204"
-  #     interval: 300
-
   anaer:
     type: http
     path: ./proxy/anaer.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     interval: 1800
-    # health-check:
-    #   enable: true
-    #   url: "https://www.google.com/generate_204"
-    #   interval: 300
 
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
     interval: 1800
-    # health-check:
-    #   enable: true
-    #   url: "https://www.google.com/generate_204"
-    #   interval: 300
-
-  # ssrsub:
-  #   type: http
-  #   path: ./proxy/ssrsub.yaml
-  #   url: "https://fastly.jsdelivr.net/gh/ssrsub/ssr@master/Clash.yml"
-  #   interval: 1800
-  #   health-check:
-  #     enable: true
-  #     url: "https://www.google.com/generate_204"
-  #     interval: 300
-
-  # pmsub:
-  #   type: http
-  #   path: ./proxy/pmsub.yaml
-  #   url: "https://sub.pmsub.me/clash.yaml"
-  #   interval: 1800
-  #   health-check:
-  #     enable: true
-  #     url: "https://www.google.com/generate_204"
-  #     interval: 300
-
-  # vveg26:
-  #   type: http
-  #   path: ./proxy/vveg26.yaml
-  #   url: https://mareep.netlify.app/sub/merged_proxies_new.yaml
-  #   interval: 1800
 
   chromego:
     type: http
@@ -136,19 +101,13 @@ rules:
   # GETSITE
   - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,youtube,PROXY
-  - GEOSITE,google,PROXY
-  - GEOSITE,twitter,PROXY
-  - GEOSITE,pixiv,PROXY
-  - GEOSITE,category-scholar-!cn,PROXY
-  - GEOSITE,biliintl,PROXY
-  - GEOSITE,onedrive,DIRECT
-  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,china-list,DIRECT
   - GEOSITE,apple-cn,DIRECT
-  - GEOSITE,steam@cn,DIRECT
+  - GEOSITE,google-cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,cn,DIRECT # 相当于 geolocation-cn 和 tld-cn 的合集
   - GEOSITE,geolocation-!cn,PROXY
-  - GEOSITE,cn,DIRECT
   # GETIP
   - GEOIP,private,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
