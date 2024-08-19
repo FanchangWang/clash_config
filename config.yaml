@@ -75,7 +75,7 @@ proxy-groups:
     type: load-balance
     use:
       - chromego
-    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh"
+    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     url: "https://www.google.com/generate_204"
     interval: 300
     timeout: 5000
@@ -87,7 +87,7 @@ proxy-groups:
     type: load-balance
     use:
       - chromego
-    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh"
+    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     url: "https://www.google.com/generate_204"
     interval: 300
     timeout: 5000
