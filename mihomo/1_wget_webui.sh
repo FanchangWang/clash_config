@@ -12,13 +12,13 @@ if [ ! -d "$webui_dir" ]; then
     mkdir -p "$webui_dir"
 fi
 
-# 下载文件到 config_dir 目录
+# 下载压缩包
 wget https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip -O "$download_file"
 
-# 解压文件到临时目录
+# 解压文件到 webui 目录
 unzip -j "$download_file" -d "$webui_dir"
 
-# 删除下载的压缩包
+# 删除压缩包
 rm "$download_file"
 
 # 查看 webui_dir 文件
