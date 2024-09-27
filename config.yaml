@@ -57,7 +57,6 @@ proxy-groups:
     proxies:
       - AChromego
       - LChromego
-      - LChromego2
       - APorn
       - Sall
 
@@ -82,18 +81,6 @@ proxy-groups:
     lazy: true
     expected-status: 204
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
-
-  - name: "LChromego2"
-    type: load-balance
-    use:
-      - chromego
-    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
-    url: "https://www.google.com/generate_204"
-    interval: 300
-    timeout: 5000
-    lazy: true
-    expected-status: 204
-    strategy: round-robin # 所有的请求分配给策略组内不同的代理节点
 
   - name: "APorn"
     type: url-test
@@ -141,7 +128,7 @@ proxy-providers:
   chromego:
     type: http
     path: ./proxy/chromego.yaml
-    url: https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
     interval: 1800
     proxy: DIRECT
     health-check:
