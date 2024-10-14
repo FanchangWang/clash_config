@@ -65,8 +65,8 @@ proxy-groups:
     use:
       - chromego
     url: "https://www.google.com/generate_204"
-    interval: 300
-    timeout: 5000
+    interval: 1800
+    timeout: 1500
     lazy: true
     expected-status: 204
 
@@ -76,8 +76,8 @@ proxy-groups:
       - chromego
     exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     url: "https://www.google.com/generate_204"
-    interval: 300
-    timeout: 5000
+    interval: 1800
+    timeout: 1500
     lazy: true
     expected-status: 204
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
@@ -87,8 +87,8 @@ proxy-groups:
     use:
       - ripaojiedian
     url: "https://www.google.com/generate_204"
-    interval: 300
-    timeout: 5000
+    interval: 1800
+    timeout: 1500
     lazy: true
     expected-status: 204
 
@@ -101,13 +101,13 @@ proxy-providers:
     type: http
     path: ./proxy/anaer.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    interval: 1800
+    interval: 21600
     proxy: DIRECT
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
-      interval: 300
-      timeout: 5000
+      interval: 0
+      timeout: 1500
       lazy: true
       expected-status: 204
 
@@ -115,13 +115,13 @@ proxy-providers:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
-    interval: 1800
+    interval: 21600
     proxy: DIRECT
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
-      interval: 300
-      timeout: 5000
+      interval: 0
+      timeout: 1500
       lazy: true
       expected-status: 204
 
@@ -129,13 +129,13 @@ proxy-providers:
     type: http
     path: ./proxy/chromego.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    interval: 1800
+    interval: 21600
     proxy: DIRECT
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
-      interval: 300
-      timeout: 5000
+      interval: 0
+      timeout: 1500
       lazy: true
       expected-status: 204
 
