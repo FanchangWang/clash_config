@@ -55,27 +55,16 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - AChromego
       - LChromego
       - APorn
       - Sall
-
-  - name: "AChromego"
-    type: url-test
-    use:
-      - chromego
-    url: "https://www.google.com/generate_204"
-    interval: 1800
-    timeout: 3000
-    lazy: true
-    expected-status: 204
 
   - name: "LChromego"
     type: load-balance
     use:
       - chromego
-    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     url: "https://www.google.com/generate_204"
+    lazy: false
     interval: 1800
     timeout: 3000
     expected-status: 204
@@ -130,12 +119,13 @@ proxy-providers:
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
     interval: 21600
     proxy: DIRECT
+    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     health-check:
       enable: false
       url: "https://www.google.com/generate_204"
       interval: 0
       timeout: 1500
-      lazy: true
+      lazy: false
       expected-status: 204
 
 rules:
