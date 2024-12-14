@@ -38,3 +38,5 @@ payload:
   # 一些可以直连的网站
   - "sharemouse.com"
   - "+.sharemouse.com"
+  - "allproxy.us.kg"
+  - "+.allproxy.us.kg"
