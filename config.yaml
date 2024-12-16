@@ -129,7 +129,9 @@ proxy-providers:
       expected-status: 204
 
 rules:
-  # first RULE-SET PROXY
+  # RULE-SET APorn
+  - RULE-SET,PornMyDomain,APorn
+  # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
   - RULE-SET,DirectMyDomain,DIRECT
@@ -164,6 +166,15 @@ rule-providers:
     type: http
     path: ./rule-set/proxy_domain.yaml
     url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
+  # 代理规则
+  PornMyDomain:
+    type: http
+    path: ./rule-set/porn_domain.yaml
+    url: "https://mirror.ghproxy.com/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
