@@ -1,3 +1,6 @@
 payload:
   - "imagetwistcams.com"
   - "+.imagetwistcams.com"
+  # chatGpt 拦截了来自 ChromeGo 代理的请求
+  - "chatgpt.com"
+  - "+.chatgpt.com"
