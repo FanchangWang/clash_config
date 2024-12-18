@@ -77,7 +77,7 @@ proxy-groups:
     url: "https://www.google.com/generate_204"
     interval: 1800
     timeout: 3000
-    lazy: true
+    lazy: false
     expected-status: 204
 
   - name: "Sall"
@@ -106,7 +106,7 @@ proxy-providers:
     interval: 21600
     proxy: DIRECT
     health-check:
-      enable: false
+      enable: true
       url: "https://www.google.com/generate_204"
       interval: 0
       timeout: 1500
@@ -121,7 +121,7 @@ proxy-providers:
     proxy: DIRECT
     exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     health-check:
-      enable: false
+      enable: true
       url: "https://www.google.com/generate_204"
       interval: 0
       timeout: 1500
