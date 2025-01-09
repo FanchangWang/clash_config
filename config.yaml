@@ -89,13 +89,13 @@ proxy-providers:
     type: http
     path: ./proxy/anaer.yaml
     url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
-    interval: 21600
+    interval: 3600
     proxy: DIRECT
     health-check:
       enable: false
       url: "https://www.google.com/generate_204"
       interval: 0
-      timeout: 1500
+      timeout: 3000
       lazy: true
       expected-status: 204
 
@@ -103,13 +103,13 @@ proxy-providers:
     type: http
     path: ./proxy/ripaojiedian.yaml
     url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
-    interval: 21600
+    interval: 3600
     proxy: DIRECT
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
       interval: 0
-      timeout: 1500
+      timeout: 3000
       lazy: true
       expected-status: 204
 
@@ -117,14 +117,14 @@ proxy-providers:
     type: http
     path: ./proxy/chromego.yaml
     url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    interval: 21600
+    interval: 3600
     proxy: DIRECT
     exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|hysteria"
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
       interval: 0
-      timeout: 1500
+      timeout: 3000
       lazy: false
       expected-status: 204
 
