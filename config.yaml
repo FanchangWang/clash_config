@@ -117,7 +117,7 @@ proxy-providers:
     type: http
     path: ./proxy/chromego.yaml
     # url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    url: "https://github.allproxy.us.kg/https://github.com/Misaka-blog/chromego_merge/raw/refs/heads/main/sub/merged_proxies_new.yaml"
+    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
     interval: 3600
     proxy: DIRECT
     exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks"
