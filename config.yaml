@@ -24,7 +24,7 @@ bind-address: "*" # 配合上面字段，允许全部局域网机器 ip
 
 external-controller: 0.0.0.0:9090 # webui 监听 IP 端口
 external-ui: ui # webui 相对目录
-external-ui-url: "https://github.allproxy.us.kg/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
+external-ui-url: "https://github.guyuexuan.ggff.net/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip" #从 GitHub Pages 分支获取
 
 profile:
   store-selected: true
@@ -88,7 +88,7 @@ proxy-providers:
   anaer:
     type: http
     path: ./proxy/anaer.yaml
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     interval: 3600
     proxy: DIRECT
     health-check:
@@ -102,7 +102,7 @@ proxy-providers:
   ripaojiedian:
     type: http
     path: ./proxy/ripaojiedian.yaml
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
     interval: 3600
     proxy: DIRECT
     health-check:
@@ -116,8 +116,8 @@ proxy-providers:
   chromego:
     type: http
     path: ./proxy/chromego.yaml
-    # url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
+    # url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
     interval: 3600
     proxy: DIRECT
     exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|trojan"
@@ -157,7 +157,7 @@ rule-providers:
   DirectMyDomain:
     type: http
     path: ./rule-set/direct_domain.yaml
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/FanchangWang/clash_config/main/direct_domain.yaml"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/FanchangWang/clash_config/main/direct_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
@@ -166,7 +166,7 @@ rule-providers:
   ProxyMyDomain:
     type: http
     path: ./rule-set/proxy_domain.yaml
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
@@ -175,7 +175,7 @@ rule-providers:
   PornMyDomain:
     type: http
     path: ./rule-set/porn_domain.yaml
-    url: "https://github.allproxy.us.kg/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
+    url: "https://github.guyuexuan.ggff.net/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
