@@ -78,7 +78,7 @@ proxy-groups:
     lazy: false
     interval: 1800
     timeout: 3000
-    filter: "United States|美国|USA"
+    filter: "United States|美国|USA|荷兰|Netherlands|法国|France|日本|Japan"
     expected-status: 204
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
 
