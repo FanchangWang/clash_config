@@ -63,44 +63,24 @@ proxy-groups:
     type: load-balance
     use:
       - chromego
-    url: "https://www.google.com/generate_204"
-    lazy: false
-    interval: 1800
-    timeout: 3000
-    expected-status: 204
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
 
   - name: "LChromegoX"
     type: load-balance
     use:
       - chromego
-    url: "https://x.com/favicon.ico"
     filter: "United States|美国|USA"
-    lazy: true
-    interval: 1800
-    timeout: 3000
-    expected-status: 200
 
   - name: "APorn"
     type: url-test
     use:
       - ripaojiedian
-    url: "https://www.google.com/generate_204"
-    interval: 1800
-    timeout: 3000
-    lazy: true
-    expected-status: 204
 
   - name: "XPorn"
-    type: fallback
+    type: select
     proxies:
       - LChromegoX
       - APorn
-    url: "https://x.com/favicon.ico"
-    interval: 1800
-    timeout: 3000
-    lazy: true
-    expected-status: 200
 
   - name: "Sall"
     type: select
@@ -114,9 +94,9 @@ proxy-providers:
     interval: 3600
     proxy: DIRECT
     health-check:
-      enable: false
+      enable: true
       url: "https://www.google.com/generate_204"
-      interval: 0
+      interval: 1800
       timeout: 3000
       lazy: true
       expected-status: 204
@@ -130,7 +110,7 @@ proxy-providers:
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
-      interval: 0
+      interval: 1800
       timeout: 3000
       lazy: true
       expected-status: 204
@@ -146,9 +126,9 @@ proxy-providers:
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
-      interval: 0
+      interval: 1800
       timeout: 3000
-      lazy: true
+      lazy: false
       expected-status: 204
 
 rules:
