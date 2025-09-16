@@ -65,26 +65,28 @@ proxy-groups:
       - chromego
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
 
+  - name: "APorn"
+    type: url-test
+    use:
+      - ripaojiedian
+
+  - name: "Sall"
+    type: select
+    include-all-providers: true # 引入所有 proxy-providers # 会导致 use 失效
+
   - name: "LChromegoX"
     type: load-balance
     use:
       - chromego
     filter: "United States|美国|USA"
 
-  - name: "APorn"
-    type: url-test
-    use:
-      - ripaojiedian
-
   - name: "XPorn"
     type: select
     proxies:
+      - LChromego
       - LChromegoX
       - APorn
-
-  - name: "Sall"
-    type: select
-    include-all-providers: true # 引入所有 proxy-providers # 会导致 use 失效
+      - Sall
 
 proxy-providers:
   anaer:
@@ -98,7 +100,7 @@ proxy-providers:
       url: "https://www.google.com/generate_204"
       interval: 1800
       timeout: 3000
-      lazy: true
+      lazy: false
       expected-status: 204
 
   ripaojiedian:
@@ -134,7 +136,7 @@ proxy-providers:
 rules:
   #  RULE-SET x.com
   - DOMAIN-SUFFIX,x.com,XPorn
-  - DOMAIN-SUFFIX,twimg.com,XPorn
+  # - DOMAIN-SUFFIX,twimg.com,XPorn
   # RULE-SET APorn
   - RULE-SET,PornMyDomain,APorn
   # RULE-SET PROXY
