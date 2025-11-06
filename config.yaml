@@ -75,7 +75,10 @@ proxy-groups:
 
   - name: "Sall"
     type: select
-    include-all-providers: true # 引入所有 proxy-providers # 会导致 use 失效
+    use:
+      - ripaojiedian
+      - chromego
+      - anaer
 
 proxy-providers:
   anaer:
@@ -127,7 +130,7 @@ proxy-providers:
 
 rules:
   # RULE-SET FCountry
-  - RULE-SET,PornMyDomain,FCountry
+  - RULE-SET,CountryMyDomain,FCountry
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
@@ -168,10 +171,10 @@ rule-providers:
     behavior: domain
     format: yaml
   # 代理规则
-  PornMyDomain:
+  CountryMyDomain:
     type: http
-    path: ./rule-set/porn_domain.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
+    path: ./rule-set/country_domain.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/country_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain

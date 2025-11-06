@@ -1,0 +1,32 @@
+payload:
+  # porn
+  - "+.imagetwistcams.com"
+  # X Twitter
+  - "x.com"
+  # Google Gemini
+  - "bard.google.com"
+  - "gemini.google"
+  - "gemini.google.com"
+  - "aisandbox-pa.googleapis.com"
+  - "robinfrontend-pa.googleapis.com"
+  # Google DeepMind
+  - "deepmind.com"
+  - "deepmind.google"
+  # Google Generative Language API
+  - "generativelanguage.googleapis.com"
+  - "geller-pa.googleapis.com"
+  - "proactivebackend-pa.googleapis.com"
+  - "cloudcode-pa.googleapis.com"
+  # Google AI Studio
+  - "ai.google.dev"
+  - "aistudio.google.com"
+  - "makersuite.google.com"
+  - "alkalicore-pa.clients6.google.com"
+  - "generativeai.google"
+  # Google NotebookLM
+  - "notebooklm.google"
+  - "notebooklm.google.com"
+  # Google Jules
+  - "jules.google.com"
+  # Google Android Studio
+  - "aida.googleapis.com"
