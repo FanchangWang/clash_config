@@ -35,18 +35,22 @@ payload:
   - "fastly.jsdelivr.net"
   - "gcore.jsdelivr.net"
   - "raw.fgit.cf"
-  # 一些可以直连的网站
-  - "+.sharemouse.com"
-  - "+.allproxy.us.kg"
+  # jetbrains
+  - "account.jetbrains.com"
+  - "download.jetbrains.com"
+  - "download-cdn.jetbrains.com"
+  - "plugins.jetbrains.com"
+  - "downloads.marketplace.jetbrains.com"
+  # 自用
   - "+.allproxy.dpdns.org"
   - "+.guyuexuan.dpdns.org"
   - "+.guyuexuan.ggff.net"
   - "+.guyuexuan.ip-ddns.com"
+  # 一些可以直连的网站
+  - "+.sharemouse.com"
   - "+.iptv.cc"
   - "+.ipip.net"
   - "+.qq.com"
   - "+.hibitsoft.ir"
   - "+.gitbutler.com"
-  - "account.jetbrains.com"
-  - "download.jetbrains.com"
-  - "download-cdn.jetbrains.com"
+  - "+.cloudflare-dns.com"
