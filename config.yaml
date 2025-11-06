@@ -56,7 +56,6 @@ proxy-groups:
     type: select
     proxies:
       - Chromego
-      - FCountry
       - Sall
 
   - name: "Chromego"
@@ -66,12 +65,17 @@ proxy-groups:
     exclude-filter: "中国|China"
     strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
 
+  - name: "APorn"
+    type: url-test
+    use:
+      - ripaojiedian
+
   - name: "FCountry"
     type: url-test
     use:
       - chromego
       - ripaojiedian
-    filter: "美国|United States|USA|日本|Japan|韩国|South Korea"
+    filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France"
 
   - name: "Sall"
     type: select
@@ -93,7 +97,7 @@ proxy-providers:
       url: "https://www.google.com/generate_204"
       interval: 1800
       timeout: 3000
-      lazy: false
+      lazy: true
       expected-status: 204
 
   ripaojiedian:
@@ -129,6 +133,8 @@ proxy-providers:
       expected-status: 204
 
 rules:
+  # RULE-SET APorn
+  - RULE-SET,PornMyDomain,APorn
   # RULE-SET FCountry
   - RULE-SET,CountryMyDomain,FCountry
   # RULE-SET PROXY
@@ -170,7 +176,16 @@ rule-providers:
     proxy: DIRECT
     behavior: domain
     format: yaml
-  # 代理规则
+  # 代理规则 porn
+  PornMyDomain:
+    type: http
+    path: ./rule-set/porn_domain.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
+  # 代理规则 country
   CountryMyDomain:
     type: http
     path: ./rule-set/country_domain.yaml
