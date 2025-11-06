@@ -38,6 +38,8 @@ payload:
   # 一些可以直连的网站
   - "+.sharemouse.com"
   - "+.allproxy.us.kg"
+  - "+.allproxy.dpdns.org"
+  - "+.guyuexuan.dpdns.org"
   - "+.guyuexuan.ggff.net"
   - "+.guyuexuan.ip-ddns.com"
   - "+.iptv.cc"
