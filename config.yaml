@@ -55,38 +55,27 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - LChromego
-      - APorn
+      - Chromego
+      - FCountry
       - Sall
 
-  - name: "LChromego"
-    type: load-balance
-    use:
-      - chromego
-    strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
-
-  - name: "APorn"
+  - name: "Chromego"
     type: url-test
     use:
+      - chromego
+    exclude-filter: "中国|China"
+    strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
+
+  - name: "FCountry"
+    type: url-test
+    use:
+      - chromego
       - ripaojiedian
+    filter: "美国|United States|USA|日本|Japan|韩国|South Korea"
 
   - name: "Sall"
     type: select
     include-all-providers: true # 引入所有 proxy-providers # 会导致 use 失效
-
-  - name: "LChromegoX"
-    type: load-balance
-    use:
-      - chromego
-    filter: "United States|美国|USA"
-
-  - name: "XPorn"
-    type: select
-    proxies:
-      - LChromego
-      - LChromegoX
-      - APorn
-      - Sall
 
 proxy-providers:
   anaer:
@@ -95,6 +84,7 @@ proxy-providers:
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     interval: 3600
     proxy: DIRECT
+    exclude-filter: "中国|China"
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -109,12 +99,13 @@ proxy-providers:
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
     interval: 3600
     proxy: DIRECT
+    exclude-filter: "中国|China"
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
       interval: 1800
       timeout: 3000
-      lazy: true
+      lazy: false
       expected-status: 204
 
   chromego:
@@ -124,7 +115,8 @@ proxy-providers:
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
     interval: 3600
     proxy: DIRECT
-    exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|trojan"
+    # exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|trojan"
+    exclude-filter: "中国|China"
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -134,11 +126,8 @@ proxy-providers:
       expected-status: 204
 
 rules:
-  #  RULE-SET x.com
-  - DOMAIN-SUFFIX,x.com,XPorn
-  # - DOMAIN-SUFFIX,twimg.com,XPorn
-  # RULE-SET APorn
-  - RULE-SET,PornMyDomain,APorn
+  # RULE-SET FCountry
+  - RULE-SET,PornMyDomain,FCountry
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
@@ -146,7 +135,7 @@ rules:
   # GETSITE
   # - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,category-porn,APorn
+  - GEOSITE,category-porn,FCountry
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,google-cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
