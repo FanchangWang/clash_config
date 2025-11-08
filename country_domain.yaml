@@ -1,3 +1,5 @@
 payload:
   # Google Android Studio
   - "aida.googleapis.com"
+  # Google Gemini
+  - "gemini.google.com"
