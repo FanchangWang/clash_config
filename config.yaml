@@ -76,6 +76,7 @@ proxy-groups:
       - chromego
       - ripaojiedian
     filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France"
+    exclude-filter: "日本\\|@ripaojiedian"
 
   - name: "Sall"
     type: select
