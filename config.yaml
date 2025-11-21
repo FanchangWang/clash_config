@@ -59,11 +59,11 @@ proxy-groups:
       - Sall
 
   - name: "Chromego"
-    type: url-test
+    type: load-balance
     use:
       - chromego
     exclude-filter: "中国|China"
-    strategy: consistent-hashing # 把相同顶级域名的请求分配给策略组内的同一个代理节点
+    strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
 
   - name: "APorn"
     type: url-test
