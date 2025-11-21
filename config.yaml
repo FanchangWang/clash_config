@@ -55,13 +55,14 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - Chromego
+      - LChromego
       - Sall
 
-  - name: "Chromego"
+  - name: "LChromego"
     type: load-balance
     use:
       - chromego
+    filter: "hysteria|Hong Kong"
     exclude-filter: "中国|China"
     strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
 
