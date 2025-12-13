@@ -90,7 +90,8 @@ proxy-providers:
   anaer:
     type: http
     path: ./proxy/anaer.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml"
     interval: 3600
     proxy: DIRECT
     exclude-filter: "中国|China"
