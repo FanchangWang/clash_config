@@ -55,6 +55,7 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
+      - "美国-纽约-hy2-001"
       - LChromego
       - Sall
 
@@ -84,7 +85,18 @@ proxy-groups:
       - ripaojiedian
       - chromego
       - anaer
-
+proxies:
+  - name: "美国-纽约-hy2-001"
+    type: hysteria2
+    server: 157.254.223.43
+    port: 27921
+    password: "dongtaiwang.com" # 原 JSON 中的 auth 对应 password
+    up: "11 mbps"
+    down: "55 mbps"
+    sni: apple.com
+    skip-cert-verify: true # 原 tls.insecure: true
+    # 端口跳跃配置 (对应 server 中的 28000-29000 和 transport.udp.hopInterval)
+    ports: "28000-29000"
 proxy-providers:
   anaer:
     type: http
