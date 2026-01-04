@@ -311,16 +311,9 @@ class ProxyConverter:
                     },
                 }
                 xray_network = streamSettings.get('network', 'tcp')
-                if xray_network == 'raw' or xray_network == 'tcp':
+                if xray_network in ('raw', 'tcp', 'xhttp'):
                     transport_config.update({
                         'network': 'tcp',
-                    })
-                elif xray_network == 'xhttp':
-                    transport_config.update({
-                        'network': 'http',
-                        'http-opts': {
-                            'path': [streamSettings.get('xhttpSettings', {}).get('path', '/')],
-                        }
                     })
                 elif xray_network == 'grpc':
                     transport_config.update({
