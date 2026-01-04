@@ -126,7 +126,7 @@ class ProxyConverter:
                 'port': port,
                 'auth-str': config.get('auth_str', ''),
                 'sni': config.get('server_name', ''),
-                'alpn': config.get('alpn', []),
+                'alpn': [config.get('alpn')] if isinstance(config.get('alpn'), str) else config.get('alpn', []),
                 'up': config.get('up_mbps', ''),
                 'down': config.get('down_mbps', ''),
                 'skip-cert-verify': config.get('insecure', False),
