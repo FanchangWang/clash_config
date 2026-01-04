@@ -319,7 +319,7 @@ class ProxyConverter:
                     transport_config.update({
                         'network': 'http',
                         'http-opts': {
-                            'path': streamSettings.get('xhttpSettings', {}).get('path', '/'),
+                            'path': [streamSettings.get('xhttpSettings', {}).get('path', '/')],
                         }
                     })
                 elif xray_network == 'grpc':
