@@ -63,9 +63,9 @@ proxy-groups:
   - name: "APorn"
     type: select
     proxies:
+      - Ripao
       - LChromego
       - FCountry
-      - Ripao
       - Sall
 
   - name: "LChromego"
