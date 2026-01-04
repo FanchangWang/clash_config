@@ -80,7 +80,7 @@ proxy-groups:
     type: url-test
     use:
       - chromego
-    filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France"
+    filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France|德国|Germany"
 
   - name: "Ripao"
     type: url-test
