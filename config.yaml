@@ -55,29 +55,37 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - "美国-纽约-hy2-001"
       - LChromego
+      - FCountry
+      - Ripao
+      - Sall
+
+  - name: "APorn"
+    type: select
+    proxies:
+      - LChromego
+      - FCountry
+      - Ripao
       - Sall
 
   - name: "LChromego"
     type: load-balance
     use:
       - chromego
-    # filter: "hysteria|Hong Kong"
+    filter: "hysteria|hysteria2"
     exclude-filter: "中国|China"
     strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
-
-  - name: "APorn"
-    type: url-test
-    use:
-      - ripaojiedian
 
   - name: "FCountry"
     type: url-test
     use:
       - chromego
-      - ripaojiedian
     filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France"
+
+  - name: "Ripao"
+    type: url-test
+    use:
+      - ripaojiedian
 
   - name: "Sall"
     type: select
@@ -85,18 +93,7 @@ proxy-groups:
       - ripaojiedian
       - chromego
       - anaer
-proxies:
-  - name: "美国-纽约-hy2-001"
-    type: hysteria2
-    server: 157.254.223.43
-    port: 27921
-    password: "dongtaiwang.com" # 原 JSON 中的 auth 对应 password
-    up: "11 mbps"
-    down: "55 mbps"
-    sni: apple.com
-    skip-cert-verify: true # 原 tls.insecure: true
-    # 端口跳跃配置 (对应 server 中的 28000-29000 和 transport.udp.hopInterval)
-    ports: "28000-29000"
+
 proxy-providers:
   anaer:
     type: http
@@ -133,7 +130,8 @@ proxy-providers:
     type: http
     path: ./proxy/chromego.yaml
     # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
+    # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/chromego.yaml"
     interval: 3600
     proxy: DIRECT
     # exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|trojan"

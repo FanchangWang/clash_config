@@ -1,0 +1,352 @@
+proxies:
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: hysteria-德国-1
+  port: 23008
+  protocol: udp
+  server: 89.144.35.30
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: hysteria-德国-2
+  port: 23008
+  protocol: udp
+  server: 5.178.101.33
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: hysteria-法国-3
+  port: 20001
+  protocol: udp
+  server: 2001:bc8:32d7:402::3
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: hysteria-法国-4
+  port: 20001
+  protocol: udp
+  server: 2001:bc8:32d7:402::4
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: hysteria-法国-5
+  port: 23880
+  protocol: udp
+  server: 2001:bc8:32d7:14f::4
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria
+  up: 11 Mbps
+- alpn: h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: hysteria-德国-6
+  port: 39228
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 5.178.101.106
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
+- alpn: h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: hysteria-美国-7
+  port: 39228
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 98.142.247.21
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
+- alpn: h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: hysteria-法国-8
+  port: 23880
+  protocol: udp
+  recv-window: 230686720
+  recv-window-conn: 57671680
+  server: 62.210.127.177
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria
+  up: 11
+- alpn: h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: hysteria-德国-9
+  port: 18899
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 89.144.35.231
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
+- client-fingerprint: chrome
+  flow: null
+  name: vless-法国-1
+  network: tcp
+  port: 17401
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  server: 195.154.200.13
+  servername: itunes.apple.com
+  smux:
+    brutal-opts:
+      down: 100
+      enabled: true
+      up: 50
+    enabled: true
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    protocol: h2mux
+  tls: true
+  type: vless
+  udp: true
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+- client-fingerprint: chrome
+  flow: null
+  name: vless-法国-2
+  network: tcp
+  port: 17401
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  server: 2001:bc8:32d7:181::2
+  servername: itunes.apple.com
+  smux:
+    brutal-opts:
+      down: 100
+      enabled: true
+      up: 50
+    enabled: true
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    protocol: h2mux
+  tls: true
+  type: vless
+  udp: true
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+- client-fingerprint: chrome
+  flow: null
+  name: vless-法国-3
+  network: tcp
+  port: 17401
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  server: 2001:bc8:32d7:181::3
+  servername: itunes.apple.com
+  smux:
+    brutal-opts:
+      down: 100
+      enabled: true
+      up: 50
+    enabled: true
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    protocol: h2mux
+  tls: true
+  type: vless
+  udp: true
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+- client-fingerprint: chrome
+  encryption: none
+  flow: ''
+  http-opts:
+    path: /github.com/Alvin9999
+  name: vless-法国-4
+  network: http
+  port: 60011
+  reality-opts:
+    public-key: BTCE_8R4FJ7wf9mR7PkONJyeihtHqi_TptjC20eMhic
+    short-id: ea22dff3025e4ff8
+  server: 62.210.127.177
+  servername: www.pixiv.co.jp
+  skip-cert-verify: true
+  sni: www.pixiv.co.jp
+  tls: true
+  type: vless
+  udp: true
+  uuid: a1f699e4-d7b7-4cdc-8414-1105e08fe4c5
+- client-fingerprint: chrome
+  encryption: none
+  flow: ''
+  http-opts:
+    path: /ZTwhzkrWeLnk5ARp8SsoVlVMGn6cSDq8CElbAniRQ9dMR
+  name: vless-台湾-5
+  network: http
+  port: 34500
+  reality-opts:
+    public-key: Yg6kOijRv1IbFcwhY0WmwJ8KW7YTtux4QlQhekEzNEQ
+    short-id: 3a1381d1b2cc9e19
+  server: fan3.394615.xyz
+  servername: www.lovelive-anime.jp
+  skip-cert-verify: true
+  sni: www.lovelive-anime.jp
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8b66e552-e89d-4c4f-bb5a-e3d37bf151b8
+- client-fingerprint: chrome
+  encryption: mlkem768x25519plus.native.0rtt.0Rs8kQdBBMcc2SywqxkhzNVVzyIt_OZaYDNplvTPJKOwxAumLyogdAmy-lLJdlpIerxoMMZs2dlOCoI2H_igvKVg-1lc8Pge2EY-eki2tMPCzEhec7hFnVoDRydhygEXaAaebBpipjMntKVHqLJzwKomw5d-O0kAGaiF5nYPi-SU3NEBAXUPEWi9nMZeOEYPzzthXAcIVWw7yDlrGrOJQSVRyNmcUppT9hAwoNMPe2O5z0IN3rOdd7c3soKJ8oU6gwY38ynGbMEXGQqIBRWeYPYaptddWUZP28tus9xTwKQkIfeWWjsGOZcqGJMRRPevlIxRbfcAAJuCeTiz4yErDFsoMBYdzQl3BzIIcimWDEQIXZJCR6yyLSyJj8Fva7AgcAeg5BZs6_ZQdQFZfZpwjrwmp1kbdakCf-AzR9zBrOtR35IElzgBsgavbgZVY4B1THZ7DvFQVAq3hupm6_gaAaxg42qsleKyzPEs00VY-8DLRjauukNzTigjhfqom8liJnp8aALEnXhu7rdPIWuM91WEz4uTmbxBvARzuUAe7LceQtqiaHmebrp8N0mOKsSyh2PDVAmbWtjHCXJeDhhCMPUYXuiwUVICeUZV1TZxjmZ_xFFL8JZ8vAtewzs9AkiLXJaHNdIBbQRW5qx5BQfMM5vKjYhiXCxJugxu0zq57ksRxsF68oSW0jWbHXaF9EY91ABSZystAjitddC6QcGOUtqn6giKSVs2RXwEeNqZEsEELahYcPtM_PmTlXG-3pFfXalmcpC6bcVl14JLgkykbEtDy3qhBNaUa4osqDu4g8EgRVVuJlCFEcOW-qsQZedzkuhXa2UrUSgNBfVMYXCq16iiD6WKyVVww8CKj_WsPlyNrKIdu8RKENo_HZHN5gPEkgIGWvdpUVyJVbMHlGQ8wVKFDMgn3TyCmCx2_dXM0_eQDqjI3mXAonbAoFttwDhfbpcK4FjPWSkHZrMfAQU1QeodFxqBvBe8MMw1bLSu_mE8beORjEpmtWFr08O0zeUqBkKdOBwahQnB7mBx17JnjYSH0KZT2KF29SiBudHKz7mbThIxhglQH1hSfmSWs0k_d1uCR9Qvylsns9a3j4uwcvUFtZam7iVk2HxG-vMOihIYYomSALwNU0IN01Z3qddbW5uDdtIE0yA2fVVOxjMKVMeYybtarviaCdfNmvyJ4MrJUzoS82cp6TuOYgMZ8hosGMOH1xTMCZIMc9mf4UCRJqA3cRMH0PFj_ugQ62ohDld1dyZADdQx2igtUoYnjLKcIHVdTOp36TqaofugLKwF_aJSUmhi_Kheaju28kZskBaebUqT9VPBqcqYozdvXeeG8hUT6eiMAKSML4jHIJeYOpjOHhYNUEm9b4ATJOwstyQgQmE-P3teIQeYYRcimLpjCTczISEQJcUg68e3CgA8GCoLIaZVsmYKDMxbPJu7bWygU5bBH0Gc6sqf7uNy3kI0nEtAGNAUs6y9TFROQ2BgNeSMucRVNXZ1ePpJs8mx_xRn2ODAn0hImPlLiuOHniCPE_zni6TSyL8Typ11OvyVBIrIrAxWZwREOPs5lXV17t8
+  flow: xtls-rprx-vision
+  http-opts:
+    path: 5cfc52bc-e701-4160-89df-930a0c040576-xh
+  name: vless-德国-6
+  network: http
+  port: 54582
+  reality-opts:
+    public-key: kfw5DgkyKiovC3dzb-o2PUYnZPnbYvbx2IwERUv9czY
+    short-id: 225e2cc8
+  server: 89.144.35.230
+  servername: apple.com
+  skip-cert-verify: true
+  sni: apple.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5cfc52bc-e701-4160-89df-930a0c040576
+- client-fingerprint: chrome
+  encryption: none
+  flow: ''
+  http-opts:
+    path: /github.com/Alvin9999
+  name: vless-法国-7
+  network: http
+  port: 60011
+  reality-opts:
+    public-key: BTCE_8R4FJ7wf9mR7PkONJyeihtHqi_TptjC20eMhic
+    short-id: ea22dff3025e4ff8
+  server: 2001:bc8:32d7:14f::6
+  servername: www.pixiv.co.jp
+  skip-cert-verify: true
+  sni: www.pixiv.co.jp
+  tls: true
+  type: vless
+  udp: true
+  uuid: a1f699e4-d7b7-4cdc-8414-1105e08fe4c5
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 0
+  name: anytls-南非-1
+  password: dongtaiwang.com
+  port: 59901
+  server: 45.221.98.14
+  skip-cert-verify: true
+  type: anytls
+  udp: true
+- name: mieru-美国-1
+  password: dongtaiwang.com
+  port: 33990
+  server: 157.254.223.48
+  transport: TCP
+  type: mieru
+  username: dongtaiwang.com
+- name: mieru-mieru-南非-2
+  password: dongtaiwang.com
+  port: 28866
+  server: 45.221.98.11
+  transport: TCP
+  type: mieru
+  udp: true
+  username: dongtaiwang.com
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: tuic-德国-1
+  password: dongtaiwang.com
+  port: 33457
+  reduce-rtt: true
+  server: 89.144.35.231
+  skip-cert-verify: true
+  sni: apple.com
+  type: tuic
+  udp-relay-mode: native
+  uuid: 66d37a65-7f6f-4e7c-a0f6-163bd917756a
+- alpn:
+  - h3
+  congestion-controller: bbr
+  name: tuic-美国-2
+  password: dongtaiwang.com
+  port: 33457
+  reduce-rtt: true
+  server: 2a14:7583:299d::a
+  skip-cert-verify: true
+  sni: apple.com
+  type: tuic
+  udp-relay-mode: native
+  uuid: 66d37a65-7f6f-4e7c-a0f6-163bd917756a
+- down: 55 mbps
+  name: hysteria2-美国-1
+  password: dongtaiwang.com
+  port: 27921
+  ports: 27921,28000-29000
+  server: 157.254.223.43
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria2
+  up: 11 mbps
+- down: 55 mbps
+  name: hysteria2-法国-2
+  password: dongtaiwang.com
+  port: 22000
+  server: 62.210.124.146
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: hysteria2
+  up: 11 mbps
+- down: 55 mbps
+  name: hysteria2-荷兰-3
+  password: dongtaiwang.com
+  port: 32952
+  server: 51.158.194.63
+  skip-cert-verify: true
+  sni: www.microsoft.com
+  type: hysteria2
+  up: 11 mbps
