@@ -311,7 +311,7 @@ class ProxyConverter:
                     },
                 }
                 xray_network = streamSettings.get('network', 'tcp')
-                if xray_network in ('raw', 'tcp', 'xhttp'):
+                if xray_network in ('raw', 'tcp'):
                     transport_config.update({
                         'network': 'tcp',
                     })
