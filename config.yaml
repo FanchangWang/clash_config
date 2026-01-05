@@ -63,9 +63,8 @@ proxy-groups:
   - name: "SPorn"
     type: select
     proxies:
+      - PornChromego
       - Ripao
-      - LChromego
-      - FCountry
       - Sall
 
   - name: "LChromego"
@@ -81,6 +80,12 @@ proxy-groups:
     use:
       - chromego
     filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France|德国|Germany"
+
+  - name: "PornChromego"
+    type: url-test
+    use:
+      - chromego
+    filter: "美国-hysteria2|荷兰-hysteria2"
 
   - name: "Ripao"
     type: url-test
