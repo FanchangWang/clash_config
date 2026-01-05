@@ -189,7 +189,7 @@ proxies:
   protocol: udp
   recv-window: 276824064
   recv-window-conn: 69206016
-  server: 5.178.101.106
+  server: 89.144.35.34
   skip-cert-verify: true
   sni: apple.com
   type: hysteria

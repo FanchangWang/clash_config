@@ -9,7 +9,6 @@ import yaml
 class ProxyConverter:
     """
     代理协议转换类，用于将各种协议转换为 mihomo 协议格式
-    支持的协议：hysteria2、hysteria、clash.meta2、mieru、quick、singbox(vmess/vless)、xray(vmess/vless)
     根据最新的 mihomo proxies 配置文档优化
     """
 

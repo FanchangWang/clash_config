@@ -129,10 +129,10 @@ class ChromeGoExtractor:
         # 检查目录是否存在
         if not os.path.exists(self.chrome_go_temp_dir):
             print(f"目录不存在: {self.chrome_go_temp_dir}")
-            print("chromego 目录不存在，脚本停止")
-            exit(1)
-        self.extract_all_proxies()
-        print("chromego 配置提取完成！")
+            print("chromego 目录不存在，脚本停止!")
+        else:
+            self.extract_all_proxies()
+            print("chromego 配置提取完成！")
 
 if __name__ == "__main__":
     ChromeGoExtractor().run()

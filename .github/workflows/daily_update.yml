@@ -1,0 +1,43 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 每天 3:00 运行 （UTC+8 = 11:00）
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 拉取仓库代码
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 设置Python环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 执行脚本
+        run: |
+          python chrome_go_auto.py
+
+      - name: 提交修改
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff --staged --quiet && echo "No changes" || (
+            git commit -m "Auto update: $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')" &&
+            git push
+          )

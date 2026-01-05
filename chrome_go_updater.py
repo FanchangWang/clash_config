@@ -103,7 +103,4 @@ class ChromeGoUpdater:
             return False
 
 if __name__ == "__main__":
-    import sys
-    result = ChromeGoUpdater().update()
-    print(f"Update result: {result}")
-    sys.exit(0 if result else 1)
+    ChromeGoUpdater().update()
