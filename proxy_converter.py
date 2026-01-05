@@ -253,7 +253,7 @@ class ProxyConverter:
                         protocol = portBinding.get('protocol', 'TCP')
                         # 构建 mihomo 格式
                         mihomo_proxy = {
-                            'name': f'mieru-{country}',
+                            'name': country,
                             'type': 'mieru',
                             'server': address,
                             'transport': protocol.upper(),

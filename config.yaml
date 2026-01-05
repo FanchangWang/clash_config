@@ -60,7 +60,7 @@ proxy-groups:
       - Ripao
       - Sall
 
-  - name: "APorn"
+  - name: "SPorn"
     type: select
     proxies:
       - Ripao
@@ -145,8 +145,8 @@ proxy-providers:
       expected-status: 204
 
 rules:
-  # RULE-SET APorn
-  - RULE-SET,PornMyDomain,APorn
+  # RULE-SET SPorn
+  - RULE-SET,PornMyDomain,SPorn
   # RULE-SET FCountry
   - RULE-SET,CountryMyDomain,FCountry
   # RULE-SET PROXY
@@ -156,7 +156,7 @@ rules:
   # GETSITE
   # - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,category-porn,FCountry
+  - GEOSITE,category-porn,SPorn
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,google-cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT

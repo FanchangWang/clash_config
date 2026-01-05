@@ -3,7 +3,7 @@ proxies:
   - h3
   auth-str: dongtaiwang.com
   down: 55 Mbps
-  name: hysteria-德国-1
+  name: 德国-hysteria-1
   port: 23008
   protocol: udp
   server: 89.144.35.30
@@ -15,7 +15,7 @@ proxies:
   - h3
   auth-str: dongtaiwang.com
   down: 55 Mbps
-  name: hysteria-德国-2
+  name: 德国-hysteria-2
   port: 23008
   protocol: udp
   server: 5.178.101.33
@@ -23,109 +23,9 @@ proxies:
   sni: apple.com
   type: hysteria
   up: 11 Mbps
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  down: 55 Mbps
-  name: hysteria-法国-3
-  port: 20001
-  protocol: udp
-  server: 2001:bc8:32d7:402::3
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11 Mbps
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  down: 55 Mbps
-  name: hysteria-法国-4
-  port: 20001
-  protocol: udp
-  server: 2001:bc8:32d7:402::4
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11 Mbps
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  down: 55 Mbps
-  name: hysteria-法国-5
-  port: 23880
-  protocol: udp
-  server: 2001:bc8:32d7:14f::4
-  skip-cert-verify: true
-  sni: bing.com
-  type: hysteria
-  up: 11 Mbps
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  disable-mtu-discovery: true
-  down: 55
-  fast-open: true
-  name: hysteria-德国-6
-  port: 39228
-  protocol: udp
-  recv-window: 276824064
-  recv-window-conn: 69206016
-  server: 5.178.101.106
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  disable-mtu-discovery: true
-  down: 55
-  fast-open: true
-  name: hysteria-美国-7
-  port: 39228
-  protocol: udp
-  recv-window: 276824064
-  recv-window-conn: 69206016
-  server: 98.142.247.21
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  disable-mtu-discovery: true
-  down: 55
-  fast-open: true
-  name: hysteria-法国-8
-  port: 23880
-  protocol: udp
-  recv-window: 230686720
-  recv-window-conn: 57671680
-  server: 62.210.127.177
-  skip-cert-verify: true
-  sni: bing.com
-  type: hysteria
-  up: 11
-- alpn:
-  - h3
-  auth-str: dongtaiwang.com
-  disable-mtu-discovery: true
-  down: 55
-  fast-open: true
-  name: hysteria-德国-9
-  port: 18899
-  protocol: udp
-  recv-window: 276824064
-  recv-window-conn: 69206016
-  server: 89.144.35.231
-  skip-cert-verify: true
-  sni: apple.com
-  type: hysteria
-  up: 11
 - client-fingerprint: chrome
   flow: null
-  name: vless-法国-1
+  name: 法国-vless-1
   network: tcp
   port: 17401
   reality-opts:
@@ -147,9 +47,47 @@ proxies:
   type: vless
   udp: true
   uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: 法国-hysteria-1
+  port: 20001
+  protocol: udp
+  server: 2001:bc8:32d7:402::3
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: 法国-hysteria-2
+  port: 20001
+  protocol: udp
+  server: 2001:bc8:32d7:402::4
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h2
+  - http/1.1
+  client-fingerprint: chrome
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 0
+  name: 南非-anytls-1
+  password: dongtaiwang.com
+  port: 59901
+  server: 45.221.98.14
+  skip-cert-verify: true
+  type: anytls
+  udp: true
 - client-fingerprint: chrome
   flow: null
-  name: vless-法国-2
+  name: 法国-vless-2
   network: tcp
   port: 17401
   reality-opts:
@@ -173,7 +111,7 @@ proxies:
   uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
 - client-fingerprint: chrome
   flow: null
-  name: vless-法国-3
+  name: 法国-vless-3
   network: tcp
   port: 17401
   reality-opts:
@@ -195,39 +133,17 @@ proxies:
   type: vless
   udp: true
   uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
-- alpn:
-  - h2
-  - http/1.1
-  client-fingerprint: chrome
-  idle-session-check-interval: 30
-  idle-session-timeout: 30
-  min-idle-session: 0
-  name: anytls-南非-1
-  password: dongtaiwang.com
-  port: 59901
-  server: 45.221.98.14
-  skip-cert-verify: true
-  type: anytls
-  udp: true
-- name: mieru-美国-1
+- name: 美国-mieru-1
   password: dongtaiwang.com
   port: 33990
   server: 157.254.223.48
   transport: TCP
   type: mieru
   username: dongtaiwang.com
-- name: mieru-mieru-南非-2
-  password: dongtaiwang.com
-  port: 28866
-  server: 45.221.98.11
-  transport: TCP
-  type: mieru
-  udp: true
-  username: dongtaiwang.com
 - alpn:
   - h3
   congestion-controller: bbr
-  name: tuic-德国-1
+  name: 德国-tuic-1
   password: dongtaiwang.com
   port: 33457
   reduce-rtt: true
@@ -240,7 +156,7 @@ proxies:
 - alpn:
   - h3
   congestion-controller: bbr
-  name: tuic-美国-2
+  name: 美国-tuic-1
   password: dongtaiwang.com
   port: 33457
   reduce-rtt: true
@@ -250,8 +166,84 @@ proxies:
   type: tuic
   udp-relay-mode: native
   uuid: 66d37a65-7f6f-4e7c-a0f6-163bd917756a
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  down: 55 Mbps
+  name: 法国-hysteria-3
+  port: 23880
+  protocol: udp
+  server: 2001:bc8:32d7:14f::4
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria
+  up: 11 Mbps
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: 德国-hysteria-3
+  port: 39228
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 5.178.101.106
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: 美国-hysteria-1
+  port: 39228
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 98.142.247.21
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: 法国-hysteria-4
+  port: 23880
+  protocol: udp
+  recv-window: 230686720
+  recv-window-conn: 57671680
+  server: 62.210.127.177
+  skip-cert-verify: true
+  sni: bing.com
+  type: hysteria
+  up: 11
+- alpn:
+  - h3
+  auth-str: dongtaiwang.com
+  disable-mtu-discovery: true
+  down: 55
+  fast-open: true
+  name: 德国-hysteria-4
+  port: 18899
+  protocol: udp
+  recv-window: 276824064
+  recv-window-conn: 69206016
+  server: 89.144.35.231
+  skip-cert-verify: true
+  sni: apple.com
+  type: hysteria
+  up: 11
 - down: 55 mbps
-  name: hysteria2-美国-1
+  name: 美国-hysteria2-1
   password: dongtaiwang.com
   port: 27921
   ports: 27921,28000-29000
@@ -261,7 +253,7 @@ proxies:
   type: hysteria2
   up: 11 mbps
 - down: 55 mbps
-  name: hysteria2-法国-2
+  name: 法国-hysteria2-1
   password: dongtaiwang.com
   port: 22000
   server: 62.210.124.146
@@ -270,7 +262,7 @@ proxies:
   type: hysteria2
   up: 11 mbps
 - down: 55 mbps
-  name: hysteria2-荷兰-3
+  name: 荷兰-hysteria2-1
   password: dongtaiwang.com
   port: 32952
   server: 51.158.194.63
@@ -278,3 +270,11 @@ proxies:
   sni: www.microsoft.com
   type: hysteria2
   up: 11 mbps
+- name: 南非-mieru-1
+  password: dongtaiwang.com
+  port: 28866
+  server: 45.221.98.11
+  transport: TCP
+  type: mieru
+  udp: true
+  username: dongtaiwang.com

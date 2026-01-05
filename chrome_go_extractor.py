@@ -7,6 +7,7 @@ class ChromeGoExtractor:
         self.temp_dir = "temp"
         self.chrome_go_temp_dir = os.path.join(self.temp_dir, "ipupdate-master-backup-img-1-2-ipp", "backup", "img", "1", "2", "ipp")
         self.chrome_go_data_dir = os.path.join(self.temp_dir, "chrome_go")
+        self.all_proxies_filename = "chromego.yaml"
 
         # 确保 chrome_go_data_dir 目录存在
         if not os.path.exists(self.chrome_go_data_dir):
@@ -74,6 +75,10 @@ class ChromeGoExtractor:
 
         # 按协议类型存储结果
         proxies_by_protocol = {}
+        # 存储所有代理节点
+        all_proxies = {
+            'proxies': [],
+        }
 
         # 扫描所有配置
         for config in scan_configs:
@@ -88,18 +93,19 @@ class ChromeGoExtractor:
                     continue
                 if protocol not in proxies_by_protocol:
                     proxies_by_protocol[protocol] = []
-                # todo 过滤重复配置并重置 name
-                # 如果 protocol 且 proxy['server'] 已存在就跳过，不存在将 proxy['name'] 设置为 protocol-proxy['name']-index
-                if any(p['type'] == protocol and p['server'] == proxy['server'] for p in proxies_by_protocol[protocol]):
+                # 排除大陆代理节点 # 保留了香港与台湾节点
+                if proxy['name'] == '中国':
                     continue
-                proxy['name'] = f"{protocol}-{proxy['name']}-{len(proxies_by_protocol[protocol])+1}"
+                # 排除重复代理节点
+                if any(p['type'] == protocol and p['server'] == proxy['server'] and p.get('port') == proxy.get('port') and p.get('ports') == proxy.get('ports') for p in proxies_by_protocol[protocol]):
+                    continue
+                # 统计同一协议下相同名称的代理数量
+                count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"{proxy['name']}-{protocol}-")) + 1
+                proxy['name'] = f"{proxy['name']}-{protocol}-{count}"
                 proxies_by_protocol[protocol].append(proxy)
+                # 加入所有代理节点
+                all_proxies['proxies'].append(proxy)
 
-        # 保存到对应的数据文件
-        all_filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"chromego.yaml")
-        all_proxies = {
-            'proxies': [],
-        }
         for protocol, proxies in proxies_by_protocol.items():
             # 构建文件名
             filename = os.path.join(self.chrome_go_data_dir, f"{protocol}.yaml")
@@ -107,14 +113,13 @@ class ChromeGoExtractor:
             # 保存为 yaml 格式
             with open(filename, 'w', encoding='utf-8') as f:
                 yaml.dump(proxies, f, allow_unicode=True, default_flow_style=False)
-            all_proxies['proxies'].extend(proxies)
 
             print(f"已保存 {len(proxies)} 个 {protocol} 协议配置到 {filename}")
 
         # 保存所有协议配置到 chromego.yaml
-        with open(all_filename, 'w', encoding='utf-8') as f:
+        with open(self.all_proxies_filename, 'w', encoding='utf-8') as f:
             yaml.dump(all_proxies, f, allow_unicode=True, default_flow_style=False)
-        print(f"已保存所有 {len(all_proxies['proxies'])} 个协议配置到 {all_filename}")
+        print(f"已保存所有 {len(all_proxies['proxies'])} 个协议配置到 {self.all_proxies_filename}")
 
     def run(self):
         """
