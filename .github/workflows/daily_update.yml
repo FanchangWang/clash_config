@@ -2,7 +2,7 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: "0 3 * * *" # 每天 3:00 运行 （UTC+8 = 11:00）
+    - cron: "10 * * * *" # 每小时第10分钟运行
   workflow_dispatch: # 允许手动触发
 
 jobs:
