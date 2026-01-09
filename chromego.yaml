@@ -253,15 +253,6 @@ proxies:
   type: hysteria2
   up: 11 mbps
 - down: 55 mbps
-  name: 荷兰-hysteria2-1
-  password: dongtaiwang.com
-  port: 32952
-  server: 51.158.194.63
-  skip-cert-verify: true
-  sni: www.microsoft.com
-  type: hysteria2
-  up: 11 mbps
-- down: 55 mbps
   name: 法国-hysteria2-1
   password: dongtaiwang.com
   port: 22000
