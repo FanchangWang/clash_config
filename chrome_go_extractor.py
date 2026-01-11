@@ -82,7 +82,7 @@ class ChromeGoExtractor:
 
         # 扫描所有配置
         for config in scan_configs:
-            print(f"开始扫描 {config['dir']} 目录...")
+            print(f"\n开始扫描 {config['dir']} 目录...")
             proxies = self.recursive_scan(config['dir'], config['filename'], config['parser'])
 
             # 按协议类型分类

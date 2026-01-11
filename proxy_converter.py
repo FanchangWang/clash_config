@@ -62,7 +62,7 @@ class ProxyConverter:
         # 先检查是否是 IPv6 地址格式 [IPv6]:port
         ipv6_match = re.match(r'^\[([0-9a-fA-F:.]+)\]:(.+)$', server)
         if ipv6_match:
-            server_addr = f"[{ipv6_match.group(1)}]"
+            server_addr = ipv6_match.group(1)
             port_part = ipv6_match.group(2)
 
             # 总是从端口部分提取第一个端口作为 port
@@ -139,7 +139,7 @@ class ProxyConverter:
             if is_multi_port:
                 mihomo_config['ports'] = ports
 
-            print("配置内容:")
+            print("\n配置内容:")
             print(mihomo_config)
 
             return mihomo_config
@@ -191,7 +191,7 @@ class ProxyConverter:
                 if down_mbps:
                     mihomo_config['down'] = down_mbps
 
-            print("配置内容:")
+            print("\n配置内容:")
             print(mihomo_config)
 
             return mihomo_config
