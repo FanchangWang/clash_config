@@ -1,5 +1,7 @@
 import os
+
 import yaml
+
 from proxy_converter import ProxyConverter
 
 class ChromeGoExtractor:

@@ -4,6 +4,7 @@ import re
 import socket
 
 import geoip2.database
+import requests
 import yaml
 
 class ProxyConverter:
@@ -28,6 +29,24 @@ class ProxyConverter:
             ip_address = socket.gethostbyname(server)
         except socket.gaierror:
             ip_address = server
+
+        # 接口地址（lang=zh-CN 返回中文结果，fields限制返回必要字段）
+        api_url = f"http://ip-api.com/json/{ip_address}?lang=zh-CN&fields=country,status,message"
+        try:
+            # 设置超时时间，避免网络阻塞
+            response = requests.get(api_url, timeout=10)
+            result = response.json()
+
+            # 处理接口返回结果
+            if result.get("status") != "success":
+                print(f"ip-api 查询失败：{result.get('message', '未知错误')}")
+            else:
+                # 返回中文国家名称
+                return result.get("country", "未知")
+        except requests.exceptions.RequestException as e:
+            print(f"ip-api 网络异常：{e}")
+        except Exception as e:
+            print(f"ip-api 解析异常：{e}")
 
         try:
             data_dir = "data"
