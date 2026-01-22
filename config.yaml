@@ -68,16 +68,22 @@ proxy-groups:
     type: url-test
     use:
       - p_ai
+    proxies:
+      - Sall
 
   - name: "P_PORN_X"
     type: url-test
     use:
       - p_porn_x
+    proxies:
+      - Sall
 
   - name: "P_PORN_ALL"
     type: url-test
     use:
       - p_porn_all
+    proxies:
+      - Sall
 
   - name: "Sall"
     type: select
