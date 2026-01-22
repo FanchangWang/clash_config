@@ -39,12 +39,12 @@ proxies:
   uuid: 66d37a65-7f6f-4e7c-a0f6-163bd917756a
 - alpn:
   - h3
-  auth-str: dongtaiwang.com
+  auth-str: alvin9999.com
   down: 55 Mbps
-  name: 荷兰-hysteria-1
+  name: 德国-hysteria-2
   port: 23008
   protocol: udp
-  server: 89.144.35.30
+  server: ip1.758733.xyz
   skip-cert-verify: true
   sni: apple.com
   type: hysteria
@@ -53,7 +53,7 @@ proxies:
   - h3
   auth-str: dongtaiwang.com
   down: 55 Mbps
-  name: 德国-hysteria-2
+  name: 德国-hysteria-3
   port: 23008
   protocol: udp
   server: 5.178.101.33
@@ -184,7 +184,7 @@ proxies:
   disable-mtu-discovery: true
   down: 55
   fast-open: true
-  name: 德国-hysteria-3
+  name: 德国-hysteria-4
   port: 20088
   protocol: udp
   recv-window: 276824064
@@ -216,7 +216,7 @@ proxies:
   disable-mtu-discovery: true
   down: 55
   fast-open: true
-  name: 荷兰-hysteria-2
+  name: 荷兰-hysteria-1
   port: 18899
   protocol: udp
   recv-window: 276824064
@@ -232,7 +232,7 @@ proxies:
   disable-mtu-discovery: true
   down: 55
   fast-open: true
-  name: 德国-hysteria-4
+  name: 德国-hysteria-5
   port: 54177
   protocol: udp
   recv-window: 230686720
