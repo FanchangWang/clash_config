@@ -9,7 +9,8 @@ class ChromeGoExtractor:
         self.temp_dir = "temp"
         self.chrome_go_temp_dir = os.path.join(self.temp_dir, "ipupdate-master-backup-img-1-2-ipp", "backup", "img", "1", "2", "ipp")
         self.chrome_go_data_dir = os.path.join(self.temp_dir, "chrome_go")
-        self.all_proxies_filename = "chromego.yaml"
+        self.data_dir = "data"
+        self.chrome_proxies_filename =  os.path.join(self.data_dir, "chromego_proxies.yaml")
 
         # 确保 chrome_go_data_dir 目录存在
         if not os.path.exists(self.chrome_go_data_dir):
@@ -78,9 +79,16 @@ class ChromeGoExtractor:
         # 按协议类型存储结果
         proxies_by_protocol = {}
         # 存储所有代理节点
-        all_proxies = {
-            'proxies': [],
-        }
+        chrome_proxies = {
+            'all': [], # 所有协议配置
+            'udp': [], # 所有UDP代理节点
+            'ai': [], # 所有AI代理节点
+            'udp_ai': [], # 所有UDP AI代理节点
+            'porn_x': [], # porn x.com 代理节点
+            'porn_all': [], # porn 所有代理节点
+        } # 所有协议配置
+
+        import copy
 
         # 扫描所有配置
         for config in scan_configs:
@@ -103,25 +111,33 @@ class ChromeGoExtractor:
                     continue
                 # 统计同一协议下相同名称的代理数量
                 count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"{proxy['name']}-{protocol}-")) + 1
-                proxy['name'] = f"{proxy['name']}-{protocol}-{count}"
-                proxies_by_protocol[protocol].append(proxy)
+                country = proxy['name']
+                proxy['name'] = f"go-{country}-{protocol}-{count}"
+                proxies_by_protocol[protocol].append(copy.deepcopy(proxy))
                 # 加入所有代理节点
-                all_proxies['proxies'].append(proxy)
-
-        for protocol, proxies in proxies_by_protocol.items():
-            # 构建文件名
-            filename = os.path.join(self.chrome_go_data_dir, f"{protocol}.yaml")
-
-            # 保存为 yaml 格式
-            with open(filename, 'w', encoding='utf-8') as f:
-                yaml.dump(proxies, f, allow_unicode=True, default_flow_style=False)
-
-            print(f"已保存 {len(proxies)} 个 {protocol} 协议配置到 {filename}")
+                chrome_proxies['all'].append(copy.deepcopy(proxy))
+                # country 判断是否为 AI 合法国家，加入 AI 节点
+                if country in ['美国', '日本', '韩国', '台湾', '荷兰', '法国', '德国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
+                    chrome_proxies['ai'].append(copy.deepcopy(proxy))
+                    # 判断是否为 UDP AI 节点
+                    if protocol in ['hysteria', 'hysteria2', 'tuic']:
+                        chrome_proxies['udp_ai'].append(copy.deepcopy(proxy))
+                # protocal 为 hysteria|hysteria2|tuic 时，加入UDP代理节点
+                if protocol in ['hysteria', 'hysteria2', 'tuic']:
+                    chrome_proxies['udp'].append(copy.deepcopy(proxy))
+                # config['dir'] == hysteria2 时，允许 porn
+                if config['dir'] == 'hysteria2':
+                    # country 判断是否为 porn 合法国家，加入 porn 节点
+                    if country in ['美国', '日本', '韩国', '香港', '台湾', '荷兰', '德国']:
+                        chrome_proxies['porn_all'].append(copy.deepcopy(proxy))
+                        if country not in ['德国']: # 排除 x.com 不允许的节点
+                            chrome_proxies['porn_x'].append(copy.deepcopy(proxy))
 
         # 保存所有协议配置到 chromego.yaml
-        with open(self.all_proxies_filename, 'w', encoding='utf-8') as f:
-            yaml.dump(all_proxies, f, allow_unicode=True, default_flow_style=False)
-        print(f"已保存所有 {len(all_proxies['proxies'])} 个协议配置到 {self.all_proxies_filename}")
+        with open(self.chrome_proxies_filename, 'w', encoding='utf-8') as f:
+            yaml.dump(chrome_proxies, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+        print(f"已保存所有 {len(chrome_proxies['all'])} 个协议配置到 {self.chrome_proxies_filename}")
 
     def run(self):
         """

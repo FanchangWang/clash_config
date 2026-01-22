@@ -30,7 +30,7 @@ jobs:
 
       - name: 执行脚本
         run: |
-          python chrome_go_auto.py
+          python auto_update.py
 
       - name: 提交修改
         run: |
