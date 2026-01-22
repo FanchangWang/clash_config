@@ -63,8 +63,7 @@ proxy-groups:
   - name: "SPorn"
     type: select
     proxies:
-      - PornChromego
-      - Ripao
+      - PornX
       - Sall
 
   - name: "LChromego"
@@ -72,14 +71,19 @@ proxy-groups:
     use:
       - chromego
     filter: "hysteria|hysteria2|tuic"
-    exclude-filter: "中国|China"
     strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
 
   - name: "FCountry"
     type: url-test
     use:
       - chromego
-    filter: "美国|United States|USA|日本|Japan|韩国|South Korea|台湾|Taiwan|荷兰|Netherlands|法国|France|德国|Germany"
+    filter: "美国|日本|韩国|台湾|荷兰|法国|德国"
+
+  - name: "PornX"
+    type: url-test
+    proxies:
+      - PornChromego
+      - PornRipaoAnaer
 
   - name: "PornChromego"
     type: url-test
@@ -87,10 +91,12 @@ proxy-groups:
       - chromego
     filter: "美国-hysteria2|荷兰-hysteria2"
 
-  - name: "Ripao"
+  - name: "PornRipaoAnaer"
     type: url-test
     use:
       - ripaojiedian
+      - anaer
+    filter: "美国|日本|韩国|香港|台湾"
 
   - name: "Sall"
     type: select
@@ -103,7 +109,6 @@ proxy-providers:
   anaer:
     type: http
     path: ./proxy/anaer.yaml
-    # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml"
     interval: 3600
     proxy: DIRECT
@@ -134,8 +139,6 @@ proxy-providers:
   chromego:
     type: http
     path: ./proxy/chromego.yaml
-    # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/lgf4591/cloudflare-pages-vpn/main/ChromeGo_Merge/sub/merged_proxies_new.yaml"
-    # url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/Misaka-blog/chromego_merge/refs/heads/main/sub/merged_proxies_new.yaml"
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/chromego.yaml"
     interval: 3600
     proxy: DIRECT
@@ -150,8 +153,8 @@ proxy-providers:
       expected-status: 204
 
 rules:
-  # RULE-SET SPorn
-  - RULE-SET,PornMyDomain,SPorn
+  #  RULE-SET x.com
+  - DOMAIN-SUFFIX,x.com,SPorn
   # RULE-SET FCountry
   - RULE-SET,CountryMyDomain,FCountry
   # RULE-SET PROXY
@@ -189,15 +192,6 @@ rule-providers:
     type: http
     path: ./rule-set/proxy_domain.yaml
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
-    interval: 86400
-    proxy: DIRECT
-    behavior: domain
-    format: yaml
-  # 代理规则 porn
-  PornMyDomain:
-    type: http
-    path: ./rule-set/porn_domain.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
