@@ -62,8 +62,8 @@ proxy-groups:
   - name: "SPorn"
     type: select
     proxies:
-      - PornX
-      - Sall
+      - PornChromego
+      - PornRipaoAnaer
 
   - name: "LChromego"
     type: load-balance
@@ -77,12 +77,6 @@ proxy-groups:
     use:
       - chromego
     filter: "美国|日本|韩国|台湾|荷兰|法国|德国"
-
-  - name: "PornX"
-    type: url-test
-    proxies:
-      - PornChromego
-      - PornRipaoAnaer
 
   - name: "PornChromego"
     type: url-test
