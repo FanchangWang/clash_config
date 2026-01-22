@@ -1,8 +1,0 @@
-payload:
-  # Google Android Studio
-  - "aida.googleapis.com"
-  # Google Gemini
-  - "gemini.google.com"
-  # Google Antigravity
-  - "+.antigravity.google"
-  - "+.antigravity-unleash.goog"
