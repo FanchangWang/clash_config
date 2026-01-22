@@ -110,7 +110,7 @@ class ChromeGoExtractor:
                 if any(p['type'] == protocol and p['server'] == proxy['server'] and p.get('port') == proxy.get('port') and p.get('ports') == proxy.get('ports') for p in proxies_by_protocol[protocol]):
                     continue
                 # 统计同一协议下相同名称的代理数量
-                count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"{proxy['name']}-{protocol}-")) + 1
+                count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"go-{proxy['name']}-{protocol}-")) + 1
                 country = proxy['name']
                 proxy['name'] = f"go-{country}-{protocol}-{count}"
                 proxies_by_protocol[protocol].append(copy.deepcopy(proxy))

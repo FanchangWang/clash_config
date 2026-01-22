@@ -35,7 +35,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-法国-hysteria-1
+- name: go-法国-hysteria-2
   type: hysteria
   server: 2001:bc8:32d7:402::4
   port: 20001
@@ -73,7 +73,7 @@ proxies:
   reduce-rtt: true
   udp-relay-mode: native
   congestion-controller: bbr
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -85,7 +85,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -117,7 +117,7 @@ proxies:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -133,7 +133,7 @@ proxies:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria-1
+- name: go-荷兰-hysteria-2
   type: hysteria
   server: 89.144.35.231
   protocol: udp
@@ -159,7 +159,7 @@ proxies:
   ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-1
+- name: go-美国-hysteria2-2
   type: hysteria2
   server: 157.254.223.24
   port: 30088

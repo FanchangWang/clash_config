@@ -130,13 +130,13 @@ class RipaoExtractor:
             if any(p['type'] == protocol and p['server'] == proxy['server'] and p.get('port') == proxy.get('port') and p.get('ports') == proxy.get('ports') for p in proxies_by_protocol[protocol]):
                 continue
             # 统计同一协议下相同名称的代理数量
-            count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"{proxy['name']}-{protocol}-")) + 1
+            count = sum(1 for p in proxies_by_protocol[protocol] if p.get('name', '').startswith(f"rp-{proxy['name']}-{protocol}-")) + 1
             country = proxy['name']
 
             # 创建代理对象的深拷贝，避免PyYAML生成锚点
             proxy['name'] = f"rp-{country}-{protocol}-{count}"
 
-            proxies_by_protocol[protocol].append(proxy)
+            proxies_by_protocol[protocol].append(copy.deepcopy(proxy))
 
             # 加入所有代理节点（使用深拷贝）
             processed_proxies['all'].append(copy.deepcopy(proxy))
