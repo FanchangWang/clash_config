@@ -30,7 +30,7 @@ jobs:
 
       - name: 执行脚本
         run: |
-          python auto_update.py
+          python auto_updater.py
 
       - name: 提交修改
         run: |
