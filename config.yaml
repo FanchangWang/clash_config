@@ -55,47 +55,34 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - LChromego
-      - FCountry
+      - P_UDP
       - Sall
 
-  - name: "SPorn"
-    type: select
-    proxies:
-      - PornChromego
-      - PornRipaoAnaer
-
-  - name: "LChromego"
+  - name: "P_UDP"
     type: load-balance
     use:
-      - chromego
-    filter: "hysteria|hysteria2|tuic"
+      - p_udp
     strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
 
-  - name: "FCountry"
+  - name: "P_AI"
     type: url-test
     use:
-      - chromego
-    filter: "美国|日本|韩国|台湾|荷兰|法国|德国"
+      - p_ai
 
-  - name: "PornChromego"
+  - name: "P_PORN_X"
     type: url-test
     use:
-      - chromego
-    filter: "美国-hysteria2|荷兰-hysteria2"
+      - p_porn_x
 
-  - name: "PornRipaoAnaer"
+  - name: "P_PORN_ALL"
     type: url-test
     use:
-      - ripaojiedian
-      - anaer
-    filter: "美国|日本|韩国|香港|台湾"
+      - p_porn_all
 
   - name: "Sall"
     type: select
     use:
-      - ripaojiedian
-      - chromego
+      - p_all
       - anaer
 
 proxy-providers:
@@ -114,13 +101,12 @@ proxy-providers:
       lazy: true
       expected-status: 204
 
-  ripaojiedian:
+  p_udp:
     type: http
-    path: ./proxy/ripaojiedian.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
+    path: ./proxy/udp.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/udp.yaml"
     interval: 3600
     proxy: DIRECT
-    exclude-filter: "中国|China"
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -129,14 +115,54 @@ proxy-providers:
       lazy: false
       expected-status: 204
 
-  chromego:
+  p_ai:
     type: http
-    path: ./proxy/chromego.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/chromego.yaml"
+    path: ./proxy/ai.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/ai.yaml"
     interval: 3600
     proxy: DIRECT
-    # exclude-type: "http|socks5|ss|ssr|snell|vmess|vless|ssh|tuic|shadowsocks|trojan"
-    exclude-filter: "中国|China"
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+  p_porn_x:
+    type: http
+    path: ./proxy/porn_x.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_x.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+  p_porn_all:
+    type: http
+    path: ./proxy/porn_all.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/porn_all.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+
+  p_all:
+    type: http
+    path: ./proxy/all.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/all.yaml"
+    interval: 3600
+    proxy: DIRECT
     health-check:
       enable: true
       url: "https://www.google.com/generate_204"
@@ -147,9 +173,12 @@ proxy-providers:
 
 rules:
   #  RULE-SET x.com
-  - DOMAIN-SUFFIX,x.com,SPorn
-  # RULE-SET FCountry
-  - RULE-SET,CountryMyDomain,FCountry
+  - DOMAIN-SUFFIX,x.com,P_PORN_X
+  # RULE-SET Google AI
+  - DOMAIN,aida.googleapis.com,P_AI
+  - DOMAIN,gemini.google.com,P_AI
+  - DOMAIN-SUFFIX,antigravity.google,P_AI
+  - DOMAIN-SUFFIX,antigravity-unleash.goog,P_AI
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
@@ -157,7 +186,7 @@ rules:
   # GETSITE
   # - GEOSITE,category-ads-all,REJECT
   - GEOSITE,private,DIRECT
-  - GEOSITE,category-porn,SPorn
+  - GEOSITE,category-porn,P_PORN_ALL
   - GEOSITE,apple-cn,DIRECT
   - GEOSITE,google-cn,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
