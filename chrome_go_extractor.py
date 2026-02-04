@@ -117,7 +117,7 @@ class ChromeGoExtractor:
                 # 加入所有代理节点
                 chrome_proxies['all'].append(copy.deepcopy(proxy))
                 # country 判断是否为 AI 合法国家，加入 AI 节点
-                if country in ['美国', '日本', '韩国', '台湾', '荷兰', '法国', '德国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
+                if country in ['日本', '韩国', '台湾', '荷兰', '法国', '德国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
                     chrome_proxies['ai'].append(copy.deepcopy(proxy))
                     # 判断是否为 UDP AI 节点
                     if protocol in ['hysteria', 'hysteria2', 'tuic']:

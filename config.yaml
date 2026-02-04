@@ -185,6 +185,7 @@ rules:
   - DOMAIN-SUFFIX,gemini.google.com,P_AI
   - DOMAIN-SUFFIX,antigravity.google,P_AI
   - DOMAIN-SUFFIX,antigravity-unleash.goog,P_AI
+  - DOMAIN-SUFFIX,stitch.withgoogle.com,P_AI
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
