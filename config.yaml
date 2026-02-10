@@ -181,11 +181,7 @@ rules:
   #  RULE-SET x.com
   - DOMAIN,x.com,P_PORN_X
   # RULE-SET Google AI
-  - DOMAIN-SUFFIX,aida.googleapis.com,P_AI
-  - DOMAIN-SUFFIX,gemini.google.com,P_AI
-  - DOMAIN-SUFFIX,antigravity.google,P_AI
-  - DOMAIN-SUFFIX,antigravity-unleash.goog,P_AI
-  - DOMAIN-SUFFIX,stitch.withgoogle.com,P_AI
+  - RULE-SET,AIDomain,P_AI
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT
@@ -221,6 +217,15 @@ rule-providers:
     type: http
     path: ./rule-set/proxy_domain.yaml
     url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/proxy_domain.yaml"
+    interval: 86400
+    proxy: DIRECT
+    behavior: domain
+    format: yaml
+  # AI 规则
+  AIDomain:
+    type: http
+    path: ./rule-set/ai_domain.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/ai_domain.yaml"
     interval: 86400
     proxy: DIRECT
     behavior: domain
