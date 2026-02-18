@@ -1,5 +1,5 @@
 all:
-- name: go-德国-hysteria-1
+- name: go-荷兰-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -11,7 +11,7 @@ all:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-1
   type: hysteria
   server: 5.178.101.33
   port: 23008
@@ -119,7 +119,7 @@ all:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -152,7 +152,7 @@ all:
   transport: TCP
   username: dongtaiwang.com
   password: dongtaiwang.com
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -168,7 +168,7 @@ all:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-5
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -184,14 +184,13 @@ all:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-美国-hysteria2-1
+- name: go-荷兰-hysteria2-1
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
+  server: 89.144.35.34
+  port: 50022
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
 - name: go-法国-hysteria2-1
@@ -203,7 +202,7 @@ all:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
+- name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
   port: 30088
@@ -231,7 +230,7 @@ all:
   password: dongtaiwang.com
   port: 28866
 udp:
-- name: go-德国-hysteria-1
+- name: go-荷兰-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -243,7 +242,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-1
   type: hysteria
   server: 5.178.101.33
   port: 23008
@@ -279,7 +278,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -291,7 +290,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -307,7 +306,7 @@ udp:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-5
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -323,14 +322,13 @@ udp:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-美国-hysteria2-1
+- name: go-荷兰-hysteria2-1
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
+  server: 89.144.35.34
+  port: 50022
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
 - name: go-法国-hysteria2-1
@@ -342,7 +340,7 @@ udp:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
+- name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
   port: 30088
@@ -362,7 +360,7 @@ udp:
   up: 11 mbps
   down: 55 mbps
 ai:
-- name: go-德国-hysteria-1
+- name: go-荷兰-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -374,7 +372,7 @@ ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-1
   type: hysteria
   server: 5.178.101.33
   port: 23008
@@ -482,7 +480,7 @@ ai:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -508,7 +506,7 @@ ai:
   - h2
   - http/1.1
   skip-cert-verify: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -524,7 +522,7 @@ ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-5
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -540,6 +538,15 @@ ai:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
+- name: go-荷兰-hysteria2-1
+  type: hysteria2
+  server: 89.144.35.34
+  port: 50022
+  password: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 62.210.124.146
@@ -567,7 +574,7 @@ ai:
   password: dongtaiwang.com
   port: 28866
 udp_ai:
-- name: go-德国-hysteria-1
+- name: go-荷兰-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -579,7 +586,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-1
   type: hysteria
   server: 5.178.101.33
   port: 23008
@@ -615,7 +622,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -627,7 +634,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -643,7 +650,7 @@ udp_ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-5
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -659,6 +666,15 @@ udp_ai:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
+- name: go-荷兰-hysteria2-1
+  type: hysteria2
+  server: 89.144.35.34
+  port: 50022
+  password: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 62.210.124.146
@@ -678,17 +694,16 @@ udp_ai:
   up: 11 mbps
   down: 55 mbps
 porn_x:
-- name: go-美国-hysteria2-1
+- name: go-荷兰-hysteria2-1
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
+  server: 89.144.35.34
+  port: 50022
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
+- name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
   port: 30088
@@ -699,17 +714,16 @@ porn_x:
   up: 11 mbps
   down: 55 mbps
 porn_all:
-- name: go-美国-hysteria2-1
+- name: go-荷兰-hysteria2-1
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
+  server: 89.144.35.34
+  port: 50022
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
+- name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
   port: 30088
