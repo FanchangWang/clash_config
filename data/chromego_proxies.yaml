@@ -11,7 +11,7 @@ all:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -24,31 +24,19 @@ all:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
+- name: go-荷兰-hysteria-1
+  type: hysteria
+  server: ip1.758733.xyz
+  port: 23008
+  auth-str: alvin9999.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-法国-vless-1
-  type: vless
-  server: 2001:bc8:32d7:181::2
-  port: 17401
-  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
-  network: tcp
-  udp: true
-  tls: true
-  flow: null
-  servername: itunes.apple.com
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
-    short-id: 8ef4455ba637425b
-  smux:
-    enabled: true
-    protocol: h2mux
-    max-connections: 1
-    min-streams: 4
-    padding: true
-    brutal-opts:
-      enabled: true
-      up: 50
-      down: 100
-- name: go-法国-vless-2
   type: vless
   server: 2001:bc8:32d7:181::3
   port: 17401
@@ -72,7 +60,7 @@ all:
       enabled: true
       up: 50
       down: 100
-- name: go-法国-vless-3
+- name: go-法国-vless-2
   type: vless
   server: 2001:bc8:32d7:181::4
   port: 17401
@@ -96,7 +84,7 @@ all:
       enabled: true
       up: 50
       down: 100
-- name: go-法国-vless-4
+- name: go-法国-vless-3
   type: vless
   server: 2001:bc8:32d7:181::5
   port: 17401
@@ -141,6 +129,30 @@ all:
   transport: TCP
   username: dongtaiwang.com
   password: dongtaiwang.com
+- name: go-法国-vless-4
+  type: vless
+  server: 2001:bc8:32d7:181::2
+  port: 17401
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 50
+      down: 100
 - name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
@@ -231,7 +243,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -244,6 +256,18 @@ udp:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
+- name: go-荷兰-hysteria-1
+  type: hysteria
+  server: ip1.758733.xyz
+  port: 23008
+  auth-str: alvin9999.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
@@ -326,7 +350,7 @@ ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -339,31 +363,19 @@ ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
+- name: go-荷兰-hysteria-1
+  type: hysteria
+  server: ip1.758733.xyz
+  port: 23008
+  auth-str: alvin9999.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-法国-vless-1
-  type: vless
-  server: 2001:bc8:32d7:181::2
-  port: 17401
-  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
-  network: tcp
-  udp: true
-  tls: true
-  flow: null
-  servername: itunes.apple.com
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
-    short-id: 8ef4455ba637425b
-  smux:
-    enabled: true
-    protocol: h2mux
-    max-connections: 1
-    min-streams: 4
-    padding: true
-    brutal-opts:
-      enabled: true
-      up: 50
-      down: 100
-- name: go-法国-vless-2
   type: vless
   server: 2001:bc8:32d7:181::3
   port: 17401
@@ -387,7 +399,7 @@ ai:
       enabled: true
       up: 50
       down: 100
-- name: go-法国-vless-3
+- name: go-法国-vless-2
   type: vless
   server: 2001:bc8:32d7:181::4
   port: 17401
@@ -411,7 +423,7 @@ ai:
       enabled: true
       up: 50
       down: 100
-- name: go-法国-vless-4
+- name: go-法国-vless-3
   type: vless
   server: 2001:bc8:32d7:181::5
   port: 17401
@@ -449,6 +461,30 @@ ai:
   - h2
   - http/1.1
   skip-cert-verify: true
+- name: go-法国-vless-4
+  type: vless
+  server: 2001:bc8:32d7:181::2
+  port: 17401
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 50
+      down: 100
 - name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
@@ -529,7 +565,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -542,6 +578,18 @@ udp_ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
+- name: go-荷兰-hysteria-1
+  type: hysteria
+  server: ip1.758733.xyz
+  port: 23008
+  auth-str: alvin9999.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153

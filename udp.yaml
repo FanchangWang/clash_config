@@ -11,7 +11,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -24,6 +24,18 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
+- name: go-荷兰-hysteria-1
+  type: hysteria
+  server: ip1.758733.xyz
+  port: 23008
+  auth-str: alvin9999.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
