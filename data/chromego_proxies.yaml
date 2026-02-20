@@ -11,18 +11,19 @@ all:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
-  type: hysteria
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
-  port: 23008
-  auth-str: alvin9999.com
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
+  password: dongtaiwang.com
   sni: apple.com
-  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
 - name: go-法国-vless-1
   type: vless
   server: 2001:bc8:32d7:181::2
@@ -140,7 +141,7 @@ all:
   transport: TCP
   username: dongtaiwang.com
   password: dongtaiwang.com
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -156,7 +157,7 @@ all:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -230,19 +231,20 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
-  type: hysteria
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
-  port: 23008
-  auth-str: alvin9999.com
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
+  password: dongtaiwang.com
   sni: apple.com
-  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-德国-hysteria-3
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
+- name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -258,7 +260,7 @@ udp:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -324,18 +326,19 @@ ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
-  type: hysteria
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
-  port: 23008
-  auth-str: alvin9999.com
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
+  password: dongtaiwang.com
   sni: apple.com
-  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
 - name: go-法国-vless-1
   type: vless
   server: 2001:bc8:32d7:181::2
@@ -446,7 +449,7 @@ ai:
   - h2
   - http/1.1
   skip-cert-verify: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -462,7 +465,7 @@ ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -526,19 +529,20 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
-  type: hysteria
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
-  port: 23008
-  auth-str: alvin9999.com
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
+  password: dongtaiwang.com
   sni: apple.com
-  skip-cert-verify: true
   alpn:
   - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-德国-hysteria-3
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
+- name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -554,7 +558,7 @@ udp_ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.90
   protocol: udp
