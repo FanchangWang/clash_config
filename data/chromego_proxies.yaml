@@ -188,7 +188,7 @@ all:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -303,7 +303,7 @@ udp:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -520,7 +520,7 @@ ai:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -625,7 +625,7 @@ udp_ai:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -653,7 +653,7 @@ porn_x:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
@@ -673,7 +673,7 @@ porn_all:
 - name: go-荷兰-hysteria2-1
   type: hysteria2
   server: 89.144.35.34
-  port: 50022
+  port: 43608
   password: dongtaiwang.com
   sni: apple.com
   skip-cert-verify: true
