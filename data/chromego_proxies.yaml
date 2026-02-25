@@ -11,7 +11,7 @@ all:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -243,7 +243,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -350,7 +350,7 @@ ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -565,7 +565,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
