@@ -230,6 +230,14 @@ proxies:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 28866
+- name: go-香港-mieru-1
+  type: mieru
+  server: 151.242.183.49
+  transport: TCP
+  udp: true
+  username: dongtaiwang.com
+  password: dongtaiwang.com
+  port: 11000
 - cipher: aes-256-cfb
   name: rp-德国-ss-1
   password: amazonskr05
