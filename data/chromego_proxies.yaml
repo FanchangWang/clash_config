@@ -1,17 +1,5 @@
 all:
-- name: go-德国-hysteria-1
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -24,7 +12,7 @@ all:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -108,6 +96,42 @@ all:
       enabled: true
       up: 50
       down: 100
+- name: go-法国-vless-4
+  type: vless
+  server: 2001:bc8:32d7:181::2
+  port: 17401
+  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
+  network: tcp
+  udp: true
+  tls: true
+  flow: null
+  servername: itunes.apple.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
+    short-id: 8ef4455ba637425b
+  smux:
+    enabled: true
+    protocol: h2mux
+    max-connections: 1
+    min-streams: 4
+    padding: true
+    brutal-opts:
+      enabled: true
+      up: 50
+      down: 100
+- name: go-德国-hysteria-2
+  type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-台湾-anytls-1
   type: anytls
   server: 45.221.98.14
@@ -129,31 +153,7 @@ all:
   transport: TCP
   username: dongtaiwang.com
   password: dongtaiwang.com
-- name: go-法国-vless-4
-  type: vless
-  server: 2001:bc8:32d7:181::2
-  port: 17401
-  uuid: add14a5b-f648-4423-8a1f-8b8f54c0daef
-  network: tcp
-  udp: true
-  tls: true
-  flow: null
-  servername: itunes.apple.com
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: IXcXrT_Y0ATTZlGOhPnSmKo-cuGr4yMKV9Rz4-nA3yU
-    short-id: 8ef4455ba637425b
-  smux:
-    enabled: true
-    protocol: h2mux
-    max-connections: 1
-    min-streams: 4
-    padding: true
-    brutal-opts:
-      enabled: true
-      up: 50
-      down: 100
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -169,7 +169,7 @@ all:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -194,6 +194,15 @@ all:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-1
+  type: hysteria2
+  server: 62.210.124.146
+  port: 22000
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
@@ -210,15 +219,6 @@ all:
   port: 50022
   password: dongtaiwang.com
   sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
-- name: go-法国-hysteria2-1
-  type: hysteria2
-  server: 62.210.124.146
-  port: 22000
-  password: dongtaiwang.com
-  sni: www.microsoft.com
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
@@ -239,19 +239,7 @@ all:
   password: dongtaiwang.com
   port: 11000
 udp:
-- name: go-德国-hysteria-1
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -264,7 +252,7 @@ udp:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -277,6 +265,18 @@ udp:
   up: 11 Mbps
   down: 55 Mbps
 - name: go-德国-hysteria-2
+  type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -292,7 +292,7 @@ udp:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -317,6 +317,15 @@ udp:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-1
+  type: hysteria2
+  server: 62.210.124.146
+  port: 22000
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
@@ -336,29 +345,8 @@ udp:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-法国-hysteria2-1
-  type: hysteria2
-  server: 62.210.124.146
-  port: 22000
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 ai:
-- name: go-德国-hysteria-1
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -371,7 +359,7 @@ ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -455,20 +443,6 @@ ai:
       enabled: true
       up: 50
       down: 100
-- name: go-台湾-anytls-1
-  type: anytls
-  server: 45.221.98.14
-  port: 59901
-  password: dongtaiwang.com
-  client-fingerprint: chrome
-  udp: true
-  idle-session-check-interval: 30
-  idle-session-timeout: 30
-  min-idle-session: 0
-  alpn:
-  - h2
-  - http/1.1
-  skip-cert-verify: true
 - name: go-法国-vless-4
   type: vless
   server: 2001:bc8:32d7:181::2
@@ -495,6 +469,32 @@ ai:
       down: 100
 - name: go-德国-hysteria-2
   type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: go-台湾-anytls-1
+  type: anytls
+  server: 45.221.98.14
+  port: 59901
+  password: dongtaiwang.com
+  client-fingerprint: chrome
+  udp: true
+  idle-session-check-interval: 30
+  idle-session-timeout: 30
+  min-idle-session: 0
+  alpn:
+  - h2
+  - http/1.1
+  skip-cert-verify: true
+- name: go-德国-hysteria-3
+  type: hysteria
   server: 5.83.129.153
   protocol: udp
   port: 20088
@@ -509,7 +509,7 @@ ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -534,21 +534,21 @@ ai:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 62.210.124.146
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
+- name: go-德国-hysteria2-1
+  type: hysteria2
+  server: 2a14:7584:d04a::a
+  port: 50022
+  password: dongtaiwang.com
+  sni: apple.com
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
@@ -561,19 +561,7 @@ ai:
   password: dongtaiwang.com
   port: 28866
 udp_ai:
-- name: go-德国-hysteria-1
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -586,7 +574,7 @@ udp_ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -600,6 +588,18 @@ udp_ai:
   down: 55 Mbps
 - name: go-德国-hysteria-2
   type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: go-德国-hysteria-3
+  type: hysteria
   server: 5.83.129.153
   protocol: udp
   port: 20088
@@ -614,7 +614,7 @@ udp_ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -639,21 +639,21 @@ udp_ai:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 62.210.124.146
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
+- name: go-德国-hysteria2-1
+  type: hysteria2
+  server: 2a14:7584:d04a::a
+  port: 50022
+  password: dongtaiwang.com
+  sni: apple.com
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
