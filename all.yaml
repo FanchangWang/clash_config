@@ -1,5 +1,5 @@
 proxies:
-- name: go-德国-tuic-1
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -12,7 +12,7 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-hysteria-1
+- name: go-荷兰-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -120,7 +120,7 @@ proxies:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-1
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -153,7 +153,7 @@ proxies:
   transport: TCP
   username: dongtaiwang.com
   password: dongtaiwang.com
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-2
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -169,7 +169,7 @@ proxies:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-4
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.90
   protocol: udp
