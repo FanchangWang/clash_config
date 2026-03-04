@@ -5,3 +5,5 @@ payload:
   # youtube video downloader
   - "youtube4kdownloader.com"
   - "bptv.freetv.top"
+  # gog game download
+  - "gog-cdn-fastly.gog.com"
