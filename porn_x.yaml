@@ -1,6 +1,16 @@
 proxies:
 - name: go-美国-hysteria2-1
   type: hysteria2
+  server: 157.254.223.43
+  port: 27921
+  password: dongtaiwang.com
+  sni: www.bing.com
+  skip-cert-verify: true
+  ports: 27921,28000-29000
+  up: 11 mbps
+  down: 55 mbps
+- name: go-美国-hysteria2-2
+  type: hysteria2
   server: 157.254.223.24
   port: 30088
   password: alvin9999.com
