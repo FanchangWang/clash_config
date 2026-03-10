@@ -1,5 +1,5 @@
 all:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -237,7 +237,7 @@ all:
   password: dongtaiwang.com
   port: 11000
 udp:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -349,7 +349,7 @@ udp:
   up: 11 mbps
   down: 55 mbps
 ai:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -546,7 +546,7 @@ ai:
   password: dongtaiwang.com
   port: 28866
 udp_ai:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
