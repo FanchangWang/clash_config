@@ -1,5 +1,5 @@
 all:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -185,18 +185,9 @@ all:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 62.210.124.146
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
@@ -211,15 +202,6 @@ all:
   sni: apple.com
   skip-cert-verify: true
   ports: 30088,31000-32000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
 - name: go-台湾-mieru-1
@@ -239,7 +221,7 @@ all:
   password: dongtaiwang.com
   port: 11000
 udp:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -308,18 +290,9 @@ udp:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 62.210.124.146
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
@@ -336,17 +309,8 @@ udp:
   ports: 30088,31000-32000
   up: 11 mbps
   down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 ai:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -525,30 +489,12 @@ ai:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 62.210.124.146
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
@@ -561,7 +507,7 @@ ai:
   password: dongtaiwang.com
   port: 28866
 udp_ai:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -630,43 +576,16 @@ udp_ai:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 62.210.124.146
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 porn_x:
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
@@ -678,15 +597,6 @@ porn_x:
   up: 11 mbps
   down: 55 mbps
 porn_all:
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
@@ -695,14 +605,5 @@ porn_all:
   sni: apple.com
   skip-cert-verify: true
   ports: 30088,31000-32000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps

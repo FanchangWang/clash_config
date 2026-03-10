@@ -1,5 +1,5 @@
 proxies:
-- name: go-荷兰-tuic-1
+- name: go-德国-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
@@ -185,18 +185,9 @@ proxies:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 62.210.124.146
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
@@ -211,15 +202,6 @@ proxies:
   sni: apple.com
   skip-cert-verify: true
   ports: 30088,31000-32000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
 - name: go-台湾-mieru-1

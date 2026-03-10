@@ -1,13 +1,4 @@
 proxies:
-- name: go-荷兰-hysteria2-1
-  type: hysteria2
-  server: 89.144.35.34
-  port: 43608
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.24
@@ -16,15 +7,6 @@ proxies:
   sni: apple.com
   skip-cert-verify: true
   ports: 30088,31000-32000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-德国-hysteria2-1
-  type: hysteria2
-  server: 2a14:7584:d04a::a
-  port: 50022
-  password: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
 - cipher: aes-256-cfb
