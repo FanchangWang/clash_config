@@ -12,7 +12,7 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -120,7 +120,7 @@ proxies:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -159,7 +159,7 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -175,7 +175,7 @@ proxies:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -212,12 +212,11 @@ proxies:
   down: 55 mbps
 - name: go-美国-hysteria2-2
   type: hysteria2
-  server: 157.254.223.24
-  port: 30088
-  password: alvin9999.com
-  sni: apple.com
+  server: 2a10:3c80:0:f::2
+  port: 39463
+  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
+  sni: www.microsoft.com
   skip-cert-verify: true
-  ports: 30088,31000-32000
   up: 11 mbps
   down: 55 mbps
 - name: go-台湾-mieru-1

@@ -11,12 +11,11 @@ proxies:
   down: 55 mbps
 - name: go-美国-hysteria2-2
   type: hysteria2
-  server: 157.254.223.24
-  port: 30088
-  password: alvin9999.com
-  sni: apple.com
+  server: 2a10:3c80:0:f::2
+  port: 39463
+  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
+  sni: www.microsoft.com
   skip-cert-verify: true
-  ports: 30088,31000-32000
   up: 11 mbps
   down: 55 mbps
 - alterId: 2
