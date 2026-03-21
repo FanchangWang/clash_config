@@ -218,14 +218,14 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-台湾-mieru-1
+- name: go-法国-mieru-1
   type: mieru
-  server: 45.221.98.11
+  server: 62.210.124.132
   transport: TCP
   udp: true
   username: dongtaiwang.com
   password: dongtaiwang.com
-  port: 28866
+  port: 44668
 - name: go-香港-mieru-1
   type: mieru
   server: 151.242.183.49
