@@ -12,7 +12,7 @@ all:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -132,7 +132,7 @@ all:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -170,7 +170,7 @@ all:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -186,7 +186,7 @@ all:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -260,7 +260,7 @@ udp:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -284,7 +284,7 @@ udp:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -322,7 +322,7 @@ udp:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -338,7 +338,7 @@ udp:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -396,7 +396,7 @@ ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -516,7 +516,7 @@ ai:
       enabled: true
       up: 50
       down: 100
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -528,7 +528,7 @@ ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -544,7 +544,7 @@ ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -591,7 +591,7 @@ udp_ai:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
+- name: go-德国-hysteria-1
   type: hysteria
   server: ip1.758733.xyz
   port: 23008
@@ -615,7 +615,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-1
+- name: go-德国-hysteria-2
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -627,7 +627,7 @@ udp_ai:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-hysteria-2
+- name: go-德国-hysteria-3
   type: hysteria
   server: 5.83.129.153
   protocol: udp
@@ -643,7 +643,7 @@ udp_ai:
   recv-window-conn: 69206016
   recv-window: 276824064
   disable-mtu-discovery: true
-- name: go-德国-hysteria-3
+- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
