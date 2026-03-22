@@ -106,6 +106,22 @@ proxies:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
+- name: go-台湾-hysteria-1
+  type: hysteria
+  server: 111.243.102.83
+  protocol: udp
+  port: 56385
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  alpn:
+  - h3
+  up: 11
+  down: 55
+  skip-cert-verify: true
+  fast-open: true
+  recv-window-conn: 69206016
+  recv-window: 276824064
+  disable-mtu-discovery: true
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.43
