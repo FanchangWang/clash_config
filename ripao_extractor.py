@@ -108,8 +108,7 @@ class RipaoExtractor:
         processed_proxies = {
             'all': [],  # 所有协议配置
             'udp': [],  # 所有UDP代理节点
-            'ai': [],  # 所有AI代理节点
-            'udp_ai': [],  # 所有UDP AI代理节点
+            'ai_gemini': [],  # 所有AI gemini 代理节点
             'porn_x': [],  # porn x.com 代理节点
             'porn_all': [],  # porn 所有代理节点
         }
@@ -141,12 +140,9 @@ class RipaoExtractor:
             # 加入所有代理节点（使用深拷贝）
             processed_proxies['all'].append(copy.deepcopy(proxy))
 
-            # country 判断是否为 AI 合法国家，加入 AI 节点
-            if country in ['日本', '韩国', '台湾', '荷兰', '法国', '德国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
-                processed_proxies['ai'].append(copy.deepcopy(proxy))
-                # 判断是否为 UDP AI 节点
-                if protocol in ['hysteria', 'hysteria2', 'tuic']:
-                    processed_proxies['udp_ai'].append(copy.deepcopy(proxy))
+            # country 判断是否为 AI gemini 合法国家，加入 AI gemini 节点 # 德国 IP 识别不准确不加入
+            if country in ['日本', '韩国', '台湾', '荷兰', '法国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
+                processed_proxies['ai_gemini'].append(copy.deepcopy(proxy))
 
             # protocal 为 hysteria|hysteria2|tuic 时，加入UDP代理节点
             if protocol in ['hysteria', 'hysteria2', 'tuic']:

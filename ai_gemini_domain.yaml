@@ -1,0 +1,10 @@
+payload:
+  # AI gemini 域名
+  - "ai.google.dev"
+  - "aida.googleapis.com"
+  - "generativelanguage.googleapis.com"
+  - "gemini.google"
+  - "gemini.google.com"
+  - "antigravity.google"
+  - "antigravity-unleash.goog"
+  - "stitch.withgoogle.com"

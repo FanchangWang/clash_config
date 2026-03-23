@@ -40,8 +40,7 @@ def main():
         all_proxies = {
             'all': copy.deepcopy(chrome_proxies['all']) + copy.deepcopy(ripao_proxies['all']),
             'udp': copy.deepcopy(chrome_proxies['udp']) + copy.deepcopy(ripao_proxies['udp']),
-            'ai': copy.deepcopy(chrome_proxies['ai']) + copy.deepcopy(ripao_proxies['ai']),
-            'udp_ai': copy.deepcopy(chrome_proxies['udp_ai']) + copy.deepcopy(ripao_proxies['udp_ai']),
+            'ai_gemini': copy.deepcopy(chrome_proxies['ai_gemini']) + copy.deepcopy(ripao_proxies['ai_gemini']),
             'porn_all': copy.deepcopy(chrome_proxies['porn_all']) + copy.deepcopy(ripao_proxies['porn_all']),
             'porn_x': copy.deepcopy(chrome_proxies['porn_x']) + copy.deepcopy(ripao_proxies['porn_x']),
         }
@@ -59,16 +58,14 @@ def main():
         with open('udp.yaml', 'w', encoding='utf-8') as f:
             yaml.dump({'proxies': copy.deepcopy(udp_proxies)}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
-        if len(all_proxies['udp_ai']) > 2:
-            ai_proxies = copy.deepcopy(all_proxies['udp_ai'])
-        elif len(all_proxies['ai']) > 2:
-            ai_proxies = copy.deepcopy(all_proxies['ai'])
+        if len(all_proxies['ai_gemini']) > 2:
+            ai_gemini_proxies = copy.deepcopy(all_proxies['ai_gemini'])
         else:
-            ai_proxies = copy.deepcopy(all_proxies['udp_proxies'])
+            ai_gemini_proxies = copy.deepcopy(all_proxies['udp_proxies'])
 
-        # 保存 ai 协议配置到 ai.yaml
-        with open('ai.yaml', 'w', encoding='utf-8') as f:
-            yaml.dump({'proxies': copy.deepcopy(ai_proxies)}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+        # 保存 ai gemini 协议配置到 ai_gemini.yaml
+        with open('ai_gemini.yaml', 'w', encoding='utf-8') as f:
+            yaml.dump({'proxies': copy.deepcopy(ai_gemini_proxies)}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
         # 保存 porn_x 协议配置到 porn_x.yaml
         with open('porn_x.yaml', 'w', encoding='utf-8') as f:
@@ -81,7 +78,7 @@ def main():
             yaml.dump({'proxies': copy.deepcopy(all_proxies['all'])}, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
         print(f"已保存所有 {len(udp_proxies)} 个 UDP 协议配置到 udp.yaml")
-        print(f"已保存所有 {len(ai_proxies)} 个 AI 协议配置到 ai.yaml")
+        print(f"已保存所有 {len(ai_gemini_proxies)} 个 AI gemini 协议配置到 ai_gemini.yaml")
         print(f"已保存所有 {len(all_proxies['porn_x'])} 个 porn_x 协议配置到 porn_x.yaml")
         print(f"已保存所有 {len(all_proxies['porn_all'])} 个 porn_all 协议配置到 porn_all.yaml")
         print(f"已保存所有 {len(all_proxies['all'])} 个协议配置到 all.yaml")

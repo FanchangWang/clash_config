@@ -99,13 +99,7 @@ all:
   sni: t.me%2Fripaojiedian
   type: trojan
 udp: []
-ai:
-- cipher: aes-256-cfb
-  name: rp-德国-ss-1
-  password: amazonskr05
-  port: 443
-  server: 63.180.254.10
-  type: ss
+ai_gemini:
 - name: rp-日本-trojan-1
   password: 86e150eb21c6faee48e81d496d7f61c2
   port: 6196
@@ -162,7 +156,6 @@ ai:
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-udp_ai: []
 porn_x:
 - alterId: 2
   cipher: auto

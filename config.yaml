@@ -55,34 +55,25 @@ proxy-groups:
   - name: "PROXY"
     type: select
     proxies:
-      - P_UDP
+      - _p_udp
       - Sall
 
-  - name: "P_UDP"
-    type: load-balance
-    use:
-      - p_udp
-    strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
-
-  - name: "P_AI"
-    type: url-test
-    use:
-      - p_ai
+  - name: "P_AI_GEMINI"
+    type: select
     proxies:
+      - _p_ai_gemini
       - Sall
 
   - name: "P_PORN_X"
-    type: url-test
-    use:
-      - p_porn_x
+    type: select
     proxies:
+      - _p_porn_x
       - Sall
 
   - name: "P_PORN_ALL"
-    type: url-test
-    use:
-      - p_porn_all
+    type: select
     proxies:
+      - _p_porn_all
       - Sall
 
   - name: "Sall"
@@ -90,6 +81,27 @@ proxy-groups:
     use:
       - p_all
       - anaer
+
+  - name: "_p_udp"
+    type: load-balance
+    use:
+      - p_udp
+    strategy: sticky-sessions # 会话保持 round-robin=轮询 consistent-hashing=相同目标地址聚合 sticky-sessions=相同来源+目标聚合
+
+  - name: "_p_ai_gemini"
+    type: url-test
+    use:
+      - p_ai_gemini
+
+  - name: "_p_porn_x"
+    type: url-test
+    use:
+      - p_porn_x
+
+  - name: "_p_porn_all"
+    type: url-test
+    use:
+      - p_porn_all
 
 proxy-providers:
   anaer:
@@ -121,10 +133,10 @@ proxy-providers:
       lazy: false
       expected-status: 204
 
-  p_ai:
+  p_ai_gemini:
     type: http
-    path: ./proxy/ai.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/ai.yaml"
+    path: ./proxy/ai_gemini.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/ai_gemini.yaml"
     interval: 3600
     proxy: DIRECT
     health-check:
@@ -180,8 +192,8 @@ proxy-providers:
 rules:
   #  RULE-SET x.com
   - DOMAIN,x.com,P_PORN_X
-  # RULE-SET Google AI
-  - RULE-SET,AIDomain,P_AI
+  # RULE-SET Google Gemini AI
+  - RULE-SET,AIDomain,P_AI_GEMINI
   # RULE-SET PROXY
   - RULE-SET,ProxyMyDomain,PROXY
   # RULE-SET DIRECT

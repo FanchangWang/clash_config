@@ -1,23 +1,43 @@
 proxies:
-- name: go-美国-hysteria2-1
-  type: hysteria2
-  server: 157.254.223.43
-  port: 27921
+- name: go-荷兰-tuic-1
+  server: ip1.758733.xyz
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
   password: dongtaiwang.com
-  sni: www.bing.com
+  sni: apple.com
+  alpn:
+  - h3
+  request-timeout: 8000
+  udp-relay-mode: native
   skip-cert-verify: true
-  ports: 27921,28000-29000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-美国-hysteria2-2
-  type: hysteria2
-  server: 2a10:3c80:0:f::2
-  port: 39463
-  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
+  congestion-controller: bbr
+- name: go-美国-tuic-1
+  server: 157.254.223.24
+  port: 41122
+  type: tuic
+  uuid: 2aec7bfd-4178-4ee5-9bc5-fe4c241fdc15
+  password: 2aec7bfd-4178-4ee5-9bc5-fe4c241fdc15
   sni: www.microsoft.com
+  alpn:
+  - h3
+  request-timeout: 8000
+  udp-relay-mode: native
   skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
+  congestion-controller: bbr
+- name: go-美国-tuic-2
+  server: 157.254.223.48
+  port: 11540
+  type: tuic
+  uuid: 6845cb43-4b8d-49e8-a011-1051d6c4d2ae
+  password: 6845cb43-4b8d-49e8-a011-1051d6c4d2ae
+  sni: www.microsoft.com
+  alpn:
+  - h3
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
 - cipher: aes-256-cfb
   name: rp-德国-ss-1
   password: amazonskr05

@@ -82,8 +82,7 @@ class ChromeGoExtractor:
         chrome_proxies = {
             'all': [], # 所有协议配置
             'udp': [], # 所有UDP代理节点
-            'ai': [], # 所有AI代理节点
-            'udp_ai': [], # 所有UDP AI代理节点
+            'ai_gemini': [], # 所有AI Geminiini 代理节点
             'porn_x': [], # porn x.com 代理节点
             'porn_all': [], # porn 所有代理节点
         } # 所有协议配置
@@ -116,22 +115,20 @@ class ChromeGoExtractor:
                 proxies_by_protocol[protocol].append(copy.deepcopy(proxy))
                 # 加入所有代理节点
                 chrome_proxies['all'].append(copy.deepcopy(proxy))
-                # country 判断是否为 AI 合法国家，加入 AI 节点
-                if country in ['日本', '韩国', '台湾', '荷兰', '法国', '德国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
-                    chrome_proxies['ai'].append(copy.deepcopy(proxy))
-                    # 判断是否为 UDP AI 节点
-                    if protocol in ['hysteria', 'hysteria2', 'tuic']:
-                        chrome_proxies['udp_ai'].append(copy.deepcopy(proxy))
+                # country 判断是否为 AI gemini 合法国家，加入 AI 节点 # 德国 IP 识别不准确不加入
+                if country in ['日本', '韩国', '台湾', '荷兰', '法国', '新加坡', '印度', '马来西亚', '泰国', '越南', '印度尼西亚', '菲律宾']:
+                    chrome_proxies['ai_gemini'].append(copy.deepcopy(proxy))
                 # protocal 为 hysteria|hysteria2|tuic 时，加入UDP代理节点
                 if protocol in ['hysteria', 'hysteria2', 'tuic']:
                     chrome_proxies['udp'].append(copy.deepcopy(proxy))
-                # config['dir'] == hysteria2 时，允许 porn
-                if config['dir'] == 'hysteria2':
+                # x.com R18 合法国家，加入 porn_x 节点
+                if country in ['美国', '日本', '韩国', '香港', '台湾', '荷兰']:
+                    chrome_proxies['porn_x'].append(copy.deepcopy(proxy))
+                # tuic 协议允许 porn 内容
+                if protocol in ['tuic']:
                     # country 判断是否为 porn 合法国家，加入 porn 节点
                     if country in ['美国', '日本', '韩国', '香港', '台湾', '荷兰', '德国']:
                         chrome_proxies['porn_all'].append(copy.deepcopy(proxy))
-                        if country not in ['德国']: # 排除 x.com 不允许的节点
-                            chrome_proxies['porn_x'].append(copy.deepcopy(proxy))
 
         # 保存所有协议配置到 chromego.yaml
         with open(self.chrome_proxies_filename, 'w', encoding='utf-8') as f:
