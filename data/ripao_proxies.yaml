@@ -15,146 +15,174 @@ all:
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: rp-日本-trojan-1
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 6196
-  server: 13.231.54.52
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 921
+  server: 3.112.44.25
   skip-cert-verify: false
   sni: www.nintendogames.net
-  type: trojan
-- name: rp-香港-trojan-1
-  password: BxceQaOe
-  port: 51885
-  server: 18.162.133.44
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
-  type: trojan
-- name: rp-香港-trojan-2
-  password: BxceQaOe
-  port: 5823
-  server: 43.199.248.9
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
-  port: 16919
-  server: 52.196.95.41
+  port: 6313
+  server: 54.199.36.40
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-3
+  password: BxceQaOe
+  port: 6313
+  server: 54.178.248.68
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-4
+  password: BxceQaOe
+  port: 32536
+  server: 13.192.234.119
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
-- name: rp-日本-trojan-3
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4937
-  server: 13.115.190.132
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: rp-日本-trojan-4
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 34818
-  server: 160.16.132.38
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
 - name: rp-日本-trojan-5
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 13.115.247.248
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 2001
+  server: 13.231.152.178
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 160.16.132.38
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 34818
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-3
-  password: BxceQaOe
-  port: 25343
-  server: 95.40.26.104
-  skip-cert-verify: true
-  sni: t.me%252Fripaojiedian
-  type: trojan
 - name: rp-日本-trojan-7
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4920
-  server: 13.192.234.119
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 54.199.36.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4019
-  server: 13.115.190.132
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-4
+- name: rp-日本-trojan-9
   password: BxceQaOe
-  port: 37223
-  server: 18.167.47.162
+  port: 29666
+  server: 13.192.204.27
+  skip-cert-verify: true
+  sni: t.me%252Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-10
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 54.199.36.40
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-11
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 13.231.152.178
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-12
+  password: BxceQaOe
+  port: 23255
+  server: 13.192.204.27
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 udp: []
 ai_gemini:
 - name: rp-日本-trojan-1
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 6196
-  server: 13.231.54.52
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 921
+  server: 3.112.44.25
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
-  port: 16919
-  server: 52.196.95.41
+  port: 6313
+  server: 54.199.36.40
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-3
+  password: BxceQaOe
+  port: 6313
+  server: 54.178.248.68
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-4
+  password: BxceQaOe
+  port: 32536
+  server: 13.192.234.119
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
-- name: rp-日本-trojan-3
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4937
-  server: 13.115.190.132
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: rp-日本-trojan-4
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 34818
-  server: 160.16.132.38
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
 - name: rp-日本-trojan-5
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 13.115.247.248
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 2001
+  server: 13.231.152.178
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 160.16.132.38
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 34818
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-7
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4920
-  server: 13.192.234.119
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 54.199.36.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4019
-  server: 13.115.190.132
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-9
+  password: BxceQaOe
+  port: 29666
+  server: 13.192.204.27
+  skip-cert-verify: true
+  sni: t.me%252Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-10
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 54.199.36.40
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-11
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 13.231.152.178
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-12
+  password: BxceQaOe
+  port: 23255
+  server: 13.192.204.27
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
   type: trojan
 porn_x:
 - alterId: 2
@@ -167,86 +195,86 @@ porn_x:
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: rp-日本-trojan-1
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 6196
-  server: 13.231.54.52
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 921
+  server: 3.112.44.25
   skip-cert-verify: false
   sni: www.nintendogames.net
-  type: trojan
-- name: rp-香港-trojan-1
-  password: BxceQaOe
-  port: 51885
-  server: 18.162.133.44
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
-  type: trojan
-- name: rp-香港-trojan-2
-  password: BxceQaOe
-  port: 5823
-  server: 43.199.248.9
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
-  port: 16919
-  server: 52.196.95.41
+  port: 6313
+  server: 54.199.36.40
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-3
+  password: BxceQaOe
+  port: 6313
+  server: 54.178.248.68
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-4
+  password: BxceQaOe
+  port: 32536
+  server: 13.192.234.119
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
-- name: rp-日本-trojan-3
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4937
-  server: 13.115.190.132
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: rp-日本-trojan-4
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 34818
-  server: 160.16.132.38
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
 - name: rp-日本-trojan-5
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 13.115.247.248
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 2001
+  server: 13.231.152.178
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 160.16.132.38
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 34818
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-3
-  password: BxceQaOe
-  port: 25343
-  server: 95.40.26.104
-  skip-cert-verify: true
-  sni: t.me%252Fripaojiedian
-  type: trojan
 - name: rp-日本-trojan-7
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4920
-  server: 13.192.234.119
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 54.199.36.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4019
-  server: 13.115.190.132
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-4
+- name: rp-日本-trojan-9
   password: BxceQaOe
-  port: 37223
-  server: 18.167.47.162
+  port: 29666
+  server: 13.192.204.27
+  skip-cert-verify: true
+  sni: t.me%252Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-10
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 54.199.36.40
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-11
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 13.231.152.178
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-12
+  password: BxceQaOe
+  port: 23255
+  server: 13.192.204.27
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
@@ -267,86 +295,86 @@ porn_all:
   type: vmess
   uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
 - name: rp-日本-trojan-1
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 6196
-  server: 13.231.54.52
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 921
+  server: 3.112.44.25
   skip-cert-verify: false
   sni: www.nintendogames.net
-  type: trojan
-- name: rp-香港-trojan-1
-  password: BxceQaOe
-  port: 51885
-  server: 18.162.133.44
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
-  type: trojan
-- name: rp-香港-trojan-2
-  password: BxceQaOe
-  port: 5823
-  server: 43.199.248.9
-  skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
-  port: 16919
-  server: 52.196.95.41
+  port: 6313
+  server: 54.199.36.40
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-3
+  password: BxceQaOe
+  port: 6313
+  server: 54.178.248.68
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-4
+  password: BxceQaOe
+  port: 32536
+  server: 13.192.234.119
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
-- name: rp-日本-trojan-3
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4937
-  server: 13.115.190.132
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
-- name: rp-日本-trojan-4
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 34818
-  server: 160.16.132.38
-  skip-cert-verify: false
-  sni: www.nintendogames.net
-  type: trojan
 - name: rp-日本-trojan-5
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 13.115.247.248
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 2001
+  server: 13.231.152.178
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4674
-  server: 160.16.132.38
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 34818
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-3
-  password: BxceQaOe
-  port: 25343
-  server: 95.40.26.104
-  skip-cert-verify: true
-  sni: t.me%252Fripaojiedian
-  type: trojan
 - name: rp-日本-trojan-7
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4920
-  server: 13.192.234.119
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 54.199.36.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
-  password: 86e150eb21c6faee48e81d496d7f61c2
-  port: 4019
-  server: 13.115.190.132
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 1524
+  server: 160.16.124.17
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
-- name: rp-香港-trojan-4
+- name: rp-日本-trojan-9
   password: BxceQaOe
-  port: 37223
-  server: 18.167.47.162
+  port: 29666
+  server: 13.192.204.27
+  skip-cert-verify: true
+  sni: t.me%252Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-10
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 54.199.36.40
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-11
+  password: 6d29eb2f74293cb01a19b32cf08ad2e9
+  port: 4019
+  server: 13.231.152.178
+  skip-cert-verify: false
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-12
+  password: BxceQaOe
+  port: 23255
+  server: 13.192.204.27
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
