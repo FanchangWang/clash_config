@@ -12,18 +12,6 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-荷兰-hysteria-1
-  type: hysteria
-  server: ip1.758733.xyz
-  port: 23008
-  auth-str: alvin9999.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
 - name: go-美国-tuic-1
   server: 157.254.223.24
   port: 41122
