@@ -25,7 +25,7 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-tuic-1
+- name: go-荷兰-tuic-1
   server: ip1.758733.xyz
   port: 10088
   type: tuic
