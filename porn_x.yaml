@@ -1,18 +1,5 @@
 proxies:
 - name: go-美国-tuic-1
-  server: 157.254.223.48
-  port: 11540
-  type: tuic
-  uuid: 6845cb43-4b8d-49e8-a011-1051d6c4d2ae
-  password: 6845cb43-4b8d-49e8-a011-1051d6c4d2ae
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: go-美国-tuic-2
   server: 157.254.223.24
   port: 41122
   type: tuic
