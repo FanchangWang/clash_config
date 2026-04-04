@@ -30,65 +30,65 @@ proxies:
   password: dongtaiwang.com
   port: 44668
 - name: rp-日本-trojan-1
-  password: 9f7d5cb76d1645101994d9b25891e3b7
-  port: 921
-  server: 13.193.218.6
-  skip-cert-verify: false
-  sni: www.nintendogames.net
+  password: BxceQaOe
+  port: 2001
+  server: 54.168.216.209
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
   port: 6313
-  server: 3.112.236.46
+  server: 3.112.197.74
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-3
   password: BxceQaOe
-  port: 16919
-  server: 43.207.66.138
+  port: 3122
+  server: 54.238.193.143
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-4
   password: 9f7d5cb76d1645101994d9b25891e3b7
   port: 4937
-  server: 160.16.106.99
+  server: 160.16.72.205
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-5
   password: 9f7d5cb76d1645101994d9b25891e3b7
-  port: 2001
-  server: 160.16.106.99
+  port: 4674
+  server: 160.16.72.205
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
   password: 9f7d5cb76d1645101994d9b25891e3b7
   port: 4674
-  server: 160.16.106.99
+  server: 54.168.216.209
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-7
   password: 9f7d5cb76d1645101994d9b25891e3b7
-  port: 4674
-  server: 3.113.31.8
+  port: 3057
+  server: 54.168.216.209
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
   password: 9f7d5cb76d1645101994d9b25891e3b7
-  port: 3057
-  server: 3.113.31.8
+  port: 4019
+  server: 54.168.216.209
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-9
-  password: 9f7d5cb76d1645101994d9b25891e3b7
-  port: 3057
-  server: 160.16.106.99
-  skip-cert-verify: false
-  sni: www.nintendogames.net
+  password: BxceQaOe
+  port: 23255
+  server: 13.114.26.172
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
   type: trojan
