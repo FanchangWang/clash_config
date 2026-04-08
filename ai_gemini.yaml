@@ -1,4 +1,17 @@
 proxies:
+- name: go-荷兰-tuic-1
+  server: ip1.758733.xyz
+  port: 10088
+  type: tuic
+  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
+  password: dongtaiwang.com
+  sni: apple.com
+  alpn:
+  - h3
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
 - name: go-法国-tuic-1
   server: 163.172.116.154
   port: 33887
@@ -21,14 +34,14 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-法国-mieru-1
+- name: go-台湾-mieru-1
   type: mieru
-  server: 62.210.124.132
+  server: 45.221.98.11
   transport: TCP
   udp: true
   username: dongtaiwang.com
   password: dongtaiwang.com
-  port: 44668
+  port: 28866
 - name: rp-日本-trojan-1
   password: 187dda4498be9ac4f28db939d5940185
   port: 21413
