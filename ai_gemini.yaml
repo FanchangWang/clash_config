@@ -53,63 +53,91 @@ proxies:
 - name: rp-日本-trojan-1
   password: BxceQaOe
   port: 6313
-  server: 52.194.222.108
+  server: 54.199.28.140
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
   port: 6313
-  server: 3.112.196.41
+  server: 54.65.154.235
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-3
   password: BxceQaOe
-  port: 3022
-  server: 52.194.222.108
+  port: 3357
+  server: 18.182.9.204
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-4
   password: 868ecdaf6aed618ec98cf78585672b2b
   port: 4937
-  server: 13.231.134.78
+  server: 13.114.50.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-5
   password: 868ecdaf6aed618ec98cf78585672b2b
-  port: 9201
-  server: 43.207.115.26
+  port: 2001
+  server: 54.199.47.118
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-6
   password: 868ecdaf6aed618ec98cf78585672b2b
   port: 4674
-  server: 52.194.222.108
+  server: 13.114.50.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-7
   password: 868ecdaf6aed618ec98cf78585672b2b
   port: 4674
-  server: 43.207.115.26
+  server: 52.194.218.62
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-8
   password: 868ecdaf6aed618ec98cf78585672b2b
-  port: 4019
-  server: 43.207.115.26
+  port: 3057
+  server: 13.114.50.40
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
 - name: rp-日本-trojan-9
   password: 868ecdaf6aed618ec98cf78585672b2b
-  port: 3057
-  server: 13.231.134.78
+  port: 4019
+  server: 54.199.47.118
   skip-cert-verify: false
   sni: www.nintendogames.net
   type: trojan
+- alterId: 0
+  cipher: auto
+  name: rp-韩国-vmess-1
+  network: ws
+  port: 11612
+  server: tw53_2.cowvpn.space
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: 0bf1cead-bdd4-4692-b3d4-6866ccb9f37a
+  ws-opts:
+    headers:
+      Host: ws53_2.baidu.com
+    path: /
+- alterId: 0
+  cipher: auto
+  name: rp-韩国-vmess-2
+  network: ws
+  port: 11612
+  server: jp248_2.cowvpn.space
+  skip-cert-verify: false
+  tls: false
+  type: vmess
+  uuid: 0bf1cead-bdd4-4692-b3d4-6866ccb9f37a
+  ws-opts:
+    headers:
+      Host: ws248_2.baidu.com
+    path: /
