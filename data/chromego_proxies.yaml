@@ -12,19 +12,6 @@ all:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-tuic-2
-  server: 178.18.147.199
-  port: 42487
-  type: tuic
-  uuid: b35b50d1-7830-4a68-94db-349c2d2f8e43
-  password: b35b50d1-7830-4a68-94db-349c2d2f8e43
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
 - name: go-法国-tuic-1
   server: ip1.758733.xyz
   port: 10088
@@ -114,15 +101,6 @@ all:
   ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
-  type: hysteria2
-  server: 2a10:3c80:0:f::2
-  port: 39463
-  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
-  sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11
@@ -131,14 +109,14 @@ all:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 28866
-- name: go-法国-mieru-1
+- name: go-美国-mieru-1
   type: mieru
-  server: 62.210.124.132
+  server: 157.254.223.44
   transport: TCP
   udp: true
   username: dongtaiwang.com
   password: dongtaiwang.com
-  port: 44668
+  port: 34567
 udp:
 - name: go-德国-tuic-1
   server: 5.178.101.117
@@ -153,19 +131,6 @@ udp:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-德国-tuic-2
-  server: 178.18.147.199
-  port: 42487
-  type: tuic
-  uuid: b35b50d1-7830-4a68-94db-349c2d2f8e43
-  password: b35b50d1-7830-4a68-94db-349c2d2f8e43
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
 - name: go-法国-tuic-1
   server: ip1.758733.xyz
   port: 10088
@@ -253,15 +218,6 @@ udp:
   sni: www.bing.com
   skip-cert-verify: true
   ports: 27921,28000-29000
-  up: 11 mbps
-  down: 55 mbps
-- name: go-美国-hysteria2-2
-  type: hysteria2
-  server: 2a10:3c80:0:f::2
-  port: 39463
-  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
-  sni: www.microsoft.com
-  skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
 ai_gemini:
@@ -308,14 +264,6 @@ ai_gemini:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 28866
-- name: go-法国-mieru-1
-  type: mieru
-  server: 62.210.124.132
-  transport: TCP
-  udp: true
-  username: dongtaiwang.com
-  password: dongtaiwang.com
-  port: 44668
 porn_x:
 - name: go-美国-hysteria2-1
   type: hysteria2
@@ -327,15 +275,6 @@ porn_x:
   ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-2
-  type: hysteria2
-  server: 2a10:3c80:0:f::2
-  port: 39463
-  password: VNws548Lj/fDRk58HE6dKAcTNpb8+iIk+ycqKEBNG/U=
-  sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11
@@ -344,6 +283,14 @@ porn_x:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 28866
+- name: go-美国-mieru-1
+  type: mieru
+  server: 157.254.223.44
+  transport: TCP
+  udp: true
+  username: dongtaiwang.com
+  password: dongtaiwang.com
+  port: 34567
 porn_all:
 - name: go-德国-tuic-1
   server: 5.178.101.117
@@ -351,19 +298,6 @@ porn_all:
   type: tuic
   uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
   password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: go-德国-tuic-2
-  server: 178.18.147.199
-  port: 42487
-  type: tuic
-  uuid: b35b50d1-7830-4a68-94db-349c2d2f8e43
-  password: b35b50d1-7830-4a68-94db-349c2d2f8e43
   sni: www.microsoft.com
   alpn:
   - h3
