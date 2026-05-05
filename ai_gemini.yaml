@@ -43,30 +43,37 @@ proxies:
   password: dongtaiwang.com
   port: 28866
 - name: rp-日本-trojan-1
+  password: BxceQaOe
+  port: 63131
+  server: 13.231.158.129
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
+  type: trojan
+- name: rp-日本-trojan-2
   password: ba62c023f9bce796ae334fecb20ef7cc
-  port: 2008
-  server: 54.250.182.223
+  port: 2511
+  server: 13.231.182.84
   skip-cert-verify: true
   sni: www.nintendogames.net
   type: trojan
-- name: rp-日本-trojan-2
+- name: rp-日本-trojan-3
   password: BxceQaOe
-  port: 443
-  server: 116.80.80.121
+  port: 2074
+  server: 13.231.251.168
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
-- name: rp-日本-trojan-3
+- name: rp-日本-trojan-4
   password: ba62c023f9bce796ae334fecb20ef7cc
-  port: 11541
-  server: 52.194.186.225
+  port: 52249
+  server: 13.158.137.151
   skip-cert-verify: true
   sni: www.nintendogames.net
   type: trojan
-- name: rp-日本-trojan-4
-  password: ba62c023f9bce796ae334fecb20ef7cc
-  port: 4019
-  server: 54.250.182.223
-  skip-cert-verify: false
-  sni: www.nintendogames.net
+- name: rp-日本-trojan-5
+  password: BxceQaOe
+  port: 38692
+  server: 54.64.8.213
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
   type: trojan
