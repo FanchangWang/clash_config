@@ -91,6 +91,15 @@ all:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-2
+  type: hysteria2
+  server: 62.210.10.108
+  port: 22000
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.43
@@ -210,6 +219,15 @@ udp:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-2
+  type: hysteria2
+  server: 62.210.10.108
+  port: 22000
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-美国-hysteria2-1
   type: hysteria2
   server: 157.254.223.43
@@ -250,6 +268,15 @@ ai_gemini:
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 2001:bc8:32d7:17b::3
+  port: 22000
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
+- name: go-法国-hysteria2-2
+  type: hysteria2
+  server: 62.210.10.108
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
