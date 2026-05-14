@@ -12,22 +12,21 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-法国-tuic-2
-  server: 163.172.116.154
-  port: 33887
-  type: tuic
-  uuid: 9adb384a-0f16-4501-a8f3-b6b2556fce87
-  password: dongtaiwang.com
+- name: go-法国-hysteria-1
+  type: hysteria
+  server: 163.172.117.163
+  port: 36699
+  auth-str: dongtaiwang.com
   sni: bing.com
+  skip-cert-verify: true
   alpn:
   - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-法国-hysteria2-1
   type: hysteria2
-  server: 2001:bc8:32d7:17b::3
+  server: 62.210.10.108
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
@@ -36,7 +35,7 @@ proxies:
   down: 55 mbps
 - name: go-法国-hysteria2-2
   type: hysteria2
-  server: 62.210.10.108
+  server: 2001:bc8:32d7:17b::3
   port: 22000
   password: dongtaiwang.com
   sni: www.microsoft.com
