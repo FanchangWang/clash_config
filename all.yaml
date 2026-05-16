@@ -1,17 +1,16 @@
 proxies:
-- name: go-法国-tuic-1
-  server: ip1.758733.xyz
-  port: 10088
-  type: tuic
-  uuid: 9bbd1f42-7ae7-4239-bd10-a68de95e3295
-  password: dongtaiwang.com
-  sni: apple.com
+- name: go-法国-hysteria-1
+  type: hysteria
+  server: 62.210.29.98
+  port: 10066
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  skip-cert-verify: true
   alpn:
   - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: go-德国-hysteria-1
   type: hysteria
   server: 2a14:7584:d097::a
@@ -37,7 +36,7 @@ proxies:
   udp-relay-mode: native
   skip-cert-verify: true
   congestion-controller: bbr
-- name: go-法国-hysteria-1
+- name: go-法国-hysteria-2
   type: hysteria
   server: 163.172.117.163
   port: 36699
