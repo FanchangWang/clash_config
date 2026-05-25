@@ -98,14 +98,13 @@ all:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-1
+- name: go-法国-hysteria2-3
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
-  password: dongtaiwang.com
-  sni: www.bing.com
+  server: 163.172.126.108
+  port: 41227
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
 - name: go-台湾-mieru-1
@@ -224,14 +223,13 @@ udp:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-美国-hysteria2-1
+- name: go-法国-hysteria2-3
   type: hysteria2
-  server: 157.254.223.43
-  port: 27921
-  password: dongtaiwang.com
-  sni: www.bing.com
+  server: 163.172.126.108
+  port: 41227
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
   skip-cert-verify: true
-  ports: 27921,28000-29000
   up: 11 mbps
   down: 55 mbps
 ai_gemini:
@@ -277,6 +275,15 @@ ai_gemini:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-3
+  type: hysteria2
+  server: 163.172.126.108
+  port: 41227
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11
@@ -286,16 +293,6 @@ ai_gemini:
   password: dongtaiwang.com
   port: 28866
 porn_x:
-- name: go-美国-hysteria2-1
-  type: hysteria2
-  server: 157.254.223.43
-  port: 27921
-  password: dongtaiwang.com
-  sni: www.bing.com
-  skip-cert-verify: true
-  ports: 27921,28000-29000
-  up: 11 mbps
-  down: 55 mbps
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11

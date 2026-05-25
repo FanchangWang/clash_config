@@ -41,6 +41,15 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
+- name: go-法国-hysteria2-3
+  type: hysteria2
+  server: 163.172.126.108
+  port: 41227
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11
