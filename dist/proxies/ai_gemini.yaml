@@ -122,44 +122,30 @@ proxies:
   encryption: mlkem768x25519plus.native.0rtt.zSYuX7pyA0rEd8VpVAxu72mLwTrKQuScjFWKPCaaMsKlB6CBmEllLAhj1mk37vQNJvma7Fs51ukzsqU3-honW3JM8cOiZNsxc-U3DJgbS8CZthsH4blkJlXEz6PPnGlrLQZozdkQ4oh5NeNE8uwYgdUFCnKyrhWKqGaM1JmbWgdFqpFqI5u0SDt_IdBdTxlptLa8MfW00Osz-jy74bW8DFq1vbJlQ0pLkNBdL-xCPMANIQY0yLsaFWN0uUp5pSWbc7XNRqHK2Xeuzvyw9px4HiBfG4q3VWXCL_hXr5NNHHQAjaBamSGI6ZIcE2RqgOGM-Ow3xPjBjvqBSeYzgYBMsBDP0sdRLrcAY6k6TZOlHNEgkxwgiMpXpYOuTGSsSLmuYxiIAH1DWJagU_NsJtVOZUKLtio263GFxXsJdVyBc_ACYEFheLBWBCUQBwYQIudfStHFQ2GCQaF64DOOrFcWacABMdY0qOIMPPyLVVJKjdF74OisuilVQmAs_bNIQ_CXnYkGJwlI_aVKJomFiHHOLkc5F2iiYdQuK4AaIumpqskx0MNxKotbyuxtA0MVRVucjmVyVOgR4TZfHirLoMWVxuKIwpddKyZtAeA_zDuuS_BJUEWMbmh_etVkRYhze7N17bfC1ruFTBZCdKUEeoVXiAcr_4kmLtKAP7TDDVMpmZlDC9KiZWKGLYSVteULYoHBgAWN_RKYawNOivkECYEO75ho2vJAVLqNF2KKyuMxZXdfKFbJfrscfFqWAMy08UDOH-sQGNZwVzEsebgw5wsaORGlTfm-9HwlYpYwfKIrJIwfj1uLSuMGHTWMnLeJPLIOsXJuWgKGSigV2sCDZrZWg2K5ZanMg1WpuzS9FjGMt8Z2ACNyd0ZM9NpoofeBLGcomZF_X3akPxG60Nt3lMBOkapRnRk5-ekNCfpmeKFfTcYIvQenR8FMxehQjPmG-kSJWGRL4efCeSSBBlNsdwyjZRsxeOwYAeRqHQlwBrYFgcoyrYmRW6yo5ocQPfAtqxq6VjiVM2ljxjOjK6Sy1QGSfUGA51WQA6BNrDyj_YcVCBkfdZBwHQmv6bTLKDZsFdY6FPmDOmsgM6MAxnEO6FuZQfcWb2Zm_zoTHhguW_oU7dsGEaKZ2Ns3Q5CAPYNRwDG5AI1Wh5VI-1ctFjpT8jtX3AC-46R7LkxUONddX8mHQ5BjKcwSNuDLOmOYRZm6ZrYHCYF6vXpZHNbIcdI5gUkxWANI8Hh2qTBuiQZ6t4qH2BGEsuwPAuZ6a3wzGmzCoTI-HyVAinhXohcsTjka62E7osQt11wTFnkVjBNGb-d-I4c6YRh31SRjnirG0esDWly7qcB3zEy0RMSshISKsNFRdeFfGPe4x5zD0cMvo4E3rQQ9xHJlckg4s5uCO4dk_cgcSeYHZZgADJErzIeRZpA9f-XBjNqdIFpnJAyzCMC9D2Msi8cXKys2kiJWiqyo1hAlr7YWEMC2JozJ7WlrNAFRmTsujSsdEvZoeECLmasq7eUvGmoMrFBsSIrBGXJBHdqzWx1z57id_4o81ihH0MA0yYW_67JZn7nFG0htFqUnyac
   skip-cert-verify: true
 - name: rp-日本-trojan-1
-  password: f6d3aa07a52dbcedcb4731029e2fb6ae
-  port: 2008
-  server: 52.69.114.14
-  skip-cert-verify: false
-  sni: www.nintendogames.net
+  password: BxceQaOe
+  port: 50712
+  server: 13.231.192.34
+  skip-cert-verify: true
+  sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
   password: BxceQaOe
-  port: 4327
-  server: 54.168.196.137
+  port: 53307
+  server: 13.231.192.34
   skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
+  sni: t.me%252Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-3
-  password: BxceQaOe
-  port: 4099
-  server: 13.231.225.85
-  skip-cert-verify: true
-  sni: t.me%252Fripaojiedian
-  type: trojan
-- name: rp-日本-trojan-4
-  password: BxceQaOe
-  port: 39756
-  server: 35.78.121.219
-  skip-cert-verify: true
-  sni: t.me%252Fripaojiedian
-  type: trojan
-- name: rp-日本-trojan-5
   password: f6d3aa07a52dbcedcb4731029e2fb6ae
-  port: 2663
-  server: 52.69.114.14
+  port: 4840
+  server: 54.238.76.39
   skip-cert-verify: true
   sni: www.nintendogames.net
   type: trojan
-- name: rp-日本-trojan-6
-  password: BxceQaOe
-  port: 2702
-  server: 43.206.155.159
+- name: rp-日本-trojan-4
+  password: f6d3aa07a52dbcedcb4731029e2fb6ae
+  port: 6604
+  server: 54.238.76.39
   skip-cert-verify: true
-  sni: t.me%2Fripaojiedian
+  sni: www.nintendogames.net
   type: trojan
