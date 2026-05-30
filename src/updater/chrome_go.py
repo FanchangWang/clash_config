@@ -31,6 +31,8 @@ class ChromeGoUpdater(BaseUpdater):
     def check_update(self) -> bool:
         """检查是否有更新"""
         try:
+            logger.info("开始检查 chrome_go 仓库更新...")
+
             encoded_project_id = quote(self.project_id, safe="")
             url = f"https://gitlab.com/api/v4/projects/{encoded_project_id}/repository/commits"
             params = {"path": self.target_dir, "per_page": 1}
@@ -44,7 +46,9 @@ class ChromeGoUpdater(BaseUpdater):
                 logger.info("chrome_go 仓库本地与远程相同，无需更新")
                 return False
 
-            logger.info("开始更新 chrome_go 仓库...")
+            logger.info("chrome_go 仓库有更新，开始下载...")
+            logger.info(f"上次 created_at: {local_created_at}")
+            logger.info(f"当前 created_at: {self._remote_created_at}")
             return True
         except Exception as e:
             logger.error(f"chrome_go 仓库检查更新失败: {e}")

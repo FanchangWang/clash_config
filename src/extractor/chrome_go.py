@@ -114,7 +114,7 @@ class ChromeGoExtractor(BaseExtractor):
             if country in Config.PORN_X_COUNTRIES:
                 group.porn_x.append(copy.deepcopy(proxy))
 
-            if country in Config.PORN_COUNTRIES and protocol in ["tuic"]:
+            if country in Config.PORN_COUNTRIES and protocol in Config.PORN_PROTOCOLS:
                 group.porn_all.append(copy.deepcopy(proxy))
 
         return group

@@ -37,6 +37,7 @@ class Config:
         "印度尼西亚",
         "菲律宾",
     ]
+    PORN_PROTOCOLS = ["hysteria", "hysteria2", "tuic"]
     PORN_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰", "德国"]
     PORN_X_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰"]
     UDP_PROTOCOLS = ["hysteria", "hysteria2", "tuic"]

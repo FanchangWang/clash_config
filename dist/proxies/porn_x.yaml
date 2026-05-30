@@ -1,12 +1,4 @@
 proxies:
-- name: go-美国-mieru-1
-  type: mieru
-  server: 157.254.223.44
-  transport: TCP
-  udp: true
-  username: dongtaiwang.com
-  password: dongtaiwang.com
-  port: 34567
 - name: go-台湾-mieru-1
   type: mieru
   server: 45.221.98.11
@@ -15,6 +7,14 @@ proxies:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 28866
+- name: go-美国-mieru-1
+  type: mieru
+  server: 157.254.223.44
+  transport: TCP
+  udp: true
+  username: dongtaiwang.com
+  password: dongtaiwang.com
+  port: 34567
 - tls: true
   udp: true
   sni: apple.com
