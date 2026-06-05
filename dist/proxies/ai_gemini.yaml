@@ -11,19 +11,16 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-法国-hysteria-2
-  type: hysteria
-  server: 62.210.29.98
-  port: 10066
-  auth-str: github.com/Alvin9999-newpac/fanqiang
+- name: go-法国-hysteria2-1
+  type: hysteria2
+  server: 62.210.124.132
+  port: 64772
+  password: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
   skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-法国-hysteria2-1
+- name: go-法国-hysteria2-2
   type: hysteria2
   server: 62.210.147.2
   port: 43115
@@ -32,7 +29,7 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-法国-hysteria2-2
+- name: go-法国-hysteria2-3
   type: hysteria2
   server: 2001:bc8:32d7:17b::3
   port: 22000
@@ -41,7 +38,7 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-法国-hysteria2-3
+- name: go-法国-hysteria2-4
   type: hysteria2
   server: 62.210.10.108
   port: 22000
