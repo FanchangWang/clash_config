@@ -47,14 +47,6 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-台湾-mieru-1
-  type: mieru
-  server: 45.221.98.11
-  transport: TCP
-  udp: true
-  username: dongtaiwang.com
-  password: dongtaiwang.com
-  port: 28866
 - tls: true
   udp: true
   sni: www.lovelive-anime.jp
