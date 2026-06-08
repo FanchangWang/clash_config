@@ -117,3 +117,10 @@ proxies:
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
+- name: rp-日本-trojan-2
+  password: BxceQaOe
+  port: 16712
+  server: 35.77.201.105
+  skip-cert-verify: true
+  sni: t.me%252Fripaojiedian
+  type: trojan
