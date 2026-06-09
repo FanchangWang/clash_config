@@ -1,6 +1,7 @@
 """ChromeGo 更新器"""
 
 import zipfile
+from typing import override
 from urllib.parse import quote
 
 import httpx
@@ -28,6 +29,7 @@ class ChromeGoUpdater(BaseUpdater):
         """获取本地记录的创建时间"""
         return self.store.chrome_go.created_at
 
+    @override
     def check_update(self) -> bool:
         """检查是否有更新"""
         try:
@@ -54,6 +56,7 @@ class ChromeGoUpdater(BaseUpdater):
             logger.error(f"chrome_go 仓库检查更新失败: {e}")
             return False
 
+    @override
     def download(self) -> bool:
         """下载并解压 ChromeGo 仓库"""
         try:
@@ -76,6 +79,7 @@ class ChromeGoUpdater(BaseUpdater):
             logger.error(f"chrome_go 仓库下载失败: {e}")
             return False
 
+    @override
     def update(self) -> tuple[bool, ProxyGroup]:
         """完整更新流程，返回(是否更新, ProxyGroup)"""
         if self.check_update():

@@ -3,6 +3,7 @@
 import copy
 import tempfile
 from pathlib import Path
+from typing import override
 
 import yaml
 
@@ -150,6 +151,7 @@ class RipaoExtractor(BaseExtractor):
 
         return group
 
+    @override
     def extract(self) -> ProxyGroup:
         """提取和处理 clash 文件"""
         logger.info("开始提取 ripao clash 配置...")

@@ -1,5 +1,7 @@
 """Ripao 更新器"""
 
+from typing import Any, override
+
 import httpx
 
 from ..config import Config
@@ -30,7 +32,7 @@ class RipaoUpdater(BaseUpdater):
         """获取本地记录的 SHA"""
         return self.store.ripao.sha
 
-    def _get_remote_info(self) -> dict | None:
+    def _get_remote_info(self) -> dict[str, Any] | None:
         """获取远程文件信息"""
         try:
             params = {"ref": self.ref}
@@ -41,6 +43,7 @@ class RipaoUpdater(BaseUpdater):
             logger.error(f"获取 GitHub 文件信息失败: {e}")
             return None
 
+    @override
     def check_update(self) -> bool:
         """检查是否有更新"""
         logger.info("开始检查 ripao clash 文件更新...")
@@ -67,6 +70,7 @@ class RipaoUpdater(BaseUpdater):
         logger.info(f"当前 SHA: {self._remote_sha}")
         return True
 
+    @override
     def download(self) -> bool:
         """下载 clash 文件"""
         try:
@@ -87,6 +91,7 @@ class RipaoUpdater(BaseUpdater):
             logger.error(f"下载文件失败: {e}")
             return False
 
+    @override
     def update(self) -> tuple[bool, ProxyGroup]:
         """完整更新流程，返回(是否更新, ProxyGroup)"""
         if self.check_update():

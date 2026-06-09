@@ -18,6 +18,6 @@ def main() -> None:
 
     exit_code |= _run(["ruff", "check", src], "ruff check")
     exit_code |= _run(["ruff", "format", "--check", src], "ruff format")
-    exit_code |= _run(["ty", "check", src], "ty check")
+    exit_code |= _run(["ty", "check", "--error", "all", src], "ty check")
 
     sys.exit(exit_code)

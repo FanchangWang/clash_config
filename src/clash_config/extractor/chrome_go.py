@@ -4,7 +4,7 @@ import copy
 import os
 from collections.abc import Callable
 from pathlib import Path
-from typing import TypedDict
+from typing import TypedDict, override
 
 from ..config import Config
 from ..converter import ProxyConverter
@@ -125,6 +125,7 @@ class ChromeGoExtractor(BaseExtractor):
 
         return group
 
+    @override
     def extract(self) -> ProxyGroup:
         """提取所有代理配置"""
         logger.info("开始提取 chromego 配置...")
