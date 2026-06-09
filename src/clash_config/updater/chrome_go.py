@@ -3,7 +3,7 @@
 import zipfile
 from urllib.parse import quote
 
-import requests
+import httpx
 
 from ..config import Config
 from ..extractor.chrome_go import ChromeGoExtractor
@@ -36,7 +36,7 @@ class ChromeGoUpdater(BaseUpdater):
             encoded_project_id = quote(self.project_id, safe="")
             url = f"https://gitlab.com/api/v4/projects/{encoded_project_id}/repository/commits"
             params = {"path": self.target_dir, "per_page": 1}
-            response = requests.get(url, params=params)
+            response = httpx.get(url, params=params)
             response.raise_for_status()
             commits = response.json()
             self._remote_created_at = commits[0]["created_at"]
@@ -60,7 +60,7 @@ class ChromeGoUpdater(BaseUpdater):
             zip_url = f"https://gitlab.com/{self.project_id}/-/archive/master/ipupdate-master.zip"
             params = {"path": self.target_dir, "ref_type": "heads"}
             zip_path = Config.TEMP_DIR / "ipupdate.zip"
-            response = requests.get(zip_url, params=params)
+            response = httpx.get(zip_url, params=params)
             response.raise_for_status()
 
             with open(zip_path, "wb") as f:

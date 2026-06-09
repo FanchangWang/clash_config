@@ -2,13 +2,23 @@
 
 import copy
 import os
+from collections.abc import Callable
 from pathlib import Path
+from typing import TypedDict
 
 from ..config import Config
 from ..converter import ProxyConverter
 from ..logger import logger
 from ..models import ProxyDict, ProxyGroup
 from .base import BaseExtractor
+
+_Parser = Callable[[Path], ProxyDict | list[ProxyDict] | None]
+
+
+class _ScanConfig(TypedDict):
+    dir: str
+    filename: str
+    parser: _Parser
 
 
 class ChromeGoExtractor(BaseExtractor):
@@ -38,17 +48,17 @@ class ChromeGoExtractor(BaseExtractor):
                         logger.warning(f"删除文件失败: {file_path}, 错误: {e}")
 
     def recursive_scan(
-        self, scan_dir: Path, config_filename: str, parse_func
+        self, scan_dir: Path, config_filename: str, parse_func: _Parser
     ) -> list[ProxyDict]:
         """递归扫描目录，匹配配置文件名并解析"""
         full_scan_dir = self.chrome_go_temp_dir / scan_dir
-        results = []
+        results: list[ProxyDict] = []
 
         if not full_scan_dir.exists():
             logger.warning(f"扫描目录不存在: {full_scan_dir}")
             return results
 
-        for root, dirs, files in os.walk(full_scan_dir):
+        for root, _dirs, files in os.walk(full_scan_dir):
             for file in files:
                 if file == config_filename:
                     config_path = Path(root) / file
@@ -62,9 +72,7 @@ class ChromeGoExtractor(BaseExtractor):
 
         return results
 
-    def process_proxies(
-        self, proxies: list[ProxyDict], prefix: str = "go"
-    ) -> ProxyGroup:
+    def process_proxies(self, proxies: list[ProxyDict], prefix: str = "go") -> ProxyGroup:
         """处理代理列表并分类"""
         proxies_by_protocol = {}
         group = ProxyGroup()
@@ -93,9 +101,7 @@ class ChromeGoExtractor(BaseExtractor):
                 sum(
                     1
                     for p in proxies_by_protocol[protocol]
-                    if p.get("name", "").startswith(
-                        f"{prefix}-{proxy['name']}-{protocol}-"
-                    )
+                    if p.get("name", "").startswith(f"{prefix}-{proxy['name']}-{protocol}-")
                 )
                 + 1
             )
@@ -127,7 +133,7 @@ class ChromeGoExtractor(BaseExtractor):
             logger.error(f"目录不存在: {self.chrome_go_temp_dir}")
             return ProxyGroup()
 
-        scan_configs = [
+        scan_configs: list[_ScanConfig] = [
             {
                 "dir": "clash.meta2",
                 "filename": "config.yaml",
@@ -158,9 +164,7 @@ class ChromeGoExtractor(BaseExtractor):
         all_proxies: list[ProxyDict] = []
         for config in scan_configs:
             logger.info(f"开始扫描 {config['dir']} 目录...")
-            proxies = self.recursive_scan(
-                Path(config["dir"]), config["filename"], config["parser"]
-            )
+            proxies = self.recursive_scan(Path(config["dir"]), config["filename"], config["parser"])
             all_proxies.extend(proxies)
 
         group = self.process_proxies(all_proxies)

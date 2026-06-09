@@ -8,30 +8,46 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     permissions:
       contents: write
 
     steps:
-      - name: 拉取仓库代码
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v6
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: 安装 uv
-        uses: astral-sh/setup-uv@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8
+        with:
+          enable-cache: true
 
-      - name: 安装依赖
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Install dependencies
         run: uv sync
 
-      - name: 执行脚本
-        run: uv run python main.py
+      - name: Run main script
+        run: uv run clash-config
 
-      - name: 提交修改
+      - name: Check for changes
+        id: git_status
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git diff --staged --quiet && echo "No changes" || (
-            git commit -m "Auto update: $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')" &&
-            git push
-          )
+          if git status --porcelain dist/ data/ | grep -q .; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.git_status.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add dist/ data/
+          git commit -m "Auto update $(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S')"
+          git push

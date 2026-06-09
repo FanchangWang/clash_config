@@ -3,8 +3,10 @@
 import json
 import re
 from pathlib import Path
+from typing import cast
 
 from ..logger import logger
+from ..models import ProxyDict
 from ..utils import get_geoip_country
 
 
@@ -48,10 +50,10 @@ class Hysteria2Converter:
         return server_addr, port, ports, is_multi_port
 
     @staticmethod
-    def convert(config_file: Path) -> dict | None:
+    def convert(config_file: Path) -> ProxyDict | None:
         """将 hysteria2 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 config = json.load(f)
 
             server = config.get("server", "")
@@ -60,8 +62,8 @@ class Hysteria2Converter:
             sni = tls_config.get("sni", "")
             bandwidth = config.get("bandwidth", {})
 
-            server_addr, port, ports, is_multi_port = (
-                Hysteria2Converter._parse_server_address(server)
+            server_addr, port, ports, is_multi_port = Hysteria2Converter._parse_server_address(
+                server
             )
             country = get_geoip_country(server_addr)
 
@@ -87,7 +89,7 @@ class Hysteria2Converter:
                     mihomo_config["down"] = down_mbps
 
             logger.info(f"转换 hysteria2 配置: {mihomo_config}")
-            return mihomo_config
+            return cast(ProxyDict, mihomo_config)
         except Exception as e:
             logger.error(f"转换 hysteria2 配置失败: {e}")
             return None

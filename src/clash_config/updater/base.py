@@ -32,5 +32,10 @@ class BaseUpdater(ABC):
         pass
 
     def _save_state(self) -> None:
-        """保存更新状态"""
-        save_store(self.store)
+        """保存更新状态（重新加载最新 store，仅覆盖当前源字段）"""
+        store = load_store()
+        if self.source_name == "chrome_go":
+            store.chrome_go.created_at = self.store.chrome_go.created_at
+        elif self.source_name == "ripao":
+            store.ripao.sha = self.store.ripao.sha
+        save_store(store)

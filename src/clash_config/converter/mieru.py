@@ -2,8 +2,10 @@
 
 import json
 from pathlib import Path
+from typing import cast
 
 from ..logger import logger
+from ..models import ProxyDict
 from ..utils import get_geoip_country
 
 
@@ -11,10 +13,10 @@ class MieruConverter:
     """Mieru 协议转换器"""
 
     @staticmethod
-    def convert(config_file: Path) -> list[dict]:
+    def convert(config_file: Path) -> list[ProxyDict]:
         """将 mieru 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 config = json.load(f)
 
             mihomo_proxies = []
@@ -29,12 +31,12 @@ class MieruConverter:
                 for server in servers:
                     address = server.get("ipAddress", "")
                     country = get_geoip_country(address)
-                    portBindings = server.get("portBindings", [])
+                    port_bindings = server.get("portBindings", [])
 
-                    for portBinding in portBindings:
-                        port = portBinding.get("port", "443")
-                        portRange = portBinding.get("portRange", "")
-                        protocol = portBinding.get("protocol", "TCP")
+                    for port_binding in port_bindings:
+                        port = port_binding.get("port", "443")
+                        port_range = port_binding.get("portRange", "")
+                        protocol = port_binding.get("protocol", "TCP")
 
                         mihomo_proxy = {
                             "name": country,
@@ -46,15 +48,15 @@ class MieruConverter:
                             "password": password,
                         }
 
-                        if portRange:
-                            mihomo_proxy["portRange"] = portRange
+                        if port_range:
+                            mihomo_proxy["portRange"] = port_range
                         else:
                             mihomo_proxy["port"] = port
 
                         logger.info(f"转换 mieru 配置: {mihomo_proxy}")
                         mihomo_proxies.append(mihomo_proxy)
 
-            return mihomo_proxies
+            return cast("list[ProxyDict]", mihomo_proxies)
         except Exception as e:
             logger.error(f"转换 mieru 配置失败: {e}")
             return []

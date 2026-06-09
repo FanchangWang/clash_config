@@ -16,7 +16,7 @@ from .merger import Merger
 from .models import ChromeGoState, ProxyDict, ProxyGroup, RipaoState, StoreData
 from .updater import BaseUpdater, ChromeGoUpdater, RipaoUpdater
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __all__ = [
     "App",
     "Config",

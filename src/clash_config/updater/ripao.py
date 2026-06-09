@@ -1,6 +1,6 @@
 """Ripao 更新器"""
 
-import requests
+import httpx
 
 from ..config import Config
 from ..extractor.ripao import RipaoExtractor
@@ -20,6 +20,9 @@ class RipaoUpdater(BaseUpdater):
         self.repo_url = Config.RIPAO_REPO_URL
         self.ref = "main"
         self.headers = {"Accept": "application/vnd.github.v3+json"}
+        token = Config.github_token()
+        if token:
+            self.headers["Authorization"] = f"Bearer {token}"
         self._remote_sha = ""
         self._download_url = ""
 
@@ -31,12 +34,10 @@ class RipaoUpdater(BaseUpdater):
         """获取远程文件信息"""
         try:
             params = {"ref": self.ref}
-            response = requests.get(
-                self.repo_url, headers=self.headers, params=params, timeout=10
-            )
+            response = httpx.get(self.repo_url, headers=self.headers, params=params, timeout=10)
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException as e:
+        except httpx.RequestError as e:
             logger.error(f"获取 GitHub 文件信息失败: {e}")
             return None
 
@@ -61,7 +62,7 @@ class RipaoUpdater(BaseUpdater):
             logger.info("ripao clash 文件本地与远程相同，无需更新")
             return False
 
-        logger.info(f"ripao clash 文件有更新，开始下载...")
+        logger.info("ripao clash 文件有更新，开始下载...")
         logger.info(f"上次 SHA: {local_sha}")
         logger.info(f"当前 SHA: {self._remote_sha}")
         return True
@@ -73,7 +74,7 @@ class RipaoUpdater(BaseUpdater):
                 logger.error("获取下载链接失败")
                 return False
 
-            response = requests.get(self._download_url, timeout=10)
+            response = httpx.get(self._download_url, timeout=10)
             response.raise_for_status()
 
             output_file = Config.TEMP_DIR / "ripao_clash.yaml"
@@ -82,7 +83,7 @@ class RipaoUpdater(BaseUpdater):
 
             logger.info("ripao clash 文件更新成功")
             return True
-        except requests.exceptions.RequestException as e:
+        except httpx.RequestError as e:
             logger.error(f"下载文件失败: {e}")
             return False
 

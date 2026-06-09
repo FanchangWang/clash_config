@@ -97,9 +97,7 @@ class RipaoExtractor(BaseExtractor):
 
             return []
 
-    def process_proxies(
-        self, proxies: list[ProxyDict], prefix: str = "rp"
-    ) -> ProxyGroup:
+    def process_proxies(self, proxies: list[ProxyDict], prefix: str = "rp") -> ProxyGroup:
         """处理代理列表，按照 chrome_go_extractor 的方式分类"""
         proxies_by_protocol = {}
         group = ProxyGroup()
@@ -128,9 +126,7 @@ class RipaoExtractor(BaseExtractor):
                 sum(
                     1
                     for p in proxies_by_protocol[protocol]
-                    if p.get("name", "").startswith(
-                        f"{prefix}-{proxy['name']}-{protocol}-"
-                    )
+                    if p.get("name", "").startswith(f"{prefix}-{proxy['name']}-{protocol}-")
                 )
                 + 1
             )
@@ -164,7 +160,7 @@ class RipaoExtractor(BaseExtractor):
 
         logger.info(f"读取文件: {self.input_file}")
 
-        with open(self.input_file, "r", encoding="utf-8") as f:
+        with open(self.input_file, encoding="utf-8") as f:
             content = f.read()
 
         proxies = self.load_and_fix_yaml(content)

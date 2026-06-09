@@ -2,8 +2,10 @@
 
 import json
 from pathlib import Path
+from typing import cast
 
 from ..logger import logger
+from ..models import ProxyDict
 from ..utils import get_geoip_country
 
 
@@ -11,10 +13,10 @@ class XrayConverter:
     """Xray 协议转换器"""
 
     @staticmethod
-    def convert(config_file: Path) -> list[dict]:
+    def convert(config_file: Path) -> list[ProxyDict]:
         """将 xray 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, "r", encoding="utf-8") as f:
+            with open(config_file, encoding="utf-8") as f:
                 config = json.load(f)
 
             outbounds = config.get("outbounds", [])
@@ -25,41 +27,41 @@ class XrayConverter:
                 if protocol not in ["trojan", "vless", "vmess"]:
                     continue
 
-                streamSettings = outbound.get("streamSettings", {})
-                xray_security = streamSettings.get("security", "")
+                stream_settings = outbound.get("streamSettings", {})
+                xray_security = stream_settings.get("security", "")
                 if xray_security != "reality":
                     continue
 
-                realitySettings = streamSettings.get("realitySettings", {})
+                reality_settings = stream_settings.get("realitySettings", {})
                 transport_config = {
                     "tls": True,
                     "udp": True,
-                    "sni": realitySettings.get("serverName", ""),
-                    "servername": realitySettings.get("serverName", ""),
-                    "client-fingerprint": realitySettings.get("fingerprint", ""),
+                    "sni": reality_settings.get("serverName", ""),
+                    "servername": reality_settings.get("serverName", ""),
+                    "client-fingerprint": reality_settings.get("fingerprint", ""),
                     "reality-opts": {
-                        "public-key": realitySettings.get("publicKey", ""),
-                        "short-id": realitySettings.get("shortId", ""),
+                        "public-key": reality_settings.get("publicKey", ""),
+                        "short-id": reality_settings.get("shortId", ""),
                     },
                 }
 
-                xray_network = streamSettings.get("network", "tcp")
+                xray_network = stream_settings.get("network", "tcp")
                 if xray_network in ("raw", "tcp"):
                     transport_config["network"] = "tcp"
                 elif xray_network == "grpc":
                     transport_config["network"] = "grpc"
                     transport_config["grpc-opts"] = {
-                        "grpc-service-name": streamSettings.get("grpcSettings", {}).get(
+                        "grpc-service-name": stream_settings.get("grpcSettings", {}).get(
                             "serviceName", ""
                         ),
                     }
                 elif xray_network == "xhttp":
-                    xhttpSettings = streamSettings.get("xhttpSettings", {})
+                    xhttp_settings = stream_settings.get("xhttpSettings", {})
                     transport_config["network"] = "xhttp"
                     transport_config["xhttp-opts"] = {
-                        "host": xhttpSettings.get("host", ""),
-                        "path": xhttpSettings.get("path", ""),
-                        "mode": xhttpSettings.get("mode", ""),
+                        "host": xhttp_settings.get("host", ""),
+                        "path": xhttp_settings.get("path", ""),
+                        "mode": xhttp_settings.get("mode", ""),
                     }
                 else:
                     continue
@@ -137,7 +139,7 @@ class XrayConverter:
                         logger.info(f"转换 trojan 配置: {mihomo_proxy}")
                         mihomo_proxies.append(mihomo_proxy)
 
-            return mihomo_proxies
+            return cast("list[ProxyDict]", mihomo_proxies)
         except Exception as e:
             logger.error(f"转换 xray 配置失败: {e}")
             return []

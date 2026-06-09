@@ -1,12 +1,15 @@
 """全局配置管理"""
 
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 
 class Config:
     """全局配置类"""
 
-    BASE_DIR = Path(__file__).parent.parent
+    BASE_DIR = Path(__file__).resolve().parent.parent.parent
     DATA_DIR = BASE_DIR / "data"
     TEMP_DIR = BASE_DIR / "temp"
     DIST_DIR = BASE_DIR / "dist"
@@ -41,6 +44,12 @@ class Config:
     PORN_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰", "德国"]
     PORN_X_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰"]
     UDP_PROTOCOLS = ["hysteria", "hysteria2", "tuic"]
+
+    @classmethod
+    def github_token(cls) -> str | None:
+        """从 .env 获取 GitHub token"""
+        load_dotenv(cls.BASE_DIR / ".env")
+        return os.environ.get("GITHUB_TOKEN")
 
     @classmethod
     def init_dirs(cls) -> None:

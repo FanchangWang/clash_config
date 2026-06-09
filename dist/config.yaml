@@ -80,7 +80,7 @@ proxy-groups:
     type: select
     use:
       - p_all
-      - anaer
+      # - anaer
 
   - name: "_p_udp"
     type: load-balance
@@ -104,76 +104,20 @@ proxy-groups:
       - p_porn_all
 
 proxy-providers:
-  anaer:
-    type: http
-    path: ./proxy/anaer.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml"
-    interval: 3600
-    proxy: DIRECT
-    exclude-filter: "中国|China"
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 1800
-      timeout: 3000
-      lazy: true
-      expected-status: 204
-
-  p_udp:
-    type: http
-    path: ./proxy/udp.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/udp.yaml"
-    interval: 3600
-    proxy: DIRECT
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 1800
-      timeout: 3000
-      lazy: false
-      expected-status: 204
-
-  p_ai_gemini:
-    type: http
-    path: ./proxy/ai_gemini.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/ai_gemini.yaml"
-    interval: 3600
-    proxy: DIRECT
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 1800
-      timeout: 3000
-      lazy: false
-      expected-status: 204
-
-  p_porn_x:
-    type: http
-    path: ./proxy/porn_x.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/porn_x.yaml"
-    interval: 3600
-    proxy: DIRECT
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 1800
-      timeout: 3000
-      lazy: false
-      expected-status: 204
-
-  p_porn_all:
-    type: http
-    path: ./proxy/porn_all.yaml
-    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/porn_all.yaml"
-    interval: 3600
-    proxy: DIRECT
-    health-check:
-      enable: true
-      url: "https://www.google.com/generate_204"
-      interval: 1800
-      timeout: 3000
-      lazy: false
-      expected-status: 204
+  # anaer:
+  #   type: http
+  #   path: ./proxy/anaer.yaml
+  #   url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/anaer/Sub/main/proxies.yaml"
+  #   interval: 3600
+  #   proxy: DIRECT
+  #   exclude-filter: "中国|China"
+  #   health-check:
+  #     enable: true
+  #     url: "https://www.google.com/generate_204"
+  #     interval: 1800
+  #     timeout: 3000
+  #     lazy: true
+  #     expected-status: 204
 
   p_all:
     type: http
@@ -187,6 +131,62 @@ proxy-providers:
       interval: 1800
       timeout: 3000
       lazy: false
+      expected-status: 204
+
+  p_udp:
+    type: http
+    path: ./proxy/udp.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/udp.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+
+  p_ai_gemini:
+    type: http
+    path: ./proxy/ai_gemini.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/ai_gemini.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+
+  p_porn_x:
+    type: http
+    path: ./proxy/porn_x.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/porn_x.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: true
+      expected-status: 204
+
+  p_porn_all:
+    type: http
+    path: ./proxy/porn_all.yaml
+    url: "https://github.allproxy.dpdns.org/https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/proxies/porn_all.yaml"
+    interval: 3600
+    proxy: DIRECT
+    health-check:
+      enable: true
+      url: "https://www.google.com/generate_204"
+      interval: 1800
+      timeout: 3000
+      lazy: true
       expected-status: 204
 
 rules:

@@ -20,10 +20,8 @@ class Merger:
             "udp": copy.deepcopy(chrome_group.udp) + copy.deepcopy(ripao_group.udp),
             "ai_gemini": copy.deepcopy(chrome_group.ai_gemini)
             + copy.deepcopy(ripao_group.ai_gemini),
-            "porn_all": copy.deepcopy(chrome_group.porn_all)
-            + copy.deepcopy(ripao_group.porn_all),
-            "porn_x": copy.deepcopy(chrome_group.porn_x)
-            + copy.deepcopy(ripao_group.porn_x),
+            "porn_all": copy.deepcopy(chrome_group.porn_all) + copy.deepcopy(ripao_group.porn_all),
+            "porn_x": copy.deepcopy(chrome_group.porn_x) + copy.deepcopy(ripao_group.porn_x),
         }
 
         if len(chrome_group.udp) > 2:
@@ -36,9 +34,7 @@ class Merger:
             udp_proxies = copy.deepcopy(all_proxies["all"])
 
         save_yaml({"proxies": udp_proxies}, Config.DIST_PROXIES_DIR / "udp.yaml")
-        logger.info(
-            f"已保存所有 {len(udp_proxies)} 个 UDP 协议配置到 dist/proxies/udp.yaml"
-        )
+        logger.info(f"已保存所有 {len(udp_proxies)} 个 UDP 协议配置到 dist/proxies/udp.yaml")
 
         if len(all_proxies["ai_gemini"]) > 2:
             ai_gemini_proxies = copy.deepcopy(all_proxies["ai_gemini"])
@@ -46,14 +42,17 @@ class Merger:
             ai_gemini_proxies = copy.deepcopy(all_proxies["all"])
 
         save_yaml(
-            {"proxies": ai_gemini_proxies}, Config.DIST_PROXIES_DIR / "ai_gemini.yaml"
+            {"proxies": ai_gemini_proxies},
+            Config.DIST_PROXIES_DIR / "ai_gemini.yaml",
         )
         logger.info(
-            f"已保存所有 {len(ai_gemini_proxies)} 个 AI gemini 协议配置到 dist/proxies/ai_gemini.yaml"
+            f"已保存所有 {len(ai_gemini_proxies)} 个 AI gemini 协议配置到"
+            f" dist/proxies/ai_gemini.yaml"
         )
 
         save_yaml(
-            {"proxies": all_proxies["porn_x"]}, Config.DIST_PROXIES_DIR / "porn_x.yaml"
+            {"proxies": all_proxies["porn_x"]},
+            Config.DIST_PROXIES_DIR / "porn_x.yaml",
         )
         logger.info(
             f"已保存所有 {len(all_proxies['porn_x'])} 个 porn_x 协议配置到 dist/proxies/porn_x.yaml"
@@ -64,12 +63,14 @@ class Merger:
             Config.DIST_PROXIES_DIR / "porn_all.yaml",
         )
         logger.info(
-            f"已保存所有 {len(all_proxies['porn_all'])} 个 porn_all 协议配置到 dist/proxies/porn_all.yaml"
+            f"已保存所有 {len(all_proxies['porn_all'])} 个 porn_all 协议配置到"
+            f" dist/proxies/porn_all.yaml"
         )
 
-        save_yaml({"proxies": all_proxies["all"]}, Config.DIST_PROXIES_DIR / "all.yaml")
-        logger.info(
-            f"已保存所有 {len(all_proxies['all'])} 个协议配置到 dist/proxies/all.yaml"
+        save_yaml(
+            {"proxies": all_proxies["all"]},
+            Config.DIST_PROXIES_DIR / "all.yaml",
         )
+        logger.info(f"已保存所有 {len(all_proxies['all'])} 个协议配置到 dist/proxies/all.yaml")
 
         logger.info("配置更新完成")
