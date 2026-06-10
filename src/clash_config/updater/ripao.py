@@ -62,10 +62,10 @@ class RipaoUpdater(BaseUpdater):
         local_sha = self._get_local_sha()
 
         if self._remote_sha == local_sha:
-            logger.info("ripao clash 文件本地与远程相同，无需更新")
+            logger.info("ripao clash 文件本地与远程相同, 无需更新")
             return False
 
-        logger.info("ripao clash 文件有更新，开始下载...")
+        logger.info("ripao clash 文件有更新, 开始下载...")
         logger.info(f"上次 SHA: {local_sha}")
         logger.info(f"当前 SHA: {self._remote_sha}")
         return True
@@ -93,14 +93,13 @@ class RipaoUpdater(BaseUpdater):
 
     @override
     def update(self) -> tuple[bool, ProxyGroup]:
-        """完整更新流程，返回(是否更新, ProxyGroup)"""
-        if self.check_update():
-            if self.download():
-                self.store.ripao.sha = self._remote_sha
-                self._save_state()
-                group = RipaoExtractor().extract()
-                self._save_group(group)
-                return True, group
+        """完整更新流程, 返回(是否更新, ProxyGroup)"""
+        if self.check_update() and self.download():
+            self.store.ripao.sha = self._remote_sha
+            self._save_state()
+            group = RipaoExtractor().extract()
+            self._save_group(group)
+            return True, group
         return False, self._load_group()
 
     def _save_group(self, group: ProxyGroup) -> None:

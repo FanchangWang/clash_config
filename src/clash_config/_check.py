@@ -1,4 +1,4 @@
-"""一键检查脚本：运行 ruff 和 ty"""
+"""一键检查脚本: 运行 ruff 和 ty"""
 
 import subprocess
 import sys

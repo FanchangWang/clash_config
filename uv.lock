@@ -235,14 +235,14 @@ dev = [
 requires-dist = [
     { name = "dirtyjson", specifier = ">=1.0.8" },
     { name = "geoip2", specifier = ">=5.2.0" },
-    { name = "httpx", specifier = ">=0.27.0" },
+    { name = "httpx", specifier = ">=0.28.1" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "pyyaml", specifier = ">=6.0.3" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ruff", specifier = ">=0.1.0" },
+    { name = "ruff", specifier = ">=0.15.16" },
     { name = "ty", specifier = ">=0.0.46" },
 ]
 

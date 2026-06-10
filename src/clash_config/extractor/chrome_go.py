@@ -50,7 +50,7 @@ class ChromeGoExtractor(BaseExtractor):
     def recursive_scan(
         self, scan_dir: Path, config_filename: str, parse_func: _Parser
     ) -> list[ProxyDict]:
-        """递归扫描目录，匹配配置文件名并解析"""
+        """递归扫描目录, 匹配配置文件名并解析"""
         full_scan_dir = self.chrome_go_temp_dir / scan_dir
         results: list[ProxyDict] = []
 
@@ -170,5 +170,5 @@ class ChromeGoExtractor(BaseExtractor):
 
         group = self.process_proxies(all_proxies)
 
-        logger.info(f"chrome_go 配置提取完成，共 {len(group.all)} 个协议配置")
+        logger.info(f"chrome_go 配置提取完成, 共 {len(group.all)} 个协议配置")
         return group

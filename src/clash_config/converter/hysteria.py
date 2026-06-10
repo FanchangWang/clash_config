@@ -15,7 +15,7 @@ class HysteriaConverter:
 
     @staticmethod
     def _parse_server_address(server: str) -> tuple[str, int, str | None, bool]:
-        """解析服务器地址，处理各种格式"""
+        """解析服务器地址, 处理各种格式"""
         server_addr = server
         port = 443
         ports = None

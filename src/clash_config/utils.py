@@ -15,7 +15,7 @@ from .models import ChromeGoState, RipaoState, StoreData
 
 
 def get_geoip_country(server: str) -> str:
-    """获取 IP 地址的国家名称（中文）"""
+    """获取 IP 地址的国家名称(中文)"""
     try:
         ip_address = socket.gethostbyname(server)
     except socket.gaierror:
@@ -27,20 +27,20 @@ def get_geoip_country(server: str) -> str:
         result = response.json()
 
         if result.get("status") != "success":
-            logger.warning(f"ip-api 查询失败：{result.get('message', '未知错误')}")
+            logger.warning(f"ip-api 查询失败: {result.get('message', '未知错误')}")
         else:
             country = result.get("country")
             if country:
                 return country
             logger.warning("ip-api 返回成功但缺少国家信息")
     except httpx.RequestError as e:
-        logger.warning(f"ip-api 网络异常：{e}")
+        logger.warning(f"ip-api 网络异常: {e}")
     except Exception as e:
-        logger.warning(f"ip-api 解析异常：{e}")
+        logger.warning(f"ip-api 解析异常: {e}")
 
     try:
         if not Config.GEOIP_DB.exists():
-            logger.warning(f"GeoIP 数据库不存在：{Config.GEOIP_DB}")
+            logger.warning(f"GeoIP 数据库不存在: {Config.GEOIP_DB}")
             return "未知"
         with geoip2.database.Reader(str(Config.GEOIP_DB)) as reader:
             response = reader.country(ip_address)
@@ -48,7 +48,7 @@ def get_geoip_country(server: str) -> str:
     except geoip2.errors.AddressNotFoundError:
         return "未知"
     except Exception as e:
-        logger.warning(f"GeoIP 查询异常：{e}")
+        logger.warning(f"GeoIP 查询异常: {e}")
         return "未知"
 
 

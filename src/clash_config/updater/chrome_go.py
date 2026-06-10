@@ -45,10 +45,10 @@ class ChromeGoUpdater(BaseUpdater):
 
             local_created_at = self._get_local_created_at()
             if local_created_at == self._remote_created_at:
-                logger.info("chrome_go 仓库本地与远程相同，无需更新")
+                logger.info("chrome_go 仓库本地与远程相同, 无需更新")
                 return False
 
-            logger.info("chrome_go 仓库有更新，开始下载...")
+            logger.info("chrome_go 仓库有更新, 开始下载...")
             logger.info(f"上次 created_at: {local_created_at}")
             logger.info(f"当前 created_at: {self._remote_created_at}")
             return True
@@ -81,14 +81,13 @@ class ChromeGoUpdater(BaseUpdater):
 
     @override
     def update(self) -> tuple[bool, ProxyGroup]:
-        """完整更新流程，返回(是否更新, ProxyGroup)"""
-        if self.check_update():
-            if self.download():
-                self.store.chrome_go.created_at = self._remote_created_at
-                self._save_state()
-                group = ChromeGoExtractor().extract()
-                self._save_group(group)
-                return True, group
+        """完整更新流程, 返回(是否更新, ProxyGroup)"""
+        if self.check_update() and self.download():
+            self.store.chrome_go.created_at = self._remote_created_at
+            self._save_state()
+            group = ChromeGoExtractor().extract()
+            self._save_group(group)
+            return True, group
         return False, self._load_group()
 
     def _save_group(self, group: ProxyGroup) -> None:

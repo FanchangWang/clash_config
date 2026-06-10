@@ -22,7 +22,7 @@ class RipaoExtractor(BaseExtractor):
         self.input_file = Config.TEMP_DIR / "ripao_clash.yaml"
 
     def load_and_fix_yaml(self, content: str) -> list[ProxyDict]:
-        """加载 yaml 内容并提取 proxies 字段，自动修复格式问题"""
+        """加载 yaml 内容并提取 proxies 字段, 自动修复格式问题"""
         try:
             logger.info("尝试直接读取 YAML 内容...")
             yaml_data = yaml.safe_load(content)
@@ -51,10 +51,14 @@ class RipaoExtractor(BaseExtractor):
                 ):
                     in_proxies_section = False
 
-                if in_proxies_section and stripped_line.startswith("- {"):
-                    if "{" in stripped_line and "}" not in stripped_line:
-                        logger.info(f"修复行: {line}")
-                        line = line.rstrip() + "}"
+                if (
+                    in_proxies_section
+                    and stripped_line.startswith("- {")
+                    and "{" in stripped_line
+                    and "}" not in stripped_line
+                ):
+                    logger.info(f"修复行: {line}")
+                    line = line.rstrip() + "}"
 
                 fixed_lines.append(line)
 
@@ -99,7 +103,7 @@ class RipaoExtractor(BaseExtractor):
             return []
 
     def process_proxies(self, proxies: list[ProxyDict], prefix: str = "rp") -> ProxyGroup:
-        """处理代理列表，按照 chrome_go_extractor 的方式分类"""
+        """处理代理列表, 按照 chrome_go_extractor 的方式分类"""
         proxies_by_protocol = {}
         group = ProxyGroup()
 
@@ -190,5 +194,5 @@ class RipaoExtractor(BaseExtractor):
         logger.info("处理转换结果...")
         group = self.process_proxies(converted_proxies)
 
-        logger.info(f"ripao 配置提取完成，共 {len(group.all)} 个协议配置")
+        logger.info(f"ripao 配置提取完成, 共 {len(group.all)} 个协议配置")
         return group

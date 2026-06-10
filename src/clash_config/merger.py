@@ -13,7 +13,7 @@ class Merger:
 
     def merge(self, chrome_group: ProxyGroup, ripao_group: ProxyGroup) -> None:
         """合并配置并生成输出文件到 dist 目录"""
-        logger.info("检测到配置更新，重新生成...")
+        logger.info("检测到配置更新, 重新生成...")
 
         all_proxies = {
             "all": copy.deepcopy(chrome_group.all) + copy.deepcopy(ripao_group.all),

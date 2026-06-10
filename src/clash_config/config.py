@@ -2,6 +2,7 @@
 
 import os
 from pathlib import Path
+from typing import ClassVar
 
 from dotenv import load_dotenv
 
@@ -26,7 +27,7 @@ class Config:
     RIPAO_REPO_URL = "https://api.github.com/repos/ripaojiedian/freenode/contents/clash"
     RIPAO_PROXIES_FILE = DATA_DIR / "ripao_proxies.yaml"
 
-    AI_GEMINI_COUNTRIES = [
+    AI_GEMINI_COUNTRIES: ClassVar[list[str]] = [
         "日本",
         "韩国",
         "台湾",
@@ -40,10 +41,10 @@ class Config:
         "印度尼西亚",
         "菲律宾",
     ]
-    PORN_PROTOCOLS = ["hysteria", "hysteria2", "tuic"]
-    PORN_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰", "德国"]
-    PORN_X_COUNTRIES = ["美国", "日本", "韩国", "香港", "台湾", "荷兰"]
-    UDP_PROTOCOLS = ["hysteria", "hysteria2", "tuic"]
+    PORN_PROTOCOLS: ClassVar[list[str]] = ["hysteria", "hysteria2", "tuic"]
+    PORN_COUNTRIES: ClassVar[list[str]] = ["美国", "日本", "韩国", "香港", "台湾", "荷兰", "德国"]
+    PORN_X_COUNTRIES: ClassVar[list[str]] = ["美国", "日本", "韩国", "香港", "台湾", "荷兰"]
+    UDP_PROTOCOLS: ClassVar[list[str]] = ["hysteria", "hysteria2", "tuic"]
 
     @classmethod
     def github_token(cls) -> str | None:

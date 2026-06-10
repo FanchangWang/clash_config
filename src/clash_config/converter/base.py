@@ -10,7 +10,7 @@ from .xray import XrayConverter
 
 
 class ProxyConverter:
-    """代理协议转换类，用于将各种协议转换为 mihomo 协议格式"""
+    """代理协议转换类, 用于将各种协议转换为 mihomo 协议格式"""
 
     @staticmethod
     def convert_hysteria(config_file: Path):
