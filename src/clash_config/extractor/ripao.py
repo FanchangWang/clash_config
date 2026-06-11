@@ -97,7 +97,7 @@ class RipaoExtractor(BaseExtractor):
                         proxies_content = "\n".join(lines[proxies_start:proxies_end])
                         yaml_data = yaml.safe_load(proxies_content)
                         return yaml_data.get("proxies", [])
-                except Exception as e3:
+                except (yaml.YAMLError, KeyError) as e3:
                     logger.error(f"分割提取也失败了: {e3}")
 
             return []
@@ -166,7 +166,7 @@ class RipaoExtractor(BaseExtractor):
 
         logger.info(f"读取文件: {self.input_file}")
 
-        with open(self.input_file, encoding="utf-8") as f:
+        with self.input_file.open(encoding="utf-8") as f:
             content = f.read()
 
         proxies = self.load_and_fix_yaml(content)
@@ -177,7 +177,7 @@ class RipaoExtractor(BaseExtractor):
         logger.info("转换代理配置...")
 
         with tempfile.NamedTemporaryFile(
-            mode="w", suffix=".yaml", delete=False, encoding="utf-8"
+            mode="w", suffix=".yaml", delete=False, encoding="utf-8", newline=""
         ) as temp_file:
             yaml.dump({"proxies": proxies}, temp_file)
             temp_file_path = Path(temp_file.name)

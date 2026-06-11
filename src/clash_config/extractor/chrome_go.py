@@ -39,12 +39,11 @@ class ChromeGoExtractor(BaseExtractor):
         self.chrome_go_data_dir.mkdir(parents=True, exist_ok=True)
 
         if self.chrome_go_data_dir.exists():
-            for file_name in os.listdir(self.chrome_go_data_dir):
-                file_path = self.chrome_go_data_dir / file_name
+            for file_path in self.chrome_go_data_dir.iterdir():
                 if file_path.is_file():
                     try:
                         file_path.unlink()
-                    except Exception as e:
+                    except (PermissionError, OSError) as e:
                         logger.warning(f"删除文件失败: {file_path}, 错误: {e}")
 
     def recursive_scan(

@@ -19,17 +19,14 @@ class BaseUpdater(ABC):
     @abstractmethod
     def check_update(self) -> bool:
         """检查是否有更新"""
-        pass
 
     @abstractmethod
     def download(self) -> bool:
         """下载更新"""
-        pass
 
     @abstractmethod
     def update(self) -> tuple[bool, ProxyGroup]:
         """完整更新流程, 返回(是否更新, ProxyGroup)"""
-        pass
 
     def _save_state(self) -> None:
         """保存更新状态(重新加载最新 store, 仅覆盖当前源字段)"""

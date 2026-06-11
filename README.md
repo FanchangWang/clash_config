@@ -9,13 +9,12 @@
 ### 运行
 ```shell
 uv sync
-uv run python main.py
+uv run clash-config
 ```
 
 ### 项目结构
 ```
 clash_config/
-├── main.py                  # 程序入口
 ├── pyproject.toml           # uv 项目配置
 ├── .github/
 │   └── workflows/

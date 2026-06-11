@@ -16,7 +16,7 @@ class XrayConverter:
     def convert(config_file: Path) -> list[ProxyDict]:
         """将 xray 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, encoding="utf-8") as f:
+            with config_file.open(encoding="utf-8") as f:
                 config = json.load(f)
 
             outbounds = config.get("outbounds", [])
@@ -140,6 +140,6 @@ class XrayConverter:
                         mihomo_proxies.append(mihomo_proxy)
 
             return cast("list[ProxyDict]", mihomo_proxies)
-        except Exception as e:
+        except (OSError, json.JSONDecodeError, KeyError) as e:
             logger.error(f"转换 xray 配置失败: {e}")
             return []

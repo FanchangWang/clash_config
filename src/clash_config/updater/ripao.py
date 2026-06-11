@@ -82,14 +82,15 @@ class RipaoUpdater(BaseUpdater):
             response.raise_for_status()
 
             output_file = Config.TEMP_DIR / "ripao_clash.yaml"
-            with open(output_file, "w", encoding="utf-8") as f:
-                f.write(response.text)
+            with output_file.open("w", encoding="utf-8", newline="") as f:
+                f.write(response.text.replace("\r\n", "\n"))
 
             logger.info("ripao clash 文件更新成功")
-            return True
         except httpx.RequestError as e:
             logger.error(f"下载文件失败: {e}")
             return False
+        else:
+            return True
 
     @override
     def update(self) -> tuple[bool, ProxyGroup]:

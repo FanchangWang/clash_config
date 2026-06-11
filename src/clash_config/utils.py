@@ -1,5 +1,6 @@
 """工具函数模块"""
 
+import json
 import socket
 from pathlib import Path
 from typing import Any
@@ -35,7 +36,7 @@ def get_geoip_country(server: str) -> str:
             logger.warning("ip-api 返回成功但缺少国家信息")
     except httpx.RequestError as e:
         logger.warning(f"ip-api 网络异常: {e}")
-    except Exception as e:
+    except (json.JSONDecodeError, KeyError) as e:
         logger.warning(f"ip-api 解析异常: {e}")
 
     try:
@@ -47,20 +48,20 @@ def get_geoip_country(server: str) -> str:
             return response.country.names.get("zh-CN", response.country.name or "未知")
     except geoip2.errors.AddressNotFoundError:
         return "未知"
-    except Exception as e:
+    except geoip2.errors.GeoIP2Error as e:
         logger.warning(f"GeoIP 查询异常: {e}")
         return "未知"
 
 
 def load_yaml(file_path: Path) -> dict[str, Any]:
     """加载 YAML 文件"""
-    with open(file_path, encoding="utf-8") as f:
+    with file_path.open(encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def save_yaml(data: dict[str, Any], file_path: Path) -> None:
     """保存 YAML 文件"""
-    with open(file_path, "w", encoding="utf-8") as f:
+    with file_path.open("w", encoding="utf-8", newline="") as f:
         yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 

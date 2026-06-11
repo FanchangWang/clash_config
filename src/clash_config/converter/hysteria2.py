@@ -53,7 +53,7 @@ class Hysteria2Converter:
     def convert(config_file: Path) -> ProxyDict | None:
         """将 hysteria2 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, encoding="utf-8") as f:
+            with config_file.open(encoding="utf-8") as f:
                 config = json.load(f)
 
             server = config.get("server", "")
@@ -90,6 +90,6 @@ class Hysteria2Converter:
 
             logger.info(f"转换 hysteria2 配置: {mihomo_config}")
             return cast(ProxyDict, mihomo_config)
-        except Exception as e:
+        except (OSError, json.JSONDecodeError, KeyError) as e:
             logger.error(f"转换 hysteria2 配置失败: {e}")
             return None

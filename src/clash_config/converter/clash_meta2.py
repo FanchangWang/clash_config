@@ -17,7 +17,7 @@ class ClashMeta2Converter:
     def convert(config_file: Path) -> list[ProxyDict]:
         """将 clash.meta2 配置转换为 mihomo 格式"""
         try:
-            with open(config_file, encoding="utf-8") as f:
+            with config_file.open(encoding="utf-8") as f:
                 config = yaml.safe_load(f)
 
             proxies = config.get("proxies", [])
@@ -29,6 +29,6 @@ class ClashMeta2Converter:
                 mihomo_proxies.append(proxy)
 
             return cast("list[ProxyDict]", mihomo_proxies)
-        except Exception as e:
+        except (OSError, yaml.YAMLError, KeyError) as e:
             logger.error(f"转换 clash.meta2 配置失败: {e}")
             return []

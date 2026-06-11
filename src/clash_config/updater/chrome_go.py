@@ -51,10 +51,11 @@ class ChromeGoUpdater(BaseUpdater):
             logger.info("chrome_go 仓库有更新, 开始下载...")
             logger.info(f"上次 created_at: {local_created_at}")
             logger.info(f"当前 created_at: {self._remote_created_at}")
-            return True
-        except Exception as e:
+        except (httpx.RequestError, OSError, KeyError, IndexError, ValueError) as e:
             logger.error(f"chrome_go 仓库检查更新失败: {e}")
             return False
+        else:
+            return True
 
     @override
     def download(self) -> bool:
@@ -66,7 +67,7 @@ class ChromeGoUpdater(BaseUpdater):
             response = httpx.get(zip_url, params=params)
             response.raise_for_status()
 
-            with open(zip_path, "wb") as f:
+            with zip_path.open("wb") as f:
                 f.write(response.content)
 
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
@@ -74,10 +75,11 @@ class ChromeGoUpdater(BaseUpdater):
 
             zip_path.unlink()
             logger.info("chrome_go 仓库更新成功")
-            return True
-        except Exception as e:
+        except (httpx.RequestError, OSError, zipfile.BadZipFile) as e:
             logger.error(f"chrome_go 仓库下载失败: {e}")
             return False
+        else:
+            return True
 
     @override
     def update(self) -> tuple[bool, ProxyGroup]:

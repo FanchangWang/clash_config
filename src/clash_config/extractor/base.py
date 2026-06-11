@@ -18,7 +18,6 @@ class BaseExtractor(ABC):
     @abstractmethod
     def extract(self) -> ProxyGroup:
         """提取并处理代理配置"""
-        pass
 
     def save(self, group: ProxyGroup, output_path: Path) -> None:
         """保存代理组到文件"""
