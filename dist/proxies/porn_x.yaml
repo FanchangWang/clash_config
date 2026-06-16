@@ -1,6 +1,14 @@
 proxies:
 - name: go-美国-mieru-1
   type: mieru
+  server: 156.225.88.93
+  transport: TCP
+  udp: true
+  username: tcp_yuyys0xg
+  password: 8n2IZjc7vUJPPEqm
+  port: 19022
+- name: go-美国-mieru-2
+  type: mieru
   server: 157.254.223.44
   transport: TCP
   udp: true

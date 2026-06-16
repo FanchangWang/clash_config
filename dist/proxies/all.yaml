@@ -1,4 +1,29 @@
 proxies:
+- name: go-德国-hysteria-1
+  type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: go-德国-tuic-1
+  server: 5.178.101.117
+  port: 30006
+  type: tuic
+  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
+  password: dongtaiwang.com
+  sni: www.microsoft.com
+  alpn:
+  - h3
+  request-timeout: 8000
+  udp-relay-mode: native
+  skip-cert-verify: true
+  congestion-controller: bbr
 - name: go-法国-hysteria2-1
   type: hysteria2
   server: 62.210.124.132
@@ -20,64 +45,7 @@ proxies:
   protocol: udp
   up: 11 Mbps
   down: 55 Mbps
-- name: go-德国-tuic-1
-  server: 5.178.101.117
-  port: 30006
-  type: tuic
-  uuid: 36106e0f-4d9a-470b-a3fd-535f3b7a1e92
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  alpn:
-  - h3
-  request-timeout: 8000
-  udp-relay-mode: native
-  skip-cert-verify: true
-  congestion-controller: bbr
-- name: go-德国-hysteria-1
-  type: hysteria
-  server: 2a14:7584:d097::a
-  port: 54177
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
 - name: go-德国-hysteria-2
-  type: hysteria
-  server: 5.83.129.153
-  protocol: udp
-  port: 20088
-  auth-str: dongtaiwang.com
-  sni: apple.com
-  alpn:
-  - h3
-  up: 11
-  down: 55
-  skip-cert-verify: true
-  fast-open: true
-  recv-window-conn: 5767168
-  recv-window: 23068672
-  disable-mtu-discovery: true
-- name: go-德国-hysteria-3
-  type: hysteria
-  server: 5.83.129.153
-  protocol: udp
-  port: 27626
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: bing.com
-  alpn:
-  - h3
-  up: 11
-  down: 55
-  skip-cert-verify: true
-  fast-open: true
-  recv-window-conn: 5767168
-  recv-window: 23068672
-  disable-mtu-discovery: true
-- name: go-德国-hysteria-4
   type: hysteria
   server: 5.83.129.90
   protocol: udp
@@ -93,25 +61,39 @@ proxies:
   recv-window-conn: 57671680
   recv-window: 230686720
   disable-mtu-discovery: true
+- name: go-德国-hysteria-3
+  type: hysteria
+  server: 5.83.129.153
+  protocol: udp
+  port: 20088
+  auth-str: dongtaiwang.com
+  sni: apple.com
+  alpn:
+  - h3
+  up: 11
+  down: 55
+  skip-cert-verify: true
+  fast-open: true
+  recv-window-conn: 5767168
+  recv-window: 23068672
+  disable-mtu-discovery: true
+- name: go-德国-hysteria-4
+  type: hysteria
+  server: 5.83.129.153
+  protocol: udp
+  port: 27626
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  sni: bing.com
+  alpn:
+  - h3
+  up: 11
+  down: 55
+  skip-cert-verify: true
+  fast-open: true
+  recv-window-conn: 5767168
+  recv-window: 23068672
+  disable-mtu-discovery: true
 - name: go-法国-hysteria2-2
-  type: hysteria2
-  server: 62.210.10.108
-  port: 22000
-  password: dongtaiwang.com
-  sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
-- name: go-法国-hysteria2-3
-  type: hysteria2
-  server: 62.210.147.2
-  port: 43115
-  password: github.com/Alvin9999-newpac/fanqiang
-  sni: www.microsoft.com
-  skip-cert-verify: true
-  up: 11 mbps
-  down: 55 mbps
-- name: go-法国-hysteria2-4
   type: hysteria2
   server: 2001:bc8:32d7:17b::3
   port: 22000
@@ -120,7 +102,25 @@ proxies:
   skip-cert-verify: true
   up: 11 mbps
   down: 55 mbps
-- name: go-英国-mieru-1
+- name: go-法国-hysteria2-3
+  type: hysteria2
+  server: www.838491.xyz
+  port: 13377
+  password: dongtaiwang.com
+  sni: www.838491.xyz
+  skip-cert-verify: false
+  up: 11 mbps
+  down: 55 mbps
+- name: go-法国-hysteria2-4
+  type: hysteria2
+  server: 62.210.147.2
+  port: 43115
+  password: github.com/Alvin9999-newpac/fanqiang
+  sni: www.microsoft.com
+  skip-cert-verify: true
+  up: 11 mbps
+  down: 55 mbps
+- name: go-美国-mieru-1
   type: mieru
   server: 156.225.88.93
   transport: TCP
@@ -128,7 +128,7 @@ proxies:
   username: tcp_yuyys0xg
   password: 8n2IZjc7vUJPPEqm
   port: 19022
-- name: go-美国-mieru-1
+- name: go-美国-mieru-2
   type: mieru
   server: 157.254.223.44
   transport: TCP
@@ -136,48 +136,6 @@ proxies:
   username: dongtaiwang.com
   password: dongtaiwang.com
   port: 34567
-- tls: true
-  udp: true
-  sni: www.lovelive-anime.jp
-  servername: www.lovelive-anime.jp
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo
-    short-id: 1ea5bfb5
-  network: xhttp
-  xhttp-opts:
-    host: ''
-    path: /SSSuqkzN
-    mode: auto
-  name: go-法国-vless-1
-  type: vless
-  server: 62.210.113.151
-  port: 45641
-  uuid: f2d9e117-231c-4946-87d8-2cde2222b85d
-  flow: ''
-  encryption: mlkem768x25519plus.native.0rtt.zSYuX7pyA0rEd8VpVAxu72mLwTrKQuScjFWKPCaaMsKlB6CBmEllLAhj1mk37vQNJvma7Fs51ukzsqU3-honW3JM8cOiZNsxc-U3DJgbS8CZthsH4blkJlXEz6PPnGlrLQZozdkQ4oh5NeNE8uwYgdUFCnKyrhWKqGaM1JmbWgdFqpFqI5u0SDt_IdBdTxlptLa8MfW00Osz-jy74bW8DFq1vbJlQ0pLkNBdL-xCPMANIQY0yLsaFWN0uUp5pSWbc7XNRqHK2Xeuzvyw9px4HiBfG4q3VWXCL_hXr5NNHHQAjaBamSGI6ZIcE2RqgOGM-Ow3xPjBjvqBSeYzgYBMsBDP0sdRLrcAY6k6TZOlHNEgkxwgiMpXpYOuTGSsSLmuYxiIAH1DWJagU_NsJtVOZUKLtio263GFxXsJdVyBc_ACYEFheLBWBCUQBwYQIudfStHFQ2GCQaF64DOOrFcWacABMdY0qOIMPPyLVVJKjdF74OisuilVQmAs_bNIQ_CXnYkGJwlI_aVKJomFiHHOLkc5F2iiYdQuK4AaIumpqskx0MNxKotbyuxtA0MVRVucjmVyVOgR4TZfHirLoMWVxuKIwpddKyZtAeA_zDuuS_BJUEWMbmh_etVkRYhze7N17bfC1ruFTBZCdKUEeoVXiAcr_4kmLtKAP7TDDVMpmZlDC9KiZWKGLYSVteULYoHBgAWN_RKYawNOivkECYEO75ho2vJAVLqNF2KKyuMxZXdfKFbJfrscfFqWAMy08UDOH-sQGNZwVzEsebgw5wsaORGlTfm-9HwlYpYwfKIrJIwfj1uLSuMGHTWMnLeJPLIOsXJuWgKGSigV2sCDZrZWg2K5ZanMg1WpuzS9FjGMt8Z2ACNyd0ZM9NpoofeBLGcomZF_X3akPxG60Nt3lMBOkapRnRk5-ekNCfpmeKFfTcYIvQenR8FMxehQjPmG-kSJWGRL4efCeSSBBlNsdwyjZRsxeOwYAeRqHQlwBrYFgcoyrYmRW6yo5ocQPfAtqxq6VjiVM2ljxjOjK6Sy1QGSfUGA51WQA6BNrDyj_YcVCBkfdZBwHQmv6bTLKDZsFdY6FPmDOmsgM6MAxnEO6FuZQfcWb2Zm_zoTHhguW_oU7dsGEaKZ2Ns3Q5CAPYNRwDG5AI1Wh5VI-1ctFjpT8jtX3AC-46R7LkxUONddX8mHQ5BjKcwSNuDLOmOYRZm6ZrYHCYF6vXpZHNbIcdI5gUkxWANI8Hh2qTBuiQZ6t4qH2BGEsuwPAuZ6a3wzGmzCoTI-HyVAinhXohcsTjka62E7osQt11wTFnkVjBNGb-d-I4c6YRh31SRjnirG0esDWly7qcB3zEy0RMSshISKsNFRdeFfGPe4x5zD0cMvo4E3rQQ9xHJlckg4s5uCO4dk_cgcSeYHZZgADJErzIeRZpA9f-XBjNqdIFpnJAyzCMC9D2Msi8cXKys2kiJWiqyo1hAlr7YWEMC2JozJ7WlrNAFRmTsujSsdEvZoeECLmasq7eUvGmoMrFBsSIrBGXJBHdqzWx1z57id_4o81ihH0MA0yYW_67JZn7nFG0htFqUnyac
-  skip-cert-verify: true
-- tls: true
-  udp: true
-  sni: www.lovelive-anime.jp
-  servername: www.lovelive-anime.jp
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo
-    short-id: 1ea5bfb5
-  network: xhttp
-  xhttp-opts:
-    host: ''
-    path: /PGEulXbn
-    mode: auto
-  name: go-法国-vless-2
-  type: vless
-  server: 62.210.113.151
-  port: 64489
-  uuid: 59f7ac8f-4a55-42ac-85b8-b3f96871761f
-  flow: ''
-  encryption: mlkem768x25519plus.native.0rtt.zSYuX7pyA0rEd8VpVAxu72mLwTrKQuScjFWKPCaaMsKlB6CBmEllLAhj1mk37vQNJvma7Fs51ukzsqU3-honW3JM8cOiZNsxc-U3DJgbS8CZthsH4blkJlXEz6PPnGlrLQZozdkQ4oh5NeNE8uwYgdUFCnKyrhWKqGaM1JmbWgdFqpFqI5u0SDt_IdBdTxlptLa8MfW00Osz-jy74bW8DFq1vbJlQ0pLkNBdL-xCPMANIQY0yLsaFWN0uUp5pSWbc7XNRqHK2Xeuzvyw9px4HiBfG4q3VWXCL_hXr5NNHHQAjaBamSGI6ZIcE2RqgOGM-Ow3xPjBjvqBSeYzgYBMsBDP0sdRLrcAY6k6TZOlHNEgkxwgiMpXpYOuTGSsSLmuYxiIAH1DWJagU_NsJtVOZUKLtio263GFxXsJdVyBc_ACYEFheLBWBCUQBwYQIudfStHFQ2GCQaF64DOOrFcWacABMdY0qOIMPPyLVVJKjdF74OisuilVQmAs_bNIQ_CXnYkGJwlI_aVKJomFiHHOLkc5F2iiYdQuK4AaIumpqskx0MNxKotbyuxtA0MVRVucjmVyVOgR4TZfHirLoMWVxuKIwpddKyZtAeA_zDuuS_BJUEWMbmh_etVkRYhze7N17bfC1ruFTBZCdKUEeoVXiAcr_4kmLtKAP7TDDVMpmZlDC9KiZWKGLYSVteULYoHBgAWN_RKYawNOivkECYEO75ho2vJAVLqNF2KKyuMxZXdfKFbJfrscfFqWAMy08UDOH-sQGNZwVzEsebgw5wsaORGlTfm-9HwlYpYwfKIrJIwfj1uLSuMGHTWMnLeJPLIOsXJuWgKGSigV2sCDZrZWg2K5ZanMg1WpuzS9FjGMt8Z2ACNyd0ZM9NpoofeBLGcomZF_X3akPxG60Nt3lMBOkapRnRk5-ekNCfpmeKFfTcYIvQenR8FMxehQjPmG-kSJWGRL4efCeSSBBlNsdwyjZRsxeOwYAeRqHQlwBrYFgcoyrYmRW6yo5ocQPfAtqxq6VjiVM2ljxjOjK6Sy1QGSfUGA51WQA6BNrDyj_YcVCBkfdZBwHQmv6bTLKDZsFdY6FPmDOmsgM6MAxnEO6FuZQfcWb2Zm_zoTHhguW_oU7dsGEaKZ2Ns3Q5CAPYNRwDG5AI1Wh5VI-1ctFjpT8jtX3AC-46R7LkxUONddX8mHQ5BjKcwSNuDLOmOYRZm6ZrYHCYF6vXpZHNbIcdI5gUkxWANI8Hh2qTBuiQZ6t4qH2BGEsuwPAuZ6a3wzGmzCoTI-HyVAinhXohcsTjka62E7osQt11wTFnkVjBNGb-d-I4c6YRh31SRjnirG0esDWly7qcB3zEy0RMSshISKsNFRdeFfGPe4x5zD0cMvo4E3rQQ9xHJlckg4s5uCO4dk_cgcSeYHZZgADJErzIeRZpA9f-XBjNqdIFpnJAyzCMC9D2Msi8cXKys2kiJWiqyo1hAlr7YWEMC2JozJ7WlrNAFRmTsujSsdEvZoeECLmasq7eUvGmoMrFBsSIrBGXJBHdqzWx1z57id_4o81ihH0MA0yYW_67JZn7nFG0htFqUnyac
-  skip-cert-verify: true
 - tls: true
   udp: true
   sni: apple.com
@@ -219,6 +177,48 @@ proxies:
   uuid: 53d74aab-6471-4c1b-ace7-fac837d1bfbd
   flow: ''
   encryption: none
+  skip-cert-verify: true
+- tls: true
+  udp: true
+  sni: www.lovelive-anime.jp
+  servername: www.lovelive-anime.jp
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo
+    short-id: 1ea5bfb5
+  network: xhttp
+  xhttp-opts:
+    host: ''
+    path: /SSSuqkzN
+    mode: auto
+  name: go-法国-vless-1
+  type: vless
+  server: 62.210.113.151
+  port: 45641
+  uuid: f2d9e117-231c-4946-87d8-2cde2222b85d
+  flow: ''
+  encryption: mlkem768x25519plus.native.0rtt.zSYuX7pyA0rEd8VpVAxu72mLwTrKQuScjFWKPCaaMsKlB6CBmEllLAhj1mk37vQNJvma7Fs51ukzsqU3-honW3JM8cOiZNsxc-U3DJgbS8CZthsH4blkJlXEz6PPnGlrLQZozdkQ4oh5NeNE8uwYgdUFCnKyrhWKqGaM1JmbWgdFqpFqI5u0SDt_IdBdTxlptLa8MfW00Osz-jy74bW8DFq1vbJlQ0pLkNBdL-xCPMANIQY0yLsaFWN0uUp5pSWbc7XNRqHK2Xeuzvyw9px4HiBfG4q3VWXCL_hXr5NNHHQAjaBamSGI6ZIcE2RqgOGM-Ow3xPjBjvqBSeYzgYBMsBDP0sdRLrcAY6k6TZOlHNEgkxwgiMpXpYOuTGSsSLmuYxiIAH1DWJagU_NsJtVOZUKLtio263GFxXsJdVyBc_ACYEFheLBWBCUQBwYQIudfStHFQ2GCQaF64DOOrFcWacABMdY0qOIMPPyLVVJKjdF74OisuilVQmAs_bNIQ_CXnYkGJwlI_aVKJomFiHHOLkc5F2iiYdQuK4AaIumpqskx0MNxKotbyuxtA0MVRVucjmVyVOgR4TZfHirLoMWVxuKIwpddKyZtAeA_zDuuS_BJUEWMbmh_etVkRYhze7N17bfC1ruFTBZCdKUEeoVXiAcr_4kmLtKAP7TDDVMpmZlDC9KiZWKGLYSVteULYoHBgAWN_RKYawNOivkECYEO75ho2vJAVLqNF2KKyuMxZXdfKFbJfrscfFqWAMy08UDOH-sQGNZwVzEsebgw5wsaORGlTfm-9HwlYpYwfKIrJIwfj1uLSuMGHTWMnLeJPLIOsXJuWgKGSigV2sCDZrZWg2K5ZanMg1WpuzS9FjGMt8Z2ACNyd0ZM9NpoofeBLGcomZF_X3akPxG60Nt3lMBOkapRnRk5-ekNCfpmeKFfTcYIvQenR8FMxehQjPmG-kSJWGRL4efCeSSBBlNsdwyjZRsxeOwYAeRqHQlwBrYFgcoyrYmRW6yo5ocQPfAtqxq6VjiVM2ljxjOjK6Sy1QGSfUGA51WQA6BNrDyj_YcVCBkfdZBwHQmv6bTLKDZsFdY6FPmDOmsgM6MAxnEO6FuZQfcWb2Zm_zoTHhguW_oU7dsGEaKZ2Ns3Q5CAPYNRwDG5AI1Wh5VI-1ctFjpT8jtX3AC-46R7LkxUONddX8mHQ5BjKcwSNuDLOmOYRZm6ZrYHCYF6vXpZHNbIcdI5gUkxWANI8Hh2qTBuiQZ6t4qH2BGEsuwPAuZ6a3wzGmzCoTI-HyVAinhXohcsTjka62E7osQt11wTFnkVjBNGb-d-I4c6YRh31SRjnirG0esDWly7qcB3zEy0RMSshISKsNFRdeFfGPe4x5zD0cMvo4E3rQQ9xHJlckg4s5uCO4dk_cgcSeYHZZgADJErzIeRZpA9f-XBjNqdIFpnJAyzCMC9D2Msi8cXKys2kiJWiqyo1hAlr7YWEMC2JozJ7WlrNAFRmTsujSsdEvZoeECLmasq7eUvGmoMrFBsSIrBGXJBHdqzWx1z57id_4o81ihH0MA0yYW_67JZn7nFG0htFqUnyac
+  skip-cert-verify: true
+- tls: true
+  udp: true
+  sni: www.lovelive-anime.jp
+  servername: www.lovelive-anime.jp
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: Nw-FuuCWzFZvQtQbJjDCYJpCKyO8cuvibbTGBeoZRyo
+    short-id: 1ea5bfb5
+  network: xhttp
+  xhttp-opts:
+    host: ''
+    path: /PGEulXbn
+    mode: auto
+  name: go-法国-vless-2
+  type: vless
+  server: 62.210.113.151
+  port: 64489
+  uuid: 59f7ac8f-4a55-42ac-85b8-b3f96871761f
+  flow: ''
+  encryption: mlkem768x25519plus.native.0rtt.zSYuX7pyA0rEd8VpVAxu72mLwTrKQuScjFWKPCaaMsKlB6CBmEllLAhj1mk37vQNJvma7Fs51ukzsqU3-honW3JM8cOiZNsxc-U3DJgbS8CZthsH4blkJlXEz6PPnGlrLQZozdkQ4oh5NeNE8uwYgdUFCnKyrhWKqGaM1JmbWgdFqpFqI5u0SDt_IdBdTxlptLa8MfW00Osz-jy74bW8DFq1vbJlQ0pLkNBdL-xCPMANIQY0yLsaFWN0uUp5pSWbc7XNRqHK2Xeuzvyw9px4HiBfG4q3VWXCL_hXr5NNHHQAjaBamSGI6ZIcE2RqgOGM-Ow3xPjBjvqBSeYzgYBMsBDP0sdRLrcAY6k6TZOlHNEgkxwgiMpXpYOuTGSsSLmuYxiIAH1DWJagU_NsJtVOZUKLtio263GFxXsJdVyBc_ACYEFheLBWBCUQBwYQIudfStHFQ2GCQaF64DOOrFcWacABMdY0qOIMPPyLVVJKjdF74OisuilVQmAs_bNIQ_CXnYkGJwlI_aVKJomFiHHOLkc5F2iiYdQuK4AaIumpqskx0MNxKotbyuxtA0MVRVucjmVyVOgR4TZfHirLoMWVxuKIwpddKyZtAeA_zDuuS_BJUEWMbmh_etVkRYhze7N17bfC1ruFTBZCdKUEeoVXiAcr_4kmLtKAP7TDDVMpmZlDC9KiZWKGLYSVteULYoHBgAWN_RKYawNOivkECYEO75ho2vJAVLqNF2KKyuMxZXdfKFbJfrscfFqWAMy08UDOH-sQGNZwVzEsebgw5wsaORGlTfm-9HwlYpYwfKIrJIwfj1uLSuMGHTWMnLeJPLIOsXJuWgKGSigV2sCDZrZWg2K5ZanMg1WpuzS9FjGMt8Z2ACNyd0ZM9NpoofeBLGcomZF_X3akPxG60Nt3lMBOkapRnRk5-ekNCfpmeKFfTcYIvQenR8FMxehQjPmG-kSJWGRL4efCeSSBBlNsdwyjZRsxeOwYAeRqHQlwBrYFgcoyrYmRW6yo5ocQPfAtqxq6VjiVM2ljxjOjK6Sy1QGSfUGA51WQA6BNrDyj_YcVCBkfdZBwHQmv6bTLKDZsFdY6FPmDOmsgM6MAxnEO6FuZQfcWb2Zm_zoTHhguW_oU7dsGEaKZ2Ns3Q5CAPYNRwDG5AI1Wh5VI-1ctFjpT8jtX3AC-46R7LkxUONddX8mHQ5BjKcwSNuDLOmOYRZm6ZrYHCYF6vXpZHNbIcdI5gUkxWANI8Hh2qTBuiQZ6t4qH2BGEsuwPAuZ6a3wzGmzCoTI-HyVAinhXohcsTjka62E7osQt11wTFnkVjBNGb-d-I4c6YRh31SRjnirG0esDWly7qcB3zEy0RMSshISKsNFRdeFfGPe4x5zD0cMvo4E3rQQ9xHJlckg4s5uCO4dk_cgcSeYHZZgADJErzIeRZpA9f-XBjNqdIFpnJAyzCMC9D2Msi8cXKys2kiJWiqyo1hAlr7YWEMC2JozJ7WlrNAFRmTsujSsdEvZoeECLmasq7eUvGmoMrFBsSIrBGXJBHdqzWx1z57id_4o81ihH0MA0yYW_67JZn7nFG0htFqUnyac
   skip-cert-verify: true
 - cipher: aes-256-cfb
   name: rp-德国-ss-1
