@@ -113,14 +113,21 @@ proxies:
 - name: rp-日本-trojan-1
   password: BxceQaOe
   port: 10624
-  server: 18.183.54.150
+  server: 54.250.183.37
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-2
-  password: ba5b6f1d3a9da87096165da523fb4375
-  port: 17005
-  server: 57.183.13.23
+  password: a844e75e40134ee742e80ced8509b310
+  port: 37973
+  server: 13.158.46.252
+  skip-cert-verify: true
+  sni: www.nintendogames.net
+  type: trojan
+- name: rp-日本-trojan-3
+  password: a844e75e40134ee742e80ced8509b310
+  port: 3743
+  server: 13.158.46.252
   skip-cert-verify: true
   sni: www.nintendogames.net
   type: trojan
