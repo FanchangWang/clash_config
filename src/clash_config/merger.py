@@ -1,21 +1,65 @@
 """配置合并器"""
 
 import copy
+import textwrap
+
+import yaml
 
 from .config import Config
 from .logger import logger
-from .models import ProxyGroup
-from .utils import save_yaml
+from .models import ProxyDict, ProxyGroup
 
 
 class Merger:
     """配置合并器"""
 
+    def _proxy_names(self, proxies: list[ProxyDict]) -> list[str]:
+        return [p["name"] for p in proxies]
+
+    def _build_dynamic_groups(self, all_data: dict[str, list[ProxyDict]]) -> str:
+        lines: list[str] = []
+
+        lines.append('  - name: "Sall"')
+        lines.append("    type: select")
+        lines.append("    proxies:")
+        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["all"]))
+        lines.append('    url: "https://www.google.com/generate_204"')
+        lines.append("    interval: 0")
+        lines.append("    timeout: 5000")
+        lines.append("    lazy: false")
+
+        lines.append("")
+        lines.append('  - name: "_p_udp"')
+        lines.append("    type: load-balance")
+        lines.append("    proxies:")
+        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["udp"]))
+        lines.append("    strategy: sticky-sessions")
+
+        lines.append("")
+        lines.append('  - name: "_p_ai_gemini"')
+        lines.append("    type: url-test")
+        lines.append("    proxies:")
+        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["ai_gemini"]))
+
+        lines.append("")
+        lines.append('  - name: "_p_porn_x"')
+        lines.append("    type: url-test")
+        lines.append("    proxies:")
+        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["porn_x"]))
+
+        lines.append("")
+        lines.append('  - name: "_p_porn_all"')
+        lines.append("    type: url-test")
+        lines.append("    proxies:")
+        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["porn_all"]))
+
+        return "\n".join(lines)
+
     def merge(self, chrome_group: ProxyGroup, ripao_group: ProxyGroup) -> None:
-        """合并配置并生成输出文件到 dist 目录"""
+        """合并配置并生成 dist/config.yaml"""
         logger.info("检测到配置更新, 重新生成...")
 
-        all_proxies = {
+        merged = {
             "all": copy.deepcopy(chrome_group.all) + copy.deepcopy(ripao_group.all),
             "udp": copy.deepcopy(chrome_group.udp) + copy.deepcopy(ripao_group.udp),
             "ai_gemini": copy.deepcopy(chrome_group.ai_gemini)
@@ -24,53 +68,38 @@ class Merger:
             "porn_x": copy.deepcopy(chrome_group.porn_x) + copy.deepcopy(ripao_group.porn_x),
         }
 
+        all_data: dict[str, list[ProxyDict]] = dict(merged)
+
         if len(chrome_group.udp) > 2:
             udp_proxies = copy.deepcopy(chrome_group.udp)
-        elif len(all_proxies["udp"]) > 2:
-            udp_proxies = copy.deepcopy(all_proxies["udp"])
+        elif len(merged["udp"]) > 2:
+            udp_proxies = copy.deepcopy(merged["udp"])
         elif len(chrome_group.all) > 2:
             udp_proxies = copy.deepcopy(chrome_group.all)
         else:
-            udp_proxies = copy.deepcopy(all_proxies["all"])
+            udp_proxies = copy.deepcopy(merged["all"])
+        all_data["udp"] = udp_proxies
 
-        save_yaml({"proxies": udp_proxies}, Config.DIST_PROXIES_DIR / "udp.yaml")
-        logger.info(f"已保存所有 {len(udp_proxies)} 个 UDP 协议配置到 dist/proxies/udp.yaml")
-
-        if len(all_proxies["ai_gemini"]) > 2:
-            ai_gemini_proxies = copy.deepcopy(all_proxies["ai_gemini"])
+        if len(merged["ai_gemini"]) > 2:
+            all_data["ai_gemini"] = copy.deepcopy(merged["ai_gemini"])
         else:
-            ai_gemini_proxies = copy.deepcopy(all_proxies["all"])
+            all_data["ai_gemini"] = copy.deepcopy(merged["all"])
 
-        save_yaml(
-            {"proxies": ai_gemini_proxies},
-            Config.DIST_PROXIES_DIR / "ai_gemini.yaml",
-        )
-        logger.info(
-            f"已保存所有 {len(ai_gemini_proxies)} 个 AI gemini 协议配置到"
-            f" dist/proxies/ai_gemini.yaml"
-        )
+        template = (Config.TEMPLATE_DIR / "config.yaml").read_text(encoding="utf-8")
 
-        save_yaml(
-            {"proxies": all_proxies["porn_x"]},
-            Config.DIST_PROXIES_DIR / "porn_x.yaml",
+        proxies_yaml = yaml.dump(
+            all_data["all"],
+            default_flow_style=False,
+            allow_unicode=True,
+            sort_keys=False,
         )
-        logger.info(
-            f"已保存所有 {len(all_proxies['porn_x'])} 个 porn_x 协议配置到 dist/proxies/porn_x.yaml"
-        )
+        proxies_yaml = textwrap.indent(proxies_yaml, "  ")
 
-        save_yaml(
-            {"proxies": all_proxies["porn_all"]},
-            Config.DIST_PROXIES_DIR / "porn_all.yaml",
-        )
-        logger.info(
-            f"已保存所有 {len(all_proxies['porn_all'])} 个 porn_all 协议配置到"
-            f" dist/proxies/porn_all.yaml"
-        )
+        groups_yaml = self._build_dynamic_groups(all_data)
 
-        save_yaml(
-            {"proxies": all_proxies["all"]},
-            Config.DIST_PROXIES_DIR / "all.yaml",
-        )
-        logger.info(f"已保存所有 {len(all_proxies['all'])} 个协议配置到 dist/proxies/all.yaml")
+        result = template.replace("{{PROXIES}}", proxies_yaml)
+        result = result.replace("{{DYNAMIC_GROUPS}}", groups_yaml)
 
-        logger.info("配置更新完成")
+        output = Config.DIST_DIR / "config.yaml"
+        output.write_text(result, encoding="utf-8", newline="")
+        logger.info(f"已生成 {output}")

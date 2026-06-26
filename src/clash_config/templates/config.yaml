@@ -1,0 +1,156 @@
+mixed-port: 7890
+redir-port: 7892
+
+ipv6: true
+
+mode: rule
+
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 72
+
+log-level: info
+
+allow-lan: true
+bind-address: "*"
+
+external-controller: 0.0.0.0:9090
+external-ui: ui
+external-ui-url: "https://github.allproxy.dpdns.org/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - any:53
+  auto-route: true
+  strict-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: true
+  respect-rules: true
+  nameserver:
+    - 180.76.76.76
+    - 114.114.114.114
+  proxy-server-nameserver:
+    - tls://8.8.4.4:853
+    - tls://1.0.0.1:853
+
+proxies:
+{{PROXIES}}
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - _p_udp
+      - Sall
+
+  - name: "P_AI_GEMINI"
+    type: select
+    proxies:
+      - _p_ai_gemini
+      - Sall
+
+  - name: "P_PORN_X"
+    type: select
+    proxies:
+      - _p_porn_x
+      - Sall
+
+  - name: "P_PORN_ALL"
+    type: select
+    proxies:
+      - _p_porn_all
+      - Sall
+
+{{DYNAMIC_GROUPS}}
+
+rules:
+  # X 域名
+  - DOMAIN,x.com,P_PORN_X
+  # AI gemini 域名
+  - DOMAIN-SUFFIX,ai.google.dev,P_AI_GEMINI
+  - DOMAIN-SUFFIX,aida.googleapis.com,P_AI_GEMINI
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,P_AI_GEMINI
+  - DOMAIN-SUFFIX,gemini.google,P_AI_GEMINI
+  - DOMAIN-SUFFIX,gemini.google.com,P_AI_GEMINI
+  - DOMAIN-SUFFIX,antigravity.google,P_AI_GEMINI
+  - DOMAIN-SUFFIX,antigravity-unleash.goog,P_AI_GEMINI
+  - DOMAIN-SUFFIX,stitch.withgoogle.com,P_AI_GEMINI
+  # 代理域名
+  - DOMAIN-SUFFIX,connectivitycheck.gstatic.com,PROXY
+  - DOMAIN-SUFFIX,services.googleapis.cn,PROXY
+  - DOMAIN-SUFFIX,youtube4kdownloader.com,PROXY
+  - DOMAIN-SUFFIX,bptv.freetv.top,PROXY
+  - DOMAIN-SUFFIX,gog-cdn-fastly.gog.com,PROXY
+  # 直连域名
+  - DOMAIN-SUFFIX,d.metacubex.one,DIRECT
+  - DOMAIN-SUFFIX,yacd.metacubex.one,DIRECT
+  - DOMAIN-SUFFIX,clash.razord.top,DIRECT
+  - DOMAIN-SUFFIX,yacd.haishan.me,DIRECT
+  - DOMAIN-SUFFIX,github1s.com,DIRECT
+  - DOMAIN-SUFFIX,githubfast.com,DIRECT
+  - DOMAIN-SUFFIX,gh.h233.eu.org,DIRECT
+  - DOMAIN-SUFFIX,gh.api.99988866.xyz,DIRECT
+  - DOMAIN-SUFFIX,gh.ddlc.top,DIRECT
+  - DOMAIN-SUFFIX,dl.ghpig.top,DIRECT
+  - DOMAIN-SUFFIX,dl-slb.ghpig.top,DIRECT
+  - DOMAIN-SUFFIX,slink.ltd,DIRECT
+  - DOMAIN-SUFFIX,git.xfj0.cn,DIRECT
+  - DOMAIN-SUFFIX,gh.con.sh,DIRECT
+  - DOMAIN-SUFFIX,ghps.cc,DIRECT
+  - DOMAIN-SUFFIX,cors.isteed.cc,DIRECT
+  - DOMAIN-SUFFIX,hub.gitmirror.com,DIRECT
+  - DOMAIN-SUFFIX,download.fgit.cf,DIRECT
+  - DOMAIN-SUFFIX,download.njuu.cf,DIRECT
+  - DOMAIN-SUFFIX,download.yzuu.cf,DIRECT
+  - DOMAIN-SUFFIX,download.nuaa.cf,DIRECT
+  - DOMAIN-SUFFIX,mirror.ghproxy.com,DIRECT
+  - DOMAIN-SUFFIX,gh-proxy.com,DIRECT
+  - DOMAIN-SUFFIX,ghproxy.net,DIRECT
+  - DOMAIN-SUFFIX,gitclone.com,DIRECT
+  - DOMAIN-SUFFIX,github.moeyy.xyz,DIRECT
+  - DOMAIN-SUFFIX,githubfast.com,DIRECT
+  - DOMAIN-SUFFIX,hub.fgit.cf,DIRECT
+  - DOMAIN-SUFFIX,hub.njuu.cf,DIRECT
+  - DOMAIN-SUFFIX,raw.githubusercontents.com,DIRECT
+  - DOMAIN-SUFFIX,fastly.jsdelivr.net,DIRECT
+  - DOMAIN-SUFFIX,gcore.jsdelivr.net,DIRECT
+  - DOMAIN-SUFFIX,raw.fgit.cf,DIRECT
+  - DOMAIN-SUFFIX,account.jetbrains.com,DIRECT
+  - DOMAIN-SUFFIX,download.jetbrains.com,DIRECT
+  - DOMAIN-SUFFIX,download-cdn.jetbrains.com,DIRECT
+  - DOMAIN-SUFFIX,plugins.jetbrains.com,DIRECT
+  - DOMAIN-SUFFIX,downloads.marketplace.jetbrains.com,DIRECT
+  - DOMAIN-SUFFIX,allproxy.dpdns.org,DIRECT
+  - DOMAIN-SUFFIX,guyuexuan.dpdns.org,DIRECT
+  - DOMAIN-SUFFIX,guyuexuan.ggff.net,DIRECT
+  - DOMAIN-SUFFIX,guyuexuan.ip-ddns.com,DIRECT
+  - DOMAIN-SUFFIX,sharemouse.com,DIRECT
+  - DOMAIN-SUFFIX,iptv.cc,DIRECT
+  - DOMAIN-SUFFIX,ipip.net,DIRECT
+  - DOMAIN-SUFFIX,qq.com,DIRECT
+  - DOMAIN-SUFFIX,hibitsoft.ir,DIRECT
+  - DOMAIN-SUFFIX,gitbutler.com,DIRECT
+  - DOMAIN-SUFFIX,cloudflare-dns.com,DIRECT
+  - DOMAIN-SUFFIX,armbian.de,DIRECT
+  # 兜底配置
+  - GEOSITE,private,DIRECT
+  - GEOSITE,category-porn,P_PORN_ALL
+  - GEOSITE,apple-cn,DIRECT
+  - GEOSITE,google-cn,DIRECT
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,category-games@cn,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOSITE,geolocation-!cn,PROXY
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY

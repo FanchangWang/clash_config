@@ -7,6 +7,8 @@
 *.yml text eol=lf
 .env text eol=lf
 .env.* text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
 
 *.zip binary
 *.png binary

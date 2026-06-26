@@ -18,7 +18,7 @@ class Config:
     TEMP_DIR = BASE_DIR / "temp"
     DIST_DIR = BASE_DIR / "dist"
     DIST_PROXIES_DIR = DIST_DIR / "proxies"
-    DIST_PROVIDERS_DIR = DIST_DIR / "providers"
+    TEMPLATE_DIR = BASE_DIR / "src" / "clash_config" / "templates"
 
     STORE_FILE = DATA_DIR / "store.yaml"
     GEOIP_DB = DATA_DIR / "GeoLite2-Country.mmdb"
@@ -62,6 +62,5 @@ class Config:
             cls.TEMP_DIR,
             cls.DIST_DIR,
             cls.DIST_PROXIES_DIR,
-            cls.DIST_PROVIDERS_DIR,
         ]:
             d.mkdir(parents=True, exist_ok=True)
