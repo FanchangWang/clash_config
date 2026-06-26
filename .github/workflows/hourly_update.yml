@@ -32,6 +32,8 @@ jobs:
         run: uv sync
 
       - name: Run main script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: uv run clash-config
 
       - name: Check for changes

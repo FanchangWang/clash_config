@@ -6,6 +6,9 @@ from typing import ClassVar
 
 from dotenv import load_dotenv
 
+dotenv_path = Path(__file__).resolve().parent.parent.parent / ".env"
+load_dotenv(dotenv_path)
+
 
 class Config:
     """全局配置类"""
@@ -48,8 +51,7 @@ class Config:
 
     @classmethod
     def github_token(cls) -> str | None:
-        """从 .env 获取 GitHub token"""
-        load_dotenv(cls.BASE_DIR / ".env")
+        """从环境变量获取 GitHub token"""
         return os.environ.get("GITHUB_TOKEN")
 
     @classmethod
