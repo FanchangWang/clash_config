@@ -23,22 +23,22 @@ all:
   type: trojan
 - name: rp-香港-trojan-2
   password: BxceQaOe
-  port: 50116
-  server: 18.166.59.96
+  port: 3941
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-香港-trojan-3
   password: BxceQaOe
-  port: 20744
-  server: 54.46.109.132
+  port: 3941
+  server: 18.163.56.230
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-1
   password: BxceQaOe
-  port: 47656
-  server: 52.196.252.9
+  port: 18021
+  server: 18.183.83.131
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -66,7 +66,7 @@ all:
 - name: rp-香港-trojan-7
   password: BxceQaOe
   port: 9149
-  server: 18.162.53.161
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -80,7 +80,7 @@ all:
 - name: rp-香港-trojan-9
   password: BxceQaOe
   port: 22657
-  server: 54.46.109.132
+  server: 16.163.142.40
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
@@ -88,8 +88,8 @@ udp: []
 ai_gemini:
 - name: rp-日本-trojan-1
   password: BxceQaOe
-  port: 47656
-  server: 52.196.252.9
+  port: 18021
+  server: 18.183.83.131
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -118,22 +118,22 @@ porn_all:
   type: trojan
 - name: rp-香港-trojan-2
   password: BxceQaOe
-  port: 50116
-  server: 18.166.59.96
+  port: 3941
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-香港-trojan-3
   password: BxceQaOe
-  port: 20744
-  server: 54.46.109.132
+  port: 3941
+  server: 18.163.56.230
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-1
   password: BxceQaOe
-  port: 47656
-  server: 52.196.252.9
+  port: 18021
+  server: 18.183.83.131
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -161,7 +161,7 @@ porn_all:
 - name: rp-香港-trojan-7
   password: BxceQaOe
   port: 9149
-  server: 18.162.53.161
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -175,7 +175,7 @@ porn_all:
 - name: rp-香港-trojan-9
   password: BxceQaOe
   port: 22657
-  server: 54.46.109.132
+  server: 16.163.142.40
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
@@ -198,22 +198,22 @@ porn_x:
   type: trojan
 - name: rp-香港-trojan-2
   password: BxceQaOe
-  port: 50116
-  server: 18.166.59.96
+  port: 3941
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-香港-trojan-3
   password: BxceQaOe
-  port: 20744
-  server: 54.46.109.132
+  port: 3941
+  server: 18.163.56.230
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
 - name: rp-日本-trojan-1
   password: BxceQaOe
-  port: 47656
-  server: 52.196.252.9
+  port: 18021
+  server: 18.183.83.131
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -241,7 +241,7 @@ porn_x:
 - name: rp-香港-trojan-7
   password: BxceQaOe
   port: 9149
-  server: 18.162.53.161
+  server: 18.166.29.105
   skip-cert-verify: true
   sni: t.me%252Fripaojiedian
   type: trojan
@@ -255,7 +255,7 @@ porn_x:
 - name: rp-香港-trojan-9
   password: BxceQaOe
   port: 22657
-  server: 54.46.109.132
+  server: 16.163.142.40
   skip-cert-verify: true
   sni: t.me%2Fripaojiedian
   type: trojan
