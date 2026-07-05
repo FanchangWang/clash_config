@@ -24,7 +24,7 @@ class Merger:
         lines.append("    proxies:")
         lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["all"]))
         lines.append('    url: "https://www.google.com/generate_204"')
-        lines.append("    interval: 0")
+        lines.append("    interval: 3600")
         lines.append("    timeout: 5000")
         lines.append("    lazy: false")
 
