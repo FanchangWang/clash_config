@@ -68,20 +68,6 @@ proxies:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-美国-anytls-1
-    type: anytls
-    server: 198.200.57.154
-    port: 22556
-    password: github.com/Alvin9999-newpac/fanqiang
-    udp: true
-    idle-session-check-interval: 30
-    idle-session-timeout: 30
-    min-idle-session: 5
-    sni: bing.com
-    alpn:
-    - h2
-    - http/1.1
-    skip-cert-verify: true
   - name: go-法国-hysteria-2
     type: hysteria
     server: 163.172.117.163
@@ -368,7 +354,6 @@ proxy-groups:
     proxies:
       - "go-德国-hysteria-1"
       - "go-法国-hysteria-1"
-      - "go-美国-anytls-1"
       - "go-法国-hysteria-2"
       - "go-德国-hysteria-2"
       - "go-法国-hysteria2-1"
@@ -426,7 +411,6 @@ proxy-groups:
   - name: "_p_porn_x"
     type: url-test
     proxies:
-      - "go-美国-anytls-1"
       - "go-美国-mieru-1"
       - "go-美国-mieru-2"
       - "go-荷兰-vless-1"
