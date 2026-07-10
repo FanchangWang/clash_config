@@ -62,7 +62,7 @@ all:
   down: 55 mbps
 - name: go-法国-hysteria2-2
   type: hysteria2
-  server: 62.210.27.216
+  server: 62.210.7.139
   port: 60111
   password: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
@@ -179,7 +179,7 @@ udp:
   down: 55 mbps
 - name: go-法国-hysteria2-2
   type: hysteria2
-  server: 62.210.27.216
+  server: 62.210.7.139
   port: 60111
   password: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
@@ -231,7 +231,7 @@ ai_gemini:
   down: 55 mbps
 - name: go-法国-hysteria2-2
   type: hysteria2
-  server: 62.210.27.216
+  server: 62.210.7.139
   port: 60111
   password: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
