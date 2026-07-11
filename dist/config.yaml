@@ -176,79 +176,86 @@ proxies:
     type: vmess
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
   - name: rp-香港-trojan-1
-    password: bb839d14960b7a4fb1e95a3aef990528
-    port: 13118
-    server: 95.40.99.31
-    skip-cert-verify: true
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 32583
+    server: 54.46.117.102
+    skip-cert-verify: false
     sni: www.nintendogames.net
     type: trojan
   - name: rp-香港-trojan-2
     password: BxceQaOe
-    port: 29443
-    server: 18.163.62.241
+    port: 27161
+    server: 54.46.14.230
     skip-cert-verify: true
     sni: t.me%2Fripaojiedian
     type: trojan
   - name: rp-香港-trojan-3
     password: BxceQaOe
-    port: 7674
-    server: 43.199.202.97
+    port: 29443
+    server: 43.199.252.80
     skip-cert-verify: true
     sni: t.me%2Fripaojiedian
     type: trojan
-  - name: rp-日本-trojan-1
+  - name: rp-香港-trojan-4
     password: BxceQaOe
-    port: 54411
-    server: 18.183.199.219
+    port: 10624
+    server: 43.199.31.196
     skip-cert-verify: true
     sni: t.me%252Fripaojiedian
     type: trojan
-  - name: rp-香港-trojan-4
-    password: bb839d14960b7a4fb1e95a3aef990528
-    port: 24370
-    server: 95.40.99.31
-    skip-cert-verify: true
-    sni: www.nintendogames.net
-    type: trojan
   - name: rp-香港-trojan-5
-    password: bb839d14960b7a4fb1e95a3aef990528
-    port: 6357
-    server: 95.40.50.224
-    skip-cert-verify: true
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 40138
+    server: 16.163.56.186
+    skip-cert-verify: false
     sni: www.nintendogames.net
     type: trojan
   - name: rp-香港-trojan-6
-    password: bb839d14960b7a4fb1e95a3aef990528
-    port: 6357
-    server: 95.40.99.31
-    skip-cert-verify: true
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 40138
+    server: 18.166.63.229
+    skip-cert-verify: false
     sni: www.nintendogames.net
     type: trojan
   - name: rp-香港-trojan-7
-    password: BxceQaOe
-    port: 51396
-    server: 43.199.202.97
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 48738
+    server: 18.166.63.229
     skip-cert-verify: true
-    sni: t.me%252Fripaojiedian
+    sni: www.nintendogames.net
     type: trojan
   - name: rp-香港-trojan-8
-    password: bb839d14960b7a4fb1e95a3aef990528
-    port: 17005
-    server: 95.40.99.31
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 6357
+    server: 16.163.56.186
     skip-cert-verify: true
     sni: www.nintendogames.net
     type: trojan
   - name: rp-香港-trojan-9
-    password: bb839d14960b7a4fb1e95a3aef990528
+    password: BxceQaOe
+    port: 41421
+    server: 43.199.31.196
+    skip-cert-verify: true
+    sni: t.me%252Fripaojiedian
+    type: trojan
+  - name: rp-香港-trojan-10
+    password: b1a42ca60884057bf527d8d38b618cfb
     port: 17005
-    server: 43.199.215.77
+    server: 18.163.105.231
     skip-cert-verify: true
     sni: www.nintendogames.net
     type: trojan
-  - name: rp-香港-trojan-10
+  - name: rp-香港-trojan-11
+    password: b1a42ca60884057bf527d8d38b618cfb
+    port: 17005
+    server: 18.166.63.229
+    skip-cert-verify: false
+    sni: www.nintendogames.net
+    type: trojan
+  - name: rp-香港-trojan-12
     password: BxceQaOe
-    port: 34638
-    server: 18.162.154.153
+    port: 44265
+    server: 18.163.115.109
     skip-cert-verify: true
     sni: t.me%2Fripaojiedian
     type: trojan
@@ -297,7 +304,6 @@ proxy-groups:
       - "rp-香港-trojan-1"
       - "rp-香港-trojan-2"
       - "rp-香港-trojan-3"
-      - "rp-日本-trojan-1"
       - "rp-香港-trojan-4"
       - "rp-香港-trojan-5"
       - "rp-香港-trojan-6"
@@ -305,6 +311,8 @@ proxy-groups:
       - "rp-香港-trojan-8"
       - "rp-香港-trojan-9"
       - "rp-香港-trojan-10"
+      - "rp-香港-trojan-11"
+      - "rp-香港-trojan-12"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -331,7 +339,6 @@ proxy-groups:
       - "go-法国-hysteria2-2"
       - "go-法国-hysteria2-3"
       - "go-法国-vless-1"
-      - "rp-日本-trojan-1"
 
   - name: "_p_porn_x"
     type: url-test
@@ -342,7 +349,6 @@ proxy-groups:
       - "rp-香港-trojan-1"
       - "rp-香港-trojan-2"
       - "rp-香港-trojan-3"
-      - "rp-日本-trojan-1"
       - "rp-香港-trojan-4"
       - "rp-香港-trojan-5"
       - "rp-香港-trojan-6"
@@ -350,6 +356,8 @@ proxy-groups:
       - "rp-香港-trojan-8"
       - "rp-香港-trojan-9"
       - "rp-香港-trojan-10"
+      - "rp-香港-trojan-11"
+      - "rp-香港-trojan-12"
 
   - name: "_p_porn_all"
     type: url-test
@@ -361,7 +369,6 @@ proxy-groups:
       - "rp-香港-trojan-1"
       - "rp-香港-trojan-2"
       - "rp-香港-trojan-3"
-      - "rp-日本-trojan-1"
       - "rp-香港-trojan-4"
       - "rp-香港-trojan-5"
       - "rp-香港-trojan-6"
@@ -369,6 +376,8 @@ proxy-groups:
       - "rp-香港-trojan-8"
       - "rp-香港-trojan-9"
       - "rp-香港-trojan-10"
+      - "rp-香港-trojan-11"
+      - "rp-香港-trojan-12"
 
 rules:
   # X 域名
