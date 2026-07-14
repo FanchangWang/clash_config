@@ -3,7 +3,7 @@
 import json
 import socket
 from pathlib import Path
-from typing import Any
+from typing import Any, override
 
 import geoip2.database
 import geoip2.errors
@@ -13,6 +13,14 @@ import yaml
 from .config import Config
 from .logger import logger
 from .models import ChromeGoState, RipaoState, StoreData
+
+
+class _Dumper(yaml.Dumper):
+    """缩进列表项的自定义 Dumper"""
+
+    @override
+    def increase_indent(self, flow: bool = False, indentless: bool = False) -> None:
+        super().increase_indent(flow, False)
 
 
 def get_geoip_country(server: str) -> str:
@@ -62,7 +70,16 @@ def load_yaml(file_path: Path) -> dict[str, Any]:
 def save_yaml(data: dict[str, Any], file_path: Path) -> None:
     """保存 YAML 文件"""
     with file_path.open("w", encoding="utf-8", newline="") as f:
-        yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+        yaml.dump(
+            data, f, Dumper=_Dumper, allow_unicode=True, default_flow_style=False, sort_keys=False
+        )
+
+
+def dump_yaml(data: Any) -> str:
+    """将数据转为 YAML 字符串"""
+    return yaml.dump(
+        data, Dumper=_Dumper, allow_unicode=True, default_flow_style=False, sort_keys=False
+    )
 
 
 def load_store() -> StoreData:

@@ -3,11 +3,10 @@
 import copy
 import textwrap
 
-import yaml
-
 from .config import Config
 from .logger import logger
 from .models import ProxyDict, ProxyGroup
+from .utils import dump_yaml
 
 
 class Merger:
@@ -26,10 +25,9 @@ class Merger:
 
         lines.append("")
         lines.append('  - name: "_p_udp"')
-        lines.append("    type: load-balance")
+        lines.append("    type: url-test")
         lines.append("    proxies:")
         lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["udp"]))
-        lines.append("    strategy: sticky-sessions")
         lines.append('    url: "https://www.google.com/generate_204"')
         lines.append("    interval: 3600")
         lines.append("    timeout: 5000")
@@ -99,12 +97,7 @@ class Merger:
 
         template = (Config.TEMPLATE_DIR / "config.yaml").read_text(encoding="utf-8")
 
-        proxies_yaml = yaml.dump(
-            all_data["all"],
-            default_flow_style=False,
-            allow_unicode=True,
-            sort_keys=False,
-        )
+        proxies_yaml = dump_yaml(all_data["all"])
         proxies_yaml = textwrap.indent(proxies_yaml, "  ")
 
         groups_yaml = self._build_dynamic_groups(all_data)

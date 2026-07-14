@@ -1,8 +1,6 @@
 """Ripao 配置提取器"""
 
 import copy
-import tempfile
-from pathlib import Path
 from typing import override
 
 import yaml
@@ -11,6 +9,7 @@ from ..config import Config
 from ..converter import ProxyConverter
 from ..logger import logger
 from ..models import ProxyDict, ProxyGroup
+from ..utils import save_yaml
 from .base import BaseExtractor
 
 
@@ -176,11 +175,8 @@ class RipaoExtractor(BaseExtractor):
 
         logger.info("转换代理配置...")
 
-        with tempfile.NamedTemporaryFile(
-            mode="w", suffix=".yaml", delete=False, encoding="utf-8", newline=""
-        ) as temp_file:
-            yaml.dump({"proxies": proxies}, temp_file)
-            temp_file_path = Path(temp_file.name)
+        temp_file_path = Config.TEMP_DIR / "ripao_proxies_temp.yaml"
+        save_yaml({"proxies": proxies}, temp_file_path)
 
         try:
             converted_proxies = ProxyConverter.convert_clash_meta2(temp_file_path)

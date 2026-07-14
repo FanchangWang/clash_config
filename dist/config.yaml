@@ -52,7 +52,7 @@ proxies:
     sni: bing.com
     skip-cert-verify: true
     alpn:
-    - h3
+      - h3
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
@@ -64,7 +64,7 @@ proxies:
     sni: bing.com
     skip-cert-verify: true
     alpn:
-    - h3
+      - h3
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
@@ -76,7 +76,7 @@ proxies:
     sni: apple.com
     skip-cert-verify: true
     alpn:
-    - h3
+      - h3
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
@@ -88,7 +88,7 @@ proxies:
     auth-str: dongtaiwang.com
     sni: apple.com
     alpn:
-    - h3
+      - h3
     up: 11
     down: 55
     skip-cert-verify: true
@@ -181,105 +181,105 @@ proxies:
     flow: ''
     encryption: mlkem768x25519plus.native.0rtt.I5ge5qOTUhKE8xpufKI84yktvqqG9qkViwYe20uFZUyGwbnK7QMv6Tih0subInSmZTyem1QFG1CDFvGfgMBu3Yw1ryNJfGjMnALAqZawBoukaROcTzxXmFAzuejDalyhxxfNJkeUefW3biOHIzcu_AairYSvJ8l_iHJpKVEKXZWPQWiq-tm_nPJz_oDDhFElaCHKnCslodSen2M6afQQ0HYKc6nKZmZwc1cHG1GKW9xHx6CBfLhFVOhT62tCvbxShul1NJgL-shELnovAtS1aHBFQKDOIiJYC7Ww0awUfsyGIFhnJIhdnqFHnkG7sOcdiWiH-ZkQ11p065zAWEQ14HTOi-aqCAsnWNwdRxwj1_qlArYd3nNF1dXKARRikbMFutC5GyyvSJxk7XwHRGWoK_q6_zK2amtIrsin6tov5kKs3UqywFJMJ2rMtgYZXpvK_TdXumLGUimIq9vFW7idpbMlv9F84NY8UbtrkyB87IQwdKqbtnuOMzxkYik-i9N5vaKcXLSdOGRpMgAKSMt5NbSyllcEh6qUTZoVb_h8ZmYij8csvbGWxodCj1WvOGoRtGGnTSpWMdG3X3ZxXlhNQ6tpIPGTfxkzjPtRjHQDcqm0fgrLjWONnkGxMQRO-Wi50vzNPzW9Vuy5BlZszdGqpjLNRLGw24JTAYKXpxiUkTxUxhO3LRC8kMvGVBgxjImwmwev1IqfPiVIMSwhV0FAMNw27nALh0qyPnNLbFpbTFuTL6V83YypFDl1yahns_AE86ufKnSAaSs_0PwMM_ZDfkhE7nRKCygaD9UjWWygRWq6fZarZahcTAqrZUYPXWxqDsrE7VRYO3ch70AHi6ZXTyKR1YcyM0Kiw3S0kxpjbtWReOJ3lXwry-BjcusDKhRsAxErDIBD6IFuY5ucRTtpfPoNgiq7rSFG8SFNvTe-_wh39Bwjj3JeRnw6kzujiKgxGiAH9GYm6LVvG2ljdWacJjSyoDE6mbFwgRCGdDh4h6eMCPs7hjQmNByx76lb0PYt-BuD9xCfiEFMoKJzTjWUvOy1gbmOrjY5xtkkByo8PCS40YRqXiYQ0Me9U5t_lsdxrvO6f7ajFHBNp_IiQOAstWu9UKC2hiABnVWbHaTFeQSp0tAx9rm5vehC0_a3EAHByGzGFUQ-QWpUO5mvGzZKpPVQrgovg2GsgepxgOMymOgv2CbLNKiwAJJyjDe5d5yXiueH3ZdppJqepXrOGuGOn3e-8RKVu3I-nCp-aMS769Yl5mmS8BYOpxW3HseSzZZMIta4hjsa7hqSgmycflvLV5x-8bM9iBFZ7iOey9oYyEkEbFN-6-Alh2dQfopjE2QNFqW6KatBKHXKHNVoayoc4ZegDKPNAEnAo9wIHkBpDFC-fVoCkGMDcRSeNbF67keruuE0xfMA8ltaklEyRwMcxVQwMhILq6vKlzpJF9OJMGVg5amP_-i4NAsKEfC8Ayp61gByykoWKTWkuLAEAYtXXNIfQ9BPvZca1BITgpC69lapO4SH1UAZ4KRxOTVtbHES_GsjM_lkTv940p3IDkG7jfvxIfY_Q9C3QVbkilRpPvg
     skip-cert-verify: true
-  - cipher: aes-256-cfb
-    name: rp-德国-ss-1
-    password: amazonskr05
-    port: 443
+  - name: rp-德国-ss-1
     server: 63.180.254.10
+    port: 443
     type: ss
-  - alterId: 2
-    cipher: auto
-    name: rp-香港-vmess-1
-    port: 30807
+    cipher: aes-256-cfb
+    password: amazonskr05
+  - name: rp-香港-vmess-1
     server: v10.hdacd.com
-    skip-cert-verify: false
-    tls: false
+    port: 30807
     type: vmess
     uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
   - name: rp-香港-trojan-1
-    password: b490740312aedb5f9f6b84c7aebd08c0
+    server: 16.163.41.104
     port: 13118
-    server: 16.163.41.104
-    skip-cert-verify: false
-    sni: www.nintendogames.net
     type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: false
   - name: rp-香港-trojan-2
-    password: BxceQaOe
-    port: 27161
     server: 43.198.114.146
-    skip-cert-verify: true
-    sni: t.me%2Fripaojiedian
-    type: trojan
-  - name: rp-香港-trojan-3
-    password: BxceQaOe
     port: 27161
-    server: 95.40.50.170
-    skip-cert-verify: true
-    sni: t.me%2Fripaojiedian
     type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
+  - name: rp-香港-trojan-3
+    server: 95.40.50.170
+    port: 27161
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
   - name: rp-日本-trojan-1
-    password: BxceQaOe
-    port: 19708
     server: 13.230.164.110
-    skip-cert-verify: true
-    sni: t.me%252Fripaojiedian
+    port: 19708
     type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
   - name: rp-香港-trojan-4
-    password: b490740312aedb5f9f6b84c7aebd08c0
+    server: 54.46.12.97
     port: 40138
-    server: 54.46.12.97
-    skip-cert-verify: false
-    sni: www.nintendogames.net
     type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: false
   - name: rp-香港-trojan-5
-    password: b490740312aedb5f9f6b84c7aebd08c0
+    server: 18.163.121.106
     port: 24370
-    server: 18.163.121.106
+    type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
     skip-cert-verify: false
-    sni: www.nintendogames.net
-    type: trojan
   - name: rp-香港-trojan-6
-    password: b490740312aedb5f9f6b84c7aebd08c0
-    port: 48738
     server: 18.163.121.106
-    skip-cert-verify: true
-    sni: www.nintendogames.net
+    port: 48738
     type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: true
   - name: rp-香港-trojan-7
-    password: b490740312aedb5f9f6b84c7aebd08c0
-    port: 6357
     server: 16.163.41.104
-    skip-cert-verify: true
-    sni: www.nintendogames.net
+    port: 6357
     type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: true
   - name: rp-香港-trojan-8
-    password: BxceQaOe
-    port: 32434
     server: 18.166.58.225
-    skip-cert-verify: true
-    sni: t.me%252Fripaojiedian
+    port: 32434
     type: trojan
-  - name: rp-香港-trojan-9
-    password: b490740312aedb5f9f6b84c7aebd08c0
-    port: 17005
-    server: 54.46.12.97
-    skip-cert-verify: true
-    sni: www.nintendogames.net
-    type: trojan
-  - name: rp-香港-trojan-10
-    password: b490740312aedb5f9f6b84c7aebd08c0
-    port: 49277
-    server: 54.46.12.97
-    skip-cert-verify: true
-    sni: www.nintendogames.net
-    type: trojan
-  - name: rp-香港-trojan-11
     password: BxceQaOe
-    port: 11993
-    server: 95.40.50.170
+    sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-    sni: t.me%2Fripaojiedian
+  - name: rp-香港-trojan-9
+    server: 54.46.12.97
+    port: 17005
     type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: true
+  - name: rp-香港-trojan-10
+    server: 54.46.12.97
+    port: 49277
+    type: trojan
+    password: b490740312aedb5f9f6b84c7aebd08c0
+    sni: www.nintendogames.net
+    skip-cert-verify: true
+  - name: rp-香港-trojan-11
+    server: 95.40.50.170
+    port: 11993
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
 
 
 proxy-groups:
@@ -337,7 +337,7 @@ proxy-groups:
       - "rp-香港-trojan-11"
 
   - name: "_p_udp"
-    type: load-balance
+    type: url-test
     proxies:
       - "go-法国-hysteria-1"
       - "go-法国-hysteria-2"
@@ -346,7 +346,6 @@ proxy-groups:
       - "go-法国-hysteria2-1"
       - "go-法国-hysteria2-2"
       - "go-法国-hysteria2-3"
-    strategy: sticky-sessions
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
