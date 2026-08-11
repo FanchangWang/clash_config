@@ -28,9 +28,6 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/clash_config"]
 
-[tool.uv]
-managed = true
-
 [tool.ty.environment]
 python = ".venv"
 
@@ -52,8 +49,9 @@ select = [
     "TRY", # 异常
 ]
 ignore = [
-    "E501",
-    "TRY003",
+    "E501",   # 忽略超长行 (交给 ruff format 自动处理)
+    "TRY003", # 允许在 raise Exception(...) 中写长文字说明
+    "RUF012", # 允许在类定义中定义可变对象属性 (非常适合 YAML/JSON 配置类)
 ]
 
 [tool.ruff.format]
