@@ -105,24 +105,6 @@ proxies:
     skip-cert-verify: true
     up: 11 mbps
     down: 55 mbps
-  - name: go-法国-hysteria2-2
-    type: hysteria2
-    server: 62.210.7.139
-    port: 60111
-    password: github.com/Alvin9999-newpac/fanqiang
-    sni: bing.com
-    skip-cert-verify: true
-    up: 11 mbps
-    down: 55 mbps
-  - name: go-法国-hysteria2-3
-    type: hysteria2
-    server: 62.210.147.2
-    port: 43115
-    password: github.com/Alvin9999-newpac/fanqiang
-    sni: www.microsoft.com
-    skip-cert-verify: true
-    up: 11 mbps
-    down: 55 mbps
   - name: go-美国-mieru-1
     type: mieru
     server: 198.200.57.152
@@ -308,8 +290,6 @@ proxy-groups:
       - "go-法国-hysteria-2"
       - "go-德国-hysteria-2"
       - "go-法国-hysteria2-1"
-      - "go-法国-hysteria2-2"
-      - "go-法国-hysteria2-3"
       - "go-美国-mieru-1"
       - "go-美国-mieru-2"
       - "go-法国-vless-1"
@@ -336,8 +316,6 @@ proxy-groups:
       - "go-法国-hysteria-2"
       - "go-德国-hysteria-2"
       - "go-法国-hysteria2-1"
-      - "go-法国-hysteria2-2"
-      - "go-法国-hysteria2-3"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -349,8 +327,6 @@ proxy-groups:
       - "go-法国-hysteria-1"
       - "go-法国-hysteria-2"
       - "go-法国-hysteria2-1"
-      - "go-法国-hysteria2-2"
-      - "go-法国-hysteria2-3"
       - "go-法国-vless-1"
       - "go-法国-vless-2"
       - "rp-日本-trojan-1"
