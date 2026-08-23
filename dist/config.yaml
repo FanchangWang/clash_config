@@ -115,12 +115,12 @@ proxies:
     port: 33556
   - name: go-美国-mieru-2
     type: mieru
-    server: 157.254.223.44
+    server: 157.254.223.43
     transport: TCP
     udp: true
     username: dongtaiwang.com
     password: dongtaiwang.com
-    port: 34567
+    port: 23456
   - tls: true
     udp: true
     sni: www.yahoo.com
