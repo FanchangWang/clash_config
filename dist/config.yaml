@@ -178,86 +178,37 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
+  - name: rp-日本-trojan-1
+    server: 18.183.103.86
+    port: 4117
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
   - name: rp-香港-trojan-1
-    server: 43.198.107.164
-    port: 25982
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 16.163.147.33
-    port: 1103
+    server: 18.166.63.119
+    port: 2944
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-3
-    server: 18.163.180.82
-    port: 1103
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
-  - name: rp-香港-trojan-4
-    server: 18.163.180.82
-    port: 16691
+  - name: rp-新加坡-trojan-1
+    server: 13.214.209.40
+    port: 3878
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-5
-    server: 16.162.109.29
-    port: 40136
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-6
-    server: 18.163.126.92
-    port: 18617
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-7
-    server: 95.40.14.234
-    port: 51396
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-8
-    server: 16.162.192.182
-    port: 32434
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-9
-    server: 43.199.155.17
-    port: 32434
+  - name: rp-日本-trojan-2
+    server: 18.183.103.86
+    port: 41421
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-10
-    server: 43.199.143.104
+  - name: rp-新加坡-trojan-2
+    server: 54.179.227.94
     port: 34039
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-11
-    server: 95.40.14.234
-    port: 39024
-    type: trojan
-    password: d5517dedef425597a1b9fdbaad99544e
-    sni: www.nintendogames.net
-    skip-cert-verify: true
-  - name: rp-香港-trojan-12
-    server: 43.199.155.17
-    port: 39024
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
@@ -303,18 +254,11 @@ proxy-groups:
       - "go-法国-vless-2"
       - "rp-德国-ss-1"
       - "rp-香港-vmess-1"
+      - "rp-日本-trojan-1"
       - "rp-香港-trojan-1"
-      - "rp-香港-trojan-2"
-      - "rp-香港-trojan-3"
-      - "rp-香港-trojan-4"
-      - "rp-香港-trojan-5"
-      - "rp-香港-trojan-6"
-      - "rp-香港-trojan-7"
-      - "rp-香港-trojan-8"
-      - "rp-香港-trojan-9"
-      - "rp-香港-trojan-10"
-      - "rp-香港-trojan-11"
-      - "rp-香港-trojan-12"
+      - "rp-新加坡-trojan-1"
+      - "rp-日本-trojan-2"
+      - "rp-新加坡-trojan-2"
 
   - name: "_p_udp"
     type: url-test
@@ -337,6 +281,10 @@ proxy-groups:
       - "go-法国-hysteria2-1"
       - "go-法国-vless-1"
       - "go-法国-vless-2"
+      - "rp-日本-trojan-1"
+      - "rp-新加坡-trojan-1"
+      - "rp-日本-trojan-2"
+      - "rp-新加坡-trojan-2"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -348,18 +296,9 @@ proxy-groups:
       - "go-美国-mieru-1"
       - "go-美国-mieru-2"
       - "rp-香港-vmess-1"
+      - "rp-日本-trojan-1"
       - "rp-香港-trojan-1"
-      - "rp-香港-trojan-2"
-      - "rp-香港-trojan-3"
-      - "rp-香港-trojan-4"
-      - "rp-香港-trojan-5"
-      - "rp-香港-trojan-6"
-      - "rp-香港-trojan-7"
-      - "rp-香港-trojan-8"
-      - "rp-香港-trojan-9"
-      - "rp-香港-trojan-10"
-      - "rp-香港-trojan-11"
-      - "rp-香港-trojan-12"
+      - "rp-日本-trojan-2"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -372,18 +311,9 @@ proxy-groups:
       - "go-德国-hysteria-2"
       - "rp-德国-ss-1"
       - "rp-香港-vmess-1"
+      - "rp-日本-trojan-1"
       - "rp-香港-trojan-1"
-      - "rp-香港-trojan-2"
-      - "rp-香港-trojan-3"
-      - "rp-香港-trojan-4"
-      - "rp-香港-trojan-5"
-      - "rp-香港-trojan-6"
-      - "rp-香港-trojan-7"
-      - "rp-香港-trojan-8"
-      - "rp-香港-trojan-9"
-      - "rp-香港-trojan-10"
-      - "rp-香港-trojan-11"
-      - "rp-香港-trojan-12"
+      - "rp-日本-trojan-2"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
