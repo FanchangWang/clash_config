@@ -179,36 +179,36 @@ proxies:
     tls: false
     skip-cert-verify: false
   - name: rp-日本-trojan-1
-    server: 18.183.103.86
-    port: 4117
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
-  - name: rp-香港-trojan-1
-    server: 18.166.63.119
+    server: 18.181.83.46
     port: 2944
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-新加坡-trojan-1
-    server: 13.214.209.40
-    port: 3878
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%252Fripaojiedian
-    skip-cert-verify: true
   - name: rp-日本-trojan-2
-    server: 18.183.103.86
-    port: 41421
+    server: 43.206.117.36
+    port: 1103
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
+  - name: rp-香港-trojan-1
+    server: 95.40.27.43
+    port: 16691
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-新加坡-trojan-2
-    server: 54.179.227.94
-    port: 34039
+  - name: rp-香港-trojan-2
+    server: 95.40.27.43
+    port: 32434
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
+  - name: rp-香港-trojan-3
+    server: 18.163.118.157
+    port: 10418
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
@@ -255,10 +255,10 @@ proxy-groups:
       - "rp-德国-ss-1"
       - "rp-香港-vmess-1"
       - "rp-日本-trojan-1"
-      - "rp-香港-trojan-1"
-      - "rp-新加坡-trojan-1"
       - "rp-日本-trojan-2"
-      - "rp-新加坡-trojan-2"
+      - "rp-香港-trojan-1"
+      - "rp-香港-trojan-2"
+      - "rp-香港-trojan-3"
 
   - name: "_p_udp"
     type: url-test
@@ -282,9 +282,7 @@ proxy-groups:
       - "go-法国-vless-1"
       - "go-法国-vless-2"
       - "rp-日本-trojan-1"
-      - "rp-新加坡-trojan-1"
       - "rp-日本-trojan-2"
-      - "rp-新加坡-trojan-2"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -297,8 +295,10 @@ proxy-groups:
       - "go-美国-mieru-2"
       - "rp-香港-vmess-1"
       - "rp-日本-trojan-1"
-      - "rp-香港-trojan-1"
       - "rp-日本-trojan-2"
+      - "rp-香港-trojan-1"
+      - "rp-香港-trojan-2"
+      - "rp-香港-trojan-3"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -312,8 +312,10 @@ proxy-groups:
       - "rp-德国-ss-1"
       - "rp-香港-vmess-1"
       - "rp-日本-trojan-1"
-      - "rp-香港-trojan-1"
       - "rp-日本-trojan-2"
+      - "rp-香港-trojan-1"
+      - "rp-香港-trojan-2"
+      - "rp-香港-trojan-3"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
