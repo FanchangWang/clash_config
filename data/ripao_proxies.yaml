@@ -14,56 +14,56 @@ all:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: rp-香港-trojan-1
-    server: 95.40.24.249
-    port: 53001
+  - name: rp-新加坡-trojan-1
+    server: 18.142.250.141
+    port: 7674
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
   - name: rp-日本-trojan-1
-    server: 54.168.189
-    port: 1103
+    server: 35.78.206.14
+    port: 2944
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 18.163.11126
+  - name: rp-香港-trojan-1
+    server: 18.167.96.176
     port: 9408
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-新加坡-trojan-1
-    server: 54.255.201.71
-    port: 41421
+  - name: rp-香港-trojan-2
+    server: 95.40.28.75
+    port: 9149
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
   - name: rp-香港-trojan-3
-    server: 43.198.210.207
-    port: 1431
+    server: 18.167.96.176
+    port: 52770
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
 udp: []
 ai_gemini:
-  - name: rp-日本-trojan-1
-    server: 54.168.189
-    port: 1103
+  - name: rp-新加坡-trojan-1
+    server: 18.142.250.141
+    port: 7674
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-新加坡-trojan-1
-    server: 54.255.201.71
-    port: 41421
+  - name: rp-日本-trojan-1
+    server: 35.78.206.14
+    port: 2944
     type: trojan
     password: BxceQaOe
-    sni: t.me%252Fripaojiedian
+    sni: t.me%2Fripaojiedian
     skip-cert-verify: true
 porn_all:
   - name: rp-德国-ss-1
@@ -81,30 +81,30 @@ porn_all:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: rp-香港-trojan-1
-    server: 95.40.24.249
-    port: 53001
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
   - name: rp-日本-trojan-1
-    server: 54.168.189
-    port: 1103
+    server: 35.78.206.14
+    port: 2944
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 18.163.11126
+  - name: rp-香港-trojan-1
+    server: 18.167.96.176
     port: 9408
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
+  - name: rp-香港-trojan-2
+    server: 95.40.28.75
+    port: 9149
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
   - name: rp-香港-trojan-3
-    server: 43.198.210.207
-    port: 1431
+    server: 18.167.96.176
+    port: 52770
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
@@ -119,30 +119,30 @@ porn_x:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: rp-香港-trojan-1
-    server: 95.40.24.249
-    port: 53001
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
   - name: rp-日本-trojan-1
-    server: 54.168.189
-    port: 1103
+    server: 35.78.206.14
+    port: 2944
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 18.163.11126
+  - name: rp-香港-trojan-1
+    server: 18.167.96.176
     port: 9408
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
+  - name: rp-香港-trojan-2
+    server: 95.40.28.75
+    port: 9149
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
   - name: rp-香港-trojan-3
-    server: 43.198.210.207
-    port: 1431
+    server: 18.167.96.176
+    port: 52770
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
