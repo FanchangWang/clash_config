@@ -1,5 +1,5 @@
 all:
-  - name: rp-德国-ss-1
+  - name: rp-德意志联邦共和国-ss-1
     server: 63.180.254.10
     port: 443
     type: ss
@@ -14,37 +14,37 @@ all:
     cipher: auto
     tls: false
     skip-cert-verify: false
+  - name: rp-香港-trojan-1
+    server: 43.199.146.46
+    port: 2716
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%2Fripaojiedian
+    skip-cert-verify: true
   - name: rp-新加坡-trojan-1
-    server: 18.142.250.141
-    port: 7674
+    server: 13.215.162.132
+    port: 51391
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
   - name: rp-日本-trojan-1
-    server: 35.78.206.14
-    port: 2944
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
-  - name: rp-香港-trojan-1
-    server: 18.167.96.176
-    port: 9408
+    server: 35.73.128.210
+    port: 3893
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 95.40.28.75
-    port: 9149
+  - name: rp-新加坡-trojan-2
+    server: 54.251.190.150
+    port: 41142
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-3
-    server: 18.167.96.176
-    port: 52770
+  - name: rp-美国-trojan-1
+    server: 100.42.228.109
+    port: 443
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
@@ -52,26 +52,27 @@ all:
 udp: []
 ai_gemini:
   - name: rp-新加坡-trojan-1
-    server: 18.142.250.141
-    port: 7674
+    server: 13.215.162.132
+    port: 51391
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
   - name: rp-日本-trojan-1
-    server: 35.78.206.14
-    port: 2944
+    server: 35.73.128.210
+    port: 3893
     type: trojan
     password: BxceQaOe
-    sni: t.me%2Fripaojiedian
+    sni: t.me%252Fripaojiedian
+    skip-cert-verify: true
+  - name: rp-新加坡-trojan-2
+    server: 54.251.190.150
+    port: 41142
+    type: trojan
+    password: BxceQaOe
+    sni: t.me%252Fripaojiedian
     skip-cert-verify: true
 porn_all:
-  - name: rp-德国-ss-1
-    server: 63.180.254.10
-    port: 443
-    type: ss
-    cipher: aes-256-cfb
-    password: amazonskr05
   - name: rp-香港-vmess-1
     server: v10.hdacd.com
     port: 30807
@@ -81,30 +82,23 @@ porn_all:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: rp-日本-trojan-1
-    server: 35.78.206.14
-    port: 2944
+  - name: rp-香港-trojan-1
+    server: 43.199.146.46
+    port: 2716
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-1
-    server: 18.167.96.176
-    port: 9408
+  - name: rp-日本-trojan-1
+    server: 35.73.128.210
+    port: 3893
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 95.40.28.75
-    port: 9149
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%252Fripaojiedian
-    skip-cert-verify: true
-  - name: rp-香港-trojan-3
-    server: 18.167.96.176
-    port: 52770
+  - name: rp-美国-trojan-1
+    server: 100.42.228.109
+    port: 443
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
@@ -119,30 +113,23 @@ porn_x:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: rp-日本-trojan-1
-    server: 35.78.206.14
-    port: 2944
+  - name: rp-香港-trojan-1
+    server: 43.199.146.46
+    port: 2716
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-1
-    server: 18.167.96.176
-    port: 9408
+  - name: rp-日本-trojan-1
+    server: 35.73.128.210
+    port: 3893
     type: trojan
     password: BxceQaOe
     sni: t.me%252Fripaojiedian
     skip-cert-verify: true
-  - name: rp-香港-trojan-2
-    server: 95.40.28.75
-    port: 9149
-    type: trojan
-    password: BxceQaOe
-    sni: t.me%252Fripaojiedian
-    skip-cert-verify: true
-  - name: rp-香港-trojan-3
-    server: 18.167.96.176
-    port: 52770
+  - name: rp-美国-trojan-1
+    server: 100.42.228.109
+    port: 443
     type: trojan
     password: BxceQaOe
     sni: t.me%2Fripaojiedian
