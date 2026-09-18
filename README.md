@@ -1,6 +1,6 @@
 ## 自用 clash 配置
 
-Clash/mihomo 配置自动整理工具。从多个数据源（ChromeGo / Ripao）抓取代理，经过提取、转换、分类后，合并输出到 `dist/` 目录供 Clash 订阅使用。
+Clash/mihomo 配置自动整理工具。从 ChromeGo 数据源抓取代理，经过提取、转换、分类后，输出到 `dist/` 目录供 Clash 订阅使用。
 
 ### 订阅链接
 [https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/config.yaml](https://raw.githubusercontent.com/FanchangWang/clash_config/main/dist/config.yaml)
@@ -28,15 +28,32 @@ uv run clash-config
 uv run check
 ```
 
-### 环境变量
+### IP 归属国家纠正
 
-在项目根目录创建 `.env` 文件：
+`data/ip_country_map.yaml` 是手动映射表，用于纠正 ip-api 接口返回错误的 IP 归属国家：
 
+```yaml
+2001:bc8:32d7:17b::3: 西班牙
+1.2.3.4: 日本
+example.com: 韩国
 ```
-GITHUB_TOKEN=ghp_xxx
+
+- key 支持 IPv4 / IPv6 / 域名，先按原值匹配，再按解析、规范化后的 IP 匹配
+- IPv6 不用加引号，大小写、前导零、缩写写法会自动规范化后比对
+- value 填国家中文名，需与 `config.py` 的分类列表写法一致
+- 命中映射后不再查询 ip-api 和 GeoIP 数据库
+
+### 分组白名单
+
+某些服务不是按国家一刀切的（如 Gemini 还分地区），国家不在默认名单里但实际可用的 IP，在 `data/ip_group_allow.yaml` 单独放行：
+
+```yaml
+157.254.223.43: [ai_gemini]
 ```
 
-仅需 GitHub API 读取权限，用于拉取 Ripao 数据源。
+- key 支持 IPv4 / IPv6 / 域名，匹配逻辑与 `ip_country_map.yaml` 相同
+- value 是分组字段名（可列表）：`udp` / `ai_gemini` / `porn_x` / `porn_all` / `all`
+- 命中后无视国家、协议条件，直接加入对应分组；字段名写错会告警并忽略该项
 
 ### 项目结构
 ```
@@ -58,6 +75,10 @@ clash_config/
 │   ├── extractor/                       # 配置提取器
 │   └── converter/                       # 协议转换器
 ├── data/                                # 数据存储
+│   ├── store.yaml                       # 增量更新状态
+│   ├── chromego_proxies.yaml            # ChromeGo 代理缓存
+│   ├── ip_country_map.yaml              # 手动 IP/域名(含 IPv6) -> 国家 映射
+│   └── ip_group_allow.yaml              # IP/域名 -> 额外允许加入的分组
 ├── temp/                                # 临时文件
 └── dist/                                # 输出目录
     └── config.yaml                      # 主配置（订阅输出）

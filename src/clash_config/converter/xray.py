@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 from ..logger import logger
 from ..models import ProxyDict
@@ -20,7 +20,7 @@ class XrayConverter:
                 config = json.load(f)
 
             outbounds = config.get("outbounds", [])
-            mihomo_proxies = []
+            mihomo_proxies: list[Any] = []
 
             for outbound in outbounds:
                 protocol = outbound.get("protocol", "")

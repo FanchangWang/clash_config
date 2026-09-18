@@ -10,6 +10,7 @@ from ..config import Config
 from ..converter import ProxyConverter
 from ..logger import logger
 from ..models import ProxyDict, ProxyGroup
+from ..utils import get_allowed_groups
 from .base import BaseExtractor
 
 _Parser = Callable[[Path], ProxyDict | list[ProxyDict] | None]
@@ -71,7 +72,7 @@ class ChromeGoExtractor(BaseExtractor):
 
         return results
 
-    def process_proxies(self, proxies: list[ProxyDict], prefix: str = "go") -> ProxyGroup:
+    def process_proxies(self, proxies: list[ProxyDict]) -> ProxyGroup:
         """处理代理列表并分类"""
         proxies_by_protocol = {}
         group = ProxyGroup()
@@ -100,26 +101,29 @@ class ChromeGoExtractor(BaseExtractor):
                 sum(
                     1
                     for p in proxies_by_protocol[protocol]
-                    if p.get("name", "").startswith(f"{prefix}-{proxy['name']}-{protocol}-")
+                    if p.get("name", "").startswith(f"{proxy['name']}-{protocol}-")
                 )
                 + 1
             )
             country = proxy["name"]
-            proxy["name"] = f"{prefix}-{country}-{protocol}-{count}"
+            proxy["name"] = f"{country}-{protocol}-{count}"
 
             proxies_by_protocol[protocol].append(copy.deepcopy(proxy))
             group.all.append(copy.deepcopy(proxy))
 
-            if country in Config.AI_GEMINI_COUNTRIES:
+            allowed = get_allowed_groups(proxy.get("server", ""))
+
+            if country in Config.AI_GEMINI_COUNTRIES or "ai_gemini" in allowed:
                 group.ai_gemini.append(copy.deepcopy(proxy))
 
-            if protocol in Config.UDP_PROTOCOLS:
+            if protocol in Config.UDP_PROTOCOLS or "udp" in allowed:
                 group.udp.append(copy.deepcopy(proxy))
 
-            if country in Config.PORN_X_COUNTRIES:
+            if country in Config.PORN_X_COUNTRIES or "porn_x" in allowed:
                 group.porn_x.append(copy.deepcopy(proxy))
 
-            if country in Config.PORN_COUNTRIES and protocol in Config.PORN_PROTOCOLS:
+            porn_all_ok = country in Config.PORN_COUNTRIES and protocol in Config.PORN_PROTOCOLS
+            if porn_all_ok or "porn_all" in allowed:
                 group.porn_all.append(copy.deepcopy(proxy))
 
         return group

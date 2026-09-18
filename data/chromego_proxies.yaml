@@ -1,5 +1,5 @@
 all:
-  - name: go-法国-hysteria-1
+  - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
     port: 23556
@@ -11,19 +11,7 @@ all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-德国-hysteria-1
-    type: hysteria
-    server: 2a14:7584:d097::a
-    port: 54177
-    auth-str: dongtaiwang.com
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
-  - name: go-法国-hysteria-2
+  - name: 法国-hysteria-2
     type: hysteria
     server: 163.172.117.163
     port: 36699
@@ -35,7 +23,19 @@ all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-德国-hysteria-2
+  - name: 德国-hysteria-1
+    type: hysteria
+    server: 2a14:7584:d097::a
+    port: 54177
+    auth-str: dongtaiwang.com
+    sni: apple.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
     protocol: udp
@@ -51,7 +51,7 @@ all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: go-法国-hysteria2-1
+  - name: 西班牙-hysteria2-1
     type: hysteria2
     server: 2001:bc8:32d7:17b::3
     port: 22000
@@ -60,7 +60,7 @@ all:
     skip-cert-verify: true
     up: 11 mbps
     down: 55 mbps
-  - name: go-美国-mieru-1
+  - name: 美国-mieru-1
     type: mieru
     server: 198.200.57.152
     transport: TCP
@@ -68,7 +68,7 @@ all:
     username: Alvin9999-newpac
     password: github.com/Alvin9999-newpac/fanqiang
     port: 33556
-  - name: go-美国-mieru-2
+  - name: 美国-mieru-2
     type: mieru
     server: 157.254.223.43
     transport: TCP
@@ -89,9 +89,9 @@ all:
       host: ''
       path: /OCrp5Ajs
       mode: auto
-    name: go-法国-vless-1
+    name: 西班牙-vless-1
     type: vless
-    server: 2001:bc8:32d7:302::14
+    server: 62.210.70.194
     port: 37783
     uuid: a289c660-1b12-432b-a06c-c2ae469272b0
     flow: ''
@@ -110,16 +110,16 @@ all:
       host: ''
       path: /OCrp5Ajs
       mode: auto
-    name: go-法国-vless-2
+    name: 西班牙-vless-2
     type: vless
-    server: 62.210.70.194
+    server: 2001:bc8:32d7:302::14
     port: 37783
     uuid: a289c660-1b12-432b-a06c-c2ae469272b0
     flow: ''
     encryption: mlkem768x25519plus.native.0rtt.I5ge5qOTUhKE8xpufKI84yktvqqG9qkViwYe20uFZUyGwbnK7QMv6Tih0subInSmZTyem1QFG1CDFvGfgMBu3Yw1ryNJfGjMnALAqZawBoukaROcTzxXmFAzuejDalyhxxfNJkeUefW3biOHIzcu_AairYSvJ8l_iHJpKVEKXZWPQWiq-tm_nPJz_oDDhFElaCHKnCslodSen2M6afQQ0HYKc6nKZmZwc1cHG1GKW9xHx6CBfLhFVOhT62tCvbxShul1NJgL-shELnovAtS1aHBFQKDOIiJYC7Ww0awUfsyGIFhnJIhdnqFHnkG7sOcdiWiH-ZkQ11p065zAWEQ14HTOi-aqCAsnWNwdRxwj1_qlArYd3nNF1dXKARRikbMFutC5GyyvSJxk7XwHRGWoK_q6_zK2amtIrsin6tov5kKs3UqywFJMJ2rMtgYZXpvK_TdXumLGUimIq9vFW7idpbMlv9F84NY8UbtrkyB87IQwdKqbtnuOMzxkYik-i9N5vaKcXLSdOGRpMgAKSMt5NbSyllcEh6qUTZoVb_h8ZmYij8csvbGWxodCj1WvOGoRtGGnTSpWMdG3X3ZxXlhNQ6tpIPGTfxkzjPtRjHQDcqm0fgrLjWONnkGxMQRO-Wi50vzNPzW9Vuy5BlZszdGqpjLNRLGw24JTAYKXpxiUkTxUxhO3LRC8kMvGVBgxjImwmwev1IqfPiVIMSwhV0FAMNw27nALh0qyPnNLbFpbTFuTL6V83YypFDl1yahns_AE86ufKnSAaSs_0PwMM_ZDfkhE7nRKCygaD9UjWWygRWq6fZarZahcTAqrZUYPXWxqDsrE7VRYO3ch70AHi6ZXTyKR1YcyM0Kiw3S0kxpjbtWReOJ3lXwry-BjcusDKhRsAxErDIBD6IFuY5ucRTtpfPoNgiq7rSFG8SFNvTe-_wh39Bwjj3JeRnw6kzujiKgxGiAH9GYm6LVvG2ljdWacJjSyoDE6mbFwgRCGdDh4h6eMCPs7hjQmNByx76lb0PYt-BuD9xCfiEFMoKJzTjWUvOy1gbmOrjY5xtkkByo8PCS40YRqXiYQ0Me9U5t_lsdxrvO6f7ajFHBNp_IiQOAstWu9UKC2hiABnVWbHaTFeQSp0tAx9rm5vehC0_a3EAHByGzGFUQ-QWpUO5mvGzZKpPVQrgovg2GsgepxgOMymOgv2CbLNKiwAJJyjDe5d5yXiueH3ZdppJqepXrOGuGOn3e-8RKVu3I-nCp-aMS769Yl5mmS8BYOpxW3HseSzZZMIta4hjsa7hqSgmycflvLV5x-8bM9iBFZ7iOey9oYyEkEbFN-6-Alh2dQfopjE2QNFqW6KatBKHXKHNVoayoc4ZegDKPNAEnAo9wIHkBpDFC-fVoCkGMDcRSeNbF67keruuE0xfMA8ltaklEyRwMcxVQwMhILq6vKlzpJF9OJMGVg5amP_-i4NAsKEfC8Ayp61gByykoWKTWkuLAEAYtXXNIfQ9BPvZca1BITgpC69lapO4SH1UAZ4KRxOTVtbHES_GsjM_lkTv940p3IDkG7jfvxIfY_Q9C3QVbkilRpPvg
     skip-cert-verify: true
 udp:
-  - name: go-法国-hysteria-1
+  - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
     port: 23556
@@ -131,19 +131,7 @@ udp:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-德国-hysteria-1
-    type: hysteria
-    server: 2a14:7584:d097::a
-    port: 54177
-    auth-str: dongtaiwang.com
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
-  - name: go-法国-hysteria-2
+  - name: 法国-hysteria-2
     type: hysteria
     server: 163.172.117.163
     port: 36699
@@ -155,7 +143,19 @@ udp:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-德国-hysteria-2
+  - name: 德国-hysteria-1
+    type: hysteria
+    server: 2a14:7584:d097::a
+    port: 54177
+    auth-str: dongtaiwang.com
+    sni: apple.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
     protocol: udp
@@ -171,7 +171,7 @@ udp:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: go-法国-hysteria2-1
+  - name: 西班牙-hysteria2-1
     type: hysteria2
     server: 2001:bc8:32d7:17b::3
     port: 22000
@@ -181,7 +181,7 @@ udp:
     up: 11 mbps
     down: 55 mbps
 ai_gemini:
-  - name: go-法国-hysteria-1
+  - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
     port: 23556
@@ -193,7 +193,7 @@ ai_gemini:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-法国-hysteria-2
+  - name: 法国-hysteria-2
     type: hysteria
     server: 163.172.117.163
     port: 36699
@@ -205,59 +205,16 @@ ai_gemini:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-法国-hysteria2-1
-    type: hysteria2
-    server: 2001:bc8:32d7:17b::3
-    port: 22000
+  - name: 美国-mieru-2
+    type: mieru
+    server: 157.254.223.43
+    transport: TCP
+    udp: true
+    username: dongtaiwang.com
     password: dongtaiwang.com
-    sni: www.microsoft.com
-    skip-cert-verify: true
-    up: 11 mbps
-    down: 55 mbps
-  - tls: true
-    udp: true
-    sni: www.yahoo.com
-    servername: www.yahoo.com
-    client-fingerprint: chrome
-    reality-opts:
-      public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
-      short-id: 21569dd6
-    network: xhttp
-    xhttp-opts:
-      host: ''
-      path: /OCrp5Ajs
-      mode: auto
-    name: go-法国-vless-1
-    type: vless
-    server: 2001:bc8:32d7:302::14
-    port: 37783
-    uuid: a289c660-1b12-432b-a06c-c2ae469272b0
-    flow: ''
-    encryption: mlkem768x25519plus.native.0rtt.I5ge5qOTUhKE8xpufKI84yktvqqG9qkViwYe20uFZUyGwbnK7QMv6Tih0subInSmZTyem1QFG1CDFvGfgMBu3Yw1ryNJfGjMnALAqZawBoukaROcTzxXmFAzuejDalyhxxfNJkeUefW3biOHIzcu_AairYSvJ8l_iHJpKVEKXZWPQWiq-tm_nPJz_oDDhFElaCHKnCslodSen2M6afQQ0HYKc6nKZmZwc1cHG1GKW9xHx6CBfLhFVOhT62tCvbxShul1NJgL-shELnovAtS1aHBFQKDOIiJYC7Ww0awUfsyGIFhnJIhdnqFHnkG7sOcdiWiH-ZkQ11p065zAWEQ14HTOi-aqCAsnWNwdRxwj1_qlArYd3nNF1dXKARRikbMFutC5GyyvSJxk7XwHRGWoK_q6_zK2amtIrsin6tov5kKs3UqywFJMJ2rMtgYZXpvK_TdXumLGUimIq9vFW7idpbMlv9F84NY8UbtrkyB87IQwdKqbtnuOMzxkYik-i9N5vaKcXLSdOGRpMgAKSMt5NbSyllcEh6qUTZoVb_h8ZmYij8csvbGWxodCj1WvOGoRtGGnTSpWMdG3X3ZxXlhNQ6tpIPGTfxkzjPtRjHQDcqm0fgrLjWONnkGxMQRO-Wi50vzNPzW9Vuy5BlZszdGqpjLNRLGw24JTAYKXpxiUkTxUxhO3LRC8kMvGVBgxjImwmwev1IqfPiVIMSwhV0FAMNw27nALh0qyPnNLbFpbTFuTL6V83YypFDl1yahns_AE86ufKnSAaSs_0PwMM_ZDfkhE7nRKCygaD9UjWWygRWq6fZarZahcTAqrZUYPXWxqDsrE7VRYO3ch70AHi6ZXTyKR1YcyM0Kiw3S0kxpjbtWReOJ3lXwry-BjcusDKhRsAxErDIBD6IFuY5ucRTtpfPoNgiq7rSFG8SFNvTe-_wh39Bwjj3JeRnw6kzujiKgxGiAH9GYm6LVvG2ljdWacJjSyoDE6mbFwgRCGdDh4h6eMCPs7hjQmNByx76lb0PYt-BuD9xCfiEFMoKJzTjWUvOy1gbmOrjY5xtkkByo8PCS40YRqXiYQ0Me9U5t_lsdxrvO6f7ajFHBNp_IiQOAstWu9UKC2hiABnVWbHaTFeQSp0tAx9rm5vehC0_a3EAHByGzGFUQ-QWpUO5mvGzZKpPVQrgovg2GsgepxgOMymOgv2CbLNKiwAJJyjDe5d5yXiueH3ZdppJqepXrOGuGOn3e-8RKVu3I-nCp-aMS769Yl5mmS8BYOpxW3HseSzZZMIta4hjsa7hqSgmycflvLV5x-8bM9iBFZ7iOey9oYyEkEbFN-6-Alh2dQfopjE2QNFqW6KatBKHXKHNVoayoc4ZegDKPNAEnAo9wIHkBpDFC-fVoCkGMDcRSeNbF67keruuE0xfMA8ltaklEyRwMcxVQwMhILq6vKlzpJF9OJMGVg5amP_-i4NAsKEfC8Ayp61gByykoWKTWkuLAEAYtXXNIfQ9BPvZca1BITgpC69lapO4SH1UAZ4KRxOTVtbHES_GsjM_lkTv940p3IDkG7jfvxIfY_Q9C3QVbkilRpPvg
-    skip-cert-verify: true
-  - tls: true
-    udp: true
-    sni: www.yahoo.com
-    servername: www.yahoo.com
-    client-fingerprint: chrome
-    reality-opts:
-      public-key: tQeEamJmYVUUfjRLX7ETvMnPj4DrHzRhR5TI684oYgg
-      short-id: 21569dd6
-    network: xhttp
-    xhttp-opts:
-      host: ''
-      path: /OCrp5Ajs
-      mode: auto
-    name: go-法国-vless-2
-    type: vless
-    server: 62.210.70.194
-    port: 37783
-    uuid: a289c660-1b12-432b-a06c-c2ae469272b0
-    flow: ''
-    encryption: mlkem768x25519plus.native.0rtt.I5ge5qOTUhKE8xpufKI84yktvqqG9qkViwYe20uFZUyGwbnK7QMv6Tih0subInSmZTyem1QFG1CDFvGfgMBu3Yw1ryNJfGjMnALAqZawBoukaROcTzxXmFAzuejDalyhxxfNJkeUefW3biOHIzcu_AairYSvJ8l_iHJpKVEKXZWPQWiq-tm_nPJz_oDDhFElaCHKnCslodSen2M6afQQ0HYKc6nKZmZwc1cHG1GKW9xHx6CBfLhFVOhT62tCvbxShul1NJgL-shELnovAtS1aHBFQKDOIiJYC7Ww0awUfsyGIFhnJIhdnqFHnkG7sOcdiWiH-ZkQ11p065zAWEQ14HTOi-aqCAsnWNwdRxwj1_qlArYd3nNF1dXKARRikbMFutC5GyyvSJxk7XwHRGWoK_q6_zK2amtIrsin6tov5kKs3UqywFJMJ2rMtgYZXpvK_TdXumLGUimIq9vFW7idpbMlv9F84NY8UbtrkyB87IQwdKqbtnuOMzxkYik-i9N5vaKcXLSdOGRpMgAKSMt5NbSyllcEh6qUTZoVb_h8ZmYij8csvbGWxodCj1WvOGoRtGGnTSpWMdG3X3ZxXlhNQ6tpIPGTfxkzjPtRjHQDcqm0fgrLjWONnkGxMQRO-Wi50vzNPzW9Vuy5BlZszdGqpjLNRLGw24JTAYKXpxiUkTxUxhO3LRC8kMvGVBgxjImwmwev1IqfPiVIMSwhV0FAMNw27nALh0qyPnNLbFpbTFuTL6V83YypFDl1yahns_AE86ufKnSAaSs_0PwMM_ZDfkhE7nRKCygaD9UjWWygRWq6fZarZahcTAqrZUYPXWxqDsrE7VRYO3ch70AHi6ZXTyKR1YcyM0Kiw3S0kxpjbtWReOJ3lXwry-BjcusDKhRsAxErDIBD6IFuY5ucRTtpfPoNgiq7rSFG8SFNvTe-_wh39Bwjj3JeRnw6kzujiKgxGiAH9GYm6LVvG2ljdWacJjSyoDE6mbFwgRCGdDh4h6eMCPs7hjQmNByx76lb0PYt-BuD9xCfiEFMoKJzTjWUvOy1gbmOrjY5xtkkByo8PCS40YRqXiYQ0Me9U5t_lsdxrvO6f7ajFHBNp_IiQOAstWu9UKC2hiABnVWbHaTFeQSp0tAx9rm5vehC0_a3EAHByGzGFUQ-QWpUO5mvGzZKpPVQrgovg2GsgepxgOMymOgv2CbLNKiwAJJyjDe5d5yXiueH3ZdppJqepXrOGuGOn3e-8RKVu3I-nCp-aMS769Yl5mmS8BYOpxW3HseSzZZMIta4hjsa7hqSgmycflvLV5x-8bM9iBFZ7iOey9oYyEkEbFN-6-Alh2dQfopjE2QNFqW6KatBKHXKHNVoayoc4ZegDKPNAEnAo9wIHkBpDFC-fVoCkGMDcRSeNbF67keruuE0xfMA8ltaklEyRwMcxVQwMhILq6vKlzpJF9OJMGVg5amP_-i4NAsKEfC8Ayp61gByykoWKTWkuLAEAYtXXNIfQ9BPvZca1BITgpC69lapO4SH1UAZ4KRxOTVtbHES_GsjM_lkTv940p3IDkG7jfvxIfY_Q9C3QVbkilRpPvg
-    skip-cert-verify: true
+    port: 23456
 porn_all:
-  - name: go-德国-hysteria-1
+  - name: 德国-hysteria-1
     type: hysteria
     server: 2a14:7584:d097::a
     port: 54177
@@ -269,7 +226,7 @@ porn_all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: go-德国-hysteria-2
+  - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
     protocol: udp
@@ -286,7 +243,7 @@ porn_all:
     recv-window: 230686720
     disable-mtu-discovery: true
 porn_x:
-  - name: go-美国-mieru-1
+  - name: 美国-mieru-1
     type: mieru
     server: 198.200.57.152
     transport: TCP
@@ -294,7 +251,7 @@ porn_x:
     username: Alvin9999-newpac
     password: github.com/Alvin9999-newpac/fanqiang
     port: 33556
-  - name: go-美国-mieru-2
+  - name: 美国-mieru-2
     type: mieru
     server: 157.254.223.43
     transport: TCP

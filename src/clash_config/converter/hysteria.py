@@ -16,15 +16,15 @@ class HysteriaConverter:
     @staticmethod
     def _parse_server_address(server: str) -> tuple[str, int, str | None, bool]:
         """解析服务器地址, 处理各种格式"""
-        server_addr = server
+        server_addr = str(server)
         port = 443
-        ports = None
+        ports: str | None = None
         is_multi_port = False
 
         ipv6_match = re.match(r"^\[([0-9a-fA-F:.]+)\]:(.+)$", server)
         if ipv6_match:
-            server_addr = ipv6_match.group(1)
-            port_part = ipv6_match.group(2)
+            server_addr = str(ipv6_match.group(1))
+            port_part = str(ipv6_match.group(2))
             first_port_match = re.search(r"^(\d+)", port_part)
             if first_port_match:
                 port = int(first_port_match.group(1))
@@ -34,8 +34,8 @@ class HysteriaConverter:
         else:
             ipv4_or_domain_match = re.match(r"^([^:]+):(.+)$", server)
             if ipv4_or_domain_match:
-                server_addr = ipv4_or_domain_match.group(1)
-                port_part = ipv4_or_domain_match.group(2)
+                server_addr = str(ipv4_or_domain_match.group(1))
+                port_part = str(ipv4_or_domain_match.group(2))
                 first_port_match = re.search(r"^(\d+)", port_part)
                 if first_port_match:
                     port = int(first_port_match.group(1))

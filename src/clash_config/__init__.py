@@ -10,11 +10,11 @@ from .converter import (
     ProxyConverter,
     XrayConverter,
 )
-from .extractor import BaseExtractor, ChromeGoExtractor, RipaoExtractor
+from .extractor import BaseExtractor, ChromeGoExtractor
 from .logger import logger
 from .merger import Merger
-from .models import ChromeGoState, ProxyDict, ProxyGroup, RipaoState, StoreData
-from .updater import BaseUpdater, ChromeGoUpdater, RipaoUpdater
+from .models import ChromeGoState, ProxyDict, ProxyGroup, StoreData
+from .updater import BaseUpdater, ChromeGoUpdater
 
 __version__ = "1.1.0"
 __all__ = [
@@ -33,9 +33,6 @@ __all__ = [
     "ProxyConverter",
     "ProxyDict",
     "ProxyGroup",
-    "RipaoExtractor",
-    "RipaoState",
-    "RipaoUpdater",
     "StoreData",
     "XrayConverter",
     "logger",

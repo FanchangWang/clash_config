@@ -6,6 +6,7 @@ __pycache__
 temp/
 .ruff_cache/
 uv.lock
+.workbuddy/
 
 # 由脚本生成
 dist/proxies/

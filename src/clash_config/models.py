@@ -34,15 +34,7 @@ class ChromeGoState:
 
 
 @dataclass
-class RipaoState:
-    """Ripao 数据源状态"""
-
-    sha: str = ""
-
-
-@dataclass
 class StoreData:
     """存储数据"""
 
     chrome_go: ChromeGoState = field(default_factory=ChromeGoState)
-    ripao: RipaoState = field(default_factory=RipaoState)

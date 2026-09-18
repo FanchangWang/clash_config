@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 from ..logger import logger
 from ..models import ProxyDict
@@ -19,7 +19,7 @@ class MieruConverter:
             with config_file.open(encoding="utf-8") as f:
                 config = json.load(f)
 
-            mihomo_proxies = []
+            mihomo_proxies: list[Any] = []
             profiles = config.get("profiles", [])
 
             for profile in profiles:

@@ -65,35 +65,19 @@ class Merger:
 
         return "\n".join(lines)
 
-    def merge(self, chrome_group: ProxyGroup, ripao_group: ProxyGroup) -> None:
+    def merge(self, group: ProxyGroup) -> None:
         """合并配置并生成 dist/config.yaml"""
         logger.info("检测到配置更新, 重新生成...")
 
-        merged = {
-            "all": copy.deepcopy(chrome_group.all) + copy.deepcopy(ripao_group.all),
-            "udp": copy.deepcopy(chrome_group.udp) + copy.deepcopy(ripao_group.udp),
-            "ai_gemini": copy.deepcopy(chrome_group.ai_gemini)
-            + copy.deepcopy(ripao_group.ai_gemini),
-            "porn_all": copy.deepcopy(chrome_group.porn_all) + copy.deepcopy(ripao_group.porn_all),
-            "porn_x": copy.deepcopy(chrome_group.porn_x) + copy.deepcopy(ripao_group.porn_x),
+        all_data: dict[str, list[ProxyDict]] = {
+            "all": copy.deepcopy(group.all),
+            "udp": copy.deepcopy(group.udp) if len(group.udp) > 2 else copy.deepcopy(group.all),
+            "ai_gemini": copy.deepcopy(group.ai_gemini)
+            if len(group.ai_gemini) > 2
+            else copy.deepcopy(group.all),
+            "porn_all": copy.deepcopy(group.porn_all),
+            "porn_x": copy.deepcopy(group.porn_x),
         }
-
-        all_data: dict[str, list[ProxyDict]] = dict(merged)
-
-        if len(chrome_group.udp) > 2:
-            udp_proxies = copy.deepcopy(chrome_group.udp)
-        elif len(merged["udp"]) > 2:
-            udp_proxies = copy.deepcopy(merged["udp"])
-        elif len(chrome_group.all) > 2:
-            udp_proxies = copy.deepcopy(chrome_group.all)
-        else:
-            udp_proxies = copy.deepcopy(merged["all"])
-        all_data["udp"] = udp_proxies
-
-        if len(merged["ai_gemini"]) > 2:
-            all_data["ai_gemini"] = copy.deepcopy(merged["ai_gemini"])
-        else:
-            all_data["ai_gemini"] = copy.deepcopy(merged["all"])
 
         template = (Config.TEMPLATE_DIR / "config.yaml").read_text(encoding="utf-8")
 

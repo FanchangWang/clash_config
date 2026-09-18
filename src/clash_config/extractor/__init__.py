@@ -2,6 +2,5 @@
 
 from .base import BaseExtractor
 from .chrome_go import ChromeGoExtractor
-from .ripao import RipaoExtractor
 
-__all__ = ["BaseExtractor", "ChromeGoExtractor", "RipaoExtractor"]
+__all__ = ["BaseExtractor", "ChromeGoExtractor"]

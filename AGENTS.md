@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-Clash 配置自动整理工具。从多个数据源（ChromeGo / Ripao）抓取代理，经过提取、转换、分类后，合并输出到 `dist/` 目录供 Clash 订阅使用。
+Clash 配置自动整理工具。从 ChromeGo 数据源抓取代理，经过提取、转换、分类后，输出到 `dist/` 目录供 Clash 订阅使用。
 
 ## 核心技术栈
 
@@ -35,13 +35,11 @@ clash_config/
 │   ├── updater/
 │   │   ├── __init__.py
 │   │   ├── base.py                # BaseUpdater（抽象基类）
-│   │   ├── chrome_go.py           # ChromeGoUpdater（GitLab → zip → 提取）
-│   │   └── ripao.py               # RipaoUpdater（GitHub → clash.yaml → 提取）
+│   │   └── chrome_go.py           # ChromeGoUpdater（GitLab → zip → 提取）
 │   ├── extractor/
 │   │   ├── __init__.py
 │   │   ├── base.py                # BaseExtractor（抽象基类）
-│   │   ├── chrome_go.py           # ChromeGoExtractor（递归扫描各类协议目录）
-│   │   └── ripao.py               # RipaoExtractor（加载/修复 YAML，转换）
+│   │   └── chrome_go.py           # ChromeGoExtractor（递归扫描各类协议目录）
 │   └── converter/
 │       ├── __init__.py
 │       ├── base.py                # ProxyConverter 工厂
@@ -51,9 +49,10 @@ clash_config/
 │       ├── mieru.py               # mieru → mihomo
 │       └── xray.py                # xray（vless/vmess/trojan）→ mihomo
 ├── data/
-│   ├── store.yaml                 # 状态持久化（chrome_go.created_at, ripao.sha）
+│   ├── store.yaml                 # 状态持久化（chrome_go.created_at）
 │   ├── chromego_proxies.yaml      # ChromeGo 缓存
-│   └── ripao_proxies.yaml         # Ripao 缓存
+│   ├── ip_country_map.yaml        # 手动 IP/域名 -> 国家 映射（纠正 ip-api 错误归属）
+│   └── ip_group_allow.yaml        # IP/域名 -> 额外允许加入的分组（绕过国家/协议限制）
 ├── dist/
 │   ├── config.yaml                # 主 Clash 配置（订阅输出，已提交）
 │   └── proxies/                   # 代理列表（gitignored，运行时生成）
@@ -63,23 +62,21 @@ clash_config/
 ## 核心数据流
 
 ```
-ChromeGo (GitLab)  ──→ zip ──→ ChromeGoUpdater ──→ ChromeGoExtractor ──→ ProxyGroup ──┐
-                                                                                       ├──→ Merger.merge() ──→ dist/config.yaml
-Ripao (GitHub)     ──→ yaml ──→ RipaoUpdater   ──→ RipaoExtractor   ──→ ProxyGroup ──┘
+ChromeGo (GitLab) ──→ zip ──→ ChromeGoUpdater ──→ ChromeGoExtractor ──→ ProxyGroup ──→ Merger.merge() ──→ dist/config.yaml
 ```
 
 ### 各层职责
 
-1. **Updater**：检查远程是否有更新（对比 SHA / created_at），有则下载
+1. **Updater**：检查远程是否有更新（对比 created_at），有则下载
 2. **Extractor**：读取原始配置，通过 Converter 转为统一格式，按国家和地区分类到 ProxyGroup
 3. **Converter**：各协议（clash.meta2 / hysteria / hysteria2 / mieru / xray）→ mihomo 格式字典
-4. **Merger**：合并两个源的 ProxyGroup，去重，写入 dist/config.yaml
+4. **Merger**：接收单个 ProxyGroup，写入 dist/config.yaml
 
 ## 数据模型（models.py）
 
 - **ProxyDict** (TypedDict)：`name, type, server, port, country, udp` 等
 - **ProxyGroup** (dataclass)：`all, udp, ai_gemini, porn_all, porn_x` 五个分类列表
-- **StoreData**：`chrome_go.created_at` + `ripao.sha` 用于增量更新判断
+- **StoreData**：`chrome_go.created_at` 用于增量更新判断
 
 ## 配置分类规则（config.py）
 
@@ -89,6 +86,14 @@ Ripao (GitHub)     ──→ yaml ──→ RipaoUpdater   ──→ RipaoExtrac
 | `UDP` | protocol ∈ `[hysteria, hysteria2, tuic]` |
 | `PORN_X` | country ∈ `[美国,日本,韩国,...]` |
 | `PORN_ALL` | country ∈ `[美国,日本,韩国,...]` **且** protocol ∈ `[hysteria, hysteria2, tuic]` |
+
+以上四条均可被 `data/ip_group_allow.yaml` 白名单绕过（见下）。
+
+## 代理命名
+
+- 格式：`{国家}-{协议}-{序号}`，如 `日本-ss-1`（历史上有 `go-` 前缀用于区分数据源，单源后已去掉）
+
+## IP 归属国家纠正
 
 ## 入口与命令
 
@@ -101,10 +106,20 @@ Ripao (GitHub)     ──→ yaml ──→ RipaoUpdater   ──→ RipaoExtrac
 - 所有 `save_yaml()` 写文件使用 `newline=""` 确保 LF 换行符（防止 Windows CRLF）
 - `.gitattributes` 已配置强制 LF
 
-## 环境变量
+## IP 归属国家纠正
 
-- `.env`：`GITHUB_TOKEN`（GitHub API read 用，不需要任何权限）
-- 通过 `Config.github_token()` 加载
+- `data/ip_country_map.yaml`：手动 IP/域名 → 国家 映射，纠正 ip-api 返回的错误归属
+- `utils.get_geoip_country()` 优先查该映射（原值 → 解析/规范化后的 IP），命中即返回，不走 ip-api / GeoIP
+- 支持 IPv4 / IPv6 / 域名：`utils._resolve_ips()` 用 `socket.getaddrinfo` 解析（兼容 IPv6），IP 字面量额外比对 `ipaddress` 规范化形式
+- 映射在进程内缓存一次，value 用国家中文名，需与 `config.py` 的分类列表写法一致
+
+## 分组白名单
+
+- `data/ip_group_allow.yaml`：IP/域名 → 额外允许加入的分组，绕过国家/协议条件
+  （典型场景：Gemini 不只看国家还看地区，某些美国 IP 实际可用）
+- `utils.get_allowed_groups()` 返回分组名集合；可用值即 `ProxyGroup` 字段名：
+  `all / udp / ai_gemini / porn_all / porn_x`，非法名告警后忽略
+- 命中判定发生在 `extractor/chrome_go.py: process_proxies()` 的分类环节，key 匹配逻辑与 IP 映射共用 `_map_keys()` / `_server_keys()`
 
 ## 注意
 

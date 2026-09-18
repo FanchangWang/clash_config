@@ -29,10 +29,7 @@ class BaseUpdater(ABC):
         """完整更新流程, 返回(是否更新, ProxyGroup)"""
 
     def _save_state(self) -> None:
-        """保存更新状态(重新加载最新 store, 仅覆盖当前源字段)"""
+        """保存更新状态(重新加载最新 store, 仅覆盖 chrome_go 字段)"""
         store = load_store()
-        if self.source_name == "chrome_go":
-            store.chrome_go.created_at = self.store.chrome_go.created_at
-        elif self.source_name == "ripao":
-            store.ripao.sha = self.store.ripao.sha
+        store.chrome_go.created_at = self.store.chrome_go.created_at
         save_store(store)

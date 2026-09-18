@@ -1,6 +1,5 @@
 """全局配置管理"""
 
-import os
 from pathlib import Path
 from typing import ClassVar
 
@@ -27,8 +26,10 @@ class Config:
     CHROME_GO_TARGET_DIR = "backup/img/1/2/ipp"
     CHROME_GO_PROXIES_FILE = DATA_DIR / "chromego_proxies.yaml"
 
-    RIPAO_REPO_URL = "https://api.github.com/repos/ripaojiedian/freenode/contents/clash"
-    RIPAO_PROXIES_FILE = DATA_DIR / "ripao_proxies.yaml"
+    # 手动 IP/域名 -> 国家 映射, 用于纠正 ip-api 返回错误的归属国家
+    IP_COUNTRY_MAP_FILE = DATA_DIR / "ip_country_map.yaml"
+    # IP/域名 -> 额外允许加入的分组, 用于绕过国家/协议限制(如美国的 Gemini 可用 IP)
+    IP_GROUP_ALLOW_FILE = DATA_DIR / "ip_group_allow.yaml"
 
     AI_GEMINI_COUNTRIES: ClassVar[list[str]] = [
         "日本",
@@ -48,11 +49,6 @@ class Config:
     PORN_COUNTRIES: ClassVar[list[str]] = ["美国", "日本", "韩国", "香港", "台湾", "荷兰", "德国"]
     PORN_X_COUNTRIES: ClassVar[list[str]] = ["美国", "日本", "韩国", "香港", "台湾", "荷兰"]
     UDP_PROTOCOLS: ClassVar[list[str]] = ["hysteria", "hysteria2", "tuic"]
-
-    @classmethod
-    def github_token(cls) -> str | None:
-        """从环境变量获取 GitHub token"""
-        return os.environ.get("GITHUB_TOKEN")
 
     @classmethod
     def init_dirs(cls) -> None:
