@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v8.2.0
+        uses: astral-sh/setup-uv@v10.1.0
         with:
           enable-cache: true
 
@@ -31,12 +31,12 @@ jobs:
       - name: Install dependencies
         run: |
           uv lock --default-index https://pypi.org/simple
-          uv sync
+          uv sync --no-dev
 
       - name: Run main script
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: uv run clash-config
+        run: uv run --no-dev clash-config
 
       - name: Check for changes
         id: git_status
