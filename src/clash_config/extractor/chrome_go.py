@@ -64,11 +64,12 @@ class ChromeGoExtractor(BaseExtractor):
                     config_path = Path(root) / file
                     logger.info(f"配置文件: {config_path}")
                     parsed_config = parse_func(config_path)
-                    if parsed_config:
-                        if isinstance(parsed_config, list):
-                            results.extend(parsed_config)
-                        else:
-                            results.append(parsed_config)
+                    if parsed_config is None:
+                        continue
+                    if isinstance(parsed_config, list):
+                        results.extend(parsed_config)
+                    else:
+                        results.append(parsed_config)
 
         return results
 

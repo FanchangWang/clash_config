@@ -55,6 +55,17 @@ example.com: 韩国
 - value 是分组字段名（可列表）：`udp` / `ai_gemini` / `porn_x` / `porn_all` / `all`
 - 命中后无视国家、协议条件，直接加入对应分组；字段名写错会告警并忽略该项
 
+### 故障排查：CI 报 403 Forbidden
+
+定时更新任务若失败并出现
+`httpx.HTTPStatusError: Client error '403 Forbidden' ... /repository/commits`，
+是 GitLab.com 的 Cloudflare 拦截了该 API 请求（返回 `Cf-Mitigated: challenge` 挑战页），
+与 GitHub Actions 本身无关。代码当前通过给该端点加 `.json` 后缀绕过。
+
+- 该绕过依赖 Cloudflare 现有规则，规则调整后可能再次失效
+- 失效时不要改用其他 API 端点打补丁，应改用 git 协议获取版本（git over HTTPS 不受该拦截影响）
+- 完整原因、排查命令与恢复步骤见 [`AGENTS.md`](AGENTS.md) 的「GitLab Cloudflare 拦截」章节
+
 ### 项目结构
 ```
 clash_config/

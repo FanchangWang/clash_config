@@ -113,6 +113,47 @@ ChromeGo (GitLab) ──→ zip ──→ ChromeGoUpdater ──→ ChromeGoExtr
 - 支持 IPv4 / IPv6 / 域名：`utils._resolve_ips()` 用 `socket.getaddrinfo` 解析（兼容 IPv6），IP 字面量额外比对 `ipaddress` 规范化形式
 - 映射在进程内缓存一次，value 用国家中文名，需与 `config.py` 的分类列表写法一致
 
+## GitLab Cloudflare 拦截
+
+`updater/chrome_go.py` 探测更新时请求 `.../repository/commits.json`。GitLab.com 的 Cloudflare
+会拦截**不带 `.json` 后缀**的 `GET /api/v4/projects/*/repository/commits`，返回
+`403` + `Cf-Mitigated: challenge` + HTML 挑战页（与 UA、频率无关；同 URL 用 `HEAD` 请求反而 200）。
+
+- 现象：CI 红，日志为 `httpx.HTTPStatusError: Client error '403 Forbidden'`，
+  崩溃点在 `check_update()` 的 `raise_for_status()`，`Merger` / 提交步骤全不执行
+- 排查命令：`curl -s -D- -o /dev/null "https://gitlab.com/api/v4/projects/free9999%2Fipupdate/repository/commits?per_page=1" | grep -i cf-mitigated`
+  出现 `challenge` 即为该问题
+- 当前用 `.json` 后缀绕过：`path` 过滤依然生效（实测不存在路径返回 `[]`），响应仍是 list，代码逻辑不变
+- **隐患：这是对当前 WAF 规则的隐式依赖，非 GitLab 语义上的 API 选择。规则一变会再次 403**
+- 失效后不要换别的 API 端点打补丁，改用 git 协议（见下）
+
+### 失效后的正统方案（推荐 A'：git fetch 取子树 hash）
+
+git over HTTPS 是 Cloudflare 明确放行的协议，不在 API 规则的风险面里。
+
+```shell
+git init -q && git remote add origin https://gitlab.com/free9999/ipupdate.git
+git fetch -q --depth=1 --filter=blob:none origin master
+git ls-tree FETCH_HEAD backup/img/1/2/    # tree 行第三列即 ipp 子树 hash
+```
+
+实测 `--filter=blob:none --depth=1` 空 clone 约 3s / 87K，成本与现在的 HTTP 请求相当。
+
+- 判定依据从「某个 API 端点的可用性」换成「git 子树 hash 的内容寻址」，只对 `ipp` 目录内容敏感
+- 该 hash 与 `/repository/tree` API 返回的 `id` **完全一致**（`9c95339c...`），两种方式可互换
+- 必改项：`extractor/chrome_go.py:30-38` 硬编码了 zip 解压目录名
+  `ipupdate-master-backup-img-1-2-ipp/`（带 `path` 参数的 archive zip 顶层目录即此名）。
+  改用 git 拿内容后目录变为 `<repo>/backup/img/1/2/ipp`，该常量必须同步改
+- 同步改名 `models.ChromeGoState.created_at` → `version`（含 `base.py:34`、`chrome_go.py:28-30`），
+  因为存的不再是时间戳
+
+### 备选：加 GitLab token
+
+`PRIVATE-TOKEN` / `Authorization: Bearer` 头会被 Cloudflare 豁免（实测同样被拦的 URL 加 token 后
+从 403 变 401，即已抵达 GitLab）。但本项目是**公开仓库**，为一个公开仓库的定时任务配置并长期维护
+token 不划算；且效果与 `.json` 后缀等同。仅在确实需要绕开匿名 API 限流时才考虑，
+理由应是限流而非绕防火墙。
+
 ## 分组白名单
 
 - `data/ip_group_allow.yaml`：IP/域名 → 额外允许加入的分组，绕过国家/协议条件

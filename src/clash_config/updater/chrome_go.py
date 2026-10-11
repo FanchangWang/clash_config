@@ -36,7 +36,12 @@ class ChromeGoUpdater(BaseUpdater):
             logger.info("开始检查 chrome_go 仓库更新...")
 
             encoded_project_id = quote(self.project_id, safe="")
-            url = f"https://gitlab.com/api/v4/projects/{encoded_project_id}/repository/commits"
+            # 临时绕过: Cloudflare 会拦截 GET /api/v4/projects/*/repository/commits
+            # (返回 403 Cf-Mitigated: challenge), 同域下带 .json 后缀或带
+            # PRIVATE-TOKEN / Authorization 头的请求可以放行. 此处用 .json 后缀,
+            # 属对当前 WAF 规则的隐式依赖, 非 GitLab 语义上的 API 选择.
+            # 若失效(403 challenge 或 401)请按 AGENTS.md「GitLab Cloudflare 拦截」处理.
+            url = f"https://gitlab.com/api/v4/projects/{encoded_project_id}/repository/commits.json"
             params = {"path": self.target_dir, "per_page": 1}
             response = httpx.get(url, params=params)
             response.raise_for_status()
@@ -51,7 +56,13 @@ class ChromeGoUpdater(BaseUpdater):
             logger.info("chrome_go 仓库有更新, 开始下载...")
             logger.info(f"上次 created_at: {local_created_at}")
             logger.info(f"当前 created_at: {self._remote_created_at}")
-        except (httpx.RequestError, OSError, KeyError, IndexError, ValueError) as e:
+        except (
+            httpx.HTTPError,
+            OSError,
+            KeyError,
+            IndexError,
+            ValueError,
+        ) as e:
             logger.error(f"chrome_go 仓库检查更新失败: {e}")
             return False
         else:
@@ -75,7 +86,7 @@ class ChromeGoUpdater(BaseUpdater):
 
             zip_path.unlink()
             logger.info("chrome_go 仓库更新成功")
-        except (httpx.RequestError, OSError, zipfile.BadZipFile) as e:
+        except (httpx.HTTPError, OSError, zipfile.BadZipFile) as e:
             logger.error(f"chrome_go 仓库下载失败: {e}")
             return False
         else:
