@@ -2,8 +2,8 @@ all:
   - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -29,6 +29,18 @@ all:
     port: 54177
     auth-str: dongtaiwang.com
     sni: apple.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 法国-hysteria-3
+    type: hysteria
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
+    sni: bing.com
     skip-cert-verify: true
     alpn:
       - h3
@@ -122,8 +134,8 @@ udp:
   - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -149,6 +161,18 @@ udp:
     port: 54177
     auth-str: dongtaiwang.com
     sni: apple.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 法国-hysteria-3
+    type: hysteria
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
+    sni: bing.com
     skip-cert-verify: true
     alpn:
       - h3
@@ -184,8 +208,8 @@ ai_gemini:
   - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -198,6 +222,18 @@ ai_gemini:
     server: 163.172.117.163
     port: 36699
     auth-str: dongtaiwang.com
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 法国-hysteria-3
+    type: hysteria
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
     skip-cert-verify: true
     alpn:
