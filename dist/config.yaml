@@ -68,24 +68,24 @@ proxies:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 德国-hysteria-1
-    type: hysteria
-    server: 2a14:7584:d097::a
-    port: 54177
-    auth-str: dongtaiwang.com
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
     server: 62.210.70.191
     port: 23556
     auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 德国-hysteria-1
+    type: hysteria
+    server: 2a14:7584:d097::a
+    port: 54177
+    auth-str: dongtaiwang.com
+    sni: apple.com
     skip-cert-verify: true
     alpn:
       - h3
@@ -202,8 +202,22 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
       - "法国-hysteria-3"
+      - "德国-hysteria-1"
+      - "美国-hysteria-1"
+      - "德国-hysteria-2"
+      - "西班牙-hysteria2-1"
+      - "美国-mieru-1"
+      - "美国-mieru-2"
+      - "西班牙-vless-1"
+
+  - name: "P_AI_OPENCODE"
+    type: select
+    proxies:
+      - "法国-hysteria-1"
+      - "法国-hysteria-2"
+      - "法国-hysteria-3"
+      - "德国-hysteria-1"
       - "美国-hysteria-1"
       - "德国-hysteria-2"
       - "西班牙-hysteria2-1"
@@ -216,8 +230,8 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
       - "法国-hysteria-3"
+      - "德国-hysteria-1"
       - "美国-hysteria-1"
       - "德国-hysteria-2"
       - "西班牙-hysteria2-1"
@@ -263,6 +277,8 @@ proxy-groups:
 rules:
   # X 域名
   - DOMAIN,x.com,P_PORN_X
+  # AI opencode 域名
+  - DOMAIN-SUFFIX,opencode.ai,P_AI_OPENCODE
   # AI gemini 域名
   - DOMAIN-SUFFIX,ai.google.dev,P_AI_GEMINI
   - DOMAIN-SUFFIX,aida.googleapis.com,P_AI_GEMINI

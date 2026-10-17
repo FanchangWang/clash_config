@@ -76,6 +76,8 @@ proxy-groups:
 rules:
   # X 域名
   - DOMAIN,x.com,P_PORN_X
+  # AI opencode 域名
+  - DOMAIN-SUFFIX,opencode.ai,P_AI_OPENCODE
   # AI gemini 域名
   - DOMAIN-SUFFIX,ai.google.dev,P_AI_GEMINI
   - DOMAIN-SUFFIX,aida.googleapis.com,P_AI_GEMINI

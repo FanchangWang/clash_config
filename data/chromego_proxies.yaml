@@ -23,24 +23,24 @@ all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 德国-hysteria-1
-    type: hysteria
-    server: 2a14:7584:d097::a
-    port: 54177
-    auth-str: dongtaiwang.com
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
     server: 62.210.70.191
     port: 23556
     auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 德国-hysteria-1
+    type: hysteria
+    server: 2a14:7584:d097::a
+    port: 54177
+    auth-str: dongtaiwang.com
+    sni: apple.com
     skip-cert-verify: true
     alpn:
       - h3
@@ -150,24 +150,24 @@ udp:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 德国-hysteria-1
-    type: hysteria
-    server: 2a14:7584:d097::a
-    port: 54177
-    auth-str: dongtaiwang.com
-    sni: apple.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
     server: 62.210.70.191
     port: 23556
     auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 德国-hysteria-1
+    type: hysteria
+    server: 2a14:7584:d097::a
+    port: 54177
+    auth-str: dongtaiwang.com
+    sni: apple.com
     skip-cert-verify: true
     alpn:
       - h3

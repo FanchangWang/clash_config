@@ -15,13 +15,22 @@ class Merger:
     def _proxy_names(self, proxies: list[ProxyDict]) -> list[str]:
         return [p["name"] for p in proxies]
 
+    def _select_group(self, name: str, proxies: list[ProxyDict]) -> list[str]:
+        """select 分组, 内部节点为传入的代理列表"""
+        return [
+            f'  - name: "{name}"',
+            "    type: select",
+            "    proxies:",
+            *[f'      - "{pname}"' for pname in self._proxy_names(proxies)],
+        ]
+
     def _build_dynamic_groups(self, all_data: dict[str, list[ProxyDict]]) -> str:
         lines: list[str] = []
 
-        lines.append('  - name: "Sall"')
-        lines.append("    type: select")
-        lines.append("    proxies:")
-        lines.extend(f'      - "{name}"' for name in self._proxy_names(all_data["all"]))
+        lines.extend(self._select_group("Sall", all_data["all"]))
+
+        lines.append("")
+        lines.extend(self._select_group("P_AI_OPENCODE", all_data["all"]))
 
         lines.append("")
         lines.append('  - name: "_p_udp"')
