@@ -25,7 +25,7 @@ all:
     down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
-    server: 62.210.70.191
+    server: 62.210.28.175
     port: 24667
     auth-str: dongtaiwang.com
     sni: bing.com
@@ -152,7 +152,7 @@ udp:
     down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
-    server: 62.210.70.191
+    server: 62.210.28.175
     port: 24667
     auth-str: dongtaiwang.com
     sni: bing.com
@@ -242,7 +242,7 @@ ai_gemini:
     down: 55 Mbps
   - name: 法国-hysteria-3
     type: hysteria
-    server: 62.210.70.191
+    server: 62.210.28.175
     port: 24667
     auth-str: dongtaiwang.com
     sni: bing.com
