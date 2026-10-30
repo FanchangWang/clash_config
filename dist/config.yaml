@@ -47,8 +47,8 @@ proxies:
   - name: 法国-hysteria-1
     type: hysteria
     server: 62.210.70.191
-    port: 24667
-    auth-str: dongtaiwang.com
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -60,6 +60,18 @@ proxies:
     type: hysteria
     server: 163.172.117.163
     port: 36699
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 法国-hysteria-3
+    type: hysteria
+    server: 62.210.70.191
+    port: 24667
     auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
@@ -80,25 +92,13 @@ proxies:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 法国-hysteria-3
+  - name: 德国-hysteria-2
     type: hysteria
-    server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
-    sni: bing.com
-    skip-cert-verify: true
-    alpn:
-      - h3
+    server: 5.83.129.90
     protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
-  - name: 美国-hysteria-1
-    type: hysteria
-    server: 137.175.82.44
-    protocol: udp
-    port: 443
+    port: 54177
     auth-str: dongtaiwang.com
-    sni: bing.com
+    sni: apple.com
     alpn:
       - h3
     up: 11
@@ -108,13 +108,13 @@ proxies:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 德国-hysteria-2
+  - name: 美国-hysteria-1
     type: hysteria
-    server: 5.83.129.90
+    server: 137.175.82.44
     protocol: udp
-    port: 54177
+    port: 443
     auth-str: dongtaiwang.com
-    sni: apple.com
+    sni: bing.com
     alpn:
       - h3
     up: 11
@@ -135,20 +135,20 @@ proxies:
     down: 55 mbps
   - name: 美国-mieru-1
     type: mieru
-    server: 198.200.57.152
-    transport: TCP
-    udp: true
-    username: Alvin9999-newpac
-    password: github.com/Alvin9999-newpac/fanqiang
-    port: 33556
-  - name: 美国-mieru-2
-    type: mieru
     server: 157.254.223.43
     transport: TCP
     udp: true
     username: dongtaiwang.com
     password: dongtaiwang.com
     port: 23456
+  - name: 美国-mieru-2
+    type: mieru
+    server: 198.200.57.152
+    transport: TCP
+    udp: true
+    username: Alvin9999-newpac
+    password: github.com/Alvin9999-newpac/fanqiang
+    port: 33556
   - tls: true
     udp: true
     sni: www.yahoo.com
@@ -202,10 +202,10 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
       - "法国-hysteria-3"
-      - "美国-hysteria-1"
+      - "德国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "西班牙-hysteria2-1"
       - "美国-mieru-1"
       - "美国-mieru-2"
@@ -216,10 +216,10 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
       - "法国-hysteria-3"
-      - "美国-hysteria-1"
+      - "德国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "西班牙-hysteria2-1"
       - "美国-mieru-1"
       - "美国-mieru-2"
@@ -230,10 +230,10 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
       - "法国-hysteria-3"
-      - "美国-hysteria-1"
+      - "德国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "西班牙-hysteria2-1"
     url: "https://www.google.com/generate_204"
     interval: 3600
@@ -246,7 +246,7 @@ proxy-groups:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
       - "法国-hysteria-3"
-      - "美国-mieru-2"
+      - "美国-mieru-1"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -267,8 +267,8 @@ proxy-groups:
     type: url-test
     proxies:
       - "德国-hysteria-1"
-      - "美国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
