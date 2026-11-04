@@ -135,14 +135,6 @@ proxies:
     down: 55 mbps
   - name: 美国-mieru-1
     type: mieru
-    server: 157.254.223.43
-    transport: TCP
-    udp: true
-    username: dongtaiwang.com
-    password: dongtaiwang.com
-    port: 23456
-  - name: 美国-mieru-2
-    type: mieru
     server: 198.200.57.152
     transport: TCP
     udp: true
@@ -208,7 +200,6 @@ proxy-groups:
       - "美国-hysteria-1"
       - "西班牙-hysteria2-1"
       - "美国-mieru-1"
-      - "美国-mieru-2"
       - "西班牙-vless-1"
 
   - name: "P_AI_OPENCODE"
@@ -222,7 +213,6 @@ proxy-groups:
       - "美国-hysteria-1"
       - "西班牙-hysteria2-1"
       - "美国-mieru-1"
-      - "美国-mieru-2"
       - "西班牙-vless-1"
 
   - name: "_p_udp"
@@ -246,7 +236,6 @@ proxy-groups:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
       - "法国-hysteria-3"
-      - "美国-mieru-1"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -257,7 +246,6 @@ proxy-groups:
     proxies:
       - "美国-hysteria-1"
       - "美国-mieru-1"
-      - "美国-mieru-2"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000

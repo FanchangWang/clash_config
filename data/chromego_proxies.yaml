@@ -90,14 +90,6 @@ all:
     down: 55 mbps
   - name: 美国-mieru-1
     type: mieru
-    server: 157.254.223.43
-    transport: TCP
-    udp: true
-    username: dongtaiwang.com
-    password: dongtaiwang.com
-    port: 23456
-  - name: 美国-mieru-2
-    type: mieru
     server: 198.200.57.152
     transport: TCP
     udp: true
@@ -252,14 +244,6 @@ ai_gemini:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 美国-mieru-1
-    type: mieru
-    server: 157.254.223.43
-    transport: TCP
-    udp: true
-    username: dongtaiwang.com
-    password: dongtaiwang.com
-    port: 23456
 porn_all:
   - name: 德国-hysteria-1
     type: hysteria
@@ -323,14 +307,6 @@ porn_x:
     recv-window: 230686720
     disable-mtu-discovery: true
   - name: 美国-mieru-1
-    type: mieru
-    server: 157.254.223.43
-    transport: TCP
-    udp: true
-    username: dongtaiwang.com
-    password: dongtaiwang.com
-    port: 23456
-  - name: 美国-mieru-2
     type: mieru
     server: 198.200.57.152
     transport: TCP
