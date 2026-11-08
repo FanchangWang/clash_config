@@ -79,6 +79,22 @@ all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.44
+    protocol: udp
+    port: 20022
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
   - name: 西班牙-hysteria2-1
     type: hysteria2
     server: 2001:bc8:32d7:17b::3
@@ -198,6 +214,22 @@ udp:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.44
+    protocol: udp
+    port: 20022
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
   - name: 西班牙-hysteria2-1
     type: hysteria2
     server: 2001:bc8:32d7:17b::3
@@ -289,12 +321,44 @@ porn_all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.44
+    protocol: udp
+    port: 20022
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
 porn_x:
   - name: 美国-hysteria-1
     type: hysteria
     server: 137.175.82.44
     protocol: udp
     port: 443
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.44
+    protocol: udp
+    port: 20022
     auth-str: dongtaiwang.com
     sni: bing.com
     alpn:
