@@ -46,9 +46,9 @@ dns:
 proxies:
   - name: 法国-hysteria-1
     type: hysteria
-    server: 62.210.124.132
-    port: 24667
-    auth-str: dongtaiwang.com
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -58,9 +58,9 @@ proxies:
     down: 55 Mbps
   - name: 法国-hysteria-2
     type: hysteria
-    server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    server: 62.210.124.132
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -80,22 +80,6 @@ proxies:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 美国-hysteria-1
-    type: hysteria
-    server: 137.175.82.44
-    protocol: udp
-    port: 443
-    auth-str: dongtaiwang.com
-    sni: bing.com
-    alpn:
-      - h3
-    up: 11
-    down: 55
-    skip-cert-verify: true
-    fast-open: true
-    recv-window-conn: 57671680
-    recv-window: 230686720
-    disable-mtu-discovery: true
   - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
@@ -112,9 +96,25 @@ proxies:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 美国-hysteria-2
+  - name: 美国-hysteria-1
     type: hysteria
     server: 137.175.82.44
+    protocol: udp
+    port: 443
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.41
     protocol: udp
     port: 20022
     auth-str: dongtaiwang.com
@@ -128,9 +128,36 @@ proxies:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 西班牙-hysteria2-1
+  - name: 法国-hysteria2-1
     type: hysteria2
-    server: 2001:bc8:32d7:17b::3
+    server: 2001:bc8:32d7:17b::8
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-2
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::6
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-3
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::7
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-4
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::4
     port: 22000
     password: dongtaiwang.com
     sni: www.microsoft.com
@@ -199,10 +226,13 @@ proxy-groups:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
       - "德国-hysteria-1"
-      - "美国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "美国-hysteria-2"
-      - "西班牙-hysteria2-1"
+      - "法国-hysteria2-1"
+      - "法国-hysteria2-2"
+      - "法国-hysteria2-3"
+      - "法国-hysteria2-4"
       - "美国-mieru-1"
       - "西班牙-vless-1"
 
@@ -212,10 +242,13 @@ proxy-groups:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
       - "德国-hysteria-1"
-      - "美国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "美国-hysteria-2"
-      - "西班牙-hysteria2-1"
+      - "法国-hysteria2-1"
+      - "法国-hysteria2-2"
+      - "法国-hysteria2-3"
+      - "法国-hysteria2-4"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -226,13 +259,10 @@ proxy-groups:
     proxies:
       - "法国-hysteria-1"
       - "法国-hysteria-2"
-      - "德国-hysteria-1"
-      - "美国-hysteria-1"
-      - "德国-hysteria-2"
-      - "美国-hysteria-2"
-      - "西班牙-hysteria2-1"
-      - "美国-mieru-1"
-      - "西班牙-vless-1"
+      - "法国-hysteria2-1"
+      - "法国-hysteria2-2"
+      - "法国-hysteria2-3"
+      - "法国-hysteria2-4"
     url: "https://www.google.com/generate_204"
     interval: 3600
     timeout: 5000
@@ -253,8 +283,8 @@ proxy-groups:
     type: url-test
     proxies:
       - "德国-hysteria-1"
-      - "美国-hysteria-1"
       - "德国-hysteria-2"
+      - "美国-hysteria-1"
       - "美国-hysteria-2"
     url: "https://www.google.com/generate_204"
     interval: 3600

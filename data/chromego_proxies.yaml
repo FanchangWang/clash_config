@@ -1,9 +1,9 @@
 all:
   - name: 法国-hysteria-1
     type: hysteria
-    server: 62.210.124.132
-    port: 24667
-    auth-str: dongtaiwang.com
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -13,9 +13,9 @@ all:
     down: 55 Mbps
   - name: 法国-hysteria-2
     type: hysteria
-    server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    server: 62.210.124.132
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -35,22 +35,6 @@ all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 美国-hysteria-1
-    type: hysteria
-    server: 137.175.82.44
-    protocol: udp
-    port: 443
-    auth-str: dongtaiwang.com
-    sni: bing.com
-    alpn:
-      - h3
-    up: 11
-    down: 55
-    skip-cert-verify: true
-    fast-open: true
-    recv-window-conn: 57671680
-    recv-window: 230686720
-    disable-mtu-discovery: true
   - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
@@ -67,9 +51,25 @@ all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 美国-hysteria-2
+  - name: 美国-hysteria-1
     type: hysteria
     server: 137.175.82.44
+    protocol: udp
+    port: 443
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.41
     protocol: udp
     port: 20022
     auth-str: dongtaiwang.com
@@ -83,9 +83,36 @@ all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 西班牙-hysteria2-1
+  - name: 法国-hysteria2-1
     type: hysteria2
-    server: 2001:bc8:32d7:17b::3
+    server: 2001:bc8:32d7:17b::8
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-2
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::6
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-3
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::7
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-4
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::4
     port: 22000
     password: dongtaiwang.com
     sni: www.microsoft.com
@@ -124,9 +151,9 @@ all:
 udp:
   - name: 法国-hysteria-1
     type: hysteria
-    server: 62.210.124.132
-    port: 24667
-    auth-str: dongtaiwang.com
+    server: 62.210.70.191
+    port: 23556
+    auth-str: github.com/Alvin9999-newpac/fanqiang
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -136,9 +163,9 @@ udp:
     down: 55 Mbps
   - name: 法国-hysteria-2
     type: hysteria
-    server: 62.210.70.191
-    port: 23556
-    auth-str: github.com/Alvin9999-newpac/fanqiang
+    server: 62.210.124.132
+    port: 24667
+    auth-str: dongtaiwang.com
     sni: bing.com
     skip-cert-verify: true
     alpn:
@@ -158,22 +185,6 @@ udp:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 美国-hysteria-1
-    type: hysteria
-    server: 137.175.82.44
-    protocol: udp
-    port: 443
-    auth-str: dongtaiwang.com
-    sni: bing.com
-    alpn:
-      - h3
-    up: 11
-    down: 55
-    skip-cert-verify: true
-    fast-open: true
-    recv-window-conn: 57671680
-    recv-window: 230686720
-    disable-mtu-discovery: true
   - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
@@ -190,9 +201,25 @@ udp:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 美国-hysteria-2
+  - name: 美国-hysteria-1
     type: hysteria
     server: 137.175.82.44
+    protocol: udp
+    port: 443
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.41
     protocol: udp
     port: 20022
     auth-str: dongtaiwang.com
@@ -206,9 +233,36 @@ udp:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 西班牙-hysteria2-1
+  - name: 法国-hysteria2-1
     type: hysteria2
-    server: 2001:bc8:32d7:17b::3
+    server: 2001:bc8:32d7:17b::8
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-2
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::6
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-3
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::7
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-4
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::4
     port: 22000
     password: dongtaiwang.com
     sni: www.microsoft.com
@@ -217,18 +271,6 @@ udp:
     down: 55 mbps
 ai_gemini:
   - name: 法国-hysteria-1
-    type: hysteria
-    server: 62.210.124.132
-    port: 24667
-    auth-str: dongtaiwang.com
-    sni: bing.com
-    skip-cert-verify: true
-    alpn:
-      - h3
-    protocol: udp
-    up: 11 Mbps
-    down: 55 Mbps
-  - name: 法国-hysteria-2
     type: hysteria
     server: 62.210.70.191
     port: 23556
@@ -240,6 +282,54 @@ ai_gemini:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
+  - name: 法国-hysteria-2
+    type: hysteria
+    server: 62.210.124.132
+    port: 24667
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    skip-cert-verify: true
+    alpn:
+      - h3
+    protocol: udp
+    up: 11 Mbps
+    down: 55 Mbps
+  - name: 法国-hysteria2-1
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::8
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-2
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::6
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-3
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::7
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
+  - name: 法国-hysteria2-4
+    type: hysteria2
+    server: 2001:bc8:32d7:17b::4
+    port: 22000
+    password: dongtaiwang.com
+    sni: www.microsoft.com
+    skip-cert-verify: true
+    up: 11 mbps
+    down: 55 mbps
 porn_all:
   - name: 德国-hysteria-1
     type: hysteria
@@ -253,22 +343,6 @@ porn_all:
     protocol: udp
     up: 11 Mbps
     down: 55 Mbps
-  - name: 美国-hysteria-1
-    type: hysteria
-    server: 137.175.82.44
-    protocol: udp
-    port: 443
-    auth-str: dongtaiwang.com
-    sni: bing.com
-    alpn:
-      - h3
-    up: 11
-    down: 55
-    skip-cert-verify: true
-    fast-open: true
-    recv-window-conn: 57671680
-    recv-window: 230686720
-    disable-mtu-discovery: true
   - name: 德国-hysteria-2
     type: hysteria
     server: 5.83.129.90
@@ -285,9 +359,25 @@ porn_all:
     recv-window-conn: 57671680
     recv-window: 230686720
     disable-mtu-discovery: true
-  - name: 美国-hysteria-2
+  - name: 美国-hysteria-1
     type: hysteria
     server: 137.175.82.44
+    protocol: udp
+    port: 443
+    auth-str: dongtaiwang.com
+    sni: bing.com
+    alpn:
+      - h3
+    up: 11
+    down: 55
+    skip-cert-verify: true
+    fast-open: true
+    recv-window-conn: 57671680
+    recv-window: 230686720
+    disable-mtu-discovery: true
+  - name: 美国-hysteria-2
+    type: hysteria
+    server: 137.175.82.41
     protocol: udp
     port: 20022
     auth-str: dongtaiwang.com
@@ -320,7 +410,7 @@ porn_x:
     disable-mtu-discovery: true
   - name: 美国-hysteria-2
     type: hysteria
-    server: 137.175.82.44
+    server: 137.175.82.41
     protocol: udp
     port: 20022
     auth-str: dongtaiwang.com
